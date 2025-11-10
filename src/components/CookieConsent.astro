@@ -1,0 +1,65 @@
+---
+const storageKey = 'cookie-consent-v1';
+---
+<div class="cookie-consent" data-cookie-consent hidden role="dialog" aria-live="polite" aria-label="Cookie consent">
+  <div class="cookie-inner">
+    <button type="button" class="cookie-close" aria-label="Close" title="Close" data-close>&times;</button>
+    <p class="cookie-text">
+      Select <strong>“Accept all”</strong> to agree to our use of cookies and similar technologies to enhance your browsing experience, security, analytics and customization. Select <strong>“Manage cookies”</strong> to make more choices or opt out.
+    </p>
+    <div class="cookie-actions">
+      <button type="button" class="btn-manage" data-manage>Manage cookies</button>
+      <button type="button" class="btn-accept" data-accept>Accept all</button>
+    </div>
+  </div>
+</div>
+<style>
+.cookie-consent {position:fixed;left:0;right:0;bottom:0;padding:0 16px 16px;z-index:3000;display:flex;justify-content:center;font-family:var(--font-sans);width:100%;box-sizing:border-box}
+.cookie-inner {position:relative;max-width:980px;background:rgba(20,20,20,.92);color:#f5f5f5;padding:18px 18px 16px;border-radius:12px;box-shadow:0 10px 40px rgba(0,0,0,.4);backdrop-filter:blur(8px);display:flex;flex-direction:column;gap:14px}
+.cookie-text {margin:0;font-size:.95rem;line-height:1.55;font-weight:300}
+.cookie-actions {display:flex;gap:12px;flex-wrap:wrap}
+.cookie-actions button {cursor:pointer;border:none;font-size:.75rem;letter-spacing:1.5px;text-transform:uppercase;padding:12px 18px;border-radius:4px;font-weight:500;font-family:var(--font-sans);transition:background .3s,color .3s,transform .3s}
+.btn-manage {background:#333;color:#eee}
+.btn-manage:hover {background:#444}
+.btn-accept {background:var(--color-accent);color:#fff;box-shadow:0 4px 16px rgba(165,142,118,.4)}
+.btn-accept:hover {background:#b69a82;transform:translateY(-2px)}
+.cookie-close{position:absolute;top:8px;right:10px;background:transparent;border:0;color:#ddd;font-size:22px;cursor:pointer;line-height:1}
+@media (max-width:600px){.cookie-inner{padding:20px 18px}.cookie-text{font-size:.88rem}.cookie-actions{flex-direction:column;align-items:stretch}.cookie-actions button{flex:1}}
+</style>
+<script>
+(function(){
+  if (typeof window === 'undefined') return;
+  const key = 'cookie-consent-v1';
+  const banner = document.querySelector('[data-cookie-consent]');
+  if (!banner) return;
+  function getCookie(name){
+    const match = document.cookie.match(new RegExp('(?:^|; )' + name.replace(/([.$?*|{}()\[\]\\\/\+^])/g,'\\$1') + '=([^;]*)'));
+    return match ? decodeURIComponent(match[1]) : null;
+  }
+  function setCookie(name,value,days){
+    const maxAge = days ? `; max-age=${days*24*60*60}` : '';
+    document.cookie = `${name}=${encodeURIComponent(value)}${maxAge}; path=/`;
+  }
+  try {
+    if (localStorage.getItem(key) === 'accepted' || getCookie(key) === 'accepted') return;
+  } catch(e) {
+    if (getCookie(key) === 'accepted') return;
+  }
+  if (banner instanceof HTMLElement) banner.hidden = false;
+  const acceptBtn = banner.querySelector('[data-accept]');
+  const manageBtn = banner.querySelector('[data-manage]');
+  const closeBtn = banner.querySelector('[data-close]');
+  acceptBtn?.addEventListener('click', () => {
+    try { localStorage.setItem(key, 'accepted'); } catch(e) {}
+    setCookie(key, 'accepted', 365);
+  if (banner instanceof HTMLElement) banner.remove();
+  });
+  manageBtn?.addEventListener('click', () => {
+    alert('Granular cookie controls would appear here in a full implementation.');
+  });
+  closeBtn?.addEventListener('click', () => {
+    // soft dismiss without accepting; hide for session
+  if (banner instanceof HTMLElement) banner.remove();
+  });
+})();
+</script>

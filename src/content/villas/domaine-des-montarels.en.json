@@ -1,0 +1,141 @@
+{
+  "slug": "domaine-des-montarels",
+  "name": "Domaine des Montarels",
+  "summary": "Secluded 10th-century Languedoc sanctuary with private heated pool, curated local experiences, and high-touch concierge for up to 12 guests.",
+  "hero": {
+    "title": "The Languedoc's Most Secluded 10th-Century Sanctuary",
+    "subtitle": "Ancient monastery character meets silent modern luxury. A private, panoramic retreat reserved for the few."
+  },
+  "images": [
+    { "src": "/images/MONT_001.webp", "alt": "Panoramic view of a blue lake framed by mountains", "caption": "Panoramic lake and mountains near the estate." },
+    { "src": "/images/MONT_002.webp", "alt": "Warm lounge with beamed ceiling and stone walls", "caption": "Main salon with rustic stone, beams, and plush seating." },
+    { "src": "/images/MONT_003.webp", "alt": "Intimate sitting area with tapestries and sofas", "caption": "A comfortable corner for reading or conversation." },
+    { "src": "/images/MONT_004.webp", "alt": "Long wooden table in a rustic dining room", "caption": "Characterful dining room ready for shared meals." },
+    { "src": "/images/MONT_005.webp", "alt": "Dining hall with arches and stone details", "caption": "Elegant dining hall with historic ambience." },
+    { "src": "/images/MONT_006.webp", "alt": "Vaulted stone interior with warm lighting", "caption": "Atmospheric stone room with original character." },
+    { "src": "/images/MONT_007.webp", "alt": "Outdoor lounge seating under an archway", "caption": "Relaxed courtyard seating beside the main house." },
+    { "src": "/images/MONT_008.webp", "alt": "Round tables on a terrace by the sea", "caption": "Waterside dining in a nearby coastal town." },
+    { "src": "/images/MONT_009.webp", "alt": "White umbrellas and lounge seating on the beach", "caption": "Beachfront spot for a day trip or lunch." },
+    { "src": "/images/MONT_010.webp", "alt": "The Historic Grandeur of Béziers", "caption": "Discover the rich history of Béziers, confirmed as one of the oldest towns in France and now a vibrant destination for luxury travelers. The city has seen vast improvements in recent years." },
+    { "src": "/images/MONT_011.webp", "alt": "Rolling green vineyards under a blue sky", "caption": "Vineyard views typical of the surrounding countryside." },
+    { "src": "/images/MONT_012.webp", "alt": "Chef plating a dish in a kitchen", "caption": "Private chef services available on request." },
+    { "src": "/images/MONT_013.webp", "alt": "Children playing on a colorful swing ride", "caption": "A glimpse of family-friendly events in the area." },
+    { "src": "/images/MONT_014.webp", "alt": "Silhouetted trees beside calm water at dusk", "caption": "Quiet sunset moments by the poolside." },
+    { "src": "/images/MONT_015.webp", "alt": "Warm sunset sky with distant hills and cypress", "caption": "Evening light over the Mediterranean landscape." },
+    { "src": "/images/MONT_016.webp", "alt": "Light-filled bedroom with armchair and artwork", "caption": "Airy guest bedroom with soft tones." },
+    { "src": "/images/MONT_017.webp", "alt": "Double bed with red pillows and wall lamps", "caption": "Comfortable double room with warm lighting." },
+    { "src": "/images/MONT_018.webp", "alt": "Modern shower and vanity in light tones", "caption": "Fresh ensuite with walk-in shower." },
+    { "src": "/images/MONT_019.webp", "alt": "Bathroom with freestanding tub and framed art", "caption": "Relaxing bathroom with bathtub." },
+    { "src": "/images/MONT_020.webp", "alt": "Bathroom with two basins and rustic details", "caption": "Charming bathroom with double vanity." },
+    { "src": "/images/MONT_021.webp", "alt": "Shaded stone courtyard with tree and shutters", "caption": "Traditional courtyard at the property." },
+    { "src": "/images/MONT_022.webp", "alt": "Bedroom with blue quilt and chandelier", "caption": "Inviting double bedroom with classic décor." },
+    { "src": "/images/MONT_023.webp", "alt": "Trampoline under leafy trees in the garden", "caption": "Great outdoor fun for younger guests." },
+    { "src": "/images/MONT_024.webp", "alt": "Blue outdoor table tennis beside the pool", "caption": "Ping-pong with a view!" },
+    { "src": "/images/MONT_025.webp", "alt": "Shaded garden with olive trees and bench", "caption": "Quiet garden corner beneath mature olives." },
+    { "src": "/images/MONT_026.webp", "alt": "White sofas on a covered terrace", "caption": "Shaded outdoor living space for warm days." },
+    { "src": "/images/MONT_Pool_027.webp", "alt": "Pool terrace with palm and sun loungers", "caption": "Sun-drenched pool with Mediterranean vibe." },
+    { "src": "/images/MONT_Pool_028.webp", "alt": "Long pool bordered by lawn and trees", "caption": "Expansive garden surrounding the pool." },
+    { "src": "/images/MONT_Pool_029.webp", "alt": "Pool with steps beside a stone façade", "caption": "Swimming pool adjacent to the main house." },
+    { "src": "/images/MONT_030.webp", "alt": "Sunlit path beside stone walls and trees", "caption": "Characterful exterior with Mediterranean planting." },
+    { "src": "/images/MONT_Pool_Aerial_031.webp", "alt": "Aerial photo of the pool terrace", "caption": "Bird’s-eye view of the pool area and deck." },
+    { "src": "/images/MONT_032.webp", "alt": "Bedroom with ceiling beams and red cushions", "caption": "Charming double room with beams." },
+    { "src": "/images/MONT_033.webp", "alt": "Bedroom with exposed beams and two beds", "caption": "Cozy twin/double sleeping under the rafters." },
+    { "src": "/images/MONT_034.webp", "alt": "Bright bedroom with chandelier and red accents", "caption": "Elegant bedroom with classic touches." },
+    { "src": "/images/MONT_035.webp", "alt": "Bright bedroom seating area in white tones", "caption": "Serene guest room flooded with light." },
+    { "src": "/images/MONT_036.webp", "alt": "Covered terrace with fireplace and chimney", "caption": "Evening gatherings by the outdoor hearth." },
+    { "src": "/images/MONT_037.webp", "alt": "Warm salon with leather sofas and bookshelves", "caption": "Grand salon with library feel and stone arches." },
+    { "src": "/images/MONT_038.webp", "alt": "Graphic of the estate crest and name", "caption": "The estate insignia." },
+    { "src": "/images/MONT_039.webp", "alt": "Document with house information and inventory", "caption": "Practical information for guests (illustrative)." },
+    { "src": "/images/MONT_040.webp", "alt": "Soft sunset over vineyards and rolling hills", "caption": "Golden hour across the valley." },
+    { "src": "/images/MONT_041.webp", "alt": "Two people dining beside a riverside quay", "caption": "Your hosts Ian and Katie Jackson have lived in Domaine des Montarels since 2013,  having fallen in love with the house the moment they saw it.  " }
+  ],
+  "headlines": {
+    "overview": "A Vibe of Quiet Grandeur",
+    "location": "Prime Access & Exploration"
+  },
+  "content": {
+    "overview": "Original stone arches frame an open-plan flow between salon, dining, and chef's kitchen. Outdoor living centers on the private 12.5m pool, sunset terrace, and shaded Moroccan lounge.",
+    "location": "Strategic secluded base in Alignan-du-Vent near Béziers: Mediterranean beaches, historic sites, and vineyards all within easy reach.",
+    "story": "Domaine des Montarels is a centuries-old wine domaine with roots traced to the 10th century. Its original stonework, arches, and beamed ceilings remain, paired with quiet modern comforts for restorative stays. The estate has been lovingly stewarded by your hosts, Ian and Katie Jackson, who focus on privacy, simplicity, and effortless hospitality.",
+    "practicalDetails": [
+      "Heated 12.5m swimming pool",
+      "Chef's kitchen with large range and essentials",
+      "Fast Wi‑Fi throughout",
+      "Silent air‑conditioning in key sleeping spaces",
+      "Washer/dryer and basic supplies",
+      "Table tennis and trampoline",
+      "Piano & guitar",
+      "High‑quality linens and towels",
+      "Outdoor lounge and shaded dining terraces"
+    ],
+    "rooms": [
+      { "name": "Bedroom One", "description": "Bright double bedroom with beamed ceiling (see images MONT_032/MONT_035)." },
+      { "name": "Bedroom Two", "description": "Comfortable double with classic accents (images MONT_034/MONT_017)." },
+      { "name": "Bedroom Three", "description": "Cozy twin/double under the rafters (image MONT_033)." },
+      { "name": "Bedroom Four", "description": "Light guest room near a family bathroom (images MONT_016/MONT_020)." },
+      { "name": "Bedroom Five", "description": "Flexible sleeping for families or friends (see gallery)." }
+    ],
+    "familyRecreation": [
+      "Trampoline under the trees",
+      "Table tennis beside the pool",
+      "Board games and books",
+      "Piano and guitar for music evenings"
+    ],
+    "experiences": {
+      "vineyards": [
+        "World‑class Languedoc vineyards within ~5 km",
+        "Private tasting and vineyard lunch — on request"
+      ],
+      "beaches": [
+        "Mediterranean coastline ~25 minutes",
+        "Family‑friendly beach clubs and seafood"
+      ],
+      "culture": [
+        "Historic Pézenas ~12 minutes",
+        "Béziers old town and Orb river walks"
+      ],
+      "family": [
+        "Markets, fêtes, artisan ice cream in village squares",
+        "Cycling routes and riverside picnics"
+      ]
+    },
+    "travel": {
+      "air": [
+        "Béziers Cap d'Agde Airport (~20 min)",
+        "Montpellier–Méditerranée (~55 min)"
+      ],
+      "rail": [
+        "Béziers TGV (~20 min)"
+      ],
+      "drive": [
+        "Pézenas ~12 min",
+        "Mediterranean beaches ~25 min"
+      ]
+    },
+    "hosts": {
+      "names": "Ian & Katie Jackson",
+      "bio": "Your hosts Ian and Katie Jackson have lived at Domaine des Montarels since 2013 and curate each stay personally — from chef suppers to quiet itineraries through vineyards and coastal villages."
+    },
+    "testimonials": [
+      { "quote": "A rare blend of history, privacy, and warmth — our family left restored.", "attribution": "Guest, Summer 2024" }
+    ],
+    "faq": [
+      { "q": "Is the pool heated?", "a": "Yes — a private 12.5m pool, typically available in-season. Please inquire for dates." },
+      { "q": "How many guests can stay?", "a": "Up to 12 guests across five bedrooms and four bathrooms." },
+      { "q": "Is air‑conditioning available?", "a": "Silent air‑conditioning is provided in key sleeping spaces for comfort." },
+      { "q": "Are children welcome?", "a": "Yes — families are welcome. The garden features a trampoline and table tennis." },
+      { "q": "Do you allow events?", "a": "Small, respectful gatherings may be possible with prior approval; please share details in your inquiry." }
+    ],
+    "seoLong": [
+      "This private Languedoc retreat pairs original monastery character — arches, stone, old beams — with modern, silent comfort. It is a calm base near Pézenas and Béziers for beaches, vineyards, and slow travel in the South of France.",
+      "Ideal for multigenerational families and close friends, the estate offers generous indoor‑outdoor living, a heated 12.5m pool, and concierge support for tastings, private chefs, and easy day trips to the Mediterranean."
+    ]
+  },
+  "amenities": [
+    "Heated Pool 12.5m", "Chef's Kitchen", "Silent Air Conditioning", "High-Speed WiFi", "Moroccan Lounge Terrace", "Table Tennis", "Trampoline", "Wine Tour Guidance", "Piano & Guitar"
+  ],
+  "specs": { "bedrooms": 5, "baths": 4, "guests": 12, "poolSize": "12.5m" },
+  "seasons": [
+    { "id": "request", "label": "Rate on Request", "price": null, "currency": null, "priceDisplay": "Rate on Request" }
+  ]
+}

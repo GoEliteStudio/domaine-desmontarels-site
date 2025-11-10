@@ -1,0 +1,294 @@
+---
+---
+
+<footer id="contact" class="site-footer">
+  <div class="container">
+    <div class="footer-content">
+      <div class="footer-column footer-brand">
+        <h4 class="footer-logo">DOMAINE DES MONTARELS</h4>
+        <p class="footer-description">The world's most exclusive luxury retreat, offering unparalleled privacy and service on the French Riviera.</p>
+        <div class="social-links" aria-label="Social links">
+          <a href="https://instagram.com" target="_blank" rel="noopener" aria-label="Instagram" class="social-link">
+            <i class="fab fa-instagram"></i>
+          </a>
+          <a href="https://pinterest.com" target="_blank" rel="noopener" aria-label="Pinterest" class="social-link">
+            <i class="fab fa-pinterest"></i>
+          </a>
+          <a href="mailto:reservations@domaine-desmontarels.com" aria-label="Email" class="social-link">
+            <i class="far fa-envelope"></i>
+          </a>
+        </div>
+      </div>
+      
+      <div class="footer-column">
+        <h4 class="footer-heading">Explore</h4>
+        <ul class="footer-links">
+          <li><a href="#overview">Overview</a></li>
+          <li><a href="#amenities">Amenities</a></li>
+          <li><a href="#gallery">Gallery</a></li>
+          <li><a href="#location">Location</a></li>
+        </ul>
+      </div>
+      
+      <div class="footer-column">
+        <h4 class="footer-heading">Information</h4>
+        <ul class="footer-links">
+          <li><a href="/terms">Rates & Policies</a></li>
+          <li><a href="#location">Location</a></li>
+          <li><a href="/privacy">Privacy Policy</a></li>
+          <li><a href="/terms">Terms of Service</a></li>
+        </ul>
+      </div>
+      
+      <div class="footer-column">
+        <h4 class="footer-heading">Contact</h4>
+        <ul class="footer-links">
+          <li><a href="tel:+447768987879">UK: +44 7768 987 879</a></li>
+          <li><a href="tel:+33647428864">FR: +33 647 42 88 64</a></li>
+          <li><a href="mailto:reservations@domaine-desmontarels.com">reservations@domaine-desmontarels.com</a></li>
+          <li><a href="/press">Press Inquiries</a></li>
+        </ul>
+      </div>
+    </div>
+    
+    <div class="footer-bottom">
+      <p>&copy; {new Date().getFullYear()} Domaine des Montarels. All rights reserved. | Luxury Villa Retreat</p>
+    </div>
+  </div>
+</footer>
+
+<style>
+  .site-footer {
+    background-color: var(--color-dark-gray);
+    color: var(--color-white);
+    padding: 80px 0 40px;
+    margin-top: 0;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+  }
+
+  /* Align footer content with main content edges */
+  .site-footer .container {
+    max-width: 1600px;
+    margin: 0 auto;
+    padding: 0 60px; /* match #main-content horizontal padding on desktop */
+  }
+
+  .footer-content {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr 1fr;
+    gap: 60px;
+    margin-bottom: 60px;
+  }
+
+  .footer-logo {
+    font-size: 1.8rem;
+    font-family: var(--font-serif);
+    font-weight: 600;
+    letter-spacing: 3px;
+    margin-bottom: 20px;
+    color: var(--color-white);
+  }
+
+  .footer-heading {
+    font-size: 1.1rem;
+    font-family: var(--font-serif);
+    font-weight: 500;
+    margin-bottom: 25px;
+    position: relative;
+    display: inline-block;
+    color: var(--color-white);
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+  }
+
+  .footer-heading:after {
+    content: '';
+    position: absolute;
+    bottom: -12px;
+    left: 0;
+    width: 30px;
+    height: 1px;
+    background-color: var(--color-accent);
+    transition: width var(--transition-fast);
+  }
+
+  .footer-column:hover .footer-heading:after {
+    width: 50px;
+  }
+
+  .footer-description {
+    color: #aaa;
+    font-size: 0.95rem;
+    line-height: 1.7;
+    margin-bottom: 30px;
+    max-width: 320px;
+    font-weight: 300;
+  }
+
+  .social-links {
+    display: flex;
+    gap: 15px;
+  }
+
+  .social-link {
+    color: #aaa;
+    font-size: 1.2rem;
+    transition: var(--transition-fast);
+    width: 44px;
+    height: 44px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 50%;
+  }
+
+  .social-link:hover {
+    color: var(--color-accent);
+    border-color: var(--color-accent);
+    transform: translateY(-2px);
+    background: rgba(165, 142, 118, 0.1);
+  }
+
+  .footer-links {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .footer-links li {
+    margin-bottom: 14px;
+  }
+
+  .footer-links a {
+    color: #aaa;
+    font-size: 0.9rem;
+    transition: var(--transition-fast);
+    padding: 4px 0;
+    display: inline-block;
+    position: relative;
+    font-weight: 300;
+    letter-spacing: 0.5px;
+  }
+
+  .footer-links a:before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 1px;
+    background-color: var(--color-accent);
+    transition: var(--transition-fast);
+  }
+
+  .footer-links a:hover {
+    color: var(--color-white);
+    transform: translateX(5px);
+  }
+
+  .footer-links a:hover:before {
+    width: 100%;
+  }
+
+  .footer-bottom {
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    padding-top: 30px;
+    text-align: center;
+    font-size: 0.85rem;
+    color: #777;
+    letter-spacing: 1px;
+  }
+
+  .footer-bottom p {
+    margin: 0;
+    font-weight: 300;
+    text-transform: uppercase;
+  }
+
+  /* Responsive Design */
+  @media (max-width: 1100px) {
+    /* below ~desktop, main content reduces to 40px side padding */
+    .site-footer .container { padding: 0 40px; }
+    .footer-content {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 50px;
+    }
+    
+    .footer-brand {
+      grid-column: 1 / -1;
+      text-align: center;
+    }
+    
+    .footer-description {
+      margin-left: auto;
+      margin-right: auto;
+    }
+    
+    .social-links {
+      justify-content: center;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .site-footer {
+      padding: 60px 0 30px;
+    }
+
+    /* mobile matches global container padding */
+    .site-footer .container { padding: 0 20px; }
+
+    .footer-content {
+      grid-template-columns: 1fr;
+      gap: 40px;
+      margin-bottom: 40px;
+    }
+
+    .footer-column {
+      text-align: center;
+    }
+
+    .footer-heading:after {
+      left: 50%;
+      transform: translateX(-50%);
+    }
+
+    .footer-logo {
+      font-size: 1.6rem;
+    }
+
+    .footer-links a:hover {
+      transform: none;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .site-footer {
+      padding: 50px 0 25px;
+    }
+
+    .footer-content {
+      gap: 35px;
+    }
+
+    .footer-heading {
+      font-size: 1rem;
+      margin-bottom: 20px;
+    }
+
+    .footer-logo {
+      font-size: 1.4rem;
+      letter-spacing: 2px;
+    }
+
+    .footer-links li {
+      margin-bottom: 12px;
+    }
+    
+    .social-link {
+      width: 40px;
+      height: 40px;
+      font-size: 1.1rem;
+    }
+  }
+</style>

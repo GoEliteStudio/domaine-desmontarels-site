@@ -1,0 +1,115 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+const title = 'Privacy Policy — Domaine des Montarels';
+const description = 'Privacy practices for Domaine des Montarels luxury villa retreat.';
+---
+<BaseLayout title={title} description={description} canonical="https://example.com/privacy">
+  <section class="container policy" id="privacy">
+    <h1>Privacy Policy</h1>
+    <p>Your privacy matters to us. This concise policy explains what we collect and how we use it.</p>
+    
+    <h2>Information We Collect</h2>
+    <ul>
+      <li>Inquiry form details (name, email, stay preferences)</li>
+      <li>Basic site analytics (anonymous usage patterns)</li>
+    </ul>
+    
+    <h2>How We Use Your Data</h2>
+    <p>We use inquiry data solely to respond to booking or information requests and never sell personal information.</p>
+    
+    <h2>Cookies</h2>
+    <p>Essential cookies ensure site functionality. Optional analytics cookies may be introduced with explicit consent.</p>
+    
+    <h2>Data Retention</h2>
+    <p>Inquiry emails are retained for booking reference and accounting compliance. You may request deletion at any time.</p>
+    
+    <h2>Your Rights</h2>
+    <p>To access, correct, or erase your data, email <a href="mailto:privacy@domaine-desmontarels.com">privacy@domaine-desmontarels.com</a>.</p>
+    
+    <h2>Contact</h2>
+    <p>Questions? Email <a href="mailto:privacy@domaine-desmontarels.com">privacy@domaine-desmontarels.com</a>.</p>
+  </section>
+  
+  <style>
+    .policy {
+      /* Set a more readable max-width for text */
+      max-width: 800px;
+      margin: 120px auto;
+      padding: 0 1.5rem; /* Add horizontal padding for mobile */
+      box-sizing: border-box;
+      
+      /* Improve base typography */
+      font-family: var(--font-sans, system-ui, sans-serif);
+      font-size: 1.1rem;
+      line-height: 1.8;
+      color: #333; /* Softer than pure black */
+    }
+
+    .policy h1 {
+      font-family: var(--font-serif, serif);
+      font-size: 3rem;
+      font-weight: 500;
+      color: var(--color-black, #111);
+      margin-bottom: 1.5rem;
+      line-height: 1.2;
+    }
+
+    .policy h2 {
+      font-family: var(--font-serif, serif);
+      font-size: 1.75rem;
+      font-weight: 500;
+      color: var(--color-black, #111);
+      margin-top: 3rem;
+      margin-bottom: 1.25rem;
+      padding-bottom: 0.5rem;
+      /* Adds a subtle separator */
+      border-bottom: 1px solid #eee; 
+    }
+
+    .policy p,
+    .policy ul {
+      margin-bottom: 1.5rem; /* Consistent vertical rhythm */
+    }
+
+    .policy ul {
+      padding-left: 1.8rem; /* Good indent for lists */
+    }
+
+    .policy li {
+      margin-bottom: 0.75rem; /* Space out list items */
+    }
+
+    /* Style the bullets to match the brand */
+    .policy li::marker {
+      color: var(--color-accent, #a58e76);
+      font-size: 0.9em;
+    }
+
+    .policy a {
+      color: var(--color-accent, #a58e76);
+      text-decoration: none;
+      font-weight: 500;
+      transition: color 0.3s ease;
+    }
+
+    .policy a:hover {
+      color: var(--color-black, #111);
+      text-decoration: underline;
+      text-decoration-thickness: 1px;
+    }
+    
+    /* Responsive adjustments */
+    @media (max-width: 768px) {
+      .policy {
+        margin: 80px auto;
+        font-size: 1rem;
+      }
+      .policy h1 {
+        font-size: 2.5rem;
+      }
+      .policy h2 {
+        font-size: 1.5rem;
+      }
+    }
+  </style>
+</BaseLayout>

@@ -1,0 +1,81 @@
+---
+---
+<form method="POST" action="/api/inquire" id="inquire-form" class="inquiry-form" novalidate>
+  <div class="form-grid">
+    <div>
+      <label for="fullName">Full Name</label>
+      <input id="fullName" name="fullName" type="text" placeholder="Your full name" required />
+    </div>
+    <div>
+      <label for="email">Email</label>
+      <input id="email" name="email" type="email" placeholder="you@example.com" required />
+    </div>
+    <div class="with-icon">
+      <label for="checkIn">Check-in</label>
+      <input id="checkIn" name="checkIn" type="date" required />
+      <i class="fas fa-calendar-alt" aria-hidden="true"></i>
+    </div>
+    <div class="with-icon">
+      <label for="checkOut">Check-out</label>
+      <input id="checkOut" name="checkOut" type="date" required />
+      <i class="fas fa-calendar-alt" aria-hidden="true"></i>
+    </div>
+    <div>
+      <label for="adults">Adults</label>
+      <input id="adults" name="adults" type="number" min="1" value="2" required />
+    </div>
+    <div>
+      <label for="children">Children</label>
+      <input id="children" name="children" type="number" min="0" value="0" />
+    </div>
+    <div class="full">
+      <label for="notes">Notes</label>
+      <textarea id="notes" name="notes" placeholder="Special requests"></textarea>
+      <div class="help" id="notes-help" hidden>Optional</div>
+    </div>
+    <input type="text" name="company" tabindex="-1" autocomplete="off" class="inquiry__honeypot" aria-hidden="true" />
+    <div class="full submit-row">
+      <button class="btn-submit" type="submit">Send Inquiry</button>
+    </div>
+  </div>
+  <p id="form-status" role="status" aria-live="polite" class="sr-only"></p>
+</form>
+<script>
+  document.getElementById('inquire-form')?.addEventListener('submit', async function (ev) {
+    ev.preventDefault();
+    const statusEl = document.getElementById('form-status');
+    if (!statusEl) return;
+    statusEl.textContent = 'Sending…';
+    const formEl = document.getElementById('inquire-form');
+    if (!(formEl instanceof HTMLFormElement)) return;
+    const res = await fetch('/api/inquire', { method: 'POST', body: new FormData(formEl) });
+    statusEl.textContent = res.ok ? 'Thank you! We\u2019ll reply shortly.' : 'Error. Please try again.';
+  });
+</script>
+<style>
+/* === Inquiry form – modern, consistent fields === */
+.inquiry-form { --field-bg:#fff; --field-bd:rgba(0,0,0,.14); --field-bd-hover:rgba(0,0,0,.28); --field-ring:var(--color-accent,#a58e76); --field-text:#1a1a1a; --field-muted:#6b7280; --radius:10px; display:grid; gap:18px; width:100%; }
+.inquiry-form .form-grid { display:grid; grid-template-columns:1fr 1fr; gap:16px 18px; }
+.inquiry-form .full { grid-column:1 / -1; }
+.inquiry-form label { display:block; font:500 12px var(--font-sans, ui-sans-serif, system-ui); letter-spacing:.08em; text-transform:uppercase; color:var(--field-muted); margin:2px 0 8px; }
+.inquiry-form input, .inquiry-form select, .inquiry-form textarea { appearance:none; width:100%; border:1px solid var(--field-bd); background:var(--field-bg); color:var(--field-text); border-radius:var(--radius); padding:14px 14px; font:500 15px var(--font-sans, ui-sans-serif, system-ui); transition:border-color .15s ease, box-shadow .15s ease, background .15s ease, transform .06s ease; outline:none; box-sizing:border-box; }
+.inquiry-form textarea { min-height:120px; resize:vertical; }
+.inquiry-form input:hover, .inquiry-form select:hover, .inquiry-form textarea:hover { border-color:var(--field-bd-hover); }
+.inquiry-form input:focus, .inquiry-form select:focus, .inquiry-form textarea:focus { border-color:var(--field-ring); box-shadow:0 0 0 4px color-mix(in oklab, var(--field-ring) 18%, transparent); }
+.inquiry-form input[type="date"] { padding-right:42px; }
+.inquiry-form .with-icon { position:relative; }
+.inquiry-form .with-icon i { position:absolute; right:12px; top:50%; transform:translateY(-50%); pointer-events:none; color:var(--field-muted); font-size:14px; }
+.inquiry-form .has-error input, .inquiry-form .has-error select, .inquiry-form .has-error textarea { border-color:#ef4444; box-shadow:0 0 0 4px color-mix(in oklab,#ef4444 18%, transparent); }
+.inquiry-form .help { margin-top:6px; font-size:12px; color:var(--field-muted); }
+.inquiry-form .help.error { color:#b91c1c; }
+.inquiry-form .submit-row { margin-top:6px; }
+.inquiry-form .btn-submit { display:inline-flex; align-items:center; justify-content:center; width:100%; padding:14px; border-radius:8px; border:0; background:var(--color-black,#111); color:var(--color-white,#fff); letter-spacing:.12em; text-transform:uppercase; font:600 13px var(--font-sans, ui-sans-serif, system-ui); cursor:pointer; transition:transform .06s ease, box-shadow .2s ease, background .2s ease; }
+.inquiry-form .btn-submit:hover { background:var(--color-accent,#a58e76); box-shadow:0 10px 24px rgba(165,142,118,.28); }
+.inquiry-form .btn-submit:active { transform:translateY(1px); }
+.inquiry-form .inquiry__honeypot { position:absolute; left:-9999px; }
+.inquiry-form input[type=number]::-webkit-outer-spin-button, .inquiry-form input[type=number]::-webkit-inner-spin-button { -webkit-appearance:none; margin:0; }
+.inquiry-form input[type=number] { appearance:textfield; -moz-appearance:textfield; }
+.sr-only { position:absolute; width:1px; height:1px; padding:0; margin:-1px; overflow:hidden; clip:rect(0,0,0,0); white-space:nowrap; border:0; }
+@media (max-width:768px){ .inquiry-form .form-grid { grid-template-columns:1fr; } }
+.inquiry-form input:-webkit-autofill, .inquiry-form select:-webkit-autofill, .inquiry-form textarea:-webkit-autofill { transition: background-color 9999s ease 0s, color 9999s ease 0s; }
+</style>

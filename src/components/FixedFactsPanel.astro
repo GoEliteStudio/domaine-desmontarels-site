@@ -1,0 +1,423 @@
+---
+export interface Spec { 
+  /** Font Awesome class string, e.g., 'fas fa-bed' */
+  icon: string; 
+  label: string; 
+  value: string; 
+}
+
+interface Props {
+  price: string;
+  priceNote?: string;
+  specs: Spec[];
+}
+
+const { price, priceNote, specs = [] } = Astro.props as Props;
+---
+
+<aside class="fixed-facts-panel" aria-labelledby="facts-heading">
+  <h2 id="facts-heading" class="price-display">
+    {price}
+    {priceNote && <span class="price-note">/ {priceNote}</span>}
+  </h2>
+  
+  <div class="specs-grid">
+    {specs.map((spec, index) => (
+      <div class="spec-item">
+        <span class="spec-icon" aria-hidden="true"><i class={spec.icon}></i></span>
+        <div class="spec-label">
+          <span class="spec-value">{spec.value}</span> {spec.label}
+        </div>
+      </div>
+    ))}
+  </div>
+  
+  <div class="availability-calendar" aria-label="Availability calendar">
+    <div class="calendar-label">REAL-TIME AVAILABILITY CALENDAR</div>
+    <div class="calendar-nav">
+      <button class="cal-btn cal-prev" type="button" aria-label="Previous month"><i class="fas fa-chevron-left"></i></button>
+      <div class="calendar-month" aria-live="polite"></div>
+      <button class="cal-btn cal-next" type="button" aria-label="Next month"><i class="fas fa-chevron-right"></i></button>
+    </div>
+    <div class="calendar-grid" role="grid" aria-readonly="true"></div>
+  </div>
+  
+  <button 
+    id="inquire-toggle" 
+    class="cta-button" 
+    aria-expanded="false" 
+    aria-controls="inquiry-shell"
+    type="button"
+  >
+    Check Dates, Guests, and Inquiry
+  </button>
+  
+  <div id="inquiry-shell" class="inquiry-shell" hidden>
+    <slot name="inquiry-form" />
+  </div>
+</aside>
+
+<style>
+  .fixed-facts-panel {
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(0, 0, 0, 0.08);
+    padding: 2.75rem 2rem;
+    border-radius: 8px;
+    max-width: 400px;
+    margin: 0 auto;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.08);
+    position: sticky;
+    top: 100px;
+    transition: var(--transition-fast);
+  }
+
+  .fixed-facts-panel:hover {
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.12);
+  }
+  
+  .price-display {
+    font-family: var(--font-serif);
+    font-weight: 400;
+    font-size: 2.8rem;
+    color: var(--color-accent);
+    margin: 0 0 0.625rem;
+    line-height: 1.2;
+    text-align: center;
+  }
+  
+  .price-note {
+    display: block;
+    font-size: 0.85rem;
+    font-family: var(--font-sans);
+    color: #777;
+    font-weight: 300;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    margin-top: 0.5rem;
+  }
+  
+  .specs-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.25rem;
+    margin: 1.875rem 0;
+    padding-top: 1.875rem;
+    border-top: 1px solid rgba(0, 0, 0, 0.05);
+  }
+  
+  .spec-item {
+    text-align: center;
+    transition: var(--transition-fast);
+    padding: 0.5rem;
+    border-radius: 4px;
+  }
+
+  .spec-item:hover {
+    background: rgba(165, 142, 118, 0.05);
+    transform: translateY(-2px);
+  }
+  
+  .spec-icon {
+    font-size: 1.8rem;
+    color: var(--color-accent);
+    display: block;
+    margin-bottom: 0.625rem;
+    transition: var(--transition-fast);
+  }
+  
+  .spec-item:hover .spec-icon {
+    transform: scale(1.15);
+  }
+  
+  .spec-label {
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: #555;
+    font-weight: 500;
+    line-height: 1.3;
+  }
+
+  .spec-value {
+    display: block;
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--color-black);
+    margin-bottom: 0.125rem;
+  }
+  
+  .availability-calendar {
+    background: linear-gradient(135deg, rgba(245, 245, 245, 0.8) 0%, rgba(250, 250, 250, 0.95) 100%);
+    margin-bottom: 1.875rem;
+    border: 1px solid rgba(0, 0, 0, 0.06);
+    border-radius: 6px;
+    position: relative;
+    overflow: hidden;
+    padding: 14px;
+  }
+
+  .availability-calendar::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, var(--color-accent), #b69a82);
+  }
+
+  .calendar-label {
+    background: rgba(0,0,0,0.03);
+    border: 1px solid rgba(0,0,0,0.05);
+    text-align: center;
+    padding: 10px;
+    font-size: 0.8rem;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: #777;
+    border-radius: 4px;
+    margin-bottom: 10px;
+  }
+
+  .calendar-nav { display:flex; align-items:center; justify-content: space-between; margin-bottom: 10px; }
+  .calendar-month { font-family: var(--font-serif); font-weight: 500; font-size: 1.1rem; }
+  .cal-btn { background: none; border: 1px solid rgba(0,0,0,0.1); border-radius: 4px; width: 36px; height: 32px; color: var(--color-accent); cursor: pointer; }
+  .cal-btn:hover { border-color: var(--color-accent); background: rgba(165,142,118,.06); }
+
+  .calendar-grid { display:grid; grid-template-columns: repeat(7, 1fr); gap: 6px; }
+  .cal-day { text-align:center; padding: 6px 0; font-size: 0.8rem; color:#777; }
+  .cal-date { text-align:center; padding: 8px 0; font-size: 0.9rem; border-radius: 4px; cursor: pointer; }
+  .cal-date:hover { background: rgba(165,142,118,.1); }
+  .cal-date.unavailable { color: #ccc; text-decoration: line-through; cursor: not-allowed; }
+  .cal-date.selected { background: var(--color-accent); color: #fff; }
+  .cal-date.in-range { background: rgba(165,142,118,.2); }
+  
+  .cta-button {
+    display: block;
+    width: 100%;
+    padding: 1.125rem 1.25rem;
+    background-color: var(--color-black);
+    color: var(--color-white);
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-weight: 500;
+    font-size: 0.85rem;
+    border-radius: 4px;
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    margin-bottom: 0.9375rem;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .cta-button::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+    transition: left 0.5s ease;
+  }
+
+  .cta-button:hover::before {
+    left: 100%;
+  }
+  
+  .cta-button:hover {
+    background-color: var(--color-accent);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(165, 142, 118, 0.35);
+  }
+
+  .cta-button:active {
+    transform: translateY(0);
+    box-shadow: 0 4px 12px rgba(165, 142, 118, 0.25);
+  }
+  
+  .inquiry-shell {
+    margin-top: 1.25rem;
+    animation: slideDown 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    border-top: 1px solid rgba(0, 0, 0, 0.08);
+    padding-top: 1.25rem;
+  }
+  
+  @keyframes slideDown {
+    from {
+      opacity: 0;
+      transform: translateY(-15px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  /* Focus styles for accessibility */
+  .cta-button:focus-visible {
+    outline: 2px solid var(--color-accent);
+    outline-offset: 2px;
+  }
+
+  .spec-item:focus-within {
+    outline: 1px solid var(--color-accent);
+    outline-offset: 2px;
+  }
+  
+  @media (max-width: 768px) {
+    .fixed-facts-panel {
+      position: relative;
+      top: 0;
+      margin: 2rem auto;
+      padding: 1.75rem 1.25rem;
+    }
+    
+    .price-display {
+      font-size: 2.1rem;
+    }
+    
+    .specs-grid {
+      gap: 0.875rem;
+      margin: 1.25rem 0;
+      padding-top: 1.25rem;
+    }
+    
+    .spec-icon {
+      font-size: 1.4rem;
+    }
+
+    .spec-value {
+      font-size: 0.95rem;
+    }
+
+    .availability-calendar { margin-bottom: 1.25rem; }
+    .calendar-grid { gap: 8px; }
+    .cal-day { font-size: .78rem; }
+    .cal-date { padding: 10px 0; font-size: 1rem; }
+    .cta-button { padding: 1rem 1.125rem; font-size: .9rem; letter-spacing:1.6px; }
+  }
+
+  @media (max-width: 480px) {
+    .fixed-facts-panel {
+      padding: 1.25rem 1rem;
+      margin: 1rem auto;
+    }
+
+    .specs-grid {
+      grid-template-columns: 1fr;
+      gap: 1rem;
+    }
+
+    .price-display { font-size: 1.9rem; }
+    .calendar-grid { gap: 6px; }
+    .cal-date { padding: 12px 0; font-size: 1rem; }
+    .cta-button { padding: 0.95rem 1rem; font-size: .88rem; }
+  }
+</style>
+
+<script>
+  // Only run in browser environment
+  if (typeof window !== 'undefined') {
+    const btn = document.getElementById('inquire-toggle');
+    const shell = document.getElementById('inquiry-shell');
+    const grid = document.querySelector('.calendar-grid');
+    const monthEl = document.querySelector('.calendar-month');
+    const prevBtn = document.querySelector('.cal-prev');
+    const nextBtn = document.querySelector('.cal-next');
+    let currentDate = new Date();
+    // Use plain JS values; avoid TypeScript annotations in browser code
+    let startDate = null;
+    let endDate = null;
+
+  function renderCalendar(date) {
+      if (!(grid instanceof HTMLElement) || !(monthEl instanceof HTMLElement)) return;
+      const year = date.getFullYear();
+      const month = date.getMonth();
+      const first = new Date(year, month, 1);
+      const last = new Date(year, month + 1, 0);
+      const daysInMonth = last.getDate();
+      const firstWeekDay = first.getDay();
+      const monthNames = ['January','February','March','April','May','June','July','August','September','October','November','December'];
+      monthEl.textContent = `${monthNames[month]} ${year}`;
+      grid.innerHTML = '';
+      // day headers
+      ['Su','Mo','Tu','We','Th','Fr','Sa'].forEach(d => {
+        const el = document.createElement('div');
+        el.className = 'cal-day';
+        el.textContent = d;
+        grid.appendChild(el);
+      });
+      // blanks
+      for (let i=0;i<firstWeekDay;i++) {
+        const blank = document.createElement('div');
+        blank.className = 'cal-date unavailable';
+        grid.appendChild(blank);
+      }
+      const today = new Date(); today.setHours(0,0,0,0);
+      for (let d=1; d<=daysInMonth; d++) {
+        const cellDate = new Date(year, month, d);
+        const el = document.createElement('div');
+        el.className = 'cal-date';
+        el.textContent = String(d);
+        el.dataset.date = cellDate.toISOString();
+        if (cellDate < today) {
+          el.classList.add('unavailable');
+        }
+        // Mark selected boundaries explicitly (parentheses to avoid ambiguity)
+        if ((startDate && cellDate.getTime() === startDate.getTime()) || (endDate && cellDate.getTime() === endDate.getTime())) {
+          el.classList.add('selected');
+        }
+        if (startDate && endDate && cellDate.getTime() > startDate.getTime() && cellDate.getTime() < endDate.getTime()) {
+          el.classList.add('in-range');
+        }
+        el.addEventListener('click', () => {
+          if (el.classList.contains('unavailable')) return;
+          if (!startDate || (startDate && endDate)) {
+            startDate = cellDate; endDate = null;
+          } else if (startDate && cellDate.getTime() > startDate.getTime()) {
+            endDate = cellDate;
+          } else {
+            startDate = cellDate; endDate = null;
+          }
+          renderCalendar(currentDate);
+        });
+        grid.appendChild(el);
+      }
+    }
+
+    prevBtn?.addEventListener('click', () => { currentDate.setMonth(currentDate.getMonth()-1); renderCalendar(currentDate); });
+    nextBtn?.addEventListener('click', () => { currentDate.setMonth(currentDate.getMonth()+1); renderCalendar(currentDate); });
+    renderCalendar(currentDate);
+    
+    if (btn && shell) {
+      btn.addEventListener('click', () => {
+        // Toggle visibility correctly
+        shell.hidden = !shell.hidden;
+        const nowOpen = !shell.hidden;
+        btn.textContent = nowOpen ? 'Close Inquiry' : 'Check Dates, Guests, and Inquiry';
+        btn.setAttribute('aria-expanded', String(nowOpen));
+
+        // Smooth scroll to show the form when opening
+        if (nowOpen) {
+          setTimeout(() => {
+            shell.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+          }, 100);
+        }
+      });
+
+      // Close inquiry form when clicking outside (optional enhancement)
+      document.addEventListener('click', (e) => {
+        const target = e.target;
+        if (!shell.hidden && target instanceof Node && !btn.contains(target) && !shell.contains(target)) {
+          shell.hidden = true;
+          btn.textContent = 'Check Dates, Guests, and Inquiry';
+          btn.setAttribute('aria-expanded', 'false');
+        }
+      });
+    }
+  }
+</script>

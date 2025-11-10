@@ -1,0 +1,275 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Hero from '../components/Hero.astro';
+import TrustBar from '../components/TrustBar.astro';
+import GalleryGrid from '../components/GalleryGrid.astro';
+import Tabs from '../components/Tabs.astro';
+import FixedFactsPanel from '../components/FixedFactsPanel.astro';
+import InquiryForm from '../components/InquiryForm.astro';
+import villaEn from '../content/villas/domaine-des-montarels.en.json';
+
+type VillaImage = { src: string; alt: string; caption?: string };
+type VillaSeason = { id: string; label: string; price: string | null; currency: string | null; priceDisplay: string };
+type VillaData = {
+  slug: string;
+  name: string;
+  summary: string;
+  hero: { title: string; subtitle?: string };
+  images: VillaImage[];
+  headlines: { overview: string; location: string };
+  content: {
+    overview: string;
+    location: string;
+    story?: string;
+    practicalDetails?: string[];
+    rooms?: { name: string; description: string }[];
+    familyRecreation?: string[];
+    experiences?: { vineyards?: string[]; beaches?: string[]; culture?: string[]; family?: string[] };
+    travel?: { air?: string[]; rail?: string[]; drive?: string[] };
+    hosts?: { names: string; bio: string };
+    testimonials?: { quote: string; attribution?: string }[];
+    faq?: { q: string; a: string }[];
+    seoLong?: string[];
+  };
+  amenities: string[];
+  specs: { bedrooms: number; baths: number; guests: number; poolSize: string };
+  seasons: VillaSeason[];
+};
+
+const villa = villaEn as VillaData;
+// Force first hero slide to be Pool 27 if available; ensure aerial 031 is next; exclude ping pong (MONT_024)
+const targetPool27 = villa.images.find((img: VillaImage) => /MONT_Pool_027\.webp$/i.test(img.src));
+const targetAerial031 = villa.images.find((img: VillaImage) => /MONT_Pool_Aerial_031\.webp$/i.test(img.src));
+const isPingPong = (img: VillaImage) => /MONT_024\.webp$/i.test(img.src) || /ping|table\s*tennis/i.test(img.alt || '');
+const poolCheck = (img: VillaImage) => (/pool/i.test(img.src) || /pool/i.test(img.alt || '') || /pool/i.test(img.caption || '')) && !isPingPong(img);
+const poolOthers = villa.images.filter((img: VillaImage) => poolCheck(img) && img !== targetPool27 && img !== targetAerial031);
+const nonPool = villa.images.filter((img: VillaImage) => !poolCheck(img) && !isPingPong(img));
+// Explicit hero ordering: Pool 27 first, Aerial 031 second, MONT_001 third, ignoring others for initial trio
+const mont001 = villa.images.find((img: VillaImage) => /MONT_001\.webp$/i.test(img.src));
+const orderedForHero: VillaImage[] = [
+  ...(targetPool27 ? [targetPool27] : []),
+  ...(targetAerial031 ? [targetAerial031] : []),
+  ...(mont001 ? [mont001] : []),
+  // Fallbacks only if any of the above missing
+  ...poolOthers,
+  ...nonPool
+];
+const heroImages = orderedForHero.slice(0, 3).map((img: VillaImage) => img.src);
+const pageTitle = `${villa.name} — Luxury Villa Retreat`;
+const canonical = `https://www.domaine-desmontarels.com/${villa.slug}`;
+// JSON-LD (AI/SEO)
+const org = {
+  '@context': 'https://schema.org',
+  '@type': 'Organization',
+  'name': 'Domaine des Montarels',
+  'url': 'https://www.domaine-desmontarels.com',
+  'logo': 'https://www.domaine-desmontarels.com/images/MONT_038.webp',
+  'brand': 'Domaine des Montarels',
+  'sameAs': [
+    'https://instagram.com', 'https://pinterest.com'
+  ]
+};
+
+const imageObjects = heroImages.map((src) => ({
+  '@type': 'ImageObject',
+  'contentUrl': `https://www.domaine-desmontarels.com${src}`,
+  'url': `https://www.domaine-desmontarels.com${src}`,
+  'representativeOfPage': true
+}));
+
+const lodging = {
+  '@context': 'https://schema.org',
+  '@type': 'LodgingBusiness',
+  'name': villa.name,
+  'description': villa.summary,
+  'url': canonical,
+  'image': imageObjects.map(i => i.url),
+  'amenityFeature': (villa.amenities || []).map(a => ({
+    '@type': 'LocationFeatureSpecification',
+    'name': a,
+    'value': true
+  })),
+  'starRating': { '@type': 'Rating', 'ratingValue': '5' },
+  'petsAllowed': false,
+  'priceRange': '$$$$',
+  'maximumAttendeeCapacity': villa.specs?.guests || undefined
+};
+
+const webPage = {
+  '@context': 'https://schema.org',
+  '@type': 'WebPage',
+  'name': pageTitle,
+  'url': canonical,
+  'inLanguage': 'en',
+  'primaryImageOfPage': imageObjects[0] || undefined
+};
+
+const breadcrumbs = {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  'itemListElement': [
+    { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://www.domaine-desmontarels.com/' },
+    { '@type': 'ListItem', position: 2, name: villa.name, item: canonical }
+  ]
+};
+
+const jsonLd = [org, webPage, breadcrumbs, lodging, ...imageObjects.map(io => ({ '@context': 'https://schema.org', ...io }))];
+const trustItems = [
+  { icon: '↻', title: 'Flexible Cancellation', detail: 'Full refund up to 60 days prior' },
+  { icon: '⚿', title: 'Secure Contract', detail: 'Stripe-protected agreements' },
+  { icon: '☎', title: 'Concierge', detail: 'Hosts Ian & Katie on-call' },
+  { icon: '✓', title: 'Transparent Pricing', detail: 'No hidden booking fees' }
+];
+const galleryImages = villa.images; // showcase all images; component will feature the first few in-grid
+const specs = [
+  { icon: 'fas fa-bed', label: 'Bedrooms', value: String(villa.specs.bedrooms) },
+  { icon: 'fas fa-bath', label: 'Baths', value: String(villa.specs.baths) },
+  { icon: 'fas fa-users', label: 'Guests', value: String(villa.specs.guests) },
+  { icon: 'fas fa-ruler-combined', label: 'Sq. Ft.', value: '8,500' },
+  { icon: 'fas fa-map-marker-alt', label: 'The Riviera', value: '' },
+  { icon: 'fas fa-star', label: '5-Star Service', value: '' },
+];
+const extraTabs = [] as any[];
+if (villa.content?.practicalDetails?.length) {
+  extraTabs.push({ id: 'practical', label: 'Practical Details', heading: 'Practical Details', items: villa.content.practicalDetails });
+}
+if (villa.content?.rooms?.length) {
+  const roomItems = villa.content.rooms.map((r: any) => `${r.name}: ${r.description}`);
+  extraTabs.push({ id: 'bedrooms', label: 'Bedrooms', heading: 'Bedrooms & Baths', items: roomItems });
+}
+if (villa.content?.familyRecreation?.length) {
+  extraTabs.push({ id: 'family', label: 'Family & Recreation', heading: 'Family & Recreation', items: villa.content.familyRecreation });
+}
+if (villa.content?.travel) {
+  const travelItems = [
+    ...(villa.content.travel.air || []).map((t: string) => `Air: ${t}`),
+    ...(villa.content.travel.rail || []).map((t: string) => `Rail: ${t}`),
+    ...(villa.content.travel.drive || []).map((t: string) => `Drive: ${t}`),
+  ];
+  if (travelItems.length) extraTabs.push({ id: 'getting-here', label: 'Getting Here', heading: 'Travel & Access', items: travelItems });
+}
+if (villa.content?.faq?.length) {
+  const faqItems = villa.content.faq.map((f: any) => `${f.q} — ${f.a}`);
+  extraTabs.push({ id: 'faq', label: 'FAQ', heading: 'Frequently Asked Questions', items: faqItems });
+}
+
+const tabs = [
+  { id: 'overview', label: 'Overview', heading: villa.headlines.overview, paragraphs: [villa.content.overview, ...(villa.content.seoLong || [])] },
+  { id: 'amenities', label: 'Amenities', heading: 'Signature Features', items: villa.amenities },
+  { id: 'location', label: 'Location', heading: villa.headlines.location, paragraphs: [villa.content.location] },
+  ...extraTabs
+];
+// Additional curated Google review snippets (names + source only, trimmed quotes)
+const googleReviews = [
+  { quote: 'Hosts Katie & Ian made our birthday family gathering exceptional – nothing was too much trouble and the house, linens, kitchen & pool were perfect. We will be back!', attribution: 'Helene McKeone — Google Reviews' },
+  { quote: 'Fabulous quirky house, spacious, brilliantly equipped kitchen & huge pool. Ian & Katie were knowledgeable and helpful throughout.', attribution: 'Carole Edwards — Google Reviews' },
+  { quote: 'Peaceful luxury with incredible views, spotless, character in abundance and a pool to die for – ideal summer or off‑season.', attribution: 'Kerry Morgan — Google Reviews' },
+  { quote: 'We loved the decorating taste, carefully chosen details and musical instruments – a thoughtful, beautiful environment.', attribution: 'L D. — Google Reviews' },
+  { quote: 'Amazing place, beautiful family, extraordinary views and phenomenal wine. Highly recommend for live music & atmosphere.', attribution: 'Tyrer Music — Google Reviews' },
+  { quote: 'The kind of WOW place you feel lucky to stay in – timeless setting near historic Pézenas.', attribution: 'Marie-Pierre Denaro — Google Reviews' }
+];
+const primarySeason = villa.seasons[0];
+// Use neutral pricing if none provided (remove speculative nightly rates)
+const priceDisplay = primarySeason?.priceDisplay ?? 'Rate on Request';
+const priceNote = primarySeason?.label && primarySeason.currency ? `${primarySeason.label} — ${primarySeason.currency}` : undefined;
+---
+<BaseLayout title={pageTitle} description={villa.summary} canonical={canonical} jsonLd={jsonLd}>
+  <Hero
+    title={villa.hero.title}
+    subtitle={villa.hero.subtitle}
+    images={heroImages}
+    alt={villa.name}
+    ctaHref="#overview"
+    ctaText="Tour the Domaine"
+  />
+  <TrustBar items={trustItems} />
+  <section class="container experience" id="overview">
+    <div class="experience-content">
+      <p class="experience-intro">{villa.summary}</p>
+      <GalleryGrid images={galleryImages} />
+      <Tabs tabs={tabs} />
+    </div>
+    <FixedFactsPanel price={priceDisplay} priceNote={priceNote} specs={specs}>
+      <InquiryForm slot="inquiry-form" />
+    </FixedFactsPanel>
+  </section>
+  
+  {villa.content?.hosts && (
+    <section class="container hosts" id="hosts">
+      <div class="hosts-wrapper">
+        <figure class="hosts-media">
+          <img src="/images/MONT_041.webp" alt="Riverside dining scene near the Domaine" loading="lazy" />
+        </figure>
+        <div class="hosts-card">
+          <h2>Meet Your Hosts</h2>
+          <p class="hosts-names"><strong>{villa.content.hosts.names}</strong></p>
+          <p class="hosts-bio">{villa.content.hosts.bio}</p>
+          <ul class="hosts-highlights" aria-label="Host highlights">
+            <li><i class="fas fa-heart" aria-hidden="true"></i><span>Personal itinerary planning</span></li>
+            <li><i class="fas fa-wine-glass" aria-hidden="true"></i><span>Local vineyard connections</span></li>
+            <li><i class="fas fa-user-shield" aria-hidden="true"></i><span>Discreet, privacy‑first hosting</span></li>
+          </ul>
+        </div>
+      </div>
+    </section>
+  )}
+  {villa.content?.testimonials?.length && (
+    <section class="container testimonials" id="testimonials">
+      <h2>Guest Words</h2>
+      <ul class="quotes">
+        {villa.content.testimonials.map((t: any) => <li><blockquote>“{t.quote}”</blockquote><cite>— {t.attribution}</cite></li>)}
+        {googleReviews.map((r) => <li><blockquote>“{r.quote}”</blockquote><cite>— {r.attribution}</cite></li>)}
+      </ul>
+    </section>
+  )}
+  <style>
+    .experience{display:grid;gap:48px;margin:110px auto;grid-template-columns:minmax(0,2fr) minmax(280px,1fr);align-items:start}
+    .experience-content{display:grid;gap:40px}
+    .experience-intro{max-width:720px;font-size:1.1rem;color:var(--color-muted)}
+    /* Hosts */
+    .hosts{margin:120px auto}
+    .hosts-wrapper{display:grid;grid-template-columns:1.15fr 1.85fr;gap:28px;align-items:stretch}
+    .hosts-media{margin:0;border-radius:18px;overflow:hidden;box-shadow:0 18px 40px rgba(0,0,0,.12);background:#000}
+    .hosts-media img{display:block;width:100%;height:100%;object-fit:cover;filter:saturate(106%)}
+    .hosts-card{position:relative;background:linear-gradient(180deg,#fff,#faf8f5);border:1px solid #eee;border-radius:18px;padding:40px 40px 28px;box-shadow:0 20px 40px rgba(0,0,0,.08)}
+    .hosts-card h2{font-size:2rem;margin:0 0 12px;color:var(--color-black)}
+    .hosts-names{margin:0 0 8px;color:#444}
+    .hosts-bio{margin:0 0 14px;color:#555;line-height:1.7}
+    .hosts-highlights{list-style:none;padding:0;margin:10px 0 0;display:grid;gap:10px}
+    .hosts-highlights li{display:flex;align-items:center;gap:10px;color:#444}
+    .hosts-highlights i{color:var(--color-accent);width:18px;text-align:center}
+    
+    @media (max-width:1100px){.experience{grid-template-columns:1fr}}
+  @media (max-width:900px){.hosts-wrapper{grid-template-columns:1fr}.hosts{margin:90px auto}.hosts-card{padding:28px}}
+  @media (max-width:700px){.experience{margin:80px auto}}
+    /* Testimonials */
+    .testimonials{margin:120px auto}
+    .testimonials .quotes{
+      list-style:none;
+      padding:0;
+      display:grid;
+      gap:20px;
+      grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
+    }
+    .testimonials .quotes li{
+      background: linear-gradient(180deg,#fff,#fafafa);
+      border:1px solid #eee;
+      border-radius:14px;
+      padding:22px 24px 20px 24px;
+      box-shadow:0 10px 24px rgba(0,0,0,.06);
+      position:relative;
+      transition:transform .25s ease, box-shadow .25s ease;
+    }
+    .testimonials .quotes li:before{
+      content:'\201C'; /* decorative opening quote */
+      position:absolute;left:16px;top:-12px;
+      font-size:3.2rem;line-height:1;color:rgba(165,142,118,.35);
+      font-family: var(--font-serif);
+      pointer-events:none;
+    }
+    .testimonials .quotes li:hover{transform:translateY(-3px);box-shadow:0 14px 28px rgba(0,0,0,.08)}
+    .testimonials blockquote{margin:0;font-size:1.05rem;line-height:1.7;color:#333}
+    .testimonials cite{display:block;margin-top:12px;color:#555;font-style:normal;font-weight:500;letter-spacing:.3px}
+    @media (max-width:700px){.testimonials .quotes{grid-template-columns:1fr}}
+  </style>
+</BaseLayout>

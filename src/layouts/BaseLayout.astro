@@ -1,0 +1,472 @@
+---
+import Footer from '../components/Footer.astro';
+
+export interface Props {
+  title?: string;
+  description?: string;
+  lang?: string;
+  canonical?: string;
+  jsonLd?: any[];
+  hasStickyPanel?: boolean;
+}
+
+const { 
+  title = 'Luxury Villa', 
+  description = 'Exclusive luxury villa retreat', 
+  lang = 'en', 
+  canonical, 
+  jsonLd = [],
+  hasStickyPanel = false
+} = Astro.props as Props;
+---
+<!DOCTYPE html>
+<html lang={lang} class={hasStickyPanel ? 'with-sticky-panel' : undefined}>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    {canonical && <link rel="canonical" href={canonical} />}
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:type" content="website" />
+    <meta name="twitter:card" content="summary_large_image" />
+    
+    <!-- Enhanced Fonts & Icons -->
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+    
+    <script>{`if (matchMedia('(prefers-reduced-motion: reduce)').matches) { document.documentElement.classList.add('prm'); }`}</script>
+    {jsonLd.map((obj) => <script type="application/ld+json">{JSON.stringify(obj)}</script>)}
+
+    <!-- Enhanced CSS Variables & Global Styles -->
+    <style>
+      :root {
+        --color-white: #ffffff;
+        --color-off-white: #fafafa;
+        --color-black: #0a0a0a;
+        --color-dark-gray: #1a1a1a;
+        --color-gray-light: #f0f0f0;
+        --color-accent: #a58e76;
+        --color-accent-light: #c4b3a0;
+        --color-gold: #c9a96e;
+        --font-serif: 'Cormorant Garamond', serif;
+        --font-sans: 'Inter', sans-serif;
+        --desktop-break: 1200px;
+        --panel-width: 420px;
+        --section-padding: 100px 0;
+        --transition-slow: 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        --transition-fast: 0.3s ease;
+        --border-radius: 4px;
+      }
+      
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      
+      html {
+        scroll-behavior: smooth;
+      }
+      
+      body {
+        font-family: var(--font-sans);
+        color: var(--color-black);
+        background-color: var(--color-white);
+        line-height: 1.7;
+        font-weight: 300;
+        overflow-x: hidden;
+        scroll-padding-top: 80px;
+        -webkit-font-smoothing: antialiased;
+      }
+      
+      h1, h2, h3, h4 {
+        font-family: var(--font-serif);
+        font-weight: 500;
+        line-height: 1.2;
+        margin-bottom: 0.8em;
+      }
+      
+      a {
+        text-decoration: none;
+        color: inherit;
+        transition: var(--transition-fast);
+      }
+      
+      .container {
+        max-width: 1600px;
+        margin: 0 auto;
+        padding: 0 40px;
+      }
+      
+      .section-title {
+        font-size: 2.8rem;
+        position: relative;
+        display: inline-block;
+        margin-bottom: 1.5em;
+      }
+      
+      .section-title:after {
+        content: '';
+        position: absolute;
+        bottom: -15px;
+        left: 0;
+        width: 60px;
+        height: 2px;
+        background-color: var(--color-accent);
+      }
+      
+      .btn {
+        display: inline-block;
+        padding: 16px 32px;
+        background-color: var(--color-black);
+        color: var(--color-white);
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        font-size: 0.85rem;
+        font-weight: 500;
+        border: none;
+        cursor: pointer;
+        transition: var(--transition-fast);
+        text-align: center;
+      }
+      
+      .btn:hover {
+        background-color: var(--color-accent);
+      }
+      
+      .btn-light {
+        background-color: transparent;
+        border: 1px solid var(--color-white);
+        color: var(--color-white);
+      }
+      
+      .btn-light:hover {
+        background-color: var(--color-white);
+        color: var(--color-black);
+      }
+      
+      /* Enhanced Header */
+      header {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        background-color: rgba(255, 255, 255, 0.95);
+        backdrop-filter: blur(10px);
+        border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+        z-index: 1000;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 20px 40px;
+        height: 80px;
+        transition: var(--transition-fast);
+      }
+      
+      header.scrolled {
+        height: 70px;
+        box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+      }
+      
+      .logo {
+        font-size: 1.8rem;
+        letter-spacing: 3px;
+        font-weight: 600;
+        font-family: var(--font-serif);
+      }
+      
+      .nav-links {
+        display: flex;
+        align-items: center;
+      }
+      
+      .nav-link {
+        padding: 0 20px;
+        font-size: 0.85rem;
+        text-transform: uppercase;
+        letter-spacing: 1.5px;
+        position: relative;
+      }
+      
+      .nav-link:after {
+        content: '';
+        position: absolute;
+        bottom: -5px;
+        left: 20px;
+        width: 0;
+        height: 1px;
+        background-color: var(--color-accent);
+        transition: var(--transition-fast);
+      }
+      
+      .nav-link:hover:after {
+        width: calc(100% - 40px);
+      }
+      
+      .nav-cta {
+        margin-left: 30px;
+        padding: 12px 24px;
+        background-color: var(--color-black);
+        color: var(--color-white);
+        font-size: 0.8rem;
+        letter-spacing: 1.5px;
+        text-transform: uppercase;
+      }
+      
+      .nav-cta:hover {
+        background-color: var(--color-accent);
+      }
+      
+      .mobile-menu-btn {
+        display: none;
+        font-size: 1.5rem;
+        cursor: pointer;
+        background: none;
+        border: none;
+        color: var(--color-black);
+      }
+      
+      /* Enhanced Main Layout */
+      main {
+        display: flex;
+        padding-top: 80px;
+        max-width: 1800px;
+        margin: 0 auto;
+        position: relative;
+      }
+      
+      #main-content {
+        flex-grow: 1;
+        padding: 80px 60px;
+        min-height: 100vh;
+        max-width: 100%;
+      }
+
+      /* When sticky side panel is present, give room for it */
+      .with-sticky-panel #main-content {
+        max-width: calc(100% - var(--panel-width));
+      }
+      
+      /* Control Panel */
+      #control-panel {
+        width: var(--panel-width);
+        background-color: rgba(255, 255, 255, 0.85);
+        backdrop-filter: blur(10px);
+        border-left: 1px solid rgba(0, 0, 0, 0.05);
+        padding: 60px 40px;
+        position: sticky;
+        top: 80px;
+        height: calc(100vh - 80px);
+        align-self: flex-start;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        transition: var(--transition-slow);
+        overflow-y: auto;
+      }
+      
+      /* Floating Concierge Button */
+      .concierge-button {
+        position: fixed;
+        bottom: 30px;
+        right: 30px;
+        width: 60px;
+        height: 60px;
+        border-radius: 50%;
+        background-color: var(--color-accent);
+        color: var(--color-white);
+      /* Shift concierge button when sticky panel is present */
+      .with-sticky-panel .concierge-button {
+        right: calc(var(--panel-width) + 30px);
+      }
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.8rem;
+        box-shadow: 0 5px 20px rgba(0, 0, 0, 0.15);
+        z-index: 998;
+        transition: var(--transition-fast);
+        cursor: pointer;
+        text-decoration: none;
+      }
+      
+      .concierge-button:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+        background-color: var(--color-accent-light);
+      }
+      
+      /* Responsive */
+      @media (max-width: 1200px) {
+        #main-content {
+          max-width: 100%;
+          padding: 60px 40px;
+        }
+        
+        #control-panel {
+          position: fixed;
+          top: 0;
+          right: -100%;
+          width: 100%;
+          height: 100vh;
+          z-index: 999;
+          transition: right 0.4s ease;
+        }
+        
+        #control-panel.active {
+          right: 0;
+        }
+        
+        .concierge-button {
+          right: 30px;
+        }
+      }
+      
+      @media (max-width: 768px) {
+        header {
+          padding: 15px 20px;
+        }
+        
+        .nav-links { display: none; }
+        
+        .mobile-menu-btn {
+          display: block;
+        }
+        
+        .container {
+          padding: 0 20px;
+        }
+        
+        #main-content {
+          padding: 40px 20px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <a href="/" class="logo" aria-label="Home">DOMAINE DES MONTARELS</a>
+      <nav class="nav-links" aria-label="Primary">
+        <a href="#overview" class="nav-link" data-nav>Overview</a>
+        <a href="#amenities" class="nav-link" data-nav>Amenities</a>
+        <a href="#gallery" class="nav-link" data-nav>Gallery</a>
+        <a href="#location" class="nav-link" data-nav>Location</a>
+        <a href="#hosts" class="nav-link" data-nav>Hosts</a>
+        <a href="#contact" class="nav-link" data-nav>Contact</a>
+        <button type="button" class="nav-cta" id="nav-inquire" data-inquire>Inquire</button>
+      </nav>
+      <button class="mobile-menu-btn" aria-expanded="false" aria-label="Toggle navigation">
+        <i class="fas fa-bars"></i>
+      </button>
+    </header>
+
+    <main>
+      <div id="main-content">
+        <slot />
+      </div>
+      
+      {hasStickyPanel && (
+        <>
+          <!-- Control Panel Toggle for Mobile -->
+          <div class="panel-toggle">
+            <i class="fas fa-sliders-h"></i>
+          </div>
+          
+          <!-- Interactive Control Panel -->
+          <div id="control-panel">
+            <slot name="control-panel" />
+          </div>
+        </>
+      )}
+      
+      <!-- Floating Concierge Button -->
+      <a href="https://wa.me/15551234567" target="_blank" class="concierge-button" title="Chat with Concierge on WhatsApp">
+        <i class="fab fa-whatsapp"></i>
+      </a>
+    </main>
+
+    <Footer />
+  
+
+    <script>
+      // Header + nav + inquiry enhancements (baseline quick fixes)
+      (function(){
+        const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+        const navLinks = document.querySelector('.nav-links');
+        const header = document.querySelector('header');
+        const inquireBtn = document.querySelector('[data-inquire]');
+        let lastScroll = 0;
+
+        mobileMenuBtn?.addEventListener('click', function() {
+          const isExpanded = this.getAttribute('aria-expanded') === 'true';
+          this.setAttribute('aria-expanded', String(!isExpanded));
+          if (navLinks instanceof HTMLElement) {
+            navLinks.style.display = navLinks.style.display === 'flex' ? 'none' : 'flex';
+          }
+        });
+
+        // Smooth scroll for nav links + ensure tab panels (e.g., #location) activate via hashchange
+        const navAnchors = document.querySelectorAll('.nav-links a[data-nav]');
+        navAnchors.forEach(a => {
+          a.addEventListener('click', (e) => {
+            const href = a.getAttribute('href') || '';
+            if (href.startsWith('#')) {
+              e.preventDefault();
+              const id = href.slice(1);
+              const target = document.getElementById(id);
+              // Trigger hashchange so Tabs.astro picks it up and shows the right panel
+              if (location.hash === '#' + id) {
+                window.dispatchEvent(new HashChangeEvent('hashchange'));
+              } else {
+                location.hash = '#' + id;
+              }
+              // Scroll after a brief frame to allow panel visibility to update
+              setTimeout(() => {
+                target?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+              }, 40);
+              if (mobileMenuBtn?.getAttribute('aria-expanded') === 'true') {
+                mobileMenuBtn.setAttribute('aria-expanded', 'false');
+                if (navLinks instanceof HTMLElement) navLinks.style.display = 'none';
+              }
+            }
+          });
+        });
+
+        // Inquiry toggle from header button
+        inquireBtn?.addEventListener('click', () => {
+          const toggle = document.getElementById('inquire-toggle');
+          if (toggle) {
+            const expanded = toggle.getAttribute('aria-expanded') === 'true';
+            if (!expanded) toggle.click();
+            const shell = document.getElementById('inquiry-shell');
+            if (shell) {
+              shell.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+              setTimeout(() => {
+                const firstField = shell.querySelector('input, textarea, select, button');
+                if (firstField instanceof HTMLElement) firstField.focus();
+              }, 350);
+            }
+          }
+        });
+
+        // Header scroll effect
+        window.addEventListener('scroll', function() {
+          if (header instanceof HTMLElement) {
+            header.classList.toggle('scrolled', window.scrollY > 50);
+          }
+          lastScroll = window.scrollY;
+        }, { passive: true });
+
+        // Panel toggle for mobile
+        const panelToggle = document.querySelector('.panel-toggle');
+        const controlPanel = document.getElementById('control-panel');
+        panelToggle?.addEventListener('click', function() {
+          controlPanel?.classList.toggle('active');
+        });
+      })();
+    </script>
+  </body>
+</html>

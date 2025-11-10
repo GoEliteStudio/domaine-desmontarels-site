@@ -1,0 +1,20 @@
+{
+  "slug": "domaine-des-montarels",
+  "name": "Domaine des Montarels",
+  "summary": "Santuario del siglo X en Languedoc con piscina climatizada privada y concierge para hasta 12 huéspedes.",
+  "hero": {
+    "title": "El santuario más aislado del Languedoc (siglo X)",
+    "subtitle": "Carácter monástico antiguo y lujo moderno silencioso. Un retiro panorámico reservado para pocos."
+  },
+  "images": [
+    { "src": "/images/MONT_001.webp", "alt": "Villa de lujo en el sur de Francia con vistas a viñedos" }
+  ],
+  "headlines": { "overview": "Un aire de gran tranquilidad", "location": "Acceso óptimo y exploración" },
+  "content": { "overview": "Arcos de piedra y planta abierta entre salón, comedor y cocina del chef.", "location": "Base apartada en Alignan-du-Vent cerca de Béziers." },
+    "extras": {
+      "note": "Traducciones completas próximamente. El contenido ampliado está disponible en inglés por ahora."
+    },
+  "amenities": ["Piscina climatizada 12,5 m", "Aire acondicionado silencioso", "Wi‑Fi de alta velocidad"],
+  "specs": { "bedrooms": 5, "baths": 4, "guests": 12, "poolSize": "12,5 m" },
+  "seasons": [ { "id": "request", "label": "Tarifa a solicitud", "price": null, "currency": null, "priceDisplay": "Tarifa a solicitud" } ]
+}

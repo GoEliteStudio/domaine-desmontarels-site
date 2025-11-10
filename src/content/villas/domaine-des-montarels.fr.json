@@ -1,0 +1,20 @@
+{
+  "slug": "domaine-des-montarels",
+  "name": "Domaine des Montarels",
+  "summary": "Sanctuaire languedocien du Xe siècle, piscine chauffée privée et conciergerie haut de gamme pour jusqu’à 12 personnes.",
+  "hero": {
+    "title": "Le sanctuaire le plus isolé du Languedoc (Xe siècle)",
+    "subtitle": "Le charme d’un ancien monastère et le luxe moderne silencieux. Un refuge panoramique, réservé à quelques-uns."
+  },
+  "images": [
+    { "src": "/images/MONT_001.webp", "alt": "Villa de luxe dans le sud de la France avec vue sur les vignes" }
+  ],
+  "headlines": { "overview": "Un souffle de grandeur tranquille", "location": "Accès idéal & exploration" },
+  "content": { "overview": "Arches en pierre et plan ouvert reliant salon, salle à manger et cuisine de chef.", "location": "Base retirée à Alignan-du-Vent près de Béziers." },
+    "extras": {
+      "note": "Traductions détaillées à venir. Le contenu complet est disponible en anglais pour l’instant."
+    },
+  "amenities": ["Piscine chauffée 12,5 m", "Climatisation silencieuse", "Wi-Fi haut débit"],
+  "specs": { "bedrooms": 5, "baths": 4, "guests": 12, "poolSize": "12,5 m" },
+  "seasons": [ { "id": "request", "label": "Tarif sur demande", "price": null, "currency": null, "priceDisplay": "Tarif sur demande" } ]
+}

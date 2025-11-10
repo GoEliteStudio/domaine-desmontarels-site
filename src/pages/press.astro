@@ -1,0 +1,107 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+const title = 'Press Inquiries — Domaine des Montarels';
+const description = 'Press kit and media contact for Domaine des Montarels.';
+---
+<BaseLayout title={title} description={description} canonical="https://example.com/press">
+  <section class="container policy" id="press">
+    <h1>Press Inquiries</h1>
+    <p>For media requests, high-resolution imagery, and interviews, please contact us.</p>
+    
+    <h2>Contact Details</h2>
+    <ul>
+      <li>Email: <a href="mailto:press@domaine-desmontarels.com">press@domaine-desmontarels.com</a></li>
+      <li>Phone (UK): <a href="tel:+447768987879">+44 7768 987 879</a></li>
+      <li>Phone (FR): <a href="tel:+33647428864">+33 647 42 88 64</a></li>
+    </ul>
+    
+    <h2>Brand Assets</h2>
+    <p>Request our press kit for approved photography and property facts.</p>
+  </section>
+  
+  <style>
+    /* * Using the same refined styles as the Privacy/Terms pages
+     * for brand consistency.
+     */
+    .policy {
+      /* Set a more readable max-width for text */
+      max-width: 800px;
+      margin: 120px auto;
+      padding: 0 1.5rem; /* Add horizontal padding for mobile */
+      box-sizing: border-box;
+      
+      /* Improve base typography */
+      font-family: var(--font-sans, system-ui, sans-serif);
+      font-size: 1.1rem;
+      line-height: 1.8;
+      color: #333; /* Softer than pure black */
+    }
+
+    .policy h1 {
+      font-family: var(--font-serif, serif);
+      font-size: 3rem;
+      font-weight: 500;
+      color: var(--color-black, #111);
+      margin-bottom: 1.5rem;
+      line-height: 1.2;
+    }
+
+    .policy h2 {
+      font-family: var(--font-serif, serif);
+      font-size: 1.75rem;
+      font-weight: 500;
+      color: var(--color-black, #111);
+      margin-top: 3rem;
+      margin-bottom: 1.25rem;
+      padding-bottom: 0.5rem;
+      /* Adds a subtle separator */
+      border-bottom: 1px solid #eee; 
+    }
+
+    .policy p,
+    .policy ul {
+      margin-bottom: 1.5rem; /* Consistent vertical rhythm */
+    }
+
+    .policy ul {
+      padding-left: 1.8rem; /* Good indent for lists */
+    }
+
+    .policy li {
+      margin-bottom: 0.75rem; /* Space out list items */
+    }
+
+    /* Style the bullets to match the brand */
+    .policy li::marker {
+      color: var(--color-accent, #a58e76);
+      font-size: 0.9em;
+    }
+
+    .policy a {
+      color: var(--color-accent, #a58e76);
+      text-decoration: none;
+      font-weight: 500;
+      transition: color 0.3s ease;
+    }
+
+    .policy a:hover {
+      color: var(--color-black, #111);
+      text-decoration: underline;
+      text-decoration-thickness: 1px;
+    }
+    
+    /* Responsive adjustments */
+    @media (max-width: 768px) {
+      .policy {
+        margin: 80px auto;
+        font-size: 1rem;
+      }
+      .policy h1 {
+        font-size: 2.5rem;
+      }
+      .policy h2 {
+        font-size: 1.5rem;
+      }
+    }
+  </style>
+</BaseLayout>

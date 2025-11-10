@@ -1,0 +1,145 @@
+---
+export interface Tab {
+  id: string;
+  label: string;
+  heading: string;
+  paragraphs?: string[];
+  items?: string[];
+}
+const { tabs } = Astro.props as { tabs: Tab[] };
+---
+<div class="tabs" style="margin:50px 0">
+  <div role="tablist" aria-label="Villa content" class="tablist">
+    {tabs.map((t, i) => (
+      <button role="tab" aria-selected={i===0 ? 'true' : 'false'} aria-controls={t.id} id={`${t.id}-tab`} class="tab-button" data-target={t.id} tabindex={i===0 ? 0 : -1}>{t.label}</button>
+    ))}
+  </div>
+  {tabs.map((t, i) => (
+    <section id={t.id} role="tabpanel" aria-labelledby={`${t.id}-tab`} class="tab-panel" style={i===0 ? undefined : 'display:none'}>
+      <h2>{t.heading}</h2>
+      {t.paragraphs?.map((paragraph) => <p>{paragraph}</p>)}
+      {t.items && (
+        <ul class="amenity-list">
+          {t.items.map((item) => <li>{item}</li>)}
+        </ul>
+      )}
+    </section>
+  ))}
+</div>
+
+<style>
+  .tablist {
+    display: flex;
+    flex-wrap: wrap;
+    border-bottom: 1px solid var(--color-gray-light);
+    margin-bottom: 50px;
+    gap: 10px;
+  }
+
+  .tab-button {
+    background: none;
+    border: none;
+    padding: 14px 20px;
+    font-family: var(--font-serif);
+    font-size: 1rem;
+    font-weight: 500;
+    color: #777;
+    cursor: pointer;
+    position: relative;
+    transition: color .25s ease;
+  }
+
+  .tab-button:hover { color: var(--color-black); }
+  .tab-button.active, .tab-button[aria-selected="true"] { color: var(--color-black); }
+  .tab-button::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: -12px;
+    height: 3px;
+    background: var(--color-accent);
+    width: 0;
+    margin: 0 auto;
+    transition: width .25s ease;
+  }
+  .tab-button.active::after, .tab-button[aria-selected="true"]::after { width: 100%; }
+  
+  .tab-panel { padding: 10px 0 34px; color: #333; animation: fadeIn .5s ease; }
+  
+  @keyframes fadeIn {
+    from { 
+      opacity: 0; 
+      transform: translateY(10px); 
+    }
+    to { 
+      opacity: 1; 
+      transform: translateY(0); 
+    }
+  }
+  
+  .tab-panel h2 {
+    font-size: 2rem;
+    margin-bottom: 16px;
+    color: var(--color-black);
+  }
+  
+  .tab-panel p {
+    margin: 0 0 18px;
+    color: #555;
+    line-height: 1.6;
+  }
+  
+  /* Amenities list styled to match v2 aesthetic */
+  .amenity-list { list-style: none; padding-left: 0; margin: 0; columns: 2; column-gap: 40px; color: #555; }
+  .amenity-list li { break-inside: avoid; padding: 12px 0 12px 30px; position: relative; line-height: 1.6; }
+  .amenity-list li:before { content: '\2713'; position: absolute; left: 0; top: 12px; color: var(--color-accent); font-weight: 600; }
+  
+  @media (max-width: 768px) {
+    .tablist {margin-bottom:28px;gap:6px;}
+    .tab-button {padding:12px 16px;font-size:.95rem;}
+    .tab-panel {padding:6px 0 30px;}
+    .tab-panel h2 {font-size:1.4rem;}
+    .amenity-list {columns:1;}
+  }
+</style>
+
+<script>
+  if (typeof window !== 'undefined') {
+    const tabButtons = Array.from(document.querySelectorAll('.tab-button'));
+    const panels = Array.from(document.querySelectorAll('.tab-panel'));
+
+    function activateTabById(id) {
+      if (!id) return;
+      const btn = tabButtons.find((b) => b instanceof HTMLElement && b.dataset.target === id);
+      if (!btn) return;
+
+      tabButtons.forEach((b) => {
+        const isActive = b === btn;
+        if (b instanceof HTMLElement) {
+          b.setAttribute('aria-selected', String(isActive));
+          b.tabIndex = isActive ? 0 : -1;
+          b.classList.toggle('active', isActive);
+        }
+      });
+
+      panels.forEach((p) => {
+        if (p instanceof HTMLElement) {
+          p.style.display = p.id === id ? 'block' : 'none';
+        }
+      });
+    }
+
+    tabButtons.forEach((btn) => {
+      btn.addEventListener('click', () => activateTabById(btn instanceof HTMLElement ? btn.dataset.target : ''));
+    });
+
+    // Activate a tab if URL hash matches a panel ID (e.g., #amenities)
+    const initialHash = window.location.hash.replace('#', '');
+    if (initialHash) activateTabById(initialHash);
+    window.addEventListener('hashchange', () => {
+      const hash = window.location.hash.replace('#', '');
+      if (hash) activateTabById(hash);
+    });
+  }
+  </script>

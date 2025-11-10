@@ -1,0 +1,723 @@
+---
+import fs from 'node:fs';
+import path from 'node:path';
+import { fileURLToPath } from 'node:url';
+
+export interface ImgItem { 
+  src: string; 
+  alt: string; 
+  caption?: string;
+  title?: string;
+  description?: string;
+}
+
+// Prefer images passed via props; otherwise, load everything in /public/images
+const { images: providedImages = [] } = Astro.props as { images: ImgItem[] };
+
+function filenameBase(name: string) {
+  return name.replace(/\.[^/.]+$/, '');
+}
+
+function humanize(name: string) {
+  // Convert things like "MONT_Pool_Aerial_031" -> "Mont Pool Aerial 031"
+  return name
+    .replace(/[_-]+/g, ' ')
+    .replace(/\b([a-z])/g, (m) => m.toUpperCase())
+    .trim();
+}
+
+// Extract the last number in a string for numeric sorting (e.g. 031 -> 31)
+function trailingNumber(name: string) {
+  const m = name.match(/(\d+)(?!.*\d)/);
+  return m ? parseInt(m[1], 10) : Number.POSITIVE_INFINITY;
+}
+
+// Hand-authored captions to ensure descriptions match each image
+// Keyed by the basename without extension
+const metadata: Record<string, Partial<ImgItem>> = {
+  MONT_001: {
+    title: 'Lake and mountain panorama',
+    alt: 'Panoramic view of a blue lake framed by mountains',
+    caption: 'Panoramic lake and mountains near the estate.'
+  },
+  MONT_002: {
+    title: 'Grand salon with stone walls',
+    alt: 'Warm lounge with beamed ceiling and stone walls',
+    caption: 'Main salon with rustic stone, beams, and plush seating.'
+  },
+  MONT_003: {
+    title: 'Cozy living room nook',
+    alt: 'Intimate sitting area with tapestries and sofas',
+    caption: 'A comfortable corner for reading or conversation.'
+  },
+  MONT_004: {
+    title: 'Dining room with timber ceiling',
+    alt: 'Long wooden table in a rustic dining room',
+    caption: 'Characterful dining room ready for shared meals.'
+  },
+  MONT_005: {
+    title: 'Arched dining hall',
+    alt: 'Dining hall with arches and stone details',
+    caption: 'Elegant dining hall with historic ambience.'
+  },
+  MONT_006: {
+    title: 'Vaulted stone room',
+    alt: 'Vaulted stone interior with warm lighting',
+    caption: 'Atmospheric stone room with original character.'
+  },
+  MONT_007: {
+    title: 'Courtyard lounge',
+    alt: 'Outdoor lounge seating under an archway',
+    caption: 'Relaxed courtyard seating beside the main house.'
+  },
+  MONT_008: {
+    title: 'Seaside terrace',
+    alt: 'Round tables on a terrace by the sea',
+    caption: 'Waterside dining in a nearby coastal town.'
+  },
+  MONT_009: {
+    title: 'Beach umbrellas café',
+    alt: 'White umbrellas and lounge seating on the beach',
+    caption: 'Beachfront spot for a day trip or lunch.'
+  },
+  MONT_010: {
+    title: 'Historic riverside town',
+    alt: 'Stone bridge and hilltop town over a river',
+    caption: 'Picturesque nearby town—perfect for an afternoon stroll.'
+  },
+  MONT_011: {
+    title: 'Languedoc vineyards',
+    alt: 'Rolling green vineyards under a blue sky',
+    caption: 'Vineyard views typical of the surrounding countryside.'
+  },
+  MONT_012: {
+    title: 'Chef at work',
+    alt: 'Chef plating a dish in a kitchen',
+    caption: 'Private chef services available on request.'
+  },
+  MONT_013: {
+    title: 'Local fête scene',
+    alt: 'Children playing on a colorful swing ride',
+    caption: 'A glimpse of family-friendly events in the area.'
+  },
+  MONT_014: {
+    title: 'Sunset by the water',
+    alt: 'Silhouetted trees beside calm water at dusk',
+    caption: 'Quiet sunset moments along the shoreline.'
+  },
+  MONT_015: {
+    title: 'Evening over cypress',
+    alt: 'Warm sunset sky with distant hills and cypress',
+    caption: 'Evening light over the Mediterranean landscape.'
+  },
+  MONT_016: {
+    title: 'Bright double bedroom',
+    alt: 'Light-filled bedroom with armchair and artwork',
+    caption: 'Airy guest bedroom with soft tones.'
+  },
+  MONT_017: {
+    title: 'Bedroom with red accents',
+    alt: 'Double bed with red pillows and wall lamps',
+    caption: 'Comfortable double room with warm lighting.'
+  },
+  MONT_018: {
+    title: 'Ensuite shower room',
+    alt: 'Modern shower and vanity in light tones',
+    caption: 'Fresh ensuite with walk-in shower.'
+  },
+  MONT_019: {
+    title: 'Freestanding bath',
+    alt: 'Bathroom with freestanding tub and framed art',
+    caption: 'Relaxing bathroom with bathtub.'
+  },
+  MONT_020: {
+    title: 'Twin vanity bathroom',
+    alt: 'Bathroom with two basins and rustic details',
+    caption: 'Charming bathroom with double vanity.'
+  },
+  MONT_021: {
+    title: 'Stone courtyard',
+    alt: 'Shaded stone courtyard with tree and shutters',
+    caption: 'Traditional courtyard at the property.'
+  },
+  MONT_022: {
+    title: 'Soft blue bedroom',
+    alt: 'Bedroom with blue quilt and chandelier',
+    caption: 'Inviting double bedroom with classic décor.'
+  },
+  MONT_023: {
+    title: 'Garden trampoline',
+    alt: 'Trampoline under leafy trees in the garden',
+    caption: 'Great outdoor fun for younger guests.'
+  },
+  MONT_024: {
+    title: 'Table tennis by the pool',
+    alt: 'Blue outdoor table tennis beside the pool',
+    caption: 'Ping-pong with a view—by the water.'
+  },
+  MONT_025: {
+    title: 'Olive grove seating',
+    alt: 'Shaded garden with olive trees and bench',
+    caption: 'Quiet garden corner beneath mature olives.'
+  },
+  MONT_026: {
+    title: 'Covered terrace lounge',
+    alt: 'White sofas on a covered terrace',
+    caption: 'Shaded outdoor living space for warm days.'
+  },
+  MONT_030: {
+    title: 'Stone path and trees',
+    alt: 'Sunlit path beside stone walls and trees',
+    caption: 'Characterful exterior with Mediterranean planting.'
+  },
+  MONT_032: {
+    title: 'Beamed bedroom',
+    alt: 'Bedroom with ceiling beams and red cushions',
+    caption: 'Charming double room with beams.'
+  },
+  MONT_033: {
+    title: 'Twin bedroom with beams',
+    alt: 'Bedroom with exposed beams and two beds',
+    caption: 'Cozy twin/double sleeping under the rafters.'
+  },
+  MONT_034: {
+    title: 'Chandelier bedroom',
+    alt: 'Bright bedroom with chandelier and red accents',
+    caption: 'Elegant bedroom with classic touches.'
+  },
+  MONT_035: {
+    title: 'Light sitting-bedroom',
+    alt: 'Bright bedroom seating area in white tones',
+    caption: 'Serene guest room flooded with light.'
+  },
+  MONT_036: {
+    title: 'Outdoor fireplace patio',
+    alt: 'Covered terrace with fireplace and chimney',
+    caption: 'Evening gatherings by the outdoor hearth.'
+  },
+  MONT_037: {
+    title: 'Library salon',
+    alt: 'Warm salon with leather sofas and bookshelves',
+    caption: 'Grand salon with library feel and stone arches.'
+  },
+  MONT_038: {
+    title: 'Estate crest',
+    alt: 'Graphic of the estate crest and name',
+    caption: 'The estate insignia.'
+  },
+  MONT_039: {
+    title: 'House information sheet',
+    alt: 'Document with house information and inventory',
+    caption: 'Practical information for guests (illustrative).'
+  },
+  MONT_040: {
+    title: 'Sunset over hills',
+    alt: 'Soft sunset over vineyards and rolling hills',
+    caption: 'Golden hour across the valley.'
+  },
+  MONT_041: {
+    title: 'Dining by the river',
+    alt: 'Two people dining beside a riverside quay',
+    caption: 'Local riverside restaurants and cafés.'
+  },
+  MONT_Pool_027: {
+    title: 'Pool and palm',
+    alt: 'Pool terrace with palm and sun loungers',
+    caption: 'Sun-drenched pool with Mediterranean vibe.'
+  },
+  MONT_Pool_028: {
+    title: 'Lawn beside the pool',
+    alt: 'Long pool bordered by lawn and trees',
+    caption: 'Expansive garden surrounding the pool.'
+  },
+  MONT_Pool_029: {
+    title: 'Pool by the house',
+    alt: 'Pool with steps beside a stone façade',
+    caption: 'Swimming pool adjacent to the main house.'
+  },
+  MONT_Pool_Aerial_031: {
+    title: 'Aerial pool view',
+    alt: 'Aerial photo of the pool terrace',
+    caption: 'Bird’s-eye view of the pool area and deck.'
+  }
+};
+
+let images: ImgItem[] = providedImages;
+if (!images.length) {
+  const dirUrl = new URL('../../public/images/', import.meta.url);
+  const dirPath = fileURLToPath(dirUrl);
+  const allowed = new Set(['.jpg','.jpeg','.png','.webp','.gif','.avif']);
+  const files = fs.existsSync(dirPath) ? fs.readdirSync(dirPath) : [];
+
+  images = files
+    .filter(f => allowed.has(path.extname(f).toLowerCase()))
+    // Sort by the trailing number so 1..41 appear in sensible order even with extra words
+    .sort((a, b) => {
+      const an = trailingNumber(a);
+      const bn = trailingNumber(b);
+      if (an !== bn) return an - bn;
+      return a.localeCompare(b, undefined, { sensitivity: 'base' });
+    })
+    .map(file => {
+      const base = filenameBase(file);
+      const defaults = {
+        title: humanize(base),
+        alt: humanize(base),
+        caption: ''
+      } as ImgItem;
+      const meta = metadata[base] || {};
+      return {
+        src: `/images/${file}`,
+        alt: meta.alt ?? defaults.alt,
+        title: meta.title ?? defaults.title,
+        caption: meta.caption ?? defaults.title,
+        description: meta.description ?? meta.caption ?? defaults.caption
+      } as ImgItem;
+    });
+}
+---
+
+<div class="image-gallery" id="gallery">
+  {images.slice(0, 5).map((img, index) => (
+    <div 
+      class={`gallery-item ${index === 0 ? 'gallery-item-featured' : ''}`}
+      style={`background-image: url('${img.src}')`}
+      data-index={index}
+    >
+      <div class="gallery-overlay">
+        <h3>{img.title || img.alt}</h3>
+        <p>{img.description || img.caption}</p>
+      </div>
+    </div>
+  ))}
+  <a href="#" class="view-gallery-btn" data-action="open-gallery">View Full Gallery <i class="fas fa-arrow-right"></i></a>
+</div>
+
+<div class="gallery-modal" aria-hidden="true" role="dialog" aria-label="Image gallery">
+  <button class="gallery-close" aria-label="Close gallery"><i class="fas fa-times"></i></button>
+  <button class="gallery-nav prev" aria-label="Previous image"><i class="fas fa-chevron-left"></i></button>
+  <button class="gallery-nav next" aria-label="Next image"><i class="fas fa-chevron-right"></i></button>
+  
+  <div class="gallery-container">
+    <div class="gallery-track">
+      {images.map((img, index) => (
+        <figure class="gallery-slide" data-index={index}>
+          <div class="slide-image-container">
+            <img src={img.src} alt={img.alt} loading="lazy" />
+          </div>
+          {(img.caption || img.title) && <figcaption>{img.caption || img.title}</figcaption>}
+        </figure>
+      ))}
+    </div>
+  </div>
+  
+  <div class="gallery-counter" aria-live="polite"></div>
+  <div class="gallery-backdrop"></div>
+</div>
+
+<style>
+  .image-gallery {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+    margin-bottom: 60px;
+  }
+  
+  .gallery-item {
+    height: 400px;
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    cursor: pointer;
+    overflow: hidden;
+    border-radius: var(--border-radius);
+  }
+  
+  .gallery-item-featured {
+    grid-column: 1 / -1;
+    height: 500px;
+  }
+  
+  .gallery-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    padding: 30px;
+    background: linear-gradient(to top, rgba(0,0,0,0.4) 0%, transparent 60%);
+    color: var(--color-white);
+    transform: translateY(10px);
+    opacity: 0;
+    transition: var(--transition-fast);
+  }
+  
+  .gallery-item:hover .gallery-overlay {
+    transform: translateY(0);
+    opacity: 1;
+  }
+  
+  .gallery-overlay h3 {
+    font-size: 1.2rem;
+    margin-bottom: 8px;
+    font-weight: 400;
+  }
+  
+  .gallery-overlay p {
+    font-size: 0.9rem;
+    margin: 0;
+    opacity: 0.9;
+  }
+  
+  .view-gallery-btn {
+    display: inline-flex;
+    align-items: center;
+    margin-top: 20px;
+    font-size: 0.9rem;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: var(--color-accent);
+    font-weight: 500;
+    grid-column: 1 / -1;
+    text-decoration: none;
+    transition: var(--transition-fast);
+  }
+  
+  .view-gallery-btn:hover {
+    color: var(--color-black);
+  }
+  
+  .view-gallery-btn i {
+    margin-left: 10px;
+    transition: var(--transition-fast);
+  }
+  
+  .view-gallery-btn:hover i {
+    transform: translateX(5px);
+  }
+
+  /* Gallery Modal Styles */
+  .gallery-modal {
+    position: fixed;
+    inset: 0;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    z-index: 2000;
+  }
+  
+  .gallery-modal.active {
+    display: flex;
+  }
+  
+  .gallery-backdrop {
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.6);
+    backdrop-filter: saturate(120%) blur(2px);
+  }
+  
+  .gallery-container {
+    position: relative;
+    z-index: 1;
+    width: 90vw;
+    height: 85vh;
+    overflow: hidden;
+    border-radius: 12px;
+  }
+  
+  .gallery-track {
+    display: flex;
+    height: 100%;
+    transition: transform 0.45s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    will-change: transform;
+  }
+  
+  .gallery-slide {
+    flex: 0 0 100%;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 40px;
+    box-sizing: border-box;
+    margin: 0; /* remove default figure margins to keep slides aligned */
+  }
+  
+  .slide-image-container {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    overflow: hidden; /* Ensures no overflow artifacts */
+  }
+  
+  .gallery-slide img {
+    width: auto;
+    height: auto;
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+    border-radius: 8px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3); /* Softer shadow for beauty */
+    transition: transform 0.3s ease; /* Subtle zoom for engagement */
+  }
+  
+  .gallery-slide img:hover {
+    transform: scale(1.02);
+  }
+  
+  .gallery-slide figcaption {
+    margin-top: 20px;
+    color: #eee;
+    font-size: 1rem;
+    text-align: center;
+    max-width: 600px;
+    padding: 0 20px;
+  }
+  
+  .gallery-close {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    z-index: 2;
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    color: #fff;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    font-size: 1.4rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: var(--transition-fast);
+  }
+  
+  .gallery-close:hover {
+    background: rgba(255, 255, 255, 0.2);
+    transform: scale(1.1);
+  }
+  
+  .gallery-nav {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 2;
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    color: #fff;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    font-size: 1.2rem;
+    transition: var(--transition-fast);
+  }
+  
+  .gallery-nav:hover {
+    background: rgba(255, 255, 255, 0.2);
+    transform: translateY(-50%) scale(1.1);
+  }
+  
+  .gallery-nav.prev {
+    left: 20px;
+  }
+  
+  .gallery-nav.next {
+    right: 20px;
+  }
+  
+  .gallery-counter {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    color: #fff;
+    font-size: 1rem;
+    z-index: 2;
+    background: rgba(0, 0, 0, 0.5);
+    padding: 8px 16px;
+    border-radius: 20px;
+    backdrop-filter: blur(10px);
+  }
+  
+  @media (max-width: 768px) {
+    .image-gallery {
+      grid-template-columns: 1fr;
+    }
+    
+    .gallery-item-featured {
+      grid-column: 1;
+    }
+    
+    .gallery-item {
+      height: 300px;
+    }
+    
+    .gallery-item-featured {
+      height: 400px;
+    }
+    
+    .gallery-container {
+      width: 95vw;
+      height: 80vh;
+    }
+    
+    .gallery-slide {
+      padding: 20px;
+    }
+    
+    .gallery-close {
+      top: 10px;
+      right: 10px;
+      width: 44px;
+      height: 44px;
+    }
+    
+    .gallery-nav {
+      width: 50px;
+      height: 50px;
+    }
+    
+    .gallery-nav.prev {
+      left: 10px;
+    }
+    
+    .gallery-nav.next {
+      right: 10px;
+    }
+  }
+</style>
+
+<script>
+  if (typeof window !== 'undefined') {
+    const openBtn = document.querySelector('[data-action="open-gallery"]');
+    const modal = document.querySelector('.gallery-modal');
+    const track = document.querySelector('.gallery-track');
+    const slides = Array.from(document.querySelectorAll('.gallery-slide'));
+    const closeBtn = document.querySelector('.gallery-close');
+    const prevBtn = document.querySelector('.gallery-nav.prev');
+    const nextBtn = document.querySelector('.gallery-nav.next');
+    const counter = document.querySelector('.gallery-counter');
+    const grid = document.getElementById('gallery');
+    const backdrop = document.querySelector('.gallery-backdrop');
+    
+    let currentIndex = 0;
+    let isAnimating = false;
+
+    function normalizeTrackWidth() {
+      if (!(track instanceof HTMLElement) || !slides.length) return 0;
+      const container = track.parentElement; // .gallery-container
+      if (!(container instanceof HTMLElement)) return 0;
+      const containerWidth = container.offsetWidth;
+
+      slides.forEach((slide) => {
+        if (slide instanceof HTMLElement) {
+          slide.style.width = `${containerWidth}px`;
+          slide.style.flex = `0 0 ${containerWidth}px`;
+        }
+      });
+      track.style.width = `${containerWidth * slides.length}px`;
+      return containerWidth;
+    }
+
+    function updateGallery() {
+      if (!(track instanceof HTMLElement) || !slides.length) return;
+      const baseWidth = normalizeTrackWidth();
+      const offset = -currentIndex * baseWidth;
+      track.style.transform = `translate3d(${Math.round(offset)}px,0,0)`;
+      if (counter instanceof HTMLElement) counter.textContent = `${currentIndex + 1} / ${slides.length}`;
+    }
+
+    function openGallery(startIndex = 0) {
+      if (!(modal instanceof HTMLElement) || !slides.length) return;
+      currentIndex = Math.max(0, Math.min(startIndex, slides.length - 1));
+      modal.classList.add('active');
+      modal.setAttribute('aria-hidden', 'false');
+      document.body.style.overflow = 'hidden';
+      slides.forEach((slide) => {
+        const img = slide.querySelector('img');
+        if (img) img.setAttribute('loading', 'eager');
+      });
+      if (track instanceof HTMLElement) {
+        track.style.transition = 'none';
+      }
+      setTimeout(() => {
+        updateGallery();
+        if (track instanceof HTMLElement) track.style.removeProperty('transition');
+        const currentImg = slides[currentIndex]?.querySelector('img');
+        if (currentImg && !currentImg.complete) {
+          currentImg.onload = () => updateGallery();
+        }
+      }, 50);
+    }
+
+    function closeGallery() {
+      if (!(modal instanceof HTMLElement)) return;
+      modal.classList.remove('active');
+      modal.setAttribute('aria-hidden', 'true');
+      document.body.style.overflow = '';
+      currentIndex = 0;
+    }
+
+    function navigateGallery(direction) {
+      if (isAnimating || !slides.length) return;
+      isAnimating = true;
+      currentIndex = direction === 'next'
+        ? (currentIndex + 1) % slides.length
+        : (currentIndex - 1 + slides.length) % slides.length;
+      updateGallery();
+      setTimeout(() => { isAnimating = false; }, 450);
+    }
+
+    // Event Listeners
+    openBtn?.addEventListener('click', (e) => { e.preventDefault(); openGallery(0); });
+    closeBtn?.addEventListener('click', closeGallery);
+    prevBtn?.addEventListener('click', () => navigateGallery('prev'));
+    nextBtn?.addEventListener('click', () => navigateGallery('next'));
+    backdrop?.addEventListener('click', closeGallery);
+
+    // Keyboard navigation
+    document.addEventListener('keydown', (e) => {
+      if (!(modal instanceof HTMLElement) || !modal.classList.contains('active')) return;
+      if (e.key === 'Escape') closeGallery();
+      if (e.key === 'ArrowLeft') navigateGallery('prev');
+      if (e.key === 'ArrowRight') navigateGallery('next');
+    });
+
+    // Open gallery when clicking on grid items
+    if (grid) {
+      grid.querySelectorAll('.gallery-item').forEach((item, index) => {
+        item.addEventListener('click', () => openGallery(index));
+      });
+    }
+
+    // Handle window resize
+    window.addEventListener('resize', () => {
+      if (modal instanceof HTMLElement && modal.classList.contains('active')) {
+        if (track instanceof HTMLElement) track.style.transition = 'none';
+        updateGallery();
+        setTimeout(() => { if (track instanceof HTMLElement) track.style.removeProperty('transition'); }, 0);
+      }
+    });
+
+    // Preload images for smoother experience
+    window.addEventListener('load', () => {
+      slides.forEach((slide) => {
+        const img = slide.querySelector('img');
+        if (img) {
+          const preloadImg = new Image();
+          preloadImg.src = img.src;
+        }
+      });
+    });
+  }
+  </script>
