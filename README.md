@@ -10,6 +10,10 @@ World-class, multi-villa static site generator focused on luxury presentation, S
 - Basic Schema.org JSON-LD (LodgingBusiness/TouristAccommodation + Offers)
 - Image placeholders referencing existing WebP assets (optimize via `@astrojs/image` + Sharp)
 
+## Key Docs
+- Project analysis: [PROJECT_ANALYSIS.md](./PROJECT_ANALYSIS.md)
+- Production & scaling plan: [PRODUCTION_SCALING_PLAN.md](./PRODUCTION_SCALING_PLAN.md)
+
 ## Roadmap
 1. Multi-language routing (en/fr/es) with dynamic `[lang]/[villa]/` pages.
 2. Expand structured data: FAQPage, BreadcrumbList, SpeakableSpecification.
@@ -30,10 +34,12 @@ npm run preview
 ## Environment Variables
 Create a `.env` file for secrets (not committed):
 ```
-RESEND_API_KEY=your_key_here
-SITE_URL=https://your-production-domain
+`RESEND_API_KEY=your_key_here
+OWNER_EMAIL=reservations@domaine-desmontarels.com
+FROM_EMAIL=no-reply@domaine-desmontarels.com
+SITE_URL=https://www.domaine-desmontarels.com
 ```
-Update `astro.config.mjs` site property after domain is set.
+`astro.config.mjs` is already set to the production site URL.
 
 ## Adding a Villa
 Create `src/content/villas/<slug>.<lang>.json` with fields matching the English example. Ensure first image is LCP hero.
