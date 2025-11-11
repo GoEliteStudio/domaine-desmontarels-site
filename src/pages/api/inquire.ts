@@ -1,12 +1,13 @@
 import type { APIRoute } from 'astro';
+import { Resend } from 'resend';
 
 type InquireBody = {
   fullName?: string;
   email?: string;
   checkIn?: string;
   checkOut?: string;
-  adults?: string;
-  children?: string;
+  adults?: string | number;
+  children?: string | number;
   notes?: string;
   company?: string; // honeypot
 };
@@ -14,10 +15,27 @@ type InquireBody = {
 const required = (v?: string) => typeof v === 'string' && v.trim().length > 0;
 const isEmail = (v?: string) => !!v && /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v);
 
-export const POST: APIRoute = async ({ request }) => {
+async function parseBody(request: Request): Promise<InquireBody> {
+  const ct = request.headers.get('content-type') || '';
+  try {
+    if (ct.includes('application/json')) {
+      const json = (await request.json()) as any;
+      return json as InquireBody;
+    }
+  } catch (e) {
+    // fall through to form parsing
+  }
   try {
     const formData = await request.formData();
-    const data: InquireBody = Object.fromEntries(formData.entries()) as any;
+    return Object.fromEntries(formData.entries()) as any as InquireBody;
+  } catch {
+    return {};
+  }
+}
+
+export const POST: APIRoute = async ({ request }) => {
+  try {
+    const data = await parseBody(request);
 
     // Honeypot (bot) check — pretend success silently
     if (required(data.company)) {
@@ -36,8 +54,8 @@ export const POST: APIRoute = async ({ request }) => {
 
     // Normalized payload
     const payload = {
-      fullName: data.fullName!.trim(),
-      email: data.email!.trim(),
+      fullName: String(data.fullName!).trim(),
+      email: String(data.email!).trim(),
       checkIn: String(data.checkIn),
       checkOut: String(data.checkOut),
       adults: Number(data.adults ?? '2') || 2,
@@ -47,10 +65,10 @@ export const POST: APIRoute = async ({ request }) => {
       ip: request.headers.get('x-forwarded-for') || undefined
     };
 
-    // Env-gated email send via Resend
+    // Env
     const RESEND_API_KEY = import.meta.env.RESEND_API_KEY || process.env.RESEND_API_KEY;
     const OWNER_EMAIL = import.meta.env.OWNER_EMAIL || process.env.OWNER_EMAIL || 'reservations@domaine-desmontarels.com';
-    const FROM_EMAIL  = import.meta.env.FROM_EMAIL  || process.env.FROM_EMAIL  || 'no-reply@domaine-desmontarels.com';
+    const FROM_EMAIL = import.meta.env.FROM_EMAIL || process.env.FROM_EMAIL || 'no-reply@domaine-desmontarels.com';
 
     const subject = `New Inquiry — ${payload.fullName} (${payload.checkIn} → ${payload.checkOut})`;
 
@@ -66,29 +84,25 @@ export const POST: APIRoute = async ({ request }) => {
       <hr />
       <small>UA: ${escapeHtml(payload.userAgent || '')} | IP: ${escapeHtml(String(payload.ip || ''))}</small>
     `;
+    const text = `New Inquiry\n\nName: ${payload.fullName}\nEmail: ${payload.email}\nDates: ${payload.checkIn} → ${payload.checkOut}\nGuests: ${payload.adults} adults, ${payload.children} children\n\nNotes: ${payload.notes}`;
 
     if (!RESEND_API_KEY) {
       console.log('[inquire] (NOOP) Would send email:', { to: OWNER_EMAIL, from: FROM_EMAIL, subject, payload });
       return new Response(JSON.stringify({ ok: true, preview: true }), { status: 200 });
     }
 
-    const sendRes = await fetch('https://api.resend.com/emails', {
-      method: 'POST',
-      headers: {
-        Authorization: `Bearer ${RESEND_API_KEY}`,
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify({
-        from: `Domaine des Montarels <${FROM_EMAIL}>`,
-        to: [OWNER_EMAIL, payload.email],
-        subject,
-        html
-      })
+    const resend = new Resend(RESEND_API_KEY);
+    const sendResult = await resend.emails.send({
+      from: `Domaine des Montarels <${FROM_EMAIL}>`,
+      to: [OWNER_EMAIL, payload.email],
+      subject,
+      html,
+      text,
+      reply_to: payload.email
     });
 
-    if (!sendRes.ok) {
-      const text = await sendRes.text();
-      console.error('[inquire] Resend error:', text);
+    if ((sendResult as any).error) {
+      console.error('[inquire] Resend error:', (sendResult as any).error);
       return new Response(JSON.stringify({ ok: false }), { status: 500 });
     }
 
@@ -105,7 +119,7 @@ function escapeHtml(s: string) {
     .replaceAll('<', '&lt;')
     .replaceAll('>', '&gt;')
     .replaceAll('"', '&quot;')
-    .replaceAll("'", '&#39;');
+    .replaceAll('\'', '&#39;');
 }
 
 export const prerender = false; // keep server route
