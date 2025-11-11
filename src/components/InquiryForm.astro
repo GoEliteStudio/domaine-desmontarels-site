@@ -50,6 +50,13 @@
     statusEl.textContent = 'Sending…';
     const formEl = document.getElementById('inquire-form');
     if (!(formEl instanceof HTMLFormElement)) return;
+    // basic client-side validation
+    if (!formEl.checkValidity()) {
+      formEl.reportValidity();
+      statusEl.textContent = 'Please fill in the required fields.';
+      statusEl.classList.add('error');
+      return;
+    }
     const btn = formEl.querySelector('.btn-submit');
     if (btn) { btn.setAttribute('disabled','true'); btn.classList.add('is-loading'); }
     try {
@@ -59,7 +66,17 @@
         statusEl.classList.add('success');
         formEl.reset();
       } else {
-        statusEl.textContent = 'Sorry, something went wrong. Please try again or email us directly.';
+        let msg = 'Sorry, something went wrong. Please try again or email us directly.';
+        try {
+          const data = await res.json();
+          if (data?.errors) {
+            const first = Object.keys(data.errors)[0];
+            if (first) msg = `${first}: ${data.errors[first]}`;
+          } else if (data?.error) {
+            msg = String(data.error);
+          }
+        } catch {}
+        statusEl.textContent = msg;
         statusEl.classList.add('error');
       }
     } catch (e) {

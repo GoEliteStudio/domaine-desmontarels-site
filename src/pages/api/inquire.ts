@@ -3,9 +3,12 @@ import { Resend } from 'resend';
 
 type InquireBody = {
   fullName?: string;
+  name?: string; // accept alternate key from external clients
   email?: string;
   checkIn?: string;
   checkOut?: string;
+  checkInDate?: string; // alternate key tolerance
+  checkOutDate?: string;
   adults?: string | number;
   children?: string | number;
   notes?: string;
@@ -37,6 +40,11 @@ export const POST: APIRoute = async ({ request }) => {
   try {
     const data = await parseBody(request);
 
+    // Normalize alternate keys
+    if (!data.fullName && data.name) data.fullName = data.name;
+    if (!data.checkIn && data.checkInDate) data.checkIn = data.checkInDate;
+    if (!data.checkOut && data.checkOutDate) data.checkOut = data.checkOutDate;
+
     // Honeypot (bot) check — pretend success silently
     if (required(data.company)) {
       return new Response(JSON.stringify({ ok: true }), { status: 200 });
@@ -49,7 +57,7 @@ export const POST: APIRoute = async ({ request }) => {
     if (!required(data.checkIn)) errors.checkIn = 'Required';
     if (!required(data.checkOut)) errors.checkOut = 'Required';
     if (Object.keys(errors).length) {
-      return new Response(JSON.stringify({ ok: false, errors }), { status: 400 });
+      return new Response(JSON.stringify({ ok: false, errors }), { status: 400, headers: { 'Content-Type': 'application/json' } });
     }
 
     // Normalized payload
@@ -88,7 +96,7 @@ export const POST: APIRoute = async ({ request }) => {
 
     if (!RESEND_API_KEY) {
       console.log('[inquire] (NOOP) Would send email:', { to: OWNER_EMAIL, from: FROM_EMAIL, subject, payload });
-      return new Response(JSON.stringify({ ok: true, preview: true }), { status: 200 });
+      return new Response(JSON.stringify({ ok: true, preview: true }), { status: 200, headers: { 'Content-Type': 'application/json' } });
     }
 
     const resend = new Resend(RESEND_API_KEY);
@@ -103,13 +111,13 @@ export const POST: APIRoute = async ({ request }) => {
 
     if ((sendResult as any).error) {
       console.error('[inquire] Resend error:', (sendResult as any).error);
-      return new Response(JSON.stringify({ ok: false }), { status: 500 });
+      return new Response(JSON.stringify({ ok: false, error: 'Email send failed' }), { status: 500, headers: { 'Content-Type': 'application/json' } });
     }
 
-    return new Response(JSON.stringify({ ok: true }), { status: 200 });
+    return new Response(JSON.stringify({ ok: true }), { status: 200, headers: { 'Content-Type': 'application/json' } });
   } catch (err) {
     console.error('[inquire] Fatal error:', err);
-    return new Response(JSON.stringify({ ok: false }), { status: 500 });
+    return new Response(JSON.stringify({ ok: false, error: 'Internal error' }), { status: 500, headers: { 'Content-Type': 'application/json' } });
   }
 };
 
