@@ -32,7 +32,7 @@ const {
   <meta name="author" content="Go Elite Studio" />
     {canonical && <link rel="canonical" href={canonical} />}
     {lcpImage && (
-      <link rel="preload" as="image" href={lcpImage} imagesrcset={`${lcpImage}.avif 1x, ${lcpImage}.webp 1x, ${lcpImage} 1x`} fetchpriority="high" />
+      <link rel="preload" as="image" href={lcpImage} fetchpriority="high" />
     )}
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
