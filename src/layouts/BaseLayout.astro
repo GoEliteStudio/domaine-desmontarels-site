@@ -172,15 +172,20 @@ const {
       }
       
       .logo {
-        font-size: 1.8rem;
-        letter-spacing: 3px;
+        font-size: clamp(1.2rem, 2.2vw, 1.8rem);
+        letter-spacing: clamp(1px, 0.25vw, 3px);
         font-weight: 600;
         font-family: var(--font-serif);
+        white-space: nowrap; /* prevent brand from breaking into two rows */
+        overflow: hidden;    /* avoid layout shift if space is tight */
+        text-overflow: ellipsis;
       }
       
       .nav-links {
         display: flex;
         align-items: center;
+        gap: 6px;
+        flex-wrap: nowrap;
       }
       
       .nav-link {
@@ -227,6 +232,14 @@ const {
         background: none;
         border: none;
         color: var(--color-black);
+      }
+
+      /* Earlier mobile breakpoint to avoid header crowding */
+      @media (max-width: 1100px) {
+        .nav-links { display: none; }
+        .mobile-menu-btn { display: block; }
+        header { padding: 16px 24px; }
+        .logo { letter-spacing: 1px; }
       }
       
       /* Enhanced Main Layout */
