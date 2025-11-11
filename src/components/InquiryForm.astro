@@ -61,21 +61,24 @@
     if (btn) { btn.setAttribute('disabled','true'); btn.classList.add('is-loading'); }
     try {
       const res = await fetch('/api/inquire', { method: 'POST', body: new FormData(formEl) });
+      let data = null;
+      try { data = await res.clone().json(); } catch {}
       if (res.ok) {
-        statusEl.textContent = 'Thank you! We\u2019ve received your inquiry.';
+        if (data && data.preview) {
+          statusEl.textContent = 'Received (preview mode). Email sending is not enabled on this deployment.';
+        } else {
+          statusEl.textContent = 'Thank you! We\u2019ve received your inquiry.';
+        }
         statusEl.classList.add('success');
         formEl.reset();
       } else {
         let msg = 'Sorry, something went wrong. Please try again or email us directly.';
-        try {
-          const data = await res.json();
-          if (data?.errors) {
-            const first = Object.keys(data.errors)[0];
-            if (first) msg = `${first}: ${data.errors[first]}`;
-          } else if (data?.error) {
-            msg = String(data.error);
-          }
-        } catch {}
+        if (data?.errors) {
+          const first = Object.keys(data.errors)[0];
+          if (first) msg = `${first}: ${data.errors[first]}`;
+        } else if (data?.error) {
+          msg = String(data.error);
+        }
         statusEl.textContent = msg;
         statusEl.classList.add('error');
       }

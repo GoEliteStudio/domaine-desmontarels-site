@@ -114,7 +114,9 @@ export const POST: APIRoute = async ({ request }) => {
       return new Response(JSON.stringify({ ok: false, error: 'Email send failed' }), { status: 500, headers: { 'Content-Type': 'application/json' } });
     }
 
-    return new Response(JSON.stringify({ ok: true }), { status: 200, headers: { 'Content-Type': 'application/json' } });
+    const id = (sendResult as any)?.data?.id || (sendResult as any)?.id || undefined;
+    console.log('[inquire] Email sent', { id, to: OWNER_EMAIL });
+    return new Response(JSON.stringify({ ok: true, id }), { status: 200, headers: { 'Content-Type': 'application/json' } });
   } catch (err) {
     console.error('[inquire] Fatal error:', err);
     return new Response(JSON.stringify({ ok: false, error: 'Internal error' }), { status: 500, headers: { 'Content-Type': 'application/json' } });
