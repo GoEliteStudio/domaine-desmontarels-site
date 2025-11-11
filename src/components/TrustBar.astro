@@ -13,7 +13,11 @@ const { items = [] } = Astro.props as { items: Badge[] };
   <div class="trust-logos">
     {items.map((badge, index) => (
       <div class="functional-badge">
-        <span class="badge-icon">{badge.icon}</span>
+        <span class="badge-icon" aria-hidden="true">
+          {badge.icon.includes('fa-') || badge.icon.startsWith('fas ') || badge.icon.startsWith('far ') || badge.icon.startsWith('fab ')
+            ? (<i class={badge.icon}></i>)
+            : badge.icon}
+        </span>
         <div class="badge-text">{badge.title}</div>
         <div class="badge-details">{badge.detail}</div>
       </div>
@@ -26,16 +30,16 @@ const { items = [] } = Astro.props as { items: Badge[] };
     background-color: var(--color-off-white);
     border-top: 1px solid var(--color-gray-light);
     border-bottom: 1px solid var(--color-gray-light);
-    padding: 60px 0;
+    padding: 22px 0; /* tightened from 28px */
     text-align: center;
   }
   
   .trust-bar h4 {
     font-family: var(--font-sans);
-    font-size: 0.9rem;
+    font-size: 0.85rem;
     text-transform: uppercase;
     letter-spacing: 2px;
-    margin-bottom: 40px;
+    margin-bottom: 20px; /* tightened */
     color: #777;
     font-weight: 400;
   }
@@ -43,7 +47,7 @@ const { items = [] } = Astro.props as { items: Badge[] };
   .trust-logos {
     display: flex;
     justify-content: center;
-    gap: 40px;
+    gap: 28px;
     flex-wrap: wrap;
     max-width: 1200px;
     margin: 0 auto;
@@ -53,7 +57,7 @@ const { items = [] } = Astro.props as { items: Badge[] };
     text-align: center;
     max-width: 200px;
     color: var(--color-black);
-    padding: 20px 15px;
+    padding: 16px 12px;
     border-radius: var(--border-radius);
     transition: var(--transition-fast);
   }
@@ -66,9 +70,10 @@ const { items = [] } = Astro.props as { items: Badge[] };
   .badge-icon {
     font-size: 2.2rem;
     color: var(--color-accent);
-    margin-bottom: 15px;
+    margin-bottom: 12px;
     display: block;
     transition: var(--transition-fast);
+    line-height: 1;
   }
   
   .functional-badge:hover .badge-icon {
@@ -93,22 +98,11 @@ const { items = [] } = Astro.props as { items: Badge[] };
   }
   
   @media (max-width: 768px) {
-    .trust-bar {
-      padding: 40px 0;
-    }
-    
-    .trust-logos {
-      gap: 20px;
-    }
-    
-    .functional-badge {
-      max-width: 160px;
-      padding: 15px 10px;
-    }
-    
-    .badge-icon {
-      font-size: 1.8rem;
-    }
+    .trust-bar { padding: 16px 0; }
+    .trust-bar h4 { margin-bottom: 16px; }
+    .trust-logos { gap: 10px; }
+    .functional-badge { max-width: 150px; padding: 6px 6px; }
+    .badge-icon { font-size: 1.5rem; margin-bottom: 8px; }
   }
 </style>
 

@@ -8,7 +8,7 @@ export interface Tab {
 }
 const { tabs } = Astro.props as { tabs: Tab[] };
 ---
-<div class="tabs" style="margin:50px 0">
+<div class="tabs">
   <div role="tablist" aria-label="Villa content" class="tablist">
     {tabs.map((t, i) => (
       <button role="tab" aria-selected={i===0 ? 'true' : 'false'} aria-controls={t.id} id={`${t.id}-tab`} class="tab-button" data-target={t.id} tabindex={i===0 ? 0 : -1}>{t.label}</button>
@@ -28,11 +28,12 @@ const { tabs } = Astro.props as { tabs: Tab[] };
 </div>
 
 <style>
+  .tabs { margin: 28px 0; }
   .tablist {
     display: flex;
     flex-wrap: wrap;
     border-bottom: 1px solid var(--color-gray-light);
-    margin-bottom: 50px;
+    margin-bottom: 28px;
     gap: 10px;
   }
 
@@ -96,7 +97,9 @@ const { tabs } = Astro.props as { tabs: Tab[] };
   .amenity-list li:before { content: '\2713'; position: absolute; left: 0; top: 12px; color: var(--color-accent); font-weight: 600; }
   
   @media (max-width: 768px) {
-    .tablist {margin-bottom:28px;gap:6px;}
+    /* Mobile centering + tighter vertical rhythm */
+    .tabs { width:100%; margin:16px 0; }
+    .tablist {margin-bottom:12px;gap:6px;justify-content:center;width:100%;margin-left:auto;margin-right:auto;}
     .tab-button {padding:12px 16px;font-size:.95rem;}
     .tab-panel {padding:6px 0 30px;}
     .tab-panel h2 {font-size:1.4rem;}

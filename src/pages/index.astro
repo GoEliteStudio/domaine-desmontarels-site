@@ -115,10 +115,10 @@ const breadcrumbs = {
 
 const jsonLd = [org, webPage, breadcrumbs, lodging, ...imageObjects.map(io => ({ '@context': 'https://schema.org', ...io }))];
 const trustItems = [
-  { icon: '↻', title: 'Flexible Cancellation', detail: 'Full refund up to 60 days prior' },
-  { icon: '⚿', title: 'Secure Contract', detail: 'Stripe-protected agreements' },
-  { icon: '☎', title: 'Concierge', detail: 'Hosts Ian & Katie on-call' },
-  { icon: '✓', title: 'Transparent Pricing', detail: 'No hidden booking fees' }
+  { icon: 'fas fa-rotate-left', title: 'Flexible Cancellation', detail: 'Full refund up to 60 days prior' },
+  { icon: 'fas fa-shield', title: 'Secure Contract', detail: 'Stripe-protected agreements' },
+  { icon: 'fas fa-phone', title: 'Concierge', detail: 'Hosts Ian & Katie on-call' },
+  { icon: 'fas fa-circle-check', title: 'Transparent Pricing', detail: 'No hidden booking fees' }
 ];
 const galleryImages = villa.images; // showcase all images; component will feature the first few in-grid
 const specs = [
@@ -223,11 +223,11 @@ const priceNote = primarySeason?.label && primarySeason.currency ? `${primarySea
     </section>
   )}
   <style>
-    .experience{display:grid;gap:48px;margin:110px auto;grid-template-columns:minmax(0,2fr) minmax(280px,1fr);align-items:start}
-    .experience-content{display:grid;gap:40px}
+  .experience{display:grid;gap:22px;margin:40px auto;grid-template-columns:minmax(0,2fr) minmax(280px,1fr);align-items:start}
+  .experience-content{display:grid;gap:20px}
     .experience-intro{max-width:720px;font-size:1.1rem;color:var(--color-muted)}
     /* Hosts */
-    .hosts{margin:120px auto}
+  .hosts{margin:56px auto}
     .hosts-wrapper{display:grid;grid-template-columns:1.15fr 1.85fr;gap:28px;align-items:stretch}
     .hosts-media{margin:0;border-radius:18px;overflow:hidden;box-shadow:0 18px 40px rgba(0,0,0,.12);background:#000}
     .hosts-media img{display:block;width:100%;height:100%;object-fit:cover;filter:saturate(106%)}
@@ -240,22 +240,22 @@ const priceNote = primarySeason?.label && primarySeason.currency ? `${primarySea
     .hosts-highlights i{color:var(--color-accent);width:18px;text-align:center}
     
     @media (max-width:1100px){.experience{grid-template-columns:1fr}}
-  @media (max-width:900px){.hosts-wrapper{grid-template-columns:1fr}.hosts{margin:90px auto}.hosts-card{padding:28px}}
-  @media (max-width:700px){.experience{margin:80px auto}}
+  @media (max-width:900px){.hosts-wrapper{grid-template-columns:1fr}.hosts{margin:48px auto}.hosts-card{padding:22px}}
+  @media (max-width:700px){.experience{margin:28px auto}}
     /* Testimonials */
-    .testimonials{margin:120px auto}
+  .testimonials{margin:56px auto}
     .testimonials .quotes{
       list-style:none;
       padding:0;
       display:grid;
-      gap:20px;
+  gap:14px;
       grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
     }
     .testimonials .quotes li{
       background: linear-gradient(180deg,#fff,#fafafa);
       border:1px solid #eee;
       border-radius:14px;
-      padding:22px 24px 20px 24px;
+  padding:16px 18px 14px 18px;
       box-shadow:0 10px 24px rgba(0,0,0,.06);
       position:relative;
       transition:transform .25s ease, box-shadow .25s ease;
