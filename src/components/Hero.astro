@@ -13,14 +13,31 @@ const { title, subtitle, images = [], alt, ctaHref = '#overview', ctaText = 'Dis
 ---
 
 <section class="hero">
+  <!-- Hero media: first image as <picture> for optimal LCP; remaining images layered for fade slideshow -->
   <div class="hero-slideshow">
     {images.map((image, index) => (
-      <div 
-        class={`hero-slide ${index === 0 ? 'active' : ''}`}
-        style={`background-image: url('${image}')`}
-        role="img"
-        aria-label={index === 0 ? alt : `${alt} - view ${index + 1}`}
-      ></div>
+      index === 0 ? (
+        <picture class={`hero-picture ${index === 0 ? 'active' : ''}`}>
+          <source srcset={`${image}.avif`} type="image/avif" />
+          <source srcset={`${image}.webp`} type="image/webp" />
+          <img 
+            src={image} 
+            alt={alt} 
+            width="1600" 
+            height="900" 
+            loading="eager" 
+            fetchpriority="high" 
+            decoding="async" 
+            class="hero-img" />
+        </picture>
+      ) : (
+        <div 
+          class={`hero-slide ${index === 0 ? 'active' : ''}`}
+          style={`background-image: url('${image}')`}
+          role="img"
+          aria-label={`${alt} - view ${index + 1}`}
+        ></div>
+      )
     ))}
   </div>
   <div class="hero-overlay"></div>
@@ -54,7 +71,7 @@ const { title, subtitle, images = [], alt, ctaHref = '#overview', ctaText = 'Dis
     z-index: 1;
   }
   
-  .hero-slide {
+  .hero-slide, .hero-picture {
     position: absolute;
     top: 0;
     left: 0;
@@ -66,9 +83,11 @@ const { title, subtitle, images = [], alt, ctaHref = '#overview', ctaText = 'Dis
     transition: opacity 1.5s ease;
   }
   
-  .hero-slide.active {
+  .hero-slide.active, .hero-picture.active {
     opacity: 1;
   }
+  .hero-picture {display:flex;align-items:center;justify-content:center;overflow:hidden;}
+  .hero-picture img.hero-img {width:100%;height:100%;object-fit:cover;display:block;}
   
   .hero-overlay {
     position: absolute;
@@ -188,7 +207,7 @@ const { title, subtitle, images = [], alt, ctaHref = '#overview', ctaText = 'Dis
   // Hero slideshow functionality
   if (typeof window !== 'undefined') {
     let currentSlide = 0;
-    const slides = document.querySelectorAll('.hero-slide');
+  const slides = document.querySelectorAll('.hero-slide, .hero-picture');
     
     function nextSlide() {
       if (slides.length > 1) {

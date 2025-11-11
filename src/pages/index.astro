@@ -173,7 +173,7 @@ const primarySeason = villa.seasons[0];
 const priceDisplay = primarySeason?.priceDisplay ?? 'Rate on Request';
 const priceNote = primarySeason?.label && primarySeason.currency ? `${primarySeason.label} — ${primarySeason.currency}` : undefined;
 ---
-<BaseLayout title={pageTitle} description={villa.summary} canonical={canonical} jsonLd={jsonLd}>
+<BaseLayout title={pageTitle} description={villa.summary} canonical={canonical} jsonLd={jsonLd} hasStickyPanel={true} lcpImage={heroImages[0]}>
   <Hero
     title={villa.hero.title}
     subtitle={villa.hero.subtitle}
