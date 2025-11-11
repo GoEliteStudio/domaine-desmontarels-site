@@ -1,5 +1,7 @@
 import type { APIRoute } from 'astro';
 import { Resend } from 'resend';
+import { sendClientReceipt } from '../../lib/clientReceipt';
+import { ownerNoticeHtml, ownerNoticeText } from '../../lib/ownerNotice';
 
 type InquireBody = {
   fullName?: string;
@@ -76,23 +78,13 @@ export const POST: APIRoute = async ({ request }) => {
     // Env
     const RESEND_API_KEY = import.meta.env.RESEND_API_KEY || process.env.RESEND_API_KEY;
     const OWNER_EMAIL = import.meta.env.OWNER_EMAIL || process.env.OWNER_EMAIL || 'reservations@domaine-desmontarels.com';
-    const FROM_EMAIL = import.meta.env.FROM_EMAIL || process.env.FROM_EMAIL || 'no-reply@domaine-desmontarels.com';
+  // Use verified domain sender to maximize deliverability
+  const FROM_EMAIL = import.meta.env.FROM_EMAIL || process.env.FROM_EMAIL || 'contact@visaiq.co';
 
     const subject = `New Inquiry — ${payload.fullName} (${payload.checkIn} → ${payload.checkOut})`;
 
-    const html = `
-      <h2>Domaine des Montarels — New Inquiry</h2>
-      <ul>
-        <li><strong>Name:</strong> ${escapeHtml(payload.fullName)}</li>
-        <li><strong>Email:</strong> ${escapeHtml(payload.email)}</li>
-        <li><strong>Dates:</strong> ${escapeHtml(payload.checkIn)} → ${escapeHtml(payload.checkOut)}</li>
-        <li><strong>Guests:</strong> ${payload.adults} adults, ${payload.children} children</li>
-      </ul>
-      ${payload.notes ? `<p><strong>Notes:</strong> ${escapeHtml(payload.notes)}</p>` : ''}
-      <hr />
-      <small>UA: ${escapeHtml(payload.userAgent || '')} | IP: ${escapeHtml(String(payload.ip || ''))}</small>
-    `;
-    const text = `New Inquiry\n\nName: ${payload.fullName}\nEmail: ${payload.email}\nDates: ${payload.checkIn} → ${payload.checkOut}\nGuests: ${payload.adults} adults, ${payload.children} children\n\nNotes: ${payload.notes}`;
+    const html = ownerNoticeHtml(payload);
+    const text = ownerNoticeText(payload);
 
     if (!RESEND_API_KEY) {
       console.log('[inquire] (NOOP) Would send email:', { to: OWNER_EMAIL, from: FROM_EMAIL, subject, payload });
@@ -100,9 +92,10 @@ export const POST: APIRoute = async ({ request }) => {
     }
 
     const resend = new Resend(RESEND_API_KEY);
+    // Internal notification (owner only)
     const sendResult = await resend.emails.send({
       from: `Domaine des Montarels <${FROM_EMAIL}>`,
-      to: [OWNER_EMAIL, payload.email],
+      to: OWNER_EMAIL,
       subject,
       html,
       text,
@@ -115,7 +108,32 @@ export const POST: APIRoute = async ({ request }) => {
     }
 
     const id = (sendResult as any)?.data?.id || (sendResult as any)?.id || undefined;
-    console.log('[inquire] Email sent', { id, to: OWNER_EMAIL });
+    console.log('[inquire] Owner email sent', { id, to: OWNER_EMAIL });
+
+    // Send branded client receipt (non-blocking)
+    (async () => {
+      try {
+        await sendClientReceipt({
+          apiKey: RESEND_API_KEY!,
+          from: 'Domaine des Montarels <contact@visaiq.co>', // verified sender domain
+          replyTo: OWNER_EMAIL,
+          to: payload.email,
+          data: payload as any
+        });
+        console.log('[inquire] Client receipt sent', { to: payload.email });
+      } catch (e) {
+        console.warn('[inquire] Client receipt failed:', (e as any)?.message || e);
+      }
+    })();
+
+    const accept = (request.headers.get('accept') || '').toLowerCase();
+    if (accept.includes('text/html')) {
+      const ty = new URL('/thank-you', request.url);
+      ty.searchParams.set('name', payload.fullName);
+      ty.searchParams.set('d', `${payload.checkIn} → ${payload.checkOut}`);
+      return Response.redirect(ty.toString(), 303);
+    }
+
     return new Response(JSON.stringify({ ok: true, id }), { status: 200, headers: { 'Content-Type': 'application/json' } });
   } catch (err) {
     console.error('[inquire] Fatal error:', err);

@@ -1,0 +1,38 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+const url = new URL(Astro.request.url);
+// Minimal sanitization: we only display as text, no HTML injection
+const rawName = url.searchParams.get('name') || 'your inquiry';
+const rawDates = url.searchParams.get('d') || '';
+function esc(s:string){return s.replaceAll('&','&amp;').replaceAll('<','&lt;').replaceAll('>','&gt;').replaceAll('"','&quot;').replaceAll("'",'&#39;');}
+const name = esc(rawName).slice(0,100);
+const dates = esc(rawDates).slice(0,100);
+const title = 'Thank you — Domaine des Montarels';
+const description = 'We received your inquiry. Our concierge will reply shortly.';
+const canonical = 'https://www.domaine-desmontarels.com/thank-you';
+---
+<BaseLayout title={title} description={description} canonical={canonical}>
+  <section class="container ty" aria-labelledby="ty-heading">
+    <h1 id="ty-heading" class="section-title">Thank you</h1>
+    <p class="lead">We’ve received <strong>{name}</strong>. {dates && <><span class="dates">Requested dates: <strong>{dates}</strong>.</span> </>}Our concierge will reply shortly with availability and next steps.</p>
+    <div class="actions" aria-label="Concierge contact options">
+      <a class="btn" href={`https://wa.me/15164936070?text=${encodeURIComponent('Hi Montarels team, I just submitted an inquiry.')}`}>WhatsApp Concierge</a>
+      <a class="btn secondary" href="mailto:reservations@domaine-desmontarels.com">Email Concierge</a>
+      <a class="btn ghost" href="/">Return Home</a>
+    </div>
+    <p class="tip">Tip: if you need to adjust dates or guest count, just reply to the confirmation email you received.</p>
+  </section>
+  <style>
+    .ty{max-width:760px;margin:120px auto 80px;}
+    .ty .lead{font-size:1.15rem;line-height:1.8;color:#444;}
+    .ty .actions{display:flex;flex-wrap:wrap;gap:12px;margin:28px 0 8px;}
+    .ty .btn{display:inline-block;background:var(--color-black,#111);color:#fff;text-decoration:none;padding:14px 22px;font:600 13px var(--font-sans);letter-spacing:.12em;text-transform:uppercase;border-radius:8px;transition:background .25s ease,box-shadow .25s ease;}
+    .ty .btn:hover{background:var(--color-accent,#a58e76);box-shadow:0 10px 24px rgba(165,142,118,.28);}
+    .ty .btn.secondary{background:#a58e76;}
+    .ty .btn.secondary:hover{background:#8d7660;}
+    .ty .btn.ghost{background:transparent;color:#111;border:1px solid #ccc;}
+    .ty .btn.ghost:hover{background:#f5f4f2;}
+    .ty .tip{margin-top:14px;color:#6b7280;font-size:.9rem;}
+    @media (max-width:720px){.ty{margin:90px auto 60px}.ty .lead{font-size:1.05rem}}
+  </style>
+</BaseLayout>
