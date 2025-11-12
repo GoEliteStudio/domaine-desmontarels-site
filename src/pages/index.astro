@@ -37,6 +37,21 @@ type VillaData = {
 };
 
 const villa = villaEn as VillaData;
+// Precompute compact search index (server-side) and pass to client via JSON
+const searchItems = [
+  ...((villa.content?.faq || []).map((f: any) => ({
+    type: 'faq',
+    title: f.q,
+    content: f.a,
+    searchText: String((f.q || '') + ' ' + (f.a || '')).toLowerCase()
+  })) as any[]),
+  ...((villa.amenities || []).map((a: string) => ({
+    type: 'amenity',
+    title: a,
+    content: 'Available feature',
+    searchText: String(a || '').toLowerCase()
+  })) as any[])
+];
 // Force first hero slide to be Pool 27 if available; ensure aerial 031 is next; exclude ping pong (MONT_024)
 const targetPool27 = villa.images.find((img: VillaImage) => /MONT_Pool_027\.webp$/i.test(img.src));
 const targetAerial031 = villa.images.find((img: VillaImage) => /MONT_Pool_Aerial_031\.webp$/i.test(img.src));
@@ -371,6 +386,8 @@ const priceNote = primarySeason?.label && primarySeason.currency ? `${primarySea
       <p class="experience-intro">{villa.summary}</p>
       <GalleryGrid images={galleryImages} />
       <Tabs tabs={tabs} />
+
+      {/* Elegant search moved lower to avoid crowding (see end of page) */}
     </div>
     <FixedFactsPanel price={priceDisplay} priceNote={priceNote} specs={specs}>
       <InquiryForm slot="inquiry-form" />
@@ -404,6 +421,114 @@ const priceNote = primarySeason?.label && primarySeason.currency ? `${primarySea
         {googleReviews.map((r) => <li><blockquote>“{r.quote}”</blockquote><cite>— {r.attribution}</cite></li>)}
       </ul>
     </section>
+  )}
+  {/* Elegant search integration (modal), placed near the end for a calmer layout */}
+  {(villa.content?.faq?.length || villa.amenities?.length) && (
+    <div class="container search-elegant">
+      <div class="search-trigger" id="search-trigger">
+        <i class="fas fa-search" aria-hidden="true"></i>
+        <span>Search FAQs & amenities</span>
+      </div>
+
+      {/* Hidden seed for robust fallback (if JSON parsing fails) */}
+      <ul id="search-seed" hidden>
+        {(villa.content?.faq || []).map((f: any) => <li data-type="faq" data-title={f.q} data-content={f.a} data-search={(f.q + ' ' + f.a).toLowerCase()}></li>)}
+        {(villa.amenities || []).map((a: string) => <li data-type="amenity" data-title={a} data-content="Available feature" data-search={a.toLowerCase()}></li>)}
+      </ul>
+
+      {/* JSON data bridge for client script */}
+      <script type="application/json" id="search-data">{JSON.stringify(searchItems)}</script>
+
+      <div class="search-modal" id="search-modal" aria-hidden="true">
+        <div class="search-modal__overlay"></div>
+        <div class="search-modal__content" role="dialog" aria-modal="true" aria-labelledby="search-heading">
+          <div class="search-modal__header">
+            <h3 id="search-heading">Search Domain Details</h3>
+            <button class="search-modal__close" id="search-close" aria-label="Close search">
+              <i class="fas fa-times"></i>
+            </button>
+          </div>
+          <div class="search-modal__input-wrapper">
+            <i class="fas fa-search" aria-hidden="true"></i>
+            <input id="elegant-search" type="search" placeholder="Type to search FAQs, amenities, features..." aria-describedby="search-results-count" />
+            <span id="search-results-count" class="search-count" aria-live="polite"></span>
+          </div>
+          <div class="search-results" id="elegant-search-results"></div>
+        </div>
+      </div>
+
+      <script type="module">
+        const trigger = document.getElementById('search-trigger');
+        const modal = document.getElementById('search-modal');
+        const closeBtn = document.getElementById('search-close');
+        const input = document.getElementById('elegant-search');
+        const resultsContainer = document.getElementById('elegant-search-results');
+        const countEl = document.getElementById('search-results-count');
+        let items = [];
+        try {
+          const raw = document.getElementById('search-data')?.textContent || '[]';
+          items = JSON.parse(raw);
+        } catch {}
+        if (!Array.isArray(items) || items.length === 0) {
+          const seed = document.querySelectorAll('#search-seed li');
+          items = Array.from(seed).map(li => ({
+            type: li.getAttribute('data-type') || '',
+            title: li.getAttribute('data-title') || '',
+            content: li.getAttribute('data-content') || '',
+            searchText: (li.getAttribute('data-search') || '').toLowerCase()
+          }));
+        }
+
+        const openModal = () => {
+          modal?.setAttribute('aria-hidden', 'false');
+          document.body.style.overflow = 'hidden';
+          setTimeout(() => { if (input && typeof (input.focus) === 'function') input.focus(); }, 0);
+        };
+        const closeModal = () => {
+          modal?.setAttribute('aria-hidden', 'true');
+          document.body.style.overflow = '';
+          if (input && input instanceof HTMLInputElement) input.value = '';
+          renderResults([]);
+        };
+        const performSearch = (query) => {
+          const q = (query || '').toLowerCase().trim();
+          if (!q) return [];
+          const terms = q.split(/\s+/);
+          return items.filter((it) => terms.every(t => (it.searchText || '').includes(t)));
+        };
+        const renderResults = (results) => {
+          if (!resultsContainer || !countEl) return;
+          if (!results.length) {
+            resultsContainer.innerHTML = `<div class="search-empty"><i class="fas fa-compass"></i><p>No matches found. Try different keywords.</p></div>`;
+            countEl.textContent = '';
+            return;
+          }
+          countEl.textContent = `${results.length} result${results.length === 1 ? '' : 's'}`;
+          resultsContainer.innerHTML = results.map((item) => `
+            <div class="search-result-item" data-type="${item.type}">
+              <div class="search-result__icon"><i class="fas fa-${item.type === 'faq' ? 'question-circle' : 'star'}"></i></div>
+              <div class="search-result__content"><h4>${item.title}</h4><p>${item.content}</p></div>
+              <div class="search-result__type">${item.type}</div>
+            </div>
+          `).join('');
+        };
+        trigger?.addEventListener('click', openModal);
+        closeBtn?.addEventListener('click', closeModal);
+        modal?.addEventListener('click', (e) => {
+          if (e.target === modal || (e.target instanceof HTMLElement && e.target.classList.contains('search-modal__overlay'))) closeModal();
+        });
+        input?.addEventListener('input', (e) => {
+          const t = e.target;
+          let val = '';
+          if (t instanceof HTMLInputElement || t instanceof HTMLTextAreaElement) val = t.value || '';
+          renderResults(performSearch(val));
+        });
+        document.addEventListener('keydown', (e) => {
+          if (e.key === 'Escape' && modal?.getAttribute('aria-hidden') === 'false') closeModal();
+          if ((e.metaKey || e.ctrlKey) && (e.key === 'k' || e.key === 'K')) { e.preventDefault(); openModal(); }
+        });
+      </script>
+    </div>
   )}
   <style>
   .experience{display:grid;gap:22px;margin:40px auto;grid-template-columns:minmax(0,2fr) minmax(280px,1fr);align-items:start}
@@ -454,5 +579,57 @@ const priceNote = primarySeason?.label && primarySeason.currency ? `${primarySea
     .testimonials blockquote{margin:0;font-size:1.05rem;line-height:1.7;color:#333}
     .testimonials cite{display:block;margin-top:12px;color:#555;font-style:normal;font-weight:500;letter-spacing:.3px}
     @media (max-width:700px){.testimonials .quotes{grid-template-columns:1fr}}
+
+    /* Elegant Search Styles */
+    .search-elegant { margin: 32px 0 0; }
+    .search-trigger {
+      display:inline-flex; align-items:center; gap:12px; padding:14px 20px;
+      background: linear-gradient(135deg,#fff 0%,#fafafa 100%);
+      border:1px solid #e8e8e8; border-radius:16px; color:#666; font-size:.95rem; cursor:pointer;
+      transition: all .3s cubic-bezier(.4,0,.2,1); box-shadow:0 4px 20px rgba(0,0,0,.05);
+    }
+    .search-trigger:hover { border-color: var(--color-accent); color: var(--color-accent); box-shadow:0 8px 30px rgba(165,142,118,.15); transform: translateY(-1px); }
+    .search-trigger i { font-size:.9rem; opacity:.7; }
+
+    .search-modal {
+      position:fixed; top:0; left:0; width:100%; height:100%; z-index:1200;
+      display:flex; align-items:flex-start; justify-content:center; padding:40px 20px;
+      opacity:0; visibility:hidden; transition: all .3s ease;
+    }
+    .search-modal[aria-hidden="false"] { opacity:1; visibility:visible; }
+    .search-modal__overlay { position:absolute; inset:0; background:rgba(0,0,0,.4); backdrop-filter: blur(8px); }
+    .search-modal__content {
+      position:relative; background:#fff; border-radius:24px; width:100%; max-width:680px; max-height:80vh; overflow:hidden;
+      box-shadow:0 32px 64px rgba(0,0,0,.2); animation: modalSlideIn .4s cubic-bezier(.4,0,.2,1);
+    }
+    @keyframes modalSlideIn { from{ opacity:0; transform: translateY(-20px) scale(.95);} to{opacity:1; transform: translateY(0) scale(1);} }
+    .search-modal__header { display:flex; align-items:center; justify-content: space-between; padding:28px 32px 0; }
+    .search-modal__header h3 { margin:0; font-size:1.5rem; color:var(--color-black); font-weight:500; }
+    .search-modal__close { background:none; border:none; font-size:1.2rem; color:#999; cursor:pointer; padding:8px; border-radius:50%; transition: all .2s ease; }
+    .search-modal__close:hover { background:#f5f5f5; color:#666; }
+    .search-modal__input-wrapper { position:relative; padding:24px 32px; }
+    .search-modal__input-wrapper i { position:absolute; left:52px; top:50%; transform: translateY(-50%); color:#999; }
+    #elegant-search { width:100%; padding:16px 20px 16px 48px; border:2px solid #f0f0f0; border-radius:16px; font-size:1.1rem; background:#fafafa; transition: all .3s ease; }
+    #elegant-search:focus { outline:none; border-color: var(--color-accent); background:#fff; box-shadow:0 0 0 4px rgba(165,142,118,.1); }
+    .search-count { position:absolute; right:52px; top:50%; transform: translateY(-50%); font-size:.9rem; color:#999; background:#fff; padding:4px 8px; border-radius:8px; }
+    .search-results { max-height:400px; overflow-y:auto; padding:0 32px 32px; }
+    .search-result-item { display:flex; align-items:flex-start; gap:16px; padding:20px; border:1px solid #f0f0f0; border-radius:16px; margin-bottom:12px; transition: all .2s ease; cursor:pointer; }
+    .search-result-item:hover { border-color: var(--color-accent); box-shadow:0 8px 24px rgba(165,142,118,.1); transform: translateY(-1px); }
+    .search-result__icon { color: var(--color-accent); font-size:1.1rem; padding-top:2px; }
+    .search-result__content { flex:1; }
+    .search-result__content h4 { margin:0 0 6px 0; font-size:1rem; color:var(--color-black); font-weight:500; }
+    .search-result__content p { margin:0; font-size:.9rem; color:#666; line-height:1.5; }
+    .search-result__type { font-size:.75rem; color:#999; text-transform:uppercase; letter-spacing:.5px; padding:4px 8px; background:#f5f5f5; border-radius:6px; }
+    .search-empty { text-align:center; padding:40px 20px; color:#999; }
+    .search-empty i { font-size:2rem; margin-bottom:16px; opacity:.5; }
+    .search-empty p { margin:0; font-size:.95rem; }
+
+    @media (max-width: 768px) {
+      .search-modal { padding:20px 16px; }
+      .search-modal__content { max-height:90vh; }
+      .search-modal__header, .search-modal__input-wrapper { padding:20px 24px; }
+      .search-results { padding:0 24px 24px; }
+      .search-result-item { padding:16px; }
+    }
   </style>
 </BaseLayout>
