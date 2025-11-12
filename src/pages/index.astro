@@ -56,7 +56,7 @@ const orderedForHero: VillaImage[] = [
 ];
 const heroImages = orderedForHero.slice(0, 3).map((img: VillaImage) => img.src);
 const pageTitle = `${villa.name} — Luxury Villa Retreat`;
-const canonical = `https://www.domaine-desmontarels.com/${villa.slug}`;
+const canonical = `https://www.domaine-desmontarels.com/${villa.slug}/`;
 // JSON-LD (AI/SEO)
 const org = {
   '@context': 'https://schema.org',
@@ -70,12 +70,35 @@ const org = {
   ]
 };
 
-const imageObjects = heroImages.map((src) => ({
-  '@type': 'ImageObject',
-  'contentUrl': `https://www.domaine-desmontarels.com${src}`,
-  'url': `https://www.domaine-desmontarels.com${src}`,
-  'representativeOfPage': true
-}));
+// Build compact ImageObject list from the full gallery (deduped, capped)
+const MAX_IMAGES = 18;
+
+// Prefer pool/hero imagery first, then remaining gallery order
+const prioritized = [
+  ...heroImages,                        // already curated order
+  ...villa.images.map(i => i.src)       // full gallery afterwards
+];
+
+// De-dupe by src while preserving order
+const uniqueSrcs = Array.from(new Set(prioritized));
+
+// Slice to a sane cap for <head>
+const picked = uniqueSrcs.slice(0, MAX_IMAGES);
+
+// Map to ImageObject with context
+const imageObjects = picked.map((src, idx) => {
+  const meta = villa.images.find(i => i.src === src) || { alt: villa.name, caption: '' } as any;
+  const abs = `https://www.domaine-desmontarels.com${src}`;
+  const obj: any = {
+    '@type': 'ImageObject',
+    'contentUrl': abs,
+    'url': abs,
+    'representativeOfPage': idx === 0
+  };
+  if ((meta as any).alt) (obj as any).caption = (meta as any).alt;          // safe, short description
+  if ((meta as any).caption) (obj as any).description = (meta as any).caption;
+  return obj;
+});
 
 const lodging = {
   '@context': 'https://schema.org',
@@ -89,10 +112,69 @@ const lodging = {
     'name': a,
     'value': true
   })),
-  'starRating': { '@type': 'Rating', 'ratingValue': '5' },
   'petsAllowed': false,
   'priceRange': '$$$$',
-  'maximumAttendeeCapacity': villa.specs?.guests || undefined
+  'maximumAttendeeCapacity': villa.specs?.guests || undefined,
+  // Offer (rate on request, capacity noted, no fake price)
+  'offers': {
+    '@type': 'Offer',
+    'url': canonical,
+    'availability': 'https://schema.org/InStock',
+    'priceSpecification': {
+      '@type': 'PriceSpecification',
+      'priceCurrency': 'EUR' // no price value when rate is on request
+    },
+    'eligibleQuantity': {
+      '@type': 'QuantitativeValue',
+      'maxValue': villa.specs?.guests || 12
+    }
+  },
+  // A few text-only reviews (no fabricated star ratings)
+  'review': [
+    { '@type': 'Review',
+      'reviewBody': 'Hosts Katie & Ian made our birthday family gathering exceptional – nothing was too much trouble and the house, linens, kitchen & pool were perfect. We will be back!',
+      'author': { '@type': 'Person', 'name': 'Helene McKeone' } },
+    { '@type': 'Review',
+      'reviewBody': 'Fabulous quirky house, spacious, brilliantly equipped kitchen & huge pool. Ian & Katie were knowledgeable and helpful throughout.',
+      'author': { '@type': 'Person', 'name': 'Carole Edwards' } },
+    { '@type': 'Review',
+      'reviewBody': 'Peaceful luxury with incredible views, spotless, character in abundance and a pool to die for – ideal summer or off-season.',
+      'author': { '@type': 'Person', 'name': 'Kerry Morgan' } }
+  ]
+};
+
+// LodgingBusiness + LocalBusiness combined schema (rich results / AI overviews)
+// Static JSON-LD only; safe to inline. Uses canonical + hero image.
+const lodgingSchema = {
+  '@context': 'https://schema.org',
+  '@type': ['LodgingBusiness', 'LocalBusiness'],
+  'name': 'Domaine des Montarels',
+  'description': 'Secluded 10th-century Languedoc sanctuary with private heated pool, curated local experiences, and high-touch concierge for up to 12 guests.',
+  'image': `https://www.domaine-desmontarels.com${heroImages[0]}`,
+  'priceRange': '$$$$',
+  'telephone': '+44 7768 987 879',
+  'email': 'reservations@domaine-desmontarels.com',
+  'url': canonical,
+  'address': {
+    '@type': 'PostalAddress',
+    'streetAddress': 'Alignan-du-Vent',
+    'addressLocality': 'Béziers',
+    'addressCountry': 'FR'
+  },
+  'geo': {
+    '@type': 'GeoCoordinates',
+    'latitude': 43.4405,
+    'longitude': 3.2107
+  },
+  'amenityFeature': [
+    { '@type': 'LocationFeatureSpecification', 'name': 'Heated pool', 'value': true },
+    { '@type': 'LocationFeatureSpecification', 'name': 'High-speed Wi-Fi', 'value': true },
+    { '@type': 'LocationFeatureSpecification', 'name': 'Air conditioning', 'value': true }
+  ],
+  'brand': {
+    '@type': 'Brand',
+    'name': 'Domaine des Montarels'
+  }
 };
 
 const webPage = {
@@ -113,7 +195,98 @@ const breadcrumbs = {
   ]
 };
 
-const jsonLd = [org, webPage, breadcrumbs, lodging, ...imageObjects.map(io => ({ '@context': 'https://schema.org', ...io }))];
+// WebSite + potentialAction (SearchAction)
+const websiteSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'WebSite',
+  'name': 'Domaine des Montarels',
+  'url': 'https://www.domaine-desmontarels.com/',
+  'potentialAction': {
+    '@type': 'SearchAction',
+    'target': 'https://www.domaine-desmontarels.com/?q={search_term_string}',
+    'query-input': 'required name=search_term_string'
+  }
+};
+
+// Build FAQ schema from villa.content.faq if present
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  'mainEntity': (villa.content?.faq || []).map((f: { q: string; a: string }) => ({
+    '@type': 'Question',
+    'name': f.q,
+    'acceptedAnswer': { '@type': 'Answer', 'text': f.a }
+  }))
+};
+
+// Services offered with the stay (no prices; bookable on request)
+const services = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'Service',
+    'name': 'Private Chef',
+    'description': 'In-villa dining with curated local menus and wine pairings.',
+    'areaServed': ['Alignan-du-Vent', 'Béziers', 'Languedoc', 'Occitanie', 'France'],
+    'provider': { '@type': 'LodgingBusiness', 'name': 'Domaine des Montarels', 'url': canonical }
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'Service',
+    'name': 'Vineyard Tours & Tastings',
+    'description': 'Private tours of select Languedoc domaines with driver.',
+    'areaServed': ['Béziers', 'Languedoc', 'Occitanie', 'France'],
+    'provider': { '@type': 'LodgingBusiness', 'name': 'Domaine des Montarels', 'url': canonical }
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'Service',
+    'name': 'Airport Transfers',
+    'description': 'Private door-to-door transfers from BZR, MPL, or BCN.',
+    'areaServed': ['Béziers', 'Montpellier', 'Barcelona', 'Occitanie', 'France'],
+    'provider': { '@type': 'LodgingBusiness', 'name': 'Domaine des Montarels', 'url': canonical }
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'Service',
+    'name': 'Daily Housekeeping',
+    'description': 'Discreet daily tidy, linen refresh, and turndown on request.',
+    'areaServed': ['Alignan-du-Vent', 'Béziers', 'Occitanie', 'France'],
+    'provider': { '@type': 'LodgingBusiness', 'name': 'Domaine des Montarels', 'url': canonical }
+  }
+];
+
+// Catalog that bundles the above services into bookable offers (rate on request)
+const offerCatalog = {
+  '@context': 'https://schema.org',
+  '@type': 'OfferCatalog',
+  'name': 'Concierge & Experiences',
+  'url': canonical,
+  'itemListElement': services.map(svc => ({
+    '@type': 'Offer',
+    'itemOffered': { '@id': undefined, ...svc }, // embed Service inline
+    'availability': 'https://schema.org/InStock',
+    'priceSpecification': {
+      '@type': 'PriceSpecification',
+      'priceCurrency': 'EUR'
+      // no price value when quoted on request
+    },
+    'url': canonical
+  }))
+};
+
+// Compose JSON-LD
+const jsonLd = [
+  org,
+  webPage,
+  breadcrumbs,
+  websiteSchema,
+  lodgingSchema,
+  lodging,
+  ...(faqSchema.mainEntity.length ? [faqSchema] : []),
+  offerCatalog,
+  ...services, // publish Service nodes as first-class entities
+  ...imageObjects.map(io => ({ '@context': 'https://schema.org', ...io }))
+];
 const trustItems = [
   { icon: 'fas fa-rotate-left', title: 'Flexible Cancellation', detail: 'Full refund up to 60 days prior' },
   { icon: 'fas fa-shield', title: 'Secure Contract', detail: 'Stripe-protected agreements' },
@@ -126,8 +299,8 @@ const specs = [
   { icon: 'fas fa-bath', label: 'Baths', value: String(villa.specs.baths) },
   { icon: 'fas fa-users', label: 'Guests', value: String(villa.specs.guests) },
   { icon: 'fas fa-ruler-combined', label: 'Sq. Ft.', value: '8,500' },
-  { icon: 'fas fa-map-marker-alt', label: 'The Riviera', value: '' },
-  { icon: 'fas fa-star', label: '5-Star Service', value: '' },
+  { icon: 'fas fa-map-marker-alt', label: 'Languedoc, France', value: '' },
+  { icon: 'fas fa-temperature-high', label: 'Heated Pool', value: villa.specs?.poolSize || '12.5 m' },
 ];
 const extraTabs = [] as any[];
 if (villa.content?.practicalDetails?.length) {
@@ -173,7 +346,7 @@ const primarySeason = villa.seasons[0];
 const priceDisplay = primarySeason?.priceDisplay ?? 'Rate on Request';
 const priceNote = primarySeason?.label && primarySeason.currency ? `${primarySeason.label} — ${primarySeason.currency}` : undefined;
 ---
-<BaseLayout title={pageTitle} description={villa.summary} canonical={canonical} jsonLd={jsonLd} lcpImage={heroImages[0]}>
+<BaseLayout title={pageTitle} description={villa.summary} canonical={canonical} jsonLd={jsonLd} lcpImage={heroImages[0]} ogImage={heroImages[0]}>
   <Hero
     title={villa.hero.title}
     subtitle={villa.hero.subtitle}

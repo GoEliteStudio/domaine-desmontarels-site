@@ -4,9 +4,13 @@ function esc(s = '') {
     .replaceAll('"','&quot;').replaceAll("'",'&#39;');
 }
 
+export function langTag(lang: 'en' | 'fr' | 'es'): string {
+  return lang === 'fr' ? '[FR]' : lang === 'es' ? '[ES]' : '[EN]';
+}
+
 export function ownerNoticeHtml(payload: {
   fullName: string; email: string; checkIn: string; checkOut: string;
-  adults: number; children: number; notes?: string; ip?: string; userAgent?: string;
+  adults: number; children: number; notes?: string; ip?: string; userAgent?: string; lang?: 'en'|'fr'|'es';
 }) {
   const wa = `https://wa.me/15164936070?text=${encodeURIComponent(
     `Hi, this is ${payload.fullName} about ${payload.checkIn} → ${payload.checkOut}.`
@@ -15,6 +19,7 @@ export function ownerNoticeHtml(payload: {
     `Re: Domaine des Montarels — ${payload.checkIn} → ${payload.checkOut}`
   )}`;
 
+  const tag = langTag(payload.lang || 'en');
   return `<!doctype html><html><head><meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <title>New Inquiry — ${esc(payload.fullName)}</title>
@@ -40,7 +45,7 @@ export function ownerNoticeHtml(payload: {
     <div class="wrap">
       <div class="hero">
         <div class="brand">DOMAINE DES MONTARELS</div>
-        <div class="pill">New inquiry</div>
+        <div class="pill">New inquiry ${esc(tag)}</div>
       </div>
       <div class="card">
         <h1>${esc(payload.fullName)}</h1>
@@ -70,10 +75,11 @@ export function ownerNoticeHtml(payload: {
 
 export function ownerNoticeText(p: {
   fullName: string; email: string; checkIn: string; checkOut: string;
-  adults: number; children: number; notes?: string; ip?: string; userAgent?: string;
+  adults: number; children: number; notes?: string; ip?: string; userAgent?: string; lang?: 'en'|'fr'|'es';
 }) {
+  const tag = langTag(p.lang || 'en');
   return [
-    `New Inquiry — ${p.fullName}`,
+    `New Inquiry ${tag} — ${p.fullName}`,
     `Dates: ${p.checkIn} -> ${p.checkOut}`,
     `Guests: ${p.adults} adults, ${p.children} children`,
     `Email: ${p.email}`,

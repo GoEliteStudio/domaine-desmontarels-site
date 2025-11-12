@@ -10,9 +10,10 @@ interface Props {
   price: string;
   priceNote?: string;
   specs: Spec[];
+  showCalendar?: boolean; // gate calendar UI
 }
 
-const { price, priceNote, specs = [] } = Astro.props as Props;
+const { price, priceNote, specs = [], showCalendar = false } = Astro.props as Props;
 ---
 
 <aside class="fixed-facts-panel" aria-labelledby="facts-heading">
@@ -32,15 +33,24 @@ const { price, priceNote, specs = [] } = Astro.props as Props;
     ))}
   </div>
   
-  <div class="availability-calendar" aria-label="Availability calendar">
-    <div class="calendar-label">REAL-TIME AVAILABILITY CALENDAR</div>
-    <div class="calendar-nav">
-      <button class="cal-btn cal-prev" type="button" aria-label="Previous month"><i class="fas fa-chevron-left"></i></button>
-      <div class="calendar-month" aria-live="polite"></div>
-      <button class="cal-btn cal-next" type="button" aria-label="Next month"><i class="fas fa-chevron-right"></i></button>
+  {showCalendar && (
+    <div class="availability-calendar" aria-label="Availability calendar">
+      <div class="calendar-label">REAL-TIME AVAILABILITY CALENDAR</div>
+      <div class="calendar-nav">
+        <button class="cal-btn cal-prev" type="button" aria-label="Previous month"><i class="fas fa-chevron-left"></i></button>
+        <div class="calendar-month" aria-live="polite"></div>
+        <button class="cal-btn cal-next" type="button" aria-label="Next month"><i class="fas fa-chevron-right"></i></button>
+      </div>
+      <div class="calendar-grid" role="grid" aria-readonly="true"></div>
     </div>
-    <div class="calendar-grid" role="grid" aria-readonly="true"></div>
-  </div>
+  )}
+
+  {!showCalendar && (
+    <div class="availability-note" aria-live="polite">
+      <strong>Availability</strong><br />
+      We confirm dates by email within 24 hours. Ask about flexible check-in/out and mid-stay cleaning.
+    </div>
+  )}
   
   <button 
     id="inquire-toggle" 
@@ -244,6 +254,17 @@ const { price, priceNote, specs = [] } = Astro.props as Props;
     animation: slideDown 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
     border-top: 1px solid rgba(0, 0, 0, 0.08);
     padding-top: 1.25rem;
+  }
+
+  .availability-note{
+    margin-top:14px;
+    padding:12px 14px;
+    border:1px solid #eee;
+    border-radius:10px;
+    background:linear-gradient(180deg,#fff,#fafafa);
+    font-size:.95rem;
+    color:#444;
+    line-height:1.5;
   }
   
   @keyframes slideDown {

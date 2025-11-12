@@ -15,6 +15,9 @@ type InquireBody = {
   children?: string | number;
   notes?: string;
   company?: string; // honeypot
+  website?: string; // extra honeypot
+  hpt?: string;     // extra honeypot (generic)
+  __ts?: string;    // client timestamp (ms)
 };
 
 const required = (v?: string) => typeof v === 'string' && v.trim().length > 0;
@@ -38,6 +41,18 @@ async function parseBody(request: Request): Promise<InquireBody> {
   }
 }
 
+function detectLang(req: Request): 'en' | 'fr' | 'es' {
+  try {
+    const url = new URL(req.url);
+    const param = (url.searchParams.get('lang') || '').toLowerCase();
+    if (param === 'fr' || param === 'es' || param === 'en') return param as any;
+  } catch {}
+  const raw = (req.headers.get('accept-language') || '').toLowerCase();
+  if (raw.startsWith('fr') || raw.includes(' fr-')) return 'fr';
+  if (raw.startsWith('es') || raw.includes(' es-')) return 'es';
+  return 'en';
+}
+
 export const POST: APIRoute = async ({ request }) => {
   try {
     const data = await parseBody(request);
@@ -48,7 +63,16 @@ export const POST: APIRoute = async ({ request }) => {
     if (!data.checkOut && data.checkOutDate) data.checkOut = data.checkOutDate;
 
     // Honeypot (bot) check — pretend success silently
-    if (required(data.company)) {
+    if (required(data.company) || required(data.website) || required(data.hpt)) {
+      return new Response(JSON.stringify({ ok: true }), { status: 200 });
+    }
+
+    // Timing gate: require ~3s between form render and submit (bots submit instantly)
+    const now = Date.now();
+    const started = Number((data as any).__ts || 0);
+    const dwellMs = Number.isFinite(started) ? now - started : 0;
+    if (!started || dwellMs < 3000) {
+      // Silent success: do not send emails; return OK so bots don't probe
       return new Response(JSON.stringify({ ok: true }), { status: 200 });
     }
 
@@ -81,10 +105,12 @@ export const POST: APIRoute = async ({ request }) => {
   // Use verified domain sender to maximize deliverability
   const FROM_EMAIL = import.meta.env.FROM_EMAIL || process.env.FROM_EMAIL || 'contact@visaiq.co';
 
-    const subject = `New Inquiry — ${payload.fullName} (${payload.checkIn} → ${payload.checkOut})`;
+  const lang = detectLang(request);
+  const tag = lang === 'fr' ? '[FR]' : lang === 'es' ? '[ES]' : '[EN]';
+  const subject = `${tag} New Inquiry — ${payload.fullName} (${payload.checkIn} → ${payload.checkOut})`;
 
-    const html = ownerNoticeHtml(payload);
-    const text = ownerNoticeText(payload);
+  const html = ownerNoticeHtml({ ...payload, lang });
+  const text = ownerNoticeText({ ...payload, lang });
 
     if (!RESEND_API_KEY) {
       console.log('[inquire] (NOOP) Would send email:', { to: OWNER_EMAIL, from: FROM_EMAIL, subject, payload });
@@ -118,7 +144,8 @@ export const POST: APIRoute = async ({ request }) => {
           from: 'Domaine des Montarels <contact@visaiq.co>', // verified sender domain
           replyTo: OWNER_EMAIL,
           to: payload.email,
-          data: payload as any
+          data: payload as any,
+          lang
         });
         console.log('[inquire] Client receipt sent', { to: payload.email });
       } catch (e) {

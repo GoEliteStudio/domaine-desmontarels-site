@@ -1,6 +1,21 @@
 ---
 ---
 <form method="POST" action="/api/inquire" id="inquire-form" class="inquiry-form" novalidate>
+  <!-- Extra honeypots: invisible to humans, bots often fill them -->
+  <input type="text" name="website" autocomplete="off" tabindex="-1"
+         aria-hidden="true" style="position:absolute;left:-9999px;opacity:0;height:0;width:0;" />
+  <input type="text" name="hpt" autocomplete="off" tabindex="-1"
+         aria-hidden="true" style="position:absolute;left:-9999px;opacity:0;height:0;width:0;" />
+
+  <!-- Timing token: set at render-time; server checks human-ish dwell time -->
+  <input type="hidden" name="__ts" id="__ts" value="" />
+  <script>
+    // minimal, non-blocking; safe in SSR; runs only on the page
+    (function(){ try { 
+      var el = document.getElementById('__ts'); 
+      if (el) el.setAttribute('value', String(Date.now())); 
+    } catch(_){} })();
+  </script>
   <div class="form-grid">
     <div>
       <label for="fullName">Full Name</label>
