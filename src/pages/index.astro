@@ -61,6 +61,7 @@ const canonical = `https://www.domaine-desmontarels.com/${villa.slug}/`;
 const org = {
   '@context': 'https://schema.org',
   '@type': 'Organization',
+  '@id': 'https://www.domaine-desmontarels.com/#organization',
   'name': 'Domaine des Montarels',
   'url': 'https://www.domaine-desmontarels.com',
   'logo': 'https://www.domaine-desmontarels.com/images/MONT_038.webp',
@@ -103,6 +104,7 @@ const imageObjects = picked.map((src, idx) => {
 const lodging = {
   '@context': 'https://schema.org',
   '@type': 'LodgingBusiness',
+  '@id': `${canonical}#lodging-business`,
   'name': villa.name,
   'description': villa.summary,
   'url': canonical,
@@ -148,6 +150,7 @@ const lodging = {
 const lodgingSchema = {
   '@context': 'https://schema.org',
   '@type': ['LodgingBusiness', 'LocalBusiness'],
+  '@id': 'https://www.domaine-desmontarels.com/#lodging',
   'name': 'Domaine des Montarels',
   'description': 'Secluded 10th-century Languedoc sanctuary with private heated pool, curated local experiences, and high-touch concierge for up to 12 guests.',
   'image': `https://www.domaine-desmontarels.com${heroImages[0]}`,
@@ -171,15 +174,13 @@ const lodgingSchema = {
     { '@type': 'LocationFeatureSpecification', 'name': 'High-speed Wi-Fi', 'value': true },
     { '@type': 'LocationFeatureSpecification', 'name': 'Air conditioning', 'value': true }
   ],
-  'brand': {
-    '@type': 'Brand',
-    'name': 'Domaine des Montarels'
-  }
+  'brand': { '@id': 'https://www.domaine-desmontarels.com/#organization' }
 };
 
 const webPage = {
   '@context': 'https://schema.org',
   '@type': 'WebPage',
+  '@id': `${canonical}#webpage`,
   'name': pageTitle,
   'url': canonical,
   'inLanguage': 'en',
@@ -189,6 +190,7 @@ const webPage = {
 const breadcrumbs = {
   '@context': 'https://schema.org',
   '@type': 'BreadcrumbList',
+  '@id': `${canonical}#breadcrumbs`,
   'itemListElement': [
     { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://www.domaine-desmontarels.com/' },
     { '@type': 'ListItem', position: 2, name: villa.name, item: canonical }
@@ -199,8 +201,10 @@ const breadcrumbs = {
 const websiteSchema = {
   '@context': 'https://schema.org',
   '@type': 'WebSite',
+  '@id': 'https://www.domaine-desmontarels.com/#website',
   'name': 'Domaine des Montarels',
   'url': 'https://www.domaine-desmontarels.com/',
+  'publisher': { '@id': 'https://www.domaine-desmontarels.com/#organization' },
   'potentialAction': {
     '@type': 'SearchAction',
     'target': 'https://www.domaine-desmontarels.com/?q={search_term_string}',
@@ -212,6 +216,7 @@ const websiteSchema = {
 const faqSchema = {
   '@context': 'https://schema.org',
   '@type': 'FAQPage',
+  '@id': `${canonical}#faq`,
   'mainEntity': (villa.content?.faq || []).map((f: { q: string; a: string }) => ({
     '@type': 'Question',
     'name': f.q,
@@ -224,34 +229,38 @@ const services = [
   {
     '@context': 'https://schema.org',
     '@type': 'Service',
+    '@id': 'https://www.domaine-desmontarels.com/#service-private-chef',
     'name': 'Private Chef',
     'description': 'In-villa dining with curated local menus and wine pairings.',
     'areaServed': ['Alignan-du-Vent', 'Béziers', 'Languedoc', 'Occitanie', 'France'],
-    'provider': { '@type': 'LodgingBusiness', 'name': 'Domaine des Montarels', 'url': canonical }
+    'provider': { '@id': 'https://www.domaine-desmontarels.com/#lodging' }
   },
   {
     '@context': 'https://schema.org',
     '@type': 'Service',
+    '@id': 'https://www.domaine-desmontarels.com/#service-vineyard',
     'name': 'Vineyard Tours & Tastings',
     'description': 'Private tours of select Languedoc domaines with driver.',
     'areaServed': ['Béziers', 'Languedoc', 'Occitanie', 'France'],
-    'provider': { '@type': 'LodgingBusiness', 'name': 'Domaine des Montarels', 'url': canonical }
+    'provider': { '@id': 'https://www.domaine-desmontarels.com/#lodging' }
   },
   {
     '@context': 'https://schema.org',
     '@type': 'Service',
+    '@id': 'https://www.domaine-desmontarels.com/#service-transfers',
     'name': 'Airport Transfers',
     'description': 'Private door-to-door transfers from BZR, MPL, or BCN.',
     'areaServed': ['Béziers', 'Montpellier', 'Barcelona', 'Occitanie', 'France'],
-    'provider': { '@type': 'LodgingBusiness', 'name': 'Domaine des Montarels', 'url': canonical }
+    'provider': { '@id': 'https://www.domaine-desmontarels.com/#lodging' }
   },
   {
     '@context': 'https://schema.org',
     '@type': 'Service',
+    '@id': 'https://www.domaine-desmontarels.com/#service-housekeeping',
     'name': 'Daily Housekeeping',
     'description': 'Discreet daily tidy, linen refresh, and turndown on request.',
     'areaServed': ['Alignan-du-Vent', 'Béziers', 'Occitanie', 'France'],
-    'provider': { '@type': 'LodgingBusiness', 'name': 'Domaine des Montarels', 'url': canonical }
+    'provider': { '@id': 'https://www.domaine-desmontarels.com/#lodging' }
   }
 ];
 
@@ -259,11 +268,12 @@ const services = [
 const offerCatalog = {
   '@context': 'https://schema.org',
   '@type': 'OfferCatalog',
+  '@id': 'https://www.domaine-desmontarels.com/#offer-catalog',
   'name': 'Concierge & Experiences',
   'url': canonical,
   'itemListElement': services.map(svc => ({
     '@type': 'Offer',
-    'itemOffered': { '@id': undefined, ...svc }, // embed Service inline
+    'itemOffered': { '@id': (svc as any)['@id'] },
     'availability': 'https://schema.org/InStock',
     'priceSpecification': {
       '@type': 'PriceSpecification',
@@ -277,9 +287,9 @@ const offerCatalog = {
 // Compose JSON-LD
 const jsonLd = [
   org,
+  websiteSchema,
   webPage,
   breadcrumbs,
-  websiteSchema,
   lodgingSchema,
   lodging,
   ...(faqSchema.mainEntity.length ? [faqSchema] : []),
