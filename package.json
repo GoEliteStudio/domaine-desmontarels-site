@@ -5,9 +5,10 @@
   "type": "module",
   "scripts": {
     "dev": "astro dev",
-    "build": "astro build",
+    "build": "npm run validate && astro build",
     "preview": "astro preview",
-    "villa:create": "node scripts/create-villa.mjs"
+    "villa:create": "node scripts/create-villa.mjs",
+    "validate": "node scripts/validate-i18n.mjs"
   },
   "dependencies": {
     "@astrojs/check": "^0.9.5",

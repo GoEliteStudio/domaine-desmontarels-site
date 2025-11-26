@@ -30,32 +30,39 @@
     "faq": [
       { "q": "¿Cómo llegamos a la isla?", "a": "Organizamos traslados privados en bote desde Cartagena (15 minutos). El punto de recogida y el horario se proporcionan al momento de la reserva." },
       { "q": "¿La playa es privada?", "a": "Sí, la villa tiene acceso directo a una sección de playa apartada. El área circundante es tranquila con mínimo tránsito peatonal." },
-      { "q": "¿Cuántos huéspedes pueden alojarse?", "a": "La villa acomoda cómodamente hasta 10 huéspedes con 4 habitaciones y 3 baños." },
-      { "q": "¿Están incluidas las comidas?", "a": "Podemos organizar un chef privado para preparar auténtica cocina colombiana y caribeña (costo adicional)." }
+      { "q": "¿Qué está incluido en el alquiler?", "a": "Acceso completo a la villa, ropa de cama, WiFi, traslados en bote, servicio de limpieza diario y provisiones de bienvenida. Chef privado y excursiones disponibles bajo solicitud." },
+      { "q": "¿Podemos visitar Cartagena fácilmente?", "a": "¡Por supuesto! Los traslados en bote se pueden organizar en cualquier momento. La ciudad vieja está a 15 minutos en bote." }
+    ],
+    "seoLong": [
+      "Experimenta el verdadero lujo caribeño en el retiro isleño más exclusivo de Colombia. Casa de la Muralla representa la cúspide de la vida costera, combinando privacidad frente al mar con fácil acceso a las riquezas culturales de Cartagena.",
+      "A diferencia de los concurridos resorts del continente, nuestra villa isleña ofrece tranquilidad completa, experiencias locales auténticas y el tipo de lujo íntimo que buscan los viajeros exigentes. Desde yoga al amanecer en tu playa privada hasta cócteles al atardecer con vista al Caribe, cada momento está diseñado para la relajación y la conexión."
     ]
   },
   "amenities": [
-    "WiFi de Alta Velocidad",
-    "Acceso Privado a la Playa",
+    "Acceso Directo a la Playa",
+    "Traslados Privados en Bote",
+    "Terraza con Vista al Océano",
+    "Área de Comedor al Aire Libre",
+    "Hamacas y Tumbonas de Playa",
+    "Cocina Totalmente Equipada",
+    "WiFi (Starlink)",
     "Aire Acondicionado",
     "Ventiladores de Techo",
-    "Cocina Totalmente Equipada",
-    "Terraza Frente al Mar",
-    "Hamacas",
-    "Kayaks",
-    "Equipo de Snorkel",
-    "Parrilla BBQ",
     "Servicio de Limpieza Diario",
-    "Ropa de Cama de Lujo",
-    "Toallas de Playa",
-    "Generador de Respaldo",
-    "Caja de Seguridad"
+    "Toallas de Playa y Sombrillas",
+    "Equipo de Snorkel",
+    "Kayaks",
+    "Ducha Exterior",
+    "Parrilla BBQ",
+    "Chef Privado (Bajo Solicitud)",
+    "Tours por la Isla (Bajo Solicitud)",
+    "Excursiones de Pesca (Bajo Solicitud)"
   ],
   "specs": {
     "bedrooms": 4,
     "baths": 3,
     "guests": 10,
-    "beachfront": "Acceso Directo"
+    "poolSize": "Acceso a Playa"
   },
   "seasons": [
     {
