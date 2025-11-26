@@ -304,8 +304,8 @@ function main() {
   console.log(`\n${colors.bold}${colors.magenta}🌍 Villa Engine - i18n Validation${colors.reset}`);
   console.log(`${colors.cyan}Checking structure consistency across all language variants...${colors.reset}\n`);
   
-  // Get all unique villa slugs
-  const files = fs.readdirSync(CONTENT_DIR).filter(f => f.endsWith('.json'));
+  // Get all unique villa slugs (skip files starting with underscore - disabled villas)
+  const files = fs.readdirSync(CONTENT_DIR).filter(f => f.endsWith('.json') && !f.startsWith('_'));
   const slugs = [...new Set(files.map(f => f.split('.')[0]))];
   
   if (slugs.length === 0) {

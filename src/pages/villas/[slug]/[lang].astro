@@ -6,21 +6,7 @@ import GalleryGrid from '../../../components/GalleryGrid.astro';
 import Tabs from '../../../components/Tabs.astro';
 import FixedFactsPanel from '../../../components/FixedFactsPanel.astro';
 import InquiryForm from '../../../components/InquiryForm.astro';
-
-// Define available languages per villa
-const VILLA_LANGUAGES: Record<string, string[]> = {
-  'domaine-des-montarels': ['en', 'es', 'fr'],
-  'casa-de-la-muralla': ['en', 'es']
-};
-
-// Language metadata
-const LANG_META: Record<string, { name: string; locale: string; dir: string }> = {
-  'en': { name: 'English', locale: 'en-US', dir: 'ltr' },
-  'es': { name: 'Español', locale: 'es-ES', dir: 'ltr' },
-  'fr': { name: 'Français', locale: 'fr-FR', dir: 'ltr' },
-  'el': { name: 'Ελληνικά', locale: 'el-GR', dir: 'ltr' },
-  'it': { name: 'Italiano', locale: 'it-IT', dir: 'ltr' }
-};
+import { VILLA_LANGUAGES, LANG_META } from '../../../config/i18n';
 
 // Generate static paths for all villa/language combinations
 export async function getStaticPaths() {
