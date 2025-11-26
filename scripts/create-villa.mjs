@@ -37,6 +37,8 @@ async function createVilla() {
   
   const ownerEmail = await question('3. Owner Email (for inquiry routing): ');
   const location = await question('4. Location (e.g. "Cartagena, Colombia"): ');
+  const languagesInput = await question('5. Languages (comma-separated, e.g. "en,es,fr" - default: "en"): ');
+  const languages = languagesInput.trim() ? languagesInput.split(',').map(l => l.trim()) : ['en'];
 
   console.log('\n🚀 Generating assets for: ' + name + ' (' + slug + ')...\n');
   console.log('━'.repeat(60));
@@ -110,8 +112,41 @@ async function createVilla() {
       ]
     };
 
-    fs.writeFileSync(newJsonPath, JSON.stringify(newVillaData, null, 2));
-    console.log(`✅ JSON created: src/content/villas/${slug}.en.json`);
+    // Create JSON for each language
+    for (const lang of languages) {
+      const langJsonPath = path.join(CONTENT_DIR, `${slug}.${lang}.json`);
+      
+      if (fs.existsSync(langJsonPath)) {
+        console.log(`⚠️  ${lang.toUpperCase()} JSON already exists, skipping...`);
+        continue;
+      }
+
+      const langData = lang === 'en' ? newVillaData : {
+        ...newVillaData,
+        summary: `[${lang.toUpperCase()}: TRANSLATE] ${newVillaData.summary}`,
+        hero: {
+          ...newVillaData.hero,
+          title: `[${lang.toUpperCase()}: TRANSLATE] ${newVillaData.hero.title}`,
+          subtitle: `[${lang.toUpperCase()}: TRANSLATE] ${newVillaData.hero.subtitle}`
+        },
+        content: {
+          overview: `[${lang.toUpperCase()}: TRANSLATE] ${newVillaData.content.overview}`,
+          location: `[${lang.toUpperCase()}: TRANSLATE] ${newVillaData.content.location}`,
+          hosts: {
+            names: newVillaData.content.hosts.names,
+            bio: `[${lang.toUpperCase()}: TRANSLATE] ${newVillaData.content.hosts.bio}`
+          },
+          testimonials: [],
+          faq: newVillaData.content.faq.map(item => ({
+            q: `[${lang.toUpperCase()}: TRANSLATE] ${item.q}`,
+            a: `[${lang.toUpperCase()}: TRANSLATE] ${item.a}`
+          }))
+        }
+      };
+
+      fs.writeFileSync(langJsonPath, JSON.stringify(langData, null, 2));
+      console.log(`✅ JSON created: src/content/villas/${slug}.${lang}.json`);
+    }
   } catch (err) {
     console.error('❌ Failed to create JSON:', err.message);
     rl.close();
@@ -127,29 +162,32 @@ async function createVilla() {
     console.log(`⚠️  Image folder already exists: public/images/${slug}/`);
   }
 
-  // 4. Update [slug].astro getStaticPaths
-  const slugAstroPath = path.join(PROJECT_ROOT, 'src/pages/villas/[slug].astro');
+  // 4. Update [slug]/[lang].astro VILLA_LANGUAGES constant
+  const langAstroPath = path.join(PROJECT_ROOT, 'src/pages/villas/[slug]/[lang].astro');
   try {
-    let slugContent = fs.readFileSync(slugAstroPath, 'utf8');
+    let langContent = fs.readFileSync(langAstroPath, 'utf8');
     
-    // Check if slug already exists in getStaticPaths
-    if (!slugContent.includes(`{ params: { slug: '${slug}' } }`)) {
-      // Add new slug to getStaticPaths array
-      slugContent = slugContent.replace(
-        /export async function getStaticPaths\(\) \{[\s\S]*?return \[([\s\S]*?)\];/,
-        (match, paths) => {
-          const newPath = `\n    { params: { slug: '${slug}' } },`;
-          return match.replace(paths, paths + newPath);
-        }
-      );
-      fs.writeFileSync(slugAstroPath, slugContent);
-      console.log(`✅ Added '${slug}' to villas/[slug].astro routes`);
-    } else {
-      console.log(`⚠️  Slug '${slug}' already exists in routes`);
+    // Update VILLA_LANGUAGES constant
+    const villaLangRegex = /const VILLA_LANGUAGES: Record<string, string\[\]> = \{([^}]+)\};/;
+    const match = langContent.match(villaLangRegex);
+    
+    if (match) {
+      const currentEntries = match[1];
+      const newEntry = `\n  '${slug}': [${languages.map(l => `'${l}'`).join(', ')}],`;
+      
+      if (!currentEntries.includes(`'${slug}'`)) {
+        const updated = langContent.replace(villaLangRegex, 
+          `const VILLA_LANGUAGES: Record<string, string[]> = {${currentEntries}${newEntry}\n};`
+        );
+        fs.writeFileSync(langAstroPath, updated);
+        console.log(`✅ Added '${slug}' to villas/[slug]/[lang].astro (languages: ${languages.join(', ')})`);
+      } else {
+        console.log(`⚠️  Slug '${slug}' already exists in language routes`);
+      }
     }
   } catch (err) {
-    console.log(`⚠️  Could not update routes automatically: ${err.message}`);
-    console.log(`   → Manually add: { params: { slug: '${slug}' } } to getStaticPaths()`);
+    console.log(`⚠️  Could not update language routes automatically: ${err.message}`);
+    console.log(`   → Manually add: '${slug}': [${languages.map(l => `'${l}'`).join(', ')}] to VILLA_LANGUAGES`);
   }
 
   // 5. Output Checklist
@@ -161,25 +199,32 @@ async function createVilla() {
   console.log('     → Name them: 001.webp, 002.webp, 003.webp, etc.');
   console.log('     → Minimum 3 images (preferably 20-40)');
   console.log('');
-  console.log('  2. ✏️  Edit content: src/content/villas/' + slug + '.en.json');
-  console.log('     → Fill in [TO BE COMPLETED] sections');
+  console.log('  2. ✏️  Edit content for each language:');
+  languages.forEach(lang => {
+    console.log(`     → src/content/villas/${slug}.${lang}.json`);
+  });
+  console.log('     → Fill in [TO BE COMPLETED] and [TRANSLATE] sections');
   console.log('     → Update specs (bedrooms, baths, guests)');
   console.log('     → Add amenities list');
   console.log('     → Complete testimonials & FAQ');
   console.log('');
   console.log('  3. 🌐 Test locally:');
   console.log('     → npm run dev');
-  console.log('     → Visit: http://localhost:4322/villas/' + slug + '/');
+  languages.forEach(lang => {
+    console.log(`     → Visit: http://localhost:4323/villas/${slug}/${lang}/`);
+  });
   console.log('');
   console.log('  4. 🚀 Deploy to Vercel:');
   console.log('     → Set OWNER_EMAIL=' + ownerEmail);
   console.log('     → Deploy to: villa-' + slug + '.vercel.app');
+  console.log(`     → Available in: ${languages.join(', ').toUpperCase()}`);
   console.log('');
   console.log('  5. 📧 Cold email owner with live link');
   console.log('');
   console.log('━'.repeat(60));
   console.log('⏱️  Average completion time: 2-4 hours (manual)');
   console.log('🎯 Target: < 1 hour with automation');
+  console.log(`🌍 Multi-language: ${languages.length} language${languages.length > 1 ? 's' : ''} configured`);
   console.log('━'.repeat(60));
 
   rl.close();

@@ -1,0 +1,76 @@
+{
+  "slug": "casa-de-la-muralla",
+  "name": "Casa de la Muralla",
+  "summary": "Paraíso exclusivo frente al mar en la Isla Tierrabomba, Cartagena — acceso privado, lujo caribeño y auténtica vida costera colombiana.",
+  "hero": {
+    "title": "Tu Escape Privado en una Isla del Caribe",
+    "subtitle": "Villa frente al mar en la histórica Tierrabomba — donde el encanto colonial se encuentra con aguas turquesas.",
+    "ctaText": "Explora la Isla"
+  },
+  "images": [
+    { "src": "/images/casa-muralla/001.webp", "alt": "Vista frente al mar de Casa de la Muralla", "caption": "Tu playa privada del Caribe, a pasos de la villa" },
+    { "src": "/images/casa-muralla/002.webp", "alt": "Terraza al aire libre con vista al océano", "caption": "Terraza de atardecer con vista al mar" },
+    { "src": "/images/casa-muralla/003.webp", "alt": "Habitación principal con decoración caribeña", "caption": "Amplia suite principal con diseño inspirado en la isla" }
+  ],
+  "headlines": {
+    "overview": "Vida Isleña Reimaginada",
+    "location": "Isla Tierrabomba, Cartagena"
+  },
+  "content": {
+    "overview": "Casa de la Muralla ofrece una experiencia caribeña incomparable en las costas prístinas de la Isla Tierrabomba. Esta exclusiva villa frente al mar combina la arquitectura colonial colombiana con el lujo moderno, brindando a los huéspedes acceso directo a la playa, vistas panorámicas al océano y la tranquilidad de la vida isleña, a solo un corto viaje en bote desde la histórica Cartagena. Perfecta para familias, grupos o escapadas románticas que buscan lujo costero auténtico lejos de los resorts abarrotados.",
+    "location": "Ubicada en la Isla Tierrabomba, una de las joyas escondidas de Cartagena, Casa de la Muralla es accesible mediante un pintoresco viaje en bote de 15 minutos desde la ciudad. La isla ofrece playas prístinas, pueblos de pescadores locales y una escapada pacífica del continente, mientras permanece cerca del centro histórico de Cartagena declarado Patrimonio de la Humanidad por la UNESCO, restaurantes de clase mundial y vibrante vida nocturna.",
+    "hosts": {
+      "names": "Familia Local de Cartagena",
+      "bio": "Tus anfitriones son una familia local de Cartagena apasionada por compartir la auténtica belleza de la costa caribeña de Colombia. Con raíces profundas en la región, ofrecen conocimiento interno de playas escondidas, restaurantes de mariscos locales y experiencias culturales que los turistas típicos nunca descubren."
+    },
+    "testimonials": [
+      { "quote": "El lugar más tranquilo y hermoso en el que nos hemos alojado. Despertar frente al océano cada mañana fue pura magia.", "attribution": "María S. — EE.UU." },
+      { "quote": "Auténtica vida caribeña en su máxima expresión. La villa superó todas nuestras expectativas.", "attribution": "Carlos M. — España" }
+    ],
+    "faq": [
+      { "q": "¿Cómo llegamos a la isla?", "a": "Organizamos traslados privados en bote desde Cartagena (15 minutos). El punto de recogida y el horario se proporcionan al momento de la reserva." },
+      { "q": "¿La playa es privada?", "a": "Sí, la villa tiene acceso directo a una sección de playa apartada. El área circundante es tranquila con mínimo tránsito peatonal." },
+      { "q": "¿Cuántos huéspedes pueden alojarse?", "a": "La villa acomoda cómodamente hasta 10 huéspedes con 4 habitaciones y 3 baños." },
+      { "q": "¿Están incluidas las comidas?", "a": "Podemos organizar un chef privado para preparar auténtica cocina colombiana y caribeña (costo adicional)." }
+    ]
+  },
+  "amenities": [
+    "WiFi de Alta Velocidad",
+    "Acceso Privado a la Playa",
+    "Aire Acondicionado",
+    "Ventiladores de Techo",
+    "Cocina Totalmente Equipada",
+    "Terraza Frente al Mar",
+    "Hamacas",
+    "Kayaks",
+    "Equipo de Snorkel",
+    "Parrilla BBQ",
+    "Servicio de Limpieza Diario",
+    "Ropa de Cama de Lujo",
+    "Toallas de Playa",
+    "Generador de Respaldo",
+    "Caja de Seguridad"
+  ],
+  "specs": {
+    "bedrooms": 4,
+    "baths": 3,
+    "guests": 10,
+    "beachfront": "Acceso Directo"
+  },
+  "seasons": [
+    {
+      "id": "temporada-alta",
+      "label": "Temporada Alta (Dic-Abr)",
+      "priceDisplay": "Tarifa Bajo Consulta",
+      "price": null,
+      "currency": "USD"
+    },
+    {
+      "id": "temporada-baja",
+      "label": "Temporada Baja (May-Nov)",
+      "priceDisplay": "Tarifa Bajo Consulta",
+      "price": null,
+      "currency": "USD"
+    }
+  ]
+}

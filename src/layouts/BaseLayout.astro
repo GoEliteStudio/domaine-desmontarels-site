@@ -13,6 +13,7 @@ export interface Props {
   ogImage?: string;     // e.g., "/images/MONT_001.webp"
   themeColor?: string;  // e.g., "#0f0f0f"
   villaName?: string;   // Dynamic villa name for branding
+  hreflangs?: Array<{ lang: string; locale: string; url: string }>; // Multi-language alternates
 }
 
 const { 
@@ -26,7 +27,8 @@ const {
   noindex = false,
   ogImage,
   themeColor = '#0f0f0f',
-  villaName = 'Luxury Villa'
+  villaName = 'Luxury Villa',
+  hreflangs = []
 } = Astro.props as Props;
 
 // Generate canonical URL from current request if not provided
@@ -59,6 +61,15 @@ const ogAbs = absUrl(ogImage);
   )}
   <meta name="author" content="Go Elite Studio" />
     <link rel="canonical" href={canonicalUrl} />
+    
+    <!-- Hreflang alternates for multi-language support -->
+    {hreflangs.map(({ locale, url }) => (
+      <link rel="alternate" hreflang={locale} href={absUrl(url)} />
+    ))}
+    {hreflangs.length > 0 && (
+      <link rel="alternate" hreflang="x-default" href={absUrl(hreflangs[0].url)} />
+    )}
+    
     {lcpImage && (
       <link rel="preload" as="image" href={lcpImage} fetchpriority="high" />
     )}

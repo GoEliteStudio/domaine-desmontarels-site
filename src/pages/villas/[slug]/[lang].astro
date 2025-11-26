@@ -1,0 +1,529 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import Hero from '../../../components/Hero.astro';
+import TrustBar from '../../../components/TrustBar.astro';
+import GalleryGrid from '../../../components/GalleryGrid.astro';
+import Tabs from '../../../components/Tabs.astro';
+import FixedFactsPanel from '../../../components/FixedFactsPanel.astro';
+import InquiryForm from '../../../components/InquiryForm.astro';
+
+// Define available languages per villa
+const VILLA_LANGUAGES: Record<string, string[]> = {
+  'domaine-des-montarels': ['en', 'es', 'fr'],
+  'casa-de-la-muralla': ['en', 'es']
+};
+
+// Language metadata
+const LANG_META: Record<string, { name: string; locale: string; dir: string }> = {
+  'en': { name: 'English', locale: 'en-US', dir: 'ltr' },
+  'es': { name: 'Español', locale: 'es-ES', dir: 'ltr' },
+  'fr': { name: 'Français', locale: 'fr-FR', dir: 'ltr' },
+  'el': { name: 'Ελληνικά', locale: 'el-GR', dir: 'ltr' },
+  'it': { name: 'Italiano', locale: 'it-IT', dir: 'ltr' }
+};
+
+// Generate static paths for all villa/language combinations
+export async function getStaticPaths() {
+  const paths: Array<{ params: { slug: string; lang: string } }> = [];
+  
+  for (const [slug, languages] of Object.entries(VILLA_LANGUAGES)) {
+    for (const lang of languages) {
+      paths.push({ params: { slug, lang } });
+    }
+  }
+  
+  return paths;
+}
+
+const { slug, lang } = Astro.params;
+
+// Validate language is supported for this villa
+if (!VILLA_LANGUAGES[slug]?.includes(lang)) {
+  return Astro.redirect(`/villas/${slug}/en/`);
+}
+
+// Load villa data for specific language
+const villaModule = await import(`../../../content/villas/${slug}.${lang}.json`);
+const villa = villaModule.default;
+
+const langMeta = LANG_META[lang];
+
+type VillaImage = { src: string; alt: string; caption?: string };
+type VillaSeason = { id: string; label: string; price: string | null; currency: string | null; priceDisplay: string };
+type VillaData = {
+  slug: string;
+  name: string;
+  summary: string;
+  hero: { title: string; subtitle?: string; ctaText?: string };
+  images: VillaImage[];
+  headlines: { overview: string; location: string };
+  content: {
+    overview: string;
+    location: string;
+    hosts: { names: string; bio: string };
+    testimonials: Array<{ quote: string; attribution: string }>;
+    faq: Array<{ q: string; a: string }>;
+  };
+  amenities: string[];
+  specs: Record<string, string | number>;
+  seasons: VillaSeason[];
+};
+
+// Hero Image Ordering: Pool → Aerial → Facade → Others (excluding ping pong)
+const poolRegex = /pool/i;
+const isPool = (img: VillaImage) => 
+  poolRegex.test(img.src) || poolRegex.test(img.alt) || (img.caption && poolRegex.test(img.caption));
+
+const heroOrder = [
+  villa.images.find(img => img.src.includes('Pool_027')),
+  villa.images.find(img => img.src.includes('Aerial_031')),
+  villa.images.find(img => img.src.includes('MONT_001')),
+  ...villa.images.filter(img => isPool(img) && !img.src.includes('024')),
+  ...villa.images.filter(img => !isPool(img) && !img.src.includes('024'))
+].filter(Boolean) as VillaImage[];
+
+const heroImages = heroOrder.slice(0, 5).map(img => img.src);
+const galleryImages = villa.images;
+
+// Trust items
+const trustItems = [
+  { icon: 'fa-calendar-check', title: 'Flexible Cancellation', description: 'Full refund up to 30 days before arrival' },
+  { icon: 'fa-file-contract', title: 'Secure Contract', description: 'Direct lease agreement with property owner' },
+  { icon: 'fa-concierge-bell', title: 'Concierge Included', description: 'Personal assistance throughout your stay' },
+  { icon: 'fa-shield-check', title: 'Transparent Pricing', description: 'No hidden fees or surprise charges' }
+];
+
+// Tabs configuration
+const tabs = [
+  { id: 'overview', label: villa.headlines.overview || 'Overview', content: villa.content.overview },
+  { id: 'amenities', label: 'Amenities', content: null, amenities: villa.amenities },
+  { id: 'location', label: villa.headlines.location || 'Location', content: villa.content.location },
+  ...(villa.content.faq?.length ? [{ id: 'faq', label: 'FAQ', content: null, faq: villa.content.faq }] : [])
+];
+
+// Generate search items from FAQs and amenities
+const searchItems = [
+  ...(villa.content.faq || []).map(item => ({
+    type: 'faq' as const,
+    title: item.q,
+    content: item.a,
+    searchText: `${item.q} ${item.a}`.toLowerCase()
+  })),
+  ...(villa.amenities || []).map(amenity => ({
+    type: 'amenity' as const,
+    title: amenity,
+    content: '',
+    searchText: amenity.toLowerCase()
+  }))
+];
+
+const pageTitle = `${villa.name} — Luxury Villa Rental`;
+
+// Generate hreflang alternates
+const hreflangs = VILLA_LANGUAGES[slug]?.map(l => ({
+  lang: l,
+  locale: LANG_META[l].locale,
+  url: `/villas/${slug}/${l}/`
+})) || [];
+
+// Site base for canonical/schemas
+const siteBase = Astro.site?.toString() || 'https://villa-engine.vercel.app';
+const canonical = `${siteBase}villas/${slug}/${lang}/`;
+
+// JSON-LD Schemas (all dynamic)
+const org = {
+  '@context': 'https://schema.org',
+  '@type': 'Organization',
+  '@id': `${siteBase}#organization`,
+  'name': villa.name,
+  'url': siteBase,
+  'logo': `${siteBase}${villa.images[0]?.src || '/images/logo.webp'}`,
+  'brand': villa.name
+};
+
+const lodgingSchema = {
+  '@context': 'https://schema.org',
+  '@type': ['LodgingBusiness', 'TouristAccommodation'],
+  '@id': `${siteBase}villas/${slug}/#lodging-business`,
+  'name': villa.name,
+  'description': villa.summary,
+  'image': villa.images.map(img => `${siteBase}${img.src}`),
+  'url': canonical,
+  'brand': {
+    '@id': `${siteBase}#organization`
+  },
+  'numberOfRooms': villa.specs.bedrooms || 0,
+  'petsAllowed': villa.amenities.some(a => /pet/i.test(a)),
+  'amenityFeature': villa.amenities.slice(0, 15).map(amenity => ({
+    '@type': 'LocationFeatureSpecification',
+    'name': amenity
+  })),
+  'starRating': { '@type': 'Rating', 'ratingValue': '5' }
+};
+
+const breadcrumbs = {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  '@id': `${canonical}#breadcrumbs`,
+  'itemListElement': [
+    { '@type': 'ListItem', 'position': 1, 'name': 'Home', 'item': siteBase },
+    { '@type': 'ListItem', 'position': 2, 'name': villa.name, 'item': canonical }
+  ]
+};
+
+const websiteSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'WebSite',
+  '@id': `${siteBase}#website`,
+  'name': villa.name,
+  'url': siteBase,
+  'publisher': { '@id': `${siteBase}#organization` },
+  'inLanguage': langMeta.locale,
+  'potentialAction': {
+    '@type': 'SearchAction',
+    'target': `${siteBase}?q={search_term_string}`,
+    'query-input': 'required name=search_term_string'
+  }
+};
+
+const services = [
+  { id: 'private-chef', name: 'Private Chef Service', description: 'Gourmet dining prepared by local chefs' },
+  { id: 'transfers', name: 'Airport Transfers', description: 'Private transport to and from the property' },
+  { id: 'housekeeping', name: 'Daily Housekeeping', description: 'Professional cleaning and maintenance' },
+  { id: 'concierge', name: 'Concierge Services', description: 'Personalized assistance and local recommendations' }
+].map(svc => ({
+  '@context': 'https://schema.org',
+  '@type': 'Service',
+  '@id': `${siteBase}#service-${svc.id}`,
+  'serviceType': svc.name,
+  'description': svc.description,
+  'provider': { '@id': `${siteBase}villas/${slug}/#lodging-business` }
+}));
+
+const offerCatalog = {
+  '@context': 'https://schema.org',
+  '@type': 'OfferCatalog',
+  '@id': `${siteBase}#offer-catalog`,
+  'name': `${villa.name} Services & Amenities`,
+  'itemListElement': services.map(svc => ({
+    '@type': 'Offer',
+    'itemOffered': { '@id': svc['@id'] }
+  }))
+};
+
+const faqSchema = villa.content.faq?.length ? {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  '@id': `${canonical}#faq`,
+  'mainEntity': villa.content.faq.map(item => ({
+    '@type': 'Question',
+    'name': item.q,
+    'acceptedAnswer': { '@type': 'Answer', 'text': item.a }
+  }))
+} : null;
+
+const imageObjects = villa.images.slice(0, 18).map((img, idx) => ({
+  '@context': 'https://schema.org',
+  '@type': 'ImageObject',
+  'contentUrl': `${siteBase}${img.src}`,
+  'url': `${siteBase}${img.src}`,
+  'caption': img.alt,
+  'description': img.caption || img.alt,
+  'representativeOfPage': idx === 0
+}));
+
+const allSchemas = [
+  org,
+  websiteSchema,
+  breadcrumbs,
+  lodgingSchema,
+  ...services,
+  offerCatalog,
+  ...(faqSchema ? [faqSchema] : []),
+  ...imageObjects
+];
+---
+
+<BaseLayout 
+  title={pageTitle} 
+  description={villa.summary}
+  villaName={villa.name}
+  lang={langMeta.locale}
+  hreflangs={hreflangs}
+>
+  <Fragment slot="structured-data">
+    {allSchemas.map(schema => (
+      <script type="application/ld+json" set:html={JSON.stringify(schema)} />
+    ))}
+  </Fragment>
+
+  <Hero
+    title={villa.hero.title}
+    subtitle={villa.hero.subtitle}
+    images={heroImages}
+    alt={villa.name}
+    ctaHref="#overview"
+    ctaText={villa.hero.ctaText || "Discover"}
+  />
+  <TrustBar items={trustItems} />
+  <section class="container experience" id="overview">
+    <div class="experience-content">
+      <p class="experience-intro">{villa.summary}</p>
+      <GalleryGrid images={galleryImages} />
+      <Tabs tabs={tabs} />
+
+      {villa.content.hosts && (
+        <section class="hosts" id="hosts">
+          <h2 class="section-heading">Your Hosts</h2>
+          <div class="hosts-grid">
+            <div class="hosts-image-wrap">
+              <img src={villa.images[0]?.src} alt={villa.content.hosts.names} class="hosts-image" />
+            </div>
+            <div class="hosts-card">
+              <h3 class="hosts-name">{villa.content.hosts.names}</h3>
+              <p class="hosts-bio">{villa.content.hosts.bio}</p>
+            </div>
+          </div>
+        </section>
+      )}
+
+      {villa.content.testimonials?.length > 0 && (
+        <section class="testimonials">
+          <h2 class="section-heading">Guest Reviews</h2>
+          <div class="testimonials-grid">
+            {villa.content.testimonials.map(t => (
+              <div class="testimonial-card">
+                <p class="testimonial-quote">"{t.quote}"</p>
+                <p class="testimonial-attribution">— {t.attribution}</p>
+              </div>
+            ))}
+          </div>
+        </section>
+      )}
+    </div>
+    <FixedFactsPanel specs={villa.specs} seasons={villa.seasons}>
+      <InquiryForm slot="form" />
+    </FixedFactsPanel>
+  </section>
+
+  <!-- Language Switcher -->
+  {hreflangs.length > 1 && (
+    <div class="language-switcher">
+      {hreflangs.map(({ lang: l, locale }) => (
+        <a 
+          href={`/villas/${slug}/${l}/`} 
+          class={`lang-option ${l === lang ? 'active' : ''}`}
+          hreflang={locale}
+        >
+          {LANG_META[l].name}
+        </a>
+      ))}
+    </div>
+  )}
+
+  <!-- Search Modal (moved to end for layout calm) -->
+  <div class="search-trigger-container">
+    <button id="search-trigger" class="search-trigger" aria-label="Search amenities and FAQs">
+      <i class="fas fa-search"></i>
+      <span>Search</span>
+      <kbd>Ctrl K</kbd>
+    </button>
+  </div>
+
+  <div id="search-modal" class="search-modal" role="dialog" aria-modal="true" aria-labelledby="search-modal-title" hidden>
+    <div class="search-modal-overlay"></div>
+    <div class="search-modal-content">
+      <div class="search-modal-header">
+        <h2 id="search-modal-title">Search</h2>
+        <button id="search-close" class="search-close" aria-label="Close search">&times;</button>
+      </div>
+      <input 
+        type="text" 
+        id="search-input" 
+        class="search-input" 
+        placeholder="Search amenities, FAQs..." 
+        autocomplete="off"
+      />
+      <div class="search-results" id="search-results" role="listbox">
+        <p class="search-count" aria-live="polite"></p>
+        <div id="search-list"></div>
+      </div>
+    </div>
+  </div>
+
+  <script type="application/json" id="search-data" set:html={JSON.stringify(searchItems)} />
+  <ul id="search-seed" hidden>
+    {villa.amenities.slice(0, 8).map(a => <li>{a}</li>)}
+  </ul>
+
+  <a href="https://wa.me/1234567890" class="whatsapp-float" target="_blank" rel="noopener" aria-label="Contact us on WhatsApp">
+    <i class="fab fa-whatsapp"></i>
+  </a>
+
+  <style>
+    /* Language Switcher Styles */
+    .language-switcher {
+      position: fixed;
+      top: 100px;
+      right: 20px;
+      z-index: 999;
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(10px);
+      border-radius: 8px;
+      padding: 8px;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.1);
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+
+    .lang-option {
+      padding: 8px 16px;
+      font-size: 0.85rem;
+      text-decoration: none;
+      color: var(--color-dark-gray);
+      border-radius: 4px;
+      transition: all 0.2s;
+      white-space: nowrap;
+      letter-spacing: 0.5px;
+    }
+
+    .lang-option:hover {
+      background: var(--color-gray-light);
+      color: var(--color-accent);
+    }
+
+    .lang-option.active {
+      background: var(--color-accent);
+      color: white;
+      font-weight: 500;
+    }
+
+    @media (max-width: 768px) {
+      .language-switcher {
+        top: auto;
+        bottom: 100px;
+        right: 10px;
+        flex-direction: row;
+      }
+    }
+
+    /* Copy remaining styles from [slug].astro */
+    .container { max-width: 1400px; margin: 0 auto; padding: 0 28px; }
+    .experience { display: grid; grid-template-columns: 1fr 420px; gap: 60px; padding: 80px 28px; }
+    .experience-intro { font-size: 1.1rem; line-height: 1.8; margin-bottom: 60px; color: var(--color-dark-gray); }
+    .section-heading { font-size: 2.2rem; margin: 80px 0 40px; text-align: center; position: relative; }
+    .section-heading::after { content: ''; display: block; width: 60px; height: 2px; background: var(--color-accent); margin: 20px auto 0; }
+    
+    .hosts { margin-top: 80px; }
+    .hosts-grid { display: grid; grid-template-columns: 1.15fr 1.85fr; gap: 50px; align-items: center; }
+    .hosts-image-wrap { position: relative; border-radius: 8px; overflow: hidden; }
+    .hosts-image { width: 100%; height: auto; display: block; }
+    .hosts-card { background: linear-gradient(135deg, #f9f9f9 0%, #ffffff 100%); padding: 50px; border-radius: 12px; box-shadow: 0 4px 20px rgba(0,0,0,0.08); }
+    .hosts-name { font-size: 1.8rem; margin-bottom: 20px; color: var(--color-dark-gray); }
+    .hosts-bio { font-size: 1.05rem; line-height: 1.7; color: #555; }
+
+    .testimonials { margin-top: 80px; }
+    .testimonials-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
+    .testimonial-card { background: white; padding: 35px; border-radius: 8px; box-shadow: 0 2px 12px rgba(0,0,0,0.08); position: relative; transition: transform 0.3s; }
+    .testimonial-card:hover { transform: translateY(-5px); }
+    .testimonial-card::before { content: '"'; position: absolute; top: 15px; left: 20px; font-size: 4rem; color: var(--color-accent); opacity: 0.2; font-family: Georgia, serif; }
+    .testimonial-quote { font-size: 1.05rem; line-height: 1.7; margin-bottom: 20px; font-style: italic; color: #333; }
+    .testimonial-attribution { font-size: 0.9rem; color: #777; font-weight: 500; }
+
+    .search-trigger-container { position: fixed; bottom: 30px; right: 30px; z-index: 998; }
+    .search-trigger { background: white; border: 1px solid #ddd; border-radius: 24px; padding: 12px 24px; display: flex; align-items: center; gap: 10px; cursor: pointer; box-shadow: 0 4px 12px rgba(0,0,0,0.1); transition: all 0.3s; }
+    .search-trigger:hover { box-shadow: 0 6px 20px rgba(0,0,0,0.15); transform: translateY(-2px); }
+    .search-trigger kbd { background: #f0f0f0; padding: 2px 8px; border-radius: 4px; font-size: 0.75rem; border: 1px solid #ccc; }
+
+    .search-modal { position: fixed; inset: 0; z-index: 9999; }
+    .search-modal-overlay { position: absolute; inset: 0; background: rgba(0,0,0,0.6); backdrop-filter: blur(4px); }
+    .search-modal-content { position: relative; max-width: 600px; margin: 100px auto; background: white; border-radius: 12px; box-shadow: 0 8px 32px rgba(0,0,0,0.2); }
+    .search-modal-header { display: flex; justify-content: space-between; align-items: center; padding: 20px 24px; border-bottom: 1px solid #eee; }
+    .search-close { background: none; border: none; font-size: 2rem; cursor: pointer; color: #999; line-height: 1; }
+    .search-input { width: 100%; padding: 16px 24px; border: none; border-bottom: 1px solid #eee; font-size: 1.1rem; }
+    .search-results { padding: 20px; max-height: 400px; overflow-y: auto; }
+    .search-count { font-size: 0.85rem; color: #777; margin-bottom: 16px; }
+
+    .whatsapp-float { position: fixed; bottom: 30px; left: 30px; width: 60px; height: 60px; background: #25d366; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-size: 32px; box-shadow: 0 4px 12px rgba(0,0,0,0.3); z-index: 997; transition: transform 0.3s; }
+    .whatsapp-float:hover { transform: scale(1.1); }
+
+    @media (max-width: 1024px) {
+      .experience { grid-template-columns: 1fr; }
+      .hosts-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+
+  <script>
+    // Search modal functionality
+    const modal = document.getElementById('search-modal');
+    const trigger = document.getElementById('search-trigger');
+    const closeBtn = document.getElementById('search-close');
+    const overlay = document.querySelector('.search-modal-overlay');
+    const input = document.getElementById('search-input') as HTMLInputElement;
+    const resultsDiv = document.getElementById('search-list');
+    const countSpan = document.querySelector('.search-count');
+
+    let searchData: Array<{ type: string; title: string; content: string; searchText: string }> = [];
+    
+    try {
+      const dataEl = document.getElementById('search-data');
+      if (dataEl?.textContent) {
+        searchData = JSON.parse(dataEl.textContent);
+      }
+    } catch (e) {
+      console.warn('Search data unavailable');
+    }
+
+    function openModal() {
+      modal?.removeAttribute('hidden');
+      input?.focus();
+    }
+
+    function closeModal() {
+      modal?.setAttribute('hidden', '');
+      if (input) input.value = '';
+      if (resultsDiv) resultsDiv.innerHTML = '';
+    }
+
+    trigger?.addEventListener('click', openModal);
+    closeBtn?.addEventListener('click', closeModal);
+    overlay?.addEventListener('click', closeModal);
+    
+    document.addEventListener('keydown', (e) => {
+      if ((e.ctrlKey || e.metaKey) && e.key === 'k') {
+        e.preventDefault();
+        openModal();
+      }
+      if (e.key === 'Escape') closeModal();
+    });
+
+    input?.addEventListener('input', (e) => {
+      const query = (e.target as HTMLInputElement).value.toLowerCase().trim();
+      if (!query) {
+        if (resultsDiv) resultsDiv.innerHTML = '';
+        if (countSpan) countSpan.textContent = '';
+        return;
+      }
+
+      const terms = query.split(/\s+/);
+      const matches = searchData.filter(item => 
+        terms.every(term => item.searchText.includes(term))
+      );
+
+      if (countSpan) countSpan.textContent = `${matches.length} result${matches.length !== 1 ? 's' : ''}`;
+      
+      if (resultsDiv) {
+        resultsDiv.innerHTML = matches.map(item => `
+          <div class="search-result-item" style="padding: 12px; border-bottom: 1px solid #eee;">
+            <div style="display: flex; align-items: center; gap: 8px;">
+              <i class="fas fa-${item.type === 'faq' ? 'question-circle' : 'star'}" style="color: var(--color-accent);"></i>
+              <strong>${item.title}</strong>
+            </div>
+            ${item.content ? `<p style="margin: 8px 0 0 28px; font-size: 0.9rem; color: #666;">${item.content}</p>` : ''}
+          </div>
+        `).join('');
+      }
+    });
+  </script>
+</BaseLayout>

@@ -150,6 +150,11 @@ declare module 'astro:content' {
   collection: "villas";
   data: any
 };
+"casa-de-la-muralla.es": {
+	id: "casa-de-la-muralla.es";
+  collection: "villas";
+  data: any
+};
 "domaine-des-montarels.en": {
 	id: "domaine-des-montarels.en";
   collection: "villas";
