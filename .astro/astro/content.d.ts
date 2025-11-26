@@ -145,6 +145,11 @@ declare module 'astro:content' {
 
 	type DataEntryMap = {
 		"villas": {
+"casa-de-la-muralla.en": {
+	id: "casa-de-la-muralla.en";
+  collection: "villas";
+  data: any
+};
 "domaine-des-montarels.en": {
 	id: "domaine-des-montarels.en";
   collection: "villas";

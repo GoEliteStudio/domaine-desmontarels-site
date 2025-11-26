@@ -12,6 +12,7 @@ export interface Props {
   noindex?: boolean;
   ogImage?: string;     // e.g., "/images/MONT_001.webp"
   themeColor?: string;  // e.g., "#0f0f0f"
+  villaName?: string;   // Dynamic villa name for branding
 }
 
 const { 
@@ -24,15 +25,19 @@ const {
   lcpImage,
   noindex = false,
   ogImage,
-  themeColor = '#0f0f0f'
+  themeColor = '#0f0f0f',
+  villaName = 'Luxury Villa'
 } = Astro.props as Props;
+
+// Generate canonical URL from current request if not provided
+const canonicalUrl = canonical || new URL(Astro.url.pathname, Astro.site || Astro.url.origin).toString();
 
 function absUrl(path?: string) {
   if (!path) return undefined;
   if (path.startsWith('http://') || path.startsWith('https://')) return path;
   try {
-    if (canonical) {
-      const base = new URL(canonical);
+    if (canonicalUrl) {
+      const base = new URL(canonicalUrl);
       return new URL(path, `${base.protocol}//${base.host}`).toString();
     }
   } catch {}
@@ -53,7 +58,7 @@ const ogAbs = absUrl(ogImage);
     <meta name="robots" content="index, follow" />
   )}
   <meta name="author" content="Go Elite Studio" />
-    {canonical && <link rel="canonical" href={canonical} />}
+    <link rel="canonical" href={canonicalUrl} />
     {lcpImage && (
       <link rel="preload" as="image" href={lcpImage} fetchpriority="high" />
     )}
@@ -63,7 +68,7 @@ const ogAbs = absUrl(ogImage);
     <meta property="og:type" content="website" />
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
-    {canonical && <meta property="og:url" content={canonical} />}
+    <meta property="og:url" content={canonicalUrl} />
     {ogAbs && <meta property="og:image" content={ogAbs} />}
     {ogAbs && <meta property="og:image:alt" content={title} />}
     <meta property="og:locale" content={lang === 'fr' ? 'fr_FR' : (lang === 'es' ? 'es_ES' : 'en_GB')} />
@@ -413,7 +418,7 @@ const ogAbs = absUrl(ogImage);
   </head>
   <body>
     <header>
-      <a href="/" class="logo" aria-label="Home">DOMAINE DES MONTARELS</a>
+      <a href="/" class="logo" aria-label="Home">{villaName.toUpperCase()}</a>
       <nav class="nav-links" aria-label="Primary">
         <a href="#overview" class="nav-link" data-nav>Overview</a>
         <a href="#amenities" class="nav-link" data-nav>Amenities</a>

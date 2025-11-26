@@ -1,12 +1,23 @@
 ---
-import BaseLayout from '../layouts/BaseLayout.astro';
-import Hero from '../components/Hero.astro';
-import TrustBar from '../components/TrustBar.astro';
-import GalleryGrid from '../components/GalleryGrid.astro';
-import Tabs from '../components/Tabs.astro';
-import FixedFactsPanel from '../components/FixedFactsPanel.astro';
-import InquiryForm from '../components/InquiryForm.astro';
-import villaEn from '../content/villas/domaine-des-montarels.en.json';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Hero from '../../components/Hero.astro';
+import TrustBar from '../../components/TrustBar.astro';
+import GalleryGrid from '../../components/GalleryGrid.astro';
+import Tabs from '../../components/Tabs.astro';
+import FixedFactsPanel from '../../components/FixedFactsPanel.astro';
+import InquiryForm from '../../components/InquiryForm.astro';
+
+// Dynamic villa loading based on slug
+export async function getStaticPaths() {
+  return [
+    { params: { slug: 'domaine-des-montarels' } },
+    { params: { slug: 'casa-de-la-muralla' } }
+  ];
+}
+
+const { slug } = Astro.params;
+const villaModule = await import(`../../content/villas/${slug}.en.json`);
+const villaEn = villaModule.default;
 
 type VillaImage = { src: string; alt: string; caption?: string };
 type VillaSeason = { id: string; label: string; price: string | null; currency: string | null; priceDisplay: string };
@@ -71,7 +82,8 @@ const orderedForHero: VillaImage[] = [
 ];
 const heroImages = orderedForHero.slice(0, 3).map((img: VillaImage) => img.src);
 const pageTitle = `${villa.name} — Luxury Villa Retreat`;
-const canonical = `https://www.domaine-desmontarels.com/${villa.slug}/`;
+// Remove hardcoded canonical - let BaseLayout generate from Astro.url
+// const canonical = `https://www.domaine-desmontarels.com/${villa.slug}/`;
 // JSON-LD (AI/SEO)
 const org = {
   '@context': 'https://schema.org',
@@ -371,7 +383,7 @@ const primarySeason = villa.seasons[0];
 const priceDisplay = primarySeason?.priceDisplay ?? 'Rate on Request';
 const priceNote = primarySeason?.label && primarySeason.currency ? `${primarySeason.label} — ${primarySeason.currency}` : undefined;
 ---
-<BaseLayout title={pageTitle} description={villa.summary} canonical={canonical} jsonLd={jsonLd} lcpImage={heroImages[0]} ogImage={heroImages[0]}>
+<BaseLayout title={pageTitle} description={villa.summary} jsonLd={jsonLd} lcpImage={heroImages[0]} ogImage={heroImages[0]} villaName={villa.name}>
   <Hero
     title={villa.hero.title}
     subtitle={villa.hero.subtitle}
@@ -633,3 +645,4 @@ const priceNote = primarySeason?.label && primarySeason.currency ? `${primarySea
     }
   </style>
 </BaseLayout>
+
