@@ -393,7 +393,7 @@ const priceNote = primarySeason?.label && primarySeason.currency ? `${primarySea
     images={heroImages}
     alt={villa.name}
     ctaHref="#overview"
-    ctaText="Tour the Domaine"
+    ctaText={villa.hero.ctaText || "Discover"}
   />
   <TrustBar items={trustItems} />
   <section class="container experience" id="overview">

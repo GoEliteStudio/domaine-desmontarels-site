@@ -62,7 +62,8 @@ async function createVilla() {
       summary: `Exclusive luxury retreat in ${location} — awaiting full description...`,
       hero: {
         title: name,
-        subtitle: `Secluded luxury in ${location}`
+        subtitle: `Secluded luxury in ${location}`,
+        ctaText: 'Discover'
       },
       images: [
         { src: `/images/${slug}/001.webp`, alt: `${name} exterior view`, caption: 'Main villa view' },

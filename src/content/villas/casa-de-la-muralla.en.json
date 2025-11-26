@@ -4,7 +4,8 @@
   "summary": "Exclusive beachfront paradise on Tierrabomba Island, Cartagena — private access, Caribbean luxury, and authentic Colombian coastal living.",
   "hero": {
     "title": "Your Private Caribbean Island Escape",
-    "subtitle": "Secluded beachfront villa on historic Tierrabomba — where colonial charm meets turquoise waters."
+    "subtitle": "Secluded beachfront villa on historic Tierrabomba — where colonial charm meets turquoise waters.",
+    "ctaText": "Explore the Island"
   },
   "images": [
     { "src": "/images/casa-muralla/001.webp", "alt": "Beachfront view of Casa de la Muralla", "caption": "Your private Caribbean beach, steps from the villa" },

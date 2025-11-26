@@ -4,7 +4,8 @@
   "summary": "Secluded 10th-century Languedoc sanctuary with private heated pool, curated local experiences, and high-touch concierge for up to 12 guests.",
   "hero": {
     "title": "The Languedoc's Most Secluded 10th-Century Sanctuary",
-    "subtitle": "Ancient monastery character meets silent modern luxury. A private, panoramic retreat reserved for the few."
+    "subtitle": "Ancient monastery character meets silent modern luxury. A private, panoramic retreat reserved for the few.",
+    "ctaText": "Tour the Domaine"
   },
   "images": [
     { "src": "/images/MONT_001.webp", "alt": "Panoramic view of a blue lake framed by mountains", "caption": "Panoramic lake and mountains near the estate." },
