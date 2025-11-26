@@ -1,0 +1,82 @@
+{
+  "slug": "casa-de-la-muralla",
+  "name": "Casa de la Muralla",
+  "summary": "Exclusive beachfront paradise on Tierrabomba Island, Cartagena — private access, Caribbean luxury, and authentic Colombian coastal living.",
+  "hero": {
+    "title": "Your Private Caribbean Island Escape",
+    "subtitle": "Secluded beachfront villa on historic Tierrabomba — where colonial charm meets turquoise waters."
+  },
+  "images": [
+    { "src": "/images/casa-muralla/001.webp", "alt": "Beachfront view of Casa de la Muralla", "caption": "Your private Caribbean beach, steps from the villa" },
+    { "src": "/images/casa-muralla/002.webp", "alt": "Open-air terrace with ocean view", "caption": "Sunset terrace overlooking the sea" },
+    { "src": "/images/casa-muralla/003.webp", "alt": "Master bedroom with Caribbean decor", "caption": "Spacious master suite with island-inspired design" }
+  ],
+  "headlines": {
+    "overview": "Island Living Reimagined",
+    "location": "Tierrabomba Island, Cartagena"
+  },
+  "content": {
+    "overview": "Casa de la Muralla offers an unparalleled Caribbean experience on the pristine shores of Tierrabomba Island. This exclusive beachfront villa combines colonial Colombian architecture with modern luxury, providing guests with direct beach access, panoramic ocean views, and the tranquility of island living—just a short boat ride from historic Cartagena. Perfect for families, groups, or romantic getaways seeking authentic coastal luxury away from crowded resorts.",
+    "location": "Located on Tierrabomba Island, one of Cartagena's hidden gems, Casa de la Muralla is accessible via a scenic 15-minute boat ride from the city. The island offers pristine beaches, local fishing villages, and a peaceful escape from the mainland while remaining close to Cartagena's UNESCO World Heritage historic center, world-class restaurants, and vibrant nightlife.",
+    "hosts": {
+      "names": "Local Cartagena Family",
+      "bio": "Your hosts are a local Cartagena family passionate about sharing the authentic beauty of Colombia's Caribbean coast. With deep roots in the region, they offer insider knowledge of hidden beaches, local seafood restaurants, and cultural experiences that typical tourists never discover."
+    },
+    "testimonials": [
+      { "quote": "The most peaceful and beautiful place we've ever stayed. Waking up to the ocean every morning was pure magic.", "attribution": "Maria S. — USA" },
+      { "quote": "Authentic Caribbean living at its finest. The villa exceeded all our expectations.", "attribution": "Carlos M. — Spain" }
+    ],
+    "faq": [
+      { "q": "How do we get to the island?", "a": "We arrange private boat transfers from Cartagena (15 minutes). Pickup location and schedule provided upon booking." },
+      { "q": "Is the beach private?", "a": "Yes, the villa has direct access to a secluded beach section. The surrounding area is tranquil with minimal foot traffic." },
+      { "q": "What's included in the rental?", "a": "Full villa access, linens, WiFi, boat transfers, daily housekeeping, and welcome provisions. Private chef and excursions available on request." },
+      { "q": "Can we visit Cartagena easily?", "a": "Absolutely! Boat transfers can be arranged anytime. The old city is 15 minutes away by boat." }
+    ],
+    "seoLong": [
+      "Experience true Caribbean luxury on Colombia's most exclusive island retreat. Casa de la Muralla represents the pinnacle of coastal living, combining beachfront privacy with easy access to Cartagena's cultural riches.",
+      "Unlike crowded mainland resorts, our island villa offers complete tranquility, authentic local experiences, and the kind of intimate luxury that discerning travelers seek. From sunrise yoga on your private beach to sunset cocktails overlooking the Caribbean, every moment is crafted for relaxation and connection."
+    ]
+  },
+  "amenities": [
+    "Direct Beach Access",
+    "Private Boat Transfers",
+    "Ocean View Terrace",
+    "Outdoor Dining Area",
+    "Hammocks & Beach Loungers",
+    "Fully Equipped Kitchen",
+    "WiFi (Starlink)",
+    "Air Conditioning",
+    "Ceiling Fans",
+    "Daily Housekeeping",
+    "Beach Towels & Umbrellas",
+    "Snorkeling Equipment",
+    "Kayaks",
+    "Outdoor Shower",
+    "BBQ Grill",
+    "Private Chef (On Request)",
+    "Island Tours (On Request)",
+    "Fishing Trips (On Request)"
+  ],
+  "specs": {
+    "bedrooms": 4,
+    "baths": 3,
+    "guests": 10,
+    "poolSize": "Beach Access"
+  },
+  "seasons": [
+    {
+      "id": "peak",
+      "label": "Peak Season (Dec-Mar)",
+      "priceDisplay": "Rate on Request",
+      "price": null,
+      "currency": "USD"
+    },
+    {
+      "id": "regular",
+      "label": "Regular Season (Apr-Nov)",
+      "priceDisplay": "Rate on Request",
+      "price": null,
+      "currency": "USD"
+    }
+  ]
+}
