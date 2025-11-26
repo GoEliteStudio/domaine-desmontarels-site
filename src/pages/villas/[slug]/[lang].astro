@@ -103,6 +103,18 @@ const searchItems = [
   }))
 ];
 
+// Transform villa.specs object into FixedFactsPanel expected format
+const specsArray = [
+  { icon: 'fas fa-bed', label: 'Bedrooms', value: String(villa.specs.bedrooms || 0) },
+  { icon: 'fas fa-bath', label: 'Baths', value: String(villa.specs.baths || 0) },
+  { icon: 'fas fa-users', label: 'Guests', value: String(villa.specs.guests || 0) },
+  ...(villa.specs.poolSize ? [{ icon: 'fas fa-swimming-pool', label: 'Pool', value: String(villa.specs.poolSize) }] : [])
+];
+
+// Price display from first season
+const priceDisplay = villa.seasons[0]?.priceDisplay || 'Rate on Request';
+const priceNote = villa.seasons[0]?.label;
+
 const pageTitle = `${villa.name} — Luxury Villa Rental`;
 
 // Generate hreflang alternates
@@ -287,8 +299,8 @@ const allSchemas = [
         </section>
       )}
     </div>
-    <FixedFactsPanel specs={villa.specs} seasons={villa.seasons}>
-      <InquiryForm slot="form" />
+    <FixedFactsPanel price={priceDisplay} priceNote={priceNote} specs={specsArray}>
+      <InquiryForm slot="inquiry-form" />
     </FixedFactsPanel>
   </section>
 
