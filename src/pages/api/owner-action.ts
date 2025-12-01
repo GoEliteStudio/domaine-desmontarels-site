@@ -133,6 +133,12 @@ async function handleApprove(
   // Create Stripe Checkout Session
   let checkoutUrl: string | null = null;
   
+  console.log('[owner-action] Stripe check:', { 
+    hasStripeKey: !!STRIPE_SECRET_KEY, 
+    stripeInitialized: !!stripe,
+    keyPrefix: STRIPE_SECRET_KEY ? STRIPE_SECRET_KEY.substring(0, 10) + '...' : 'MISSING'
+  });
+
   if (stripe) {
     try {
       const session = await stripe.checkout.sessions.create({
