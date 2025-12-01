@@ -309,7 +309,7 @@ function renderGuestApprovalEmail(inquiry: any, params: ApproveParams, paymentUr
         <a href="${paymentUrl}" style="display: inline-block; background: #2d7d46; color: #fff; text-decoration: none; padding: 16px 40px; border-radius: 8px; font-size: 18px; font-weight: 600;">
           Complete Payment →
         </a>
-        <p style="margin-top: 12px; font-size: 14px; color: #666;">Payment link expires in 72 hours</p>
+        <p style="margin-top: 12px; font-size: 14px; color: #666;">Payment link expires in 24 hours</p>
       </div>
   ` : `
       <p><strong>Next Step:</strong> We'll send you a secure payment link shortly to complete your booking.</p>
@@ -364,7 +364,7 @@ function renderGuestApprovalEmail(inquiry: any, params: ApproveParams, paymentUr
 function renderGuestApprovalEmailText(inquiry: any, params: ApproveParams, paymentUrl: string | null): string {
   const symbol = getCurrencySymbol(params.currency);
   const paymentSection = paymentUrl 
-    ? `COMPLETE YOUR BOOKING\n---------------------\nClick here to pay securely: ${paymentUrl}\n(Link expires in 72 hours)`
+    ? `COMPLETE YOUR BOOKING\n---------------------\nClick here to pay securely: ${paymentUrl}\n(Link expires in 24 hours)`
     : `NEXT STEP\n---------\nWe'll send you a secure payment link shortly to complete your booking.`;
   
   return `

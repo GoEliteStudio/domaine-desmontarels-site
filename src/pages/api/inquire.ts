@@ -86,7 +86,11 @@ export const POST: APIRoute = async ({ request }) => {
 
     // Honeypot (bot) check — pretend success silently
     if (required(data.company) || required(data.website) || required(data.hpt)) {
-      console.log('Honeypot triggered - silent success');
+      console.log('Honeypot triggered - silent success', { 
+        company: data.company, 
+        website: data.website, 
+        hpt: data.hpt 
+      });
       return new Response(JSON.stringify({ ok: true }), { status: 200 });
     }
 
