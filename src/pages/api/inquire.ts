@@ -119,10 +119,13 @@ export const POST: APIRoute = async ({ request }) => {
     let inquiryId: string | undefined;
     let listingId: string | undefined;
     
+    console.log('[inquire] Starting Firestore operations for slug:', slug);
+    
     try {
       // Look up listing by slug
       const listing = await getListingBySlug(slug);
       listingId = listing?.id;
+      console.log('[inquire] Listing lookup result:', { slug, found: !!listing, listingId });
       
       // Create inquiry in Firestore
       const inquiry = await createInquiry({
@@ -141,9 +144,11 @@ export const POST: APIRoute = async ({ request }) => {
       });
       inquiryId = inquiry.id;
       console.log('[inquire] Firestore inquiry created:', { inquiryId, listingId, slug });
-    } catch (firestoreErr) {
-      // Log but don't fail - email flow should still work
-      console.warn('[inquire] Firestore write failed (continuing with email):', firestoreErr);
+    } catch (firestoreErr: any) {
+      // Log the actual error message so we can debug
+      const errMsg = firestoreErr?.message || String(firestoreErr);
+      console.error('[inquire] Firestore FAILED:', errMsg);
+      console.error('[inquire] Full error:', JSON.stringify(firestoreErr, Object.getOwnPropertyNames(firestoreErr)));
     }
 
     // Env
