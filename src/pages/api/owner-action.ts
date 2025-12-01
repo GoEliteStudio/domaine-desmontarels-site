@@ -113,16 +113,21 @@ async function handleApprove(
 
   // Get listing info for Stripe product name
   let listingName = 'Villa Booking';
-  let listingSlug = 'villa';
+  let listingSlug = 'casa-de-la-muralla'; // Default fallback
   
+  // Try to get slug from listingId first (it should be the slug)
   if (inquiry.listingId) {
+    listingSlug = inquiry.listingId;
     const listingSnap = await db.collection('listings').doc(inquiry.listingId).get();
     if (listingSnap.exists) {
       const listing = listingSnap.data()!;
       listingName = listing.name || listingName;
-      listingSlug = listing.slug || listingSlug;
+      if (listing.slug) listingSlug = listing.slug;
     }
   }
+  
+  // Ensure slug is URL-safe (no special chars)
+  listingSlug = listingSlug.replace(/[^a-zA-Z0-9-]/g, '-').toLowerCase();
 
   // Calculate nights for description
   const checkIn = new Date(inquiry.checkIn);
@@ -133,10 +138,36 @@ async function handleApprove(
   // Create Stripe Checkout Session
   let checkoutUrl: string | null = null;
   
-  console.log('[owner-action] Stripe check:', { 
-    hasStripeKey: !!STRIPE_SECRET_KEY, 
-    stripeInitialized: !!stripe,
-    keyPrefix: STRIPE_SECRET_KEY ? STRIPE_SECRET_KEY.substring(0, 10) + '...' : 'MISSING'
+  // Log raw SITE_URL for debugging
+  console.log('[owner-action] Raw SITE_URL from env:', JSON.stringify(SITE_URL));
+  
+  // Ensure SITE_URL is valid - must be a proper https URL
+  let siteUrl = (SITE_URL || '').trim().replace(/\/$/, ''); // Remove trailing slash if any
+  
+  // Validate it's a proper URL
+  if (!siteUrl.startsWith('https://')) {
+    console.error('[owner-action] Invalid SITE_URL, using fallback:', siteUrl);
+    siteUrl = 'https://domaine-desmontarels-site-git-feature-mu-99df38-go-elite-studio.vercel.app';
+  }
+  
+  // Build URLs and validate them
+  const successUrl = `${siteUrl}/villas/${listingSlug}/en/thank-you?payment=success&ref=${inquiryId}`;
+  const cancelUrl = `${siteUrl}/villas/${listingSlug}/en/contact?payment=cancelled&ref=${inquiryId}`;
+  
+  // Validate URLs are properly formed
+  try {
+    new URL(successUrl);
+    new URL(cancelUrl);
+  } catch (urlError) {
+    console.error('[owner-action] URL validation failed:', { successUrl, cancelUrl, error: urlError });
+  }
+  
+  console.log('[owner-action] Stripe URLs:', { 
+    siteUrl,
+    listingSlug,
+    successUrl,
+    cancelUrl,
+    SITE_URL_raw: SITE_URL
   });
 
   if (stripe) {
@@ -167,8 +198,8 @@ async function handleApprove(
           checkOut: inquiry.checkOut,
           partySize: String(inquiry.partySize),
         },
-        success_url: `${SITE_URL}/villas/${listingSlug}/en/thank-you?payment=success&ref=${inquiryId}`,
-        cancel_url: `${SITE_URL}/villas/${listingSlug}/en/contact?payment=cancelled&ref=${inquiryId}`,
+        success_url: successUrl,
+        cancel_url: cancelUrl,
         expires_at: Math.floor(Date.now() / 1000) + (72 * 60 * 60), // 72 hours
       });
 
