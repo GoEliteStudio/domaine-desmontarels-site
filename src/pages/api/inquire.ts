@@ -85,12 +85,12 @@ export const POST: APIRoute = async ({ request }) => {
     console.log('=========================');
 
     // Honeypot (bot) check — pretend success silently
-    if (required(data.company) || required(data.website) || required(data.hpt)) {
-      console.log('Honeypot triggered - silent success', { 
-        company: data.company, 
-        website: data.website, 
-        hpt: data.hpt 
-      });
+    // Using obscure field names to avoid browser autofill (xfield_a, xfield_b, xfield_c)
+    const hp_a = (data as any).xfield_a || data.company; // fallback for old forms
+    const hp_b = (data as any).xfield_b || data.website;
+    const hp_c = (data as any).xfield_c || data.hpt;
+    if (required(hp_a) || required(hp_b) || required(hp_c)) {
+      console.log('Honeypot triggered - silent success', { hp_a, hp_b, hp_c });
       return new Response(JSON.stringify({ ok: true }), { status: 200 });
     }
 
