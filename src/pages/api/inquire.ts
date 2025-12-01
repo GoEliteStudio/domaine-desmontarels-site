@@ -128,20 +128,25 @@ export const POST: APIRoute = async ({ request }) => {
       console.log('[inquire] Listing lookup result:', { slug, found: !!listing, listingId });
       
       // Create inquiry in Firestore
-      const inquiry = await createInquiry({
-        listingId: listingId || slug, // fallback to slug if listing not found
+      // Note: Firestore doesn't accept undefined values, so we use conditional spreading
+      const inquiryData: Parameters<typeof createInquiry>[0] = {
+        listingId: listingId || slug,
         guestName: payload.fullName,
         guestEmail: payload.email,
-        guestPhone: payload.phone || undefined,
         checkIn: payload.checkIn,
         checkOut: payload.checkOut,
         partySize: payload.adults + payload.children,
-        message: payload.notes || undefined,
-        occasion: payload.occasion || undefined,
         origin,
         status: 'pending_owner',
-        currency: listing?.baseCurrency || 'EUR', // default currency, will be confirmed at approval
-      });
+        currency: listing?.baseCurrency || 'EUR',
+      };
+      
+      // Only add optional fields if they have values
+      if (payload.phone) inquiryData.guestPhone = payload.phone;
+      if (payload.notes) inquiryData.message = payload.notes;
+      if (payload.occasion) inquiryData.occasion = payload.occasion;
+      
+      const inquiry = await createInquiry(inquiryData);
       inquiryId = inquiry.id;
       console.log('[inquire] Firestore inquiry created:', { inquiryId, listingId, slug });
     } catch (firestoreErr: any) {
