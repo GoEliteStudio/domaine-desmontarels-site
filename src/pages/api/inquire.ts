@@ -165,9 +165,11 @@ export const POST: APIRoute = async ({ request }) => {
     
     try {
       listing = await getListingBySlug(slug);
+      console.log('[inquire] Listing lookup:', { slug, found: !!listing, listingId: listing?.id });
+      
       if (listing) {
         currency = listing.baseCurrency;
-        const pricing = getDefaultPricing(listing); // TODO: Load from Firestore pricing collection
+        const pricing = getDefaultPricing(listing);
         const quote = calculateQuote(
           pricing,
           payload.checkIn,
@@ -175,18 +177,40 @@ export const POST: APIRoute = async ({ request }) => {
           payload.adults + payload.children
         );
         quoteAmount = quote.total;
+        console.log('[inquire] Quote calculated:', { quoteAmount, currency, nights: quote.nights });
+      } else {
+        // Fallback: use default pricing if listing not found
+        // This ensures owner emails always have action buttons
+        console.warn('[inquire] Listing not found, using fallback pricing for slug:', slug);
+        const fallbackPricing = getDefaultPricing(null);
+        const quote = calculateQuote(
+          fallbackPricing,
+          payload.checkIn,
+          payload.checkOut,
+          payload.adults + payload.children
+        );
+        quoteAmount = quote.total;
+        console.log('[inquire] Fallback quote:', { quoteAmount, currency });
       }
     } catch (pricingErr) {
       console.warn('[inquire] Quote calculation failed:', pricingErr);
+      // Last resort: provide a placeholder quote so buttons still appear
+      // Owner will adjust the actual price
+      quoteAmount = 0;
     }
 
-    // Generate signed action URLs (only if we have an inquiry ID)
+    // Generate signed action URLs (if we have an inquiry ID)
     let approveUrl: string | undefined;
     let declineUrl: string | undefined;
     
-    if (inquiryId && quoteAmount) {
-      approveUrl = generateApproveUrl(SITE_URL, inquiryId, quoteAmount, currency);
+    if (inquiryId) {
+      // Always generate URLs if we have an inquiry ID
+      // quoteAmount can be 0 (owner will set final price)
+      approveUrl = generateApproveUrl(SITE_URL, inquiryId, quoteAmount || 0, currency);
       declineUrl = generateDeclineUrl(SITE_URL, inquiryId);
+      console.log('[inquire] Action URLs generated:', { approveUrl: !!approveUrl, declineUrl: !!declineUrl, SITE_URL });
+    } else {
+      console.warn('[inquire] No inquiry ID - action URLs not generated');
     }
 
     const html = ownerNoticeHtml({
