@@ -72,8 +72,21 @@ export const POST: APIRoute = async ({ request }) => {
     if (!data.checkIn && data.checkInDate) data.checkIn = data.checkInDate;
     if (!data.checkOut && data.checkOutDate) data.checkOut = data.checkOutDate;
 
+    // DEBUG: Log received form data
+    console.log('=== FORM DATA RECEIVED ===');
+    console.log('fullName:', data.fullName);
+    console.log('email:', data.email);
+    console.log('checkIn:', data.checkIn);
+    console.log('checkOut:', data.checkOut);
+    console.log('__ts:', (data as any).__ts);
+    console.log('slug:', data.slug, 'villa:', data.villa);
+    console.log('Content-Type:', request.headers.get('content-type'));
+    console.log('Raw data keys:', Object.keys(data));
+    console.log('=========================');
+
     // Honeypot (bot) check — pretend success silently
     if (required(data.company) || required(data.website) || required(data.hpt)) {
+      console.log('Honeypot triggered - silent success');
       return new Response(JSON.stringify({ ok: true }), { status: 200 });
     }
 
@@ -81,8 +94,10 @@ export const POST: APIRoute = async ({ request }) => {
     const now = Date.now();
     const started = Number((data as any).__ts || 0);
     const dwellMs = Number.isFinite(started) ? now - started : 0;
+    console.log('Timing check - dwellMs:', dwellMs, 'started:', started, 'now:', now);
     if (!started || dwellMs < 3000) {
       // Silent success: do not send emails; return OK so bots don't probe
+      console.log('Timing gate blocked - dwellMs:', dwellMs);
       return new Response(JSON.stringify({ ok: true }), { status: 200 });
     }
 
@@ -93,6 +108,15 @@ export const POST: APIRoute = async ({ request }) => {
     if (!required(data.checkIn)) errors.checkIn = 'Required';
     if (!required(data.checkOut)) errors.checkOut = 'Required';
     if (Object.keys(errors).length) {
+      // For HTML form submissions, redirect back with error
+      const accept = (request.headers.get('accept') || '').toLowerCase();
+      if (accept.includes('text/html')) {
+        const formLang = data.lang || 'en';
+        const formSlug = data.slug || data.villa || 'domaine-des-montarels';
+        const errorUrl = new URL(`/villas/${formSlug}/${formLang}/`, request.url);
+        errorUrl.searchParams.set('error', 'validation');
+        return Response.redirect(errorUrl.toString(), 303);
+      }
       return new Response(JSON.stringify({ ok: false, errors }), { status: 400, headers: { 'Content-Type': 'application/json' } });
     }
 
