@@ -1,0 +1,731 @@
+{
+  "slug": "domaine-des-montarels",
+  "name": "Domaine des Montarels",
+  "summary": "Santuario aislado del Languedoc, de origen monástico del siglo X, con piscina privada climatizada, experiencias locales curadas y concierge de alto nivel para hasta 12 huéspedes.",
+  "hero": {
+    "title": "El santuario más exclusivo del Languedoc (siglo X)",
+    "subtitle": "Carácter de antiguo monasterio con lujo moderno silencioso. Un retiro panorámico y privado reservado para muy pocos.",
+    "ctaText": "Explorar el Domaine",
+    "priorityImages": [
+      "/images/domaine-des-montarels/MONT_Pool_027.webp",
+      "/images/domaine-des-montarels/MONT_Pool_Aerial_031.webp",
+      "/images/domaine-des-montarels/MONT_001.webp"
+    ]
+  },
+  "images": [
+    { "src": "/images/domaine-des-montarels/MONT_001.webp", "alt": "Vista panorámica de un lago azul enmarcado por montañas", "caption": "Paisaje de lago y montañas cerca del Domaine." },
+    { "src": "/images/domaine-des-montarels/MONT_002.webp", "alt": "Salón acogedor con techo de vigas y muros de piedra", "caption": "Salón principal con piedra vista, vigas y sofás cómodos." },
+    { "src": "/images/domaine-des-montarels/MONT_003.webp", "alt": "Rincón íntimo con tapices y sofás", "caption": "Un rincón cómodo para leer o conversar." },
+    { "src": "/images/domaine-des-montarels/MONT_004.webp", "alt": "Mesa de madera larga en un comedor rústico", "caption": "Comedor con carácter listo para comidas en grupo." },
+    { "src": "/images/domaine-des-montarels/MONT_005.webp", "alt": "Comedor con arcos y detalles de piedra", "caption": "Elegante comedor con ambiente histórico." },
+    { "src": "/images/domaine-des-montarels/MONT_006.webp", "alt": "Interior abovedado de piedra con luz cálida", "caption": "Espacio atmosférico que conserva elementos originales." },
+    { "src": "/images/domaine-des-montarels/MONT_007.webp", "alt": "Zona de lounge exterior bajo un arco de piedra", "caption": "Zona de descanso en el patio junto a la casa principal." },
+    { "src": "/images/domaine-des-montarels/MONT_008.webp", "alt": "Mesas redondas en una terraza junto al mar", "caption": "Restaurantes junto al agua en un pueblo costero cercano." },
+    { "src": "/images/domaine-des-montarels/MONT_009.webp", "alt": "Sombrillas blancas y tumbonas en la playa", "caption": "Club de playa ideal para una excursión de día completo." },
+    { "src": "/images/domaine-des-montarels/MONT_010.webp", "alt": "La grandeza histórica de Béziers", "caption": "Descubre la historia de Béziers, una de las ciudades más antiguas de Francia, hoy renovada y vibrante." },
+    { "src": "/images/domaine-des-montarels/MONT_011.webp", "alt": "Viñedos verdes bajo un cielo azul", "caption": "Viñedos típicos del paisaje que rodea el Domaine." },
+    { "src": "/images/domaine-des-montarels/MONT_012.webp", "alt": "Chef emplatando un plato en la cocina", "caption": "Servicio de chef privado disponible bajo petición." },
+    { "src": "/images/domaine-des-montarels/MONT_013.webp", "alt": "Niños jugando en una atracción giratoria de feria", "caption": "Eventos y actividades familiares en la región." },
+    { "src": "/images/domaine-des-montarels/MONT_014.webp", "alt": "Árboles en silueta junto al agua al atardecer", "caption": "Atardeceres tranquilos junto a la piscina." },
+    { "src": "/images/domaine-des-montarels/MONT_015.webp", "alt": "Cielo de atardecer sobre colinas y cipreses", "caption": "Luz dorada sobre el paisaje mediterráneo." },
+    { "src": "/images/domaine-des-montarels/MONT_016.webp", "alt": "Dormitorio luminoso con butaca y arte en la pared", "caption": "Dormitorio de invitados luminoso y sereno." },
+    { "src": "/images/domaine-des-montarels/MONT_017.webp", "alt": "Cama doble con cojines rojos y apliques de pared", "caption": "Habitación doble acogedora con iluminación cálida." },
+    { "src": "/images/domaine-des-montarels/MONT_018.webp", "alt": "Ducha moderna y lavabo en tonos claros", "caption": "Baño en suite con ducha a ras de suelo." },
+    { "src": "/images/domaine-des-montarels/MONT_019.webp", "alt": "Baño con tina exenta y cuadro en la pared", "caption": "Baño relajante con bañera independiente." },
+    { "src": "/images/domaine-des-montarels/MONT_020.webp", "alt": "Baño con dos lavabos y detalles rústicos", "caption": "Baño con doble lavabo y detalles de carácter." },
+    { "src": "/images/domaine-des-montarels/MONT_021.webp", "alt": "Patio de piedra sombreado con árbol y contraventanas", "caption": "Patio tradicional dentro de la propiedad." },
+    { "src": "/images/domaine-des-montarels/MONT_022.webp", "alt": "Dormitorio con colcha azul y lámpara de araña", "caption": "Habitación doble clásica y acogedora." },
+    { "src": "/images/domaine-des-montarels/MONT_023.webp", "alt": "Cama elástica bajo árboles frondosos en el jardín", "caption": "Diversión al aire libre para los más pequeños." },
+    { "src": "/images/domaine-des-montarels/MONT_024.webp", "alt": "Mesa de ping-pong junto a la piscina", "caption": "Partidas de ping-pong con vistas al jardín." },
+    { "src": "/images/domaine-des-montarels/MONT_025.webp", "alt": "Jardín sombreado con olivos y banco", "caption": "Rincón de jardín tranquilo bajo olivos centenarios." },
+    { "src": "/images/domaine-des-montarels/MONT_026.webp", "alt": "Sofás blancos en una terraza cubierta", "caption": "Terraza cubierta perfecta para los días calurosos." },
+    { "src": "/images/domaine-des-montarels/MONT_Pool_027.webp", "alt": "Terraza de piscina con palmera y tumbonas", "caption": "Piscina climatizada con ambiente mediterráneo." },
+    { "src": "/images/domaine-des-montarels/MONT_Pool_028.webp", "alt": "Piscina alargada rodeada de césped y árboles", "caption": "Amplio jardín que rodea la piscina." },
+    { "src": "/images/domaine-des-montarels/MONT_Pool_029.webp", "alt": "Piscina con escaleras junto a una fachada de piedra", "caption": "Piscina junto a la casa principal de piedra." },
+    { "src": "/images/domaine-des-montarels/MONT_030.webp", "alt": "Camino bañado por el sol junto a muros de piedra y árboles", "caption": "Exteriores con carácter y vegetación mediterránea." },
+    { "src": "/images/domaine-des-montarels/MONT_Pool_Aerial_031.webp", "alt": "Foto aérea de la terraza de la piscina", "caption": "Vista de pájaro de la piscina y la terraza." },
+    { "src": "/images/domaine-des-montarels/MONT_032.webp", "alt": "Dormitorio con vigas vistas y cojines rojos", "caption": "Dormitorio doble encantador bajo vigas de madera." },
+    { "src": "/images/domaine-des-montarels/MONT_033.webp", "alt": "Dormitorio con vigas vistas y dos camas", "caption": "Habitación doble o twin bajo las vigas." },
+    { "src": "/images/domaine-des-montarels/MONT_034.webp", "alt": "Dormitorio luminoso con lámpara de araña y toques rojos", "caption": "Dormitorio elegante con detalles clásicos." },
+    { "src": "/images/domaine-des-montarels/MONT_035.webp", "alt": "Zona de estar luminosa en dormitorio en tonos blancos", "caption": "Habitación serena inundada de luz natural." },
+    { "src": "/images/domaine-des-montarels/MONT_036.webp", "alt": "Terraza cubierta con chimenea", "caption": "Reuniones nocturnas junto a la chimenea exterior." },
+    { "src": "/images/domaine-des-montarels/MONT_037.webp", "alt": "Salón cálido con sofás de cuero y librería", "caption": "Gran salón con aire de biblioteca y arcos de piedra." },
+    { "src": "/images/domaine-des-montarels/MONT_038.webp", "alt": "Gráfico con el escudo y el nombre del Domaine", "caption": "Insignia histórica de la propiedad." },
+    { "src": "/images/domaine-des-montarels/MONT_039.webp", "alt": "Documento con información de la casa e inventario", "caption": "Información práctica para los huéspedes (ejemplo ilustrativo)." },
+    { "src": "/images/domaine-des-montarels/MONT_040.webp", "alt": "Suave atardecer sobre viñedos y colinas", "caption": "Hora dorada sobre los viñedos del valle." },
+    { "src": "/images/domaine-des-montarels/MONT_041.webp", "alt": "Dos personas cenando junto a un muelle fluvial", "caption": "Tus anfitriones Ian y Katie Jackson llevan viviendo en Domaine des Montarels desde 2013, cuando se enamoraron de la casa a primera vista." },
+    { "src": "/images/domaine-des-montarels/MONT-042.webp", "alt": "Zona de estar sombreada bajo olivos centenarios con luz filtrada sobre el césped", "caption": "Rincón de jardín tranquilo bajo olivos centenarios." },
+    { "src": "/images/domaine-des-montarels/MONT-043.webp", "alt": "Vibrante atardecer del Languedoc con siluetas de cipreses y colinas", "caption": "Un atardecer dramático tiñendo el paisaje del Languedoc de tonos cálidos." },
+    { "src": "/images/domaine-des-montarels/MONT-044.webp", "alt": "Acogedor dormitorio campestre con techo inclinado, iluminación cálida y cortinas florales", "caption": "Un encantador dormitorio abuhardillado con detalles rústicos serenos." },
+    { "src": "/images/domaine-des-montarels/MONT-046.webp", "alt": "Tarima de madera elevada rodeada de pinos con esterilla azul exterior", "caption": "Un espacio tranquilo en la linde del bosque, inmerso en la naturaleza." },
+    { "src": "/images/domaine-des-montarels/MONT-049.webp", "alt": "Estantería rústica de madera empotrada en muro de piedra con decoración vintage", "caption": "Rincón de biblioteca artesanal lleno de encanto antiguo." },
+    { "src": "/images/domaine-des-montarels/MONT-052.webp", "alt": "Ventana francesa arqueada con flores y cortinas estampadas dando al jardín", "caption": "Romántica ventana campestre enmarcada por textiles florales." },
+    { "src": "/images/domaine-des-montarels/MONT-053.webp", "alt": "Luminoso dormitorio doble con decoración neutra, lámpara de araña y suave luz matinal", "caption": "Dormitorio elegante y aireado diseñado para noches reparadoras." },
+    { "src": "/images/domaine-des-montarels/MONT-054.webp", "alt": "Mesa de desayuno exterior bajo los árboles con bollería y bebidas frescas", "caption": "Comidas al aire libre entre sombra y vegetación mediterránea." },
+    { "src": "/images/domaine-des-montarels/MONT-055.webp", "alt": "Tumbonas con toallas rojas junto a una piscina turquesa serena", "caption": "Relax junto a la piscina con vistas ininterrumpidas a la naturaleza." },
+    { "src": "/images/domaine-des-montarels/MONT-056.webp", "alt": "Baño minimalista con ducha a ras de suelo, azulejos blancos e iluminación brillante", "caption": "Baño limpio y moderno con estética fresca y sencilla." },
+    { "src": "/images/domaine-des-montarels/MONT-057.webp", "alt": "Amplio dormitorio campestre con camas gemelas y mobiliario francés vintage", "caption": "Dormitorio clásico francés que combina confort y tradición." },
+    { "src": "/images/domaine-des-montarels/MONT-058.webp", "alt": "Interior de piedra con armario antiguo de madera y butaca tapizada", "caption": "Estancia histórica enriquecida con piezas de época auténticas." },
+    { "src": "/images/domaine-des-montarels/MONT-059.webp", "alt": "Jardín soleado con césped cuidado y edificios de la finca al fondo", "caption": "Amplio césped que ofrece espacio abierto y serenidad del sur de Francia." },
+    { "src": "/images/domaine-des-montarels/MONT-060.webp", "alt": "Vista aérea de la terraza de la piscina con tumbonas y entorno campestre", "caption": "Panorámica del oasis de la piscina de la finca desde arriba." },
+    { "src": "/images/domaine-des-montarels/MONT-061.webp", "alt": "Rincón interior tranquilo con pequeño escritorio y ventana iluminada", "caption": "Un rincón apacible bañado por suave luz natural." },
+    { "src": "/images/domaine-des-montarels/MONT-062.webp", "alt": "Barandilla de hierro del jardín con vistas a campos, colinas y cielo abierto", "caption": "Vistas campestres enmarcadas por elegantes detalles de forja." },
+    { "src": "/images/domaine-des-montarels/MONT-063.webp", "alt": "Baño luminoso con doble espejo, tocador blanco y suelo de terracota", "caption": "Baño cálido y refinado lleno de luz natural suave." },
+    { "src": "/images/domaine-des-montarels/MONT-064.webp", "alt": "Terraza exterior con cómodos asientos rojos bajo arcos de piedra", "caption": "Lujosa terraza sombreada diseñada para largas tardes sociales." },
+    { "src": "/images/domaine-des-montarels/MONT-065.webp", "alt": "Primer plano de mesita de noche con lámpara suave y texturas de lino", "caption": "Iluminación acogedora que realza un dormitorio reparador." },
+    { "src": "/images/domaine-des-montarels/MONT-066.webp", "alt": "Repisa blanca con elegantes arreglos florales y acentos dorados", "caption": "Chimenea decorativa refinada con elegancia campestre francesa." },
+    { "src": "/images/domaine-des-montarels/MONT-067.webp", "alt": "Amplio salón con sofá, butacas y cuadros enmarcados", "caption": "Salón confortable que fusiona encanto rústico con confort moderno." },
+    { "src": "/images/domaine-des-montarels/MONT-068.webp", "alt": "Piscina turquesa rodeada de césped y olivos", "caption": "Piscina bañada por el sol bordeada de vegetación mediterránea." },
+    { "src": "/images/domaine-des-montarels/MONT-070.webp", "alt": "Baño en tonos cálidos con doble lavabo y arte clásico en la pared", "caption": "Elegante baño que combina texturas rústicas con toques refinados." },
+    { "src": "/images/domaine-des-montarels/MONT-071.webp", "alt": "Baño con muros de piedra, iluminación cálida y lavabo vintage", "caption": "Acogedor baño antiguo construido con piedra natural." },
+    { "src": "/images/domaine-des-montarels/MONT-072.webp", "alt": "Espejo de tocador blanco con marco tallado y decoración de lavanda", "caption": "Encantador tocador de estilo vintage lleno de detalles delicados." },
+    { "src": "/images/domaine-des-montarels/MONT-073.webp", "alt": "Ornamentado comedor con sillas antiguas, lámparas de araña y paredes doradas", "caption": "Majestuoso comedor que celebra la artesanía tradicional del Languedoc." },
+    { "src": "/images/domaine-des-montarels/MONT-074.webp", "alt": "Dormitorio doble con luz natural, ropa de cama neutra y detalles campestres", "caption": "Elegante habitación twin ideal para familias o estancias compartidas." },
+    { "src": "/images/domaine-des-montarels/MONT-075.webp", "alt": "Placa de pared con la inscripción Maison d'Hôtes y ganchos decorativos", "caption": "Un detalle francés de bienvenida que señala el área de invitados." },
+    { "src": "/images/domaine-des-montarels/MONT-076.webp", "alt": "Escalones de piscina que conducen a una piscina turquesa resplandeciente", "caption": "Entrada refrescante a la piscina diseñada para chapuzones veraniegos." },
+    { "src": "/images/domaine-des-montarels/MONT-077.webp", "alt": "Baño con decoración rústica, cuadros y baldosas de terracota", "caption": "Cálido baño con carácter y elementos mediterráneos clásicos." },
+    { "src": "/images/domaine-des-montarels/MONT-078.webp", "alt": "Gimnasio doméstico totalmente equipado con máquinas de ejercicio y luz natural brillante", "caption": "Sala de fitness privada con experiencia de entrenamiento completa." },
+    { "src": "/images/domaine-des-montarels/MONT-079.webp", "alt": "Comedor rústico con vigas de madera, mesa larga de banquete y decoración antigua", "caption": "Comedor histórico del Languedoc perfecto para reuniones de grupo." },
+    { "src": "/images/domaine-des-montarels/MONT-080.webp", "alt": "Pequeño aseo con luz natural de ventana y accesorios blancos sencillos", "caption": "Aseo luminoso y minimalista con encanto campestre." },
+    { "src": "/images/domaine-des-montarels/MONT-081.webp", "alt": "Terraza con arcos de piedra con vistas al cielo azul y paisaje campestre", "caption": "Impresionante terraza enmarcada por arquitectura de piedra atemporal." },
+    { "src": "/images/domaine-des-montarels/MONT-082.webp", "alt": "Acogedor dormitorio con cortinas estampadas, ropa de cama suave e iluminación cálida", "caption": "Dormitorio íntimo diseñado para el confort y la calma." },
+    { "src": "/images/domaine-des-montarels/MONT-083.webp", "alt": "Elegante baño con tocador blanco refinado, acentos dorados y decoración suave", "caption": "Sofisticado baño que combina estilo y serenidad." },
+    { "src": "/images/domaine-des-montarels/MONT-084.webp", "alt": "Primer plano de bandeja de tocador clásica con ornamentación dorada", "caption": "Toques decorativos refinados que realzan la elegancia de la finca." },
+    { "src": "/images/domaine-des-montarels/MONT-085.webp", "alt": "Ducha moderna a ras de suelo con azulejos blancos minimalistas y grifería cromada", "caption": "Baño fresco y moderno con líneas arquitectónicas limpias." },
+    { "src": "/images/domaine-des-montarels/MONT-086.webp", "alt": "Fila de ganchos de latón antiguo montados en pared rústica", "caption": "Herrajes de latón auténticos que añaden carácter provenzal atemporal." }
+  ],
+  "headlines": {
+    "overview": "Un aire de grandeza silenciosa",
+    "location": "Base estratégica para explorar la región"
+  },
+  "content": {
+    "overview": "Los arcos de piedra originales conectan de forma fluida el gran salón, el comedor y la cocina tipo chef. La vida exterior gira en torno a la piscina privada climatizada de 12,5 m, la terraza de atardeceres y un lounge marroquí a la sombra.",
+    "location": "Base estratégica y discreta en Alignan-du-Vent, cerca de Béziers: playas mediterráneas, sitios históricos y viñedos a poca distancia en coche.",
+    "story": "Domaine des Montarels es un antiguo domaine vitivinícola con raíces que se remontan al siglo X. Conserva piedra original, arcos y techos de vigas, combinados con comodidades modernas y silenciosas para estancias profundamente reparadoras. La finca ha sido cuidada con esmero por tus anfitriones, Ian y Katie Jackson, que priorizan la privacidad, la sencillez y una hospitalidad sin esfuerzo.",
+    "practicalDetails": [
+      "Piscina climatizada de 12,5 m",
+      "Cocina de chef con gran cocina y utensilios esenciales",
+      "Wi-Fi rápido en toda la casa",
+      "Aire acondicionado silencioso en las zonas clave de descanso",
+      "Lavadora/secadora y suministros básicos",
+      "Mesa de ping-pong y cama elástica",
+      "Piano y guitarra",
+      "Ropa de cama y toallas de alta calidad",
+      "Lounge exterior y terrazas cubiertas para comer al aire libre"
+    ],
+    "rooms": [
+      { "name": "Dormitorio Uno", "description": "Dormitorio doble luminoso con techo de vigas (ver imágenes MONT_032/MONT_035)." },
+      { "name": "Dormitorio Dos", "description": "Cómodo dormitorio doble con toques clásicos (imágenes MONT_034/MONT_017)." },
+      { "name": "Dormitorio Tres", "description": "Habitación twin/doble acogedora bajo las vigas (imagen MONT_033)." },
+      { "name": "Dormitorio Cuatro", "description": "Habitación luminosa cerca de un baño familiar (imágenes MONT_016/MONT_020)." },
+      { "name": "Dormitorio Cinco", "description": "Dormitorio flexible para familias o amigos (ver galería completa)." }
+    ],
+    "familyRecreation": [
+      "Cama elástica bajo los árboles",
+      "Mesa de ping-pong junto a la piscina",
+      "Juegos de mesa y libros",
+      "Piano y guitarra para veladas musicales"
+    ],
+    "experiences": {
+      "vineyards": [
+        "Viñedos de categoría mundial del Languedoc a unos 5 km",
+        "Cata privada y almuerzo en viñedo — bajo petición"
+      ],
+      "beaches": [
+        "Costa mediterránea a unos 25 minutos",
+        "Playas familiares, clubes de playa y marisco fresco"
+      ],
+      "culture": [
+        "Pézenas histórico a ~12 minutos",
+        "Casco antiguo de Béziers y paseos junto al río Orb"
+      ],
+      "family": [
+        "Mercados, fiestas locales y helados artesanales en plazas de pueblo",
+        "Rutas en bici y picnics junto a ríos y lagos"
+      ]
+    },
+    "travel": {
+      "air": [
+        "Aeropuerto Béziers Cap d'Agde (~20 min)",
+        "Montpellier–Méditerranée (~55 min)"
+      ],
+      "rail": [
+        "Estación TGV de Béziers (~20 min)"
+      ],
+      "drive": [
+        "Pézenas ~12 min",
+        "Playas mediterráneas ~25 min"
+      ]
+    },
+    "hosts": {
+      "image": "/images/domaine-des-montarels/MONT_041.webp",
+      "names": "Ian & Katie Jackson",
+      "bio": "Tus anfitriones, Ian y Katie Jackson, viven en Domaine des Montarels desde 2013 y curan cada estancia personalmente: desde cenas con chef privado hasta itinerarios tranquilos entre viñedos, pueblos medievales y la costa mediterránea."
+    },
+    "testimonials": [
+      { "quote": "Una mezcla muy rara de historia, privacidad y calidez humana: nuestra familia se fue renovada.", "attribution": "Huésped, verano 2024" }
+    ],
+    "faq": [
+      {
+        "category": "Ubicación y llegada",
+        "q": "¿A qué distancia está la villa de los aeropuertos internacionales?",
+        "a": "Estamos estratégicamente situados a unos 20 minutos del aeropuerto Béziers Cap d’Agde (BZR), 45–50 minutos de Montpellier–Méditerranée (MPL) y aproximadamente 1 hora y 20 minutos de Carcasona (CCF). Béziers es el más cercano y práctico para rutas europeas de bajo coste, mientras que Montpellier suele ser el mejor hub para llegadas de largo recorrido. Podemos organizar traslados privados desde cualquiera de estos aeropuertos."
+      },
+      {
+        "category": "Ubicación y llegada",
+        "q": "¿Hay una estación TGV cerca?",
+        "a": "Sí. La estación de Béziers está a solo unos 20 minutos del Domaine y recibe trenes TGV de alta velocidad desde París (unas 4 horas), además de conexiones desde Barcelona, Lyon y otras grandes ciudades. Desde la estación, se llega a Domaine des Montarels en taxi o coche de alquiler en unos 20 minutos."
+      },
+      {
+        "category": "Ubicación y llegada",
+        "q": "¿Podemos volar directamente desde el Reino Unido o Alemania?",
+        "a": "Sí. El aeropuerto de Béziers Cap d’Agde (BZR) ofrece vuelos directos de bajo coste (según temporada) desde varias ciudades del Reino Unido como Londres (Stansted/Luton), Manchester, Edimburgo y Bristol, así como rutas desde Alemania y Bélgica (por ejemplo Düsseldorf-Weeze). Montpellier y Marsella también reciben aerolíneas como British Airways, easyJet, Lufthansa, Transavia y otras, ofreciendo más opciones desde el Reino Unido, Alemania y el resto de Europa."
+      },
+      {
+        "category": "Ubicación y llegada",
+        "q": "¿Necesitamos coche?",
+        "a": "Aunque podemos organizar traslados y chófer privado, recomendamos encarecidamente alquilar coche. El Domaine está en una zona vitivinícola rural, y disponer de vehículo propio te da libertad total para explorar Pézenas, Béziers, los viñedos, el Canal du Midi y las playas mediterráneas. Ofrecemos aparcamiento privado dentro de la finca."
+      },
+      {
+        "category": "Ubicación y llegada",
+        "q": "¿A qué distancia está la playa?",
+        "a": "La costa mediterránea está a unos 25 minutos en coche de Domaine des Montarels. Tendrás acceso fácil a las playas de arena de Valras-Plage y Sérignan, así como a los clubes de playa y marinas de Cap d’Agde."
+      },
+      {
+        "category": "Ubicación y llegada",
+        "q": "¿Cuál es la ubicación exacta del Domaine para GPS?",
+        "a": "Domaine des Montarels se encuentra en Alignan-du-Vent (34290), en el departamento de Hérault de la región de Occitania, sur de Francia. Está aproximadamente a 50 km al suroeste de Montpellier y a unos 25 km de las playas de Cap d’Agde, en pleno corazón de la región vinícola del Languedoc."
+      },
+      {
+        "category": "Ubicación y llegada",
+        "q": "¿Hay puntos de carga para vehículos eléctricos (VE) cerca?",
+        "a": "Sí. La región ha ido incorporando puntos de carga para VE en aeropuertos, áreas de servicio de autopista y grandes supermercados. Si planeas alquilar un vehículo eléctrico, avísanos y te recomendamos puntos de carga prácticos en tu ruta entre el aeropuerto, el Domaine y las localidades cercanas."
+      },
+      {
+        "category": "Aeropuertos y vuelos – Esencial",
+        "q": "¿Cuál es el aeropuerto más cercano a Domaine des Montarels?",
+        "a": "El aeropuerto más cercano es Béziers Cap d’Agde (BZR), a unos 16 km, unos 20 minutos en coche. Es pequeño y fácil de usar, ideal para huéspedes que llegan desde el Reino Unido y otros puntos de Europa en compañías de bajo coste."
+      },
+      {
+        "category": "Aeropuertos y vuelos – Esencial",
+        "q": "¿Cuál es el mejor aeropuerto para llegadas de largo recorrido?",
+        "a": "Para huéspedes que llegan desde Estados Unidos, Canadá, Sudamérica, Asia o Medio Oriente, Montpellier–Méditerranée (MPL) suele ser la opción más práctica. Ofrece conexiones frecuentes vía aeropuertos europeos clave como París (CDG), Ámsterdam (AMS) o Madrid (MAD). Desde Montpellier, el trayecto al Domaine dura aproximadamente 45–50 minutos."
+      },
+      {
+        "category": "Aeropuertos y vuelos – EE. UU. y Canadá",
+        "q": "¿Hay vuelos directos desde EE. UU. o Canadá a Montpellier?",
+        "a": "Actualmente no hay vuelos directos de largo recorrido desde Norteamérica a Montpellier. Las rutas más eficientes conectan a través de hubs como París Charles de Gaulle (CDG), Ámsterdam Schiphol (AMS) o Madrid (MAD). Desde allí puedes tomar un vuelo corto a Montpellier (MPL) o un TGV a Béziers."
+      },
+      {
+        "category": "Aeropuertos y vuelos – EE. UU. y Canadá",
+        "q": "¿Cuál es la mejor ruta desde Nueva York hasta la villa?",
+        "a": "Una opción habitual es volar de Nueva York (JFK) a París (CDG) con Air France o Delta y conectar con un vuelo corto a Montpellier (MPL). Desde el aeropuerto de Montpellier son unos 45–50 minutos en coche hasta el Domaine. Otra alternativa es tomar un TGV desde París hasta Béziers y luego taxi o coche de alquiler."
+      },
+      {
+        "category": "Aeropuertos y vuelos – EE. UU. y Canadá",
+        "q": "¿Cómo viajan normalmente los huéspedes desde la Costa Oeste de EE. UU.?",
+        "a": "Desde ciudades como Los Ángeles o San Francisco, la mayoría de huéspedes vuela vía París (CDG) o Ámsterdam (AMS) con Air France, KLM u otras aerolíneas asociadas. Desde ahí, se completa el viaje con un vuelo a Montpellier o un TGV a Béziers. El viaje puerta a puerta suele durar entre 15 y 18 horas, según las escalas."
+      },
+      {
+        "category": "Aeropuertos y vuelos – EE. UU. y Canadá",
+        "q": "¿Cuál es la ruta recomendada desde Canadá?",
+        "a": "Desde Montreal o Toronto, muchos huéspedes vuelan con Air France o KLM vía París (CDG) o Ámsterdam (AMS), y continúan a Montpellier en avión o a Béziers en TGV. Ambas opciones son sencillas y están bien conectadas durante todo el año."
+      },
+      {
+        "category": "Aeropuertos y vuelos – Latinoamérica",
+        "q": "¿Cuál es la mejor ruta desde Brasil, Argentina o Chile?",
+        "a": "Desde hubs sudamericanos como São Paulo, Buenos Aires o Santiago, las conexiones más eficientes suelen pasar por Madrid (MAD), París (CDG) o Lisboa (LIS) en aerolíneas como LATAM, Iberia o Air France. Desde allí, puedes volar a Montpellier (MPL) o tomar un TGV hasta Béziers y completar el tramo final en coche."
+      },
+      {
+        "category": "Aeropuertos y vuelos – Latinoamérica",
+        "q": "¿Cómo suelen llegar los viajeros desde Colombia u otros países andinos?",
+        "a": "Los viajeros desde Bogotá y otras capitales andinas suelen volar a Madrid (MAD) o París (CDG) con aerolíneas como Avianca, Iberia o Air France. Desde esos hubs, es sencillo conectar con Montpellier (MPL) o viajar en tren a Béziers."
+      },
+      {
+        "category": "Aeropuertos y vuelos – Europa y Reino Unido",
+        "q": "¿Qué aerolíneas de bajo coste vuelan a Béziers o Montpellier?",
+        "a": "Béziers (BZR) está servido principalmente por Ryanair y Volotea, con rutas de temporada y anuales desde ciudades del Reino Unido y el norte de Europa. Montpellier (MPL) recibe vuelos de Transavia, Volotea, easyJet, Air France, KLM y otras, con conexiones directas a muchas ciudades europeas. Las rutas varían cada temporada, por lo que recomendamos comprobar horarios actualizados al planificar."
+      },
+      {
+        "category": "Aeropuertos y vuelos – Europa y Reino Unido",
+        "q": "¿Podemos llegar en tren de alta velocidad desde París o Barcelona?",
+        "a": "Sí. El TGV de alta velocidad conecta París con Béziers en unas 4 horas, y también hay conexiones desde Barcelona vía Narbona. Desde la estación de Béziers, se llega al Domaine en taxi o coche de alquiler en unos 20 minutos, una opción muy cómoda y escénica."
+      },
+      {
+        "category": "Transporte terrestre y traslados",
+        "q": "¿Cuánto cuesta aproximadamente un taxi o traslado privado desde el aeropuerto de Montpellier?",
+        "a": "A modo orientativo, un taxi o traslado privado desde el aeropuerto de Montpellier (MPL) hasta Domaine des Montarels suele costar entre 80 € y 120 € por trayecto, según el tipo de vehículo y la hora. Las furgonetas de lujo para grupos tienen un coste algo mayor. Podemos solicitar presupuestos y reservar traslados por ti."
+      },
+      {
+        "category": "Transporte terrestre y traslados",
+        "q": "¿Hay servicios tipo Uber en la zona?",
+        "a": "Servicios de coche con app como Uber operan en Montpellier y Béziers, pero la cobertura en pueblos pequeños y zonas rurales puede ser limitada, especialmente para recogidas en el Domaine. Para llegadas y salidas recomendamos traslados pre-reservados para evitar esperas."
+      },
+      {
+        "category": "Transporte terrestre y traslados",
+        "q": "¿Podemos llegar en transporte público?",
+        "a": "Es posible combinar trenes regionales y autobuses para llegar a Alignan-du-Vent vía Béziers y Pézenas, pero suele ser más lento y menos cómodo, sobre todo con equipaje o niños. La mayoría de huéspedes prefiere coche de alquiler o traslado privado por comodidad y flexibilidad."
+      },
+      {
+        "category": "Transporte terrestre y traslados",
+        "q": "¿Es fácil conducir en la región para visitantes?",
+        "a": "Sí. Las carreteras están bien mantenidas y señalizadas, y con GPS la navegación es muy sencilla. La autopista A9 conecta las principales ciudades, y las carreteras locales serpentean suavemente entre viñedos y pueblos. Los peajes se pueden pagar fácilmente con tarjeta o efectivo."
+      },
+      {
+        "category": "Duración de la estancia y experiencia",
+        "q": "¿Cuál es la duración ideal de una estancia en Domaine des Montarels?",
+        "a": "Un fin de semana largo ya puede ser una introducción magnífica, pero la mayoría de los grupos descubren que 5–7 noches es el punto ideal para relajarse de verdad, visitar varios viñedos, explorar Pézenas y Béziers, disfrutar de uno o dos días de playa y aún tener tiempo de simplemente no hacer nada junto a la piscina. Para una inmersión más profunda en la gastronomía y el vino de la región, muchos huéspedes optan por 10–14 noches o más."
+      },
+      {
+        "category": "Duración de la estancia y experiencia",
+        "q": "¿Por qué el Domaine es especialmente adecuado para vacaciones largas en villa?",
+        "a": "Domaine des Montarels está pensado como una base cómoda de larga estancia, no como una simple parada de una noche. Con su piscina privada, interiores amplios, cocina completamente equipada, Wi-Fi rápido, jardines y apoyo local tipo concierge, la casa invita de forma natural a estancias de una semana o más, donde puedes deshacer la maleta, bajar el ritmo y vivir como un local en el sur de Francia."
+      },
+      {
+        "category": "Duración de la estancia y experiencia",
+        "q": "¿Es mejor usar Domaine des Montarels como parada rápida o como base principal?",
+        "a": "El Domaine está diseñado como base principal. Deshaces las maletas una sola vez y utilizas la villa como hub privado para explorar viñedos, Pézenas, Béziers, Carcasona, el Étang de Thau y las playas mediterráneas. En una estancia de una semana o más, esta dinámica resulta mucho más relajada y lujosa que cambiar de hotel cada dos o tres días."
+      },
+      {
+        "category": "Duración de la estancia y experiencia",
+        "q": "¿Ofrecen condiciones especiales para estancias prolongadas o de un mes?",
+        "a": "Sí. Para estancias más largas (en general a partir de 10 noches) podemos ofrecer, según las fechas, condiciones preferentes o extras de valor añadido como limpieza a mitad de estancia, una selección de vinos locales curada o cierta flexibilidad en check-in/check-out. Para estancias de un mes o temporada, podemos adaptar servicios, limpieza y experiencias al ritmo de tu grupo."
+      },
+      {
+        "category": "Región y temporadas",
+        "q": "¿Cuál es la mejor época del año para visitar?",
+        "a": "Cada estación tiene su encanto. La primavera (abril–junio) ofrece temperaturas suaves, flores silvestres y playas tranquilas. El verano (julio–agosto) es cálido y animado, perfecto para días de piscina y salidas al mar. El otoño (septiembre–octubre) es la época de vendimia, con viñedos dorados y clima muy agradable. El invierno es tranquilo y acogedor, con menos gente y mucha oferta cultural, de mercados y experiencias de vino."
+      },
+      {
+        "category": "Región y temporadas",
+        "q": "¿Cómo es el clima en la región del Languedoc?",
+        "a": "Disfrutamos de un clima mediterráneo clásico: veranos calurosos y secos; primaveras y otoños suaves y soleados; e inviernos relativamente templados. Hay muchos días de sol, especialmente entre mayo y octubre. Por las noches, fuera del verano alto, puede refrescar, así que recomendamos llevar una chaqueta ligera o chal."
+      },
+      {
+        "category": "Región y temporadas",
+        "q": "¿Hay festivales o eventos interesantes en la zona?",
+        "a": "Sí. Entre los más destacados están la Feria de Béziers en agosto, festivales de vino y jazz, conciertos de verano en castillos y los mercados y brocantes (antigüedades) que se celebran durante todo el año. Podemos compartir un calendario actualizado para tus fechas y ayudarte a montar un itinerario alrededor de esos eventos."
+      },
+      {
+        "category": "Vino y viñedos",
+        "q": "¿La villa está en una región vinícola?",
+        "a": "Sí. Domaine des Montarels está en pleno corazón del Languedoc, la región productora de vino más grande del mundo. El paisaje alrededor está dominado por viñedos pertenecientes a denominaciones como Côtes de Thongue y AOP Pézenas, lo que convierte la casa en una base fantástica para vacaciones centradas en el vino."
+      },
+      {
+        "category": "Vino y viñedos",
+        "q": "¿Ofrecen tours privados de vino?",
+        "a": "Sí. Podemos organizar tours privados de medio día o día completo. A diferencia de las excursiones en grupo estándar, nuestras recomendaciones se centran en domaines independientes y bodegas familiares, a menudo con visitas que normalmente solo se ofrecen con cita previa o a clientes habituales."
+      },
+      {
+        "category": "Vino y viñedos",
+        "q": "¿Qué tipo de experiencias de vino podemos esperar?",
+        "a": "Según la temporada y tus intereses, puedes pasear entre las viñas con un viticultor, visitar las instalaciones de elaboración, degustar coupages de Syrah, Garnacha y Mourvèdre, y disfrutar catas relajadas bajo los árboles. También podemos organizar picnics en viñedo, maridajes de comida y vino y compras directas de bodega para disfrutar en la villa."
+      },
+      {
+        "category": "Gastronomía y restaurantes",
+        "q": "¿Pueden recomendarnos restaurantes locales?",
+        "a": "Por supuesto. Compartimos nuestro “cuaderno negro” de direcciones: desde bistrós auténticos de pueblo en Alignan-du-Vent y Pézenas hasta wine bars con ambiente y cocinas contemporáneas en Béziers. Muchos de estos lugares son los preferidos de los locales y siguen fuera del radar turístico masivo."
+      },
+      {
+        "category": "Gastronomía y restaurantes",
+        "q": "¿Hay alta cocina cerca?",
+        "a": "Sí. La región cuenta con varios restaurantes con estrella Michelin y reconocimientos Gault&Millau. Podemos ayudarte a conseguir reservas en direcciones destacadas de Béziers, Pézenas y la costa, según tus gustos y fechas."
+      },
+      {
+        "category": "Gastronomía y restaurantes",
+        "q": "¿Cuál es el mejor mercado local?",
+        "a": "El mercado de los sábados en Pézenas (a unos 10 minutos) es famoso. Ocupa todo el centro histórico con puestos de quesos, embutidos, aceitunas (especialmente la variedad Lucques), fruta y verdura de temporada, flores y antigüedades."
+      },
+      {
+        "category": "Gastronomía y restaurantes",
+        "q": "¿Podemos disfrutar marisco fresco durante nuestra estancia?",
+        "a": "Sí. Estamos cerca del Étang de Thau, célebre por sus ostras Bouzigues y mejillones. Podemos organizar una bandeja de ostras para disfrutar en la villa o una visita a los criaderos y restaurantes a orillas de la laguna."
+      },
+      {
+        "category": "Playas y costa mediterránea",
+        "q": "¿Qué playas recomiendan?",
+        "a": "Nuestros huéspedes suelen disfrutar especialmente de las amplias playas de arena de Valras-Plage y Sérignan, así como de los tramos más desarrollados y beach clubs de Cap d’Agde. Cada una tiene un ambiente diferente —desde familiar hasta más chic y social— y podemos orientarte según el tipo de experiencia que busques."
+      },
+      {
+        "category": "Playas y costa mediterránea",
+        "q": "¿Las playas están muy concurridas en verano?",
+        "a": "En julio y agosto, las playas más populares pueden estar animadas, especialmente al mediodía y los fines de semana. Con coche es fácil ajustar tus visitas a primeras horas de la mañana o últimas de la tarde, o buscar calas y tramos más tranquilos. Podemos sugerirte lugares menos concurridos y spots ideales para ver el atardecer con un apéritif."
+      },
+      {
+        "category": "Vida nocturna y entretenimiento",
+        "q": "¿Hay vida nocturna cerca?",
+        "a": "Sí. Encontrarás wine bars sofisticados y cafés animados en Pézenas y Béziers, soirées de verano en châteaux cercanos y eventos de temporada en clubes de playa de la costa. Podemos recomendarte lugares que encajen con la energía que buscas: desde copas tranquilas hasta noches más animadas."
+      },
+      {
+        "category": "Vida nocturna y entretenimiento",
+        "q": "¿Cómo es el ambiente general de la vida nocturna local?",
+        "a": "El ambiente tiende a ser más elegante y relajado que excesivo. Piensa en patios de vino, conciertos al aire libre, fiestas de verano en viñedos y alguna que otra noche con DJ en clubes de playa: perfecto para quienes disfrutan de buena música, buen vino y entornos bonitos."
+      },
+      {
+        "category": "Historia y cultura",
+        "q": "¿Hay mucha historia y cultura en la zona?",
+        "a": "Sí. Béziers, a unos 20 minutos, se considera una de las ciudades más antiguas de Francia, con raíces anteriores a los romanos. La región está llena de pueblos medievales, restos romanos, iglesias y mercados tradicionales: hay mucho que ver más allá de la piscina y los viñedos."
+      },
+      {
+        "category": "Historia y cultura",
+        "q": "¿Cuáles son los sitios históricos imprescindibles?",
+        "a": "Entre los imprescindibles están las 9 esclusas de Fonseranes en el Canal du Midi (patrimonio de la UNESCO), la catedral de Saint-Nazaire en Béziers y las calles perfectamente conservadas de Pézenas, donde actuó Molière. La ciudad fortificada de Carcasona también es altamente recomendable para una excursión de día completo."
+      },
+      {
+        "category": "Historia y cultura",
+        "q": "¿Podemos visitar Carcasona desde la villa?",
+        "a": "Sí. La ciudad medieval fortificada de Carcasona está a aproximadamente 1 hora y 20 minutos en coche desde Domaine des Montarels. Muchos huéspedes combinan la visita con una comida escénica, convirtiéndola en una excelente excursión de día."
+      },
+      {
+        "category": "Servicios de la villa",
+        "q": "¿La piscina es privada?",
+        "a": "Sí. Disfrutarás de uso exclusivo de una piscina climatizada rodeada de jardines mediterráneos. Es el lugar perfecto para tardes perezosas, diversión en familia y largas veladas al aire libre."
+      },
+      {
+        "category": "Servicios de la villa",
+        "q": "¿Hay Wi-Fi de alta velocidad?",
+        "a": "Sí. La villa cuenta con Wi-Fi rápido y fiable, adecuado para navegación diaria, streaming y teletrabajo. Para detalles más técnicos, consulta nuestra sección de Tecnología y conectividad."
+      },
+      {
+        "category": "Servicios de la villa",
+        "q": "¿Tienen aire acondicionado?",
+        "a": "Sí. Las principales zonas de estar y varios dormitorios cuentan con aire acondicionado para garantizar confort durante los veranos del Languedoc, complementando los gruesos muros de piedra y la ventilación natural."
+      },
+      {
+        "category": "Servicios de la villa",
+        "q": "¿La cocina está totalmente equipada?",
+        "a": "Sí. La cocina está diseñada para amantes de la comida, con electrodomésticos modernos, menaje de calidad y amplia superficie de trabajo para cocinar con productos del mercado. También podemos organizar un chef privado para cenas especiales o para que se ocupe de la mayoría de comidas durante tu estancia."
+      },
+      {
+        "category": "Servicio y personal",
+        "q": "¿Los anfitriones viven en la propiedad?",
+        "a": "No. Tus anfitriones viven cerca, no dentro de la villa, lo que ofrece el equilibrio perfecto entre privacidad total y tener a alguien a mano si necesitas recomendaciones, ayuda con reservas o asistencia durante tu estancia."
+      },
+      {
+        "category": "Servicio y personal",
+        "q": "¿Pueden llenar la nevera antes de nuestra llegada?",
+        "a": "Sí. Bajo petición, podemos abastecer la nevera con básicos como desayuno, snacks, refrescos y una selección de vinos locales, para que puedas empezar tus vacaciones nada más llegar, sin necesidad de ir corriendo al supermercado."
+      },
+      {
+        "category": "Familias y niños",
+        "q": "¿La villa es apta para niños y grupos multigeneracionales?",
+        "a": "Sí. Domaine des Montarels funciona muy bien para familias y grupos de varias generaciones. La piscina, los jardines, los espacios amplios y las atracciones cercanas ofrecen mucho que hacer para todas las edades. Bajo petición podemos facilitar cunas, tronas y recomendaciones de playas, mercados y actividades familiares."
+      },
+      {
+        "category": "Familias y niños",
+        "q": "¿Hay actividades para niños en la zona?",
+        "a": "Muchas. A las familias les encantan los días de playa, paseos en barco, parques de aventuras en los árboles, el Museo de Dinosaurios de Mèze, rutas en bici junto al Canal du Midi y simplemente explorar calles medievales, mercados y plazas."
+      },
+      {
+        "category": "Actividades y aire libre",
+        "q": "¿Podemos jugar al golf cerca?",
+        "a": "Sí. El campo Golf Saint-Thomas, cerca de Béziers (a unos 15–20 minutos de la villa), ofrece 18 hoyos en un entorno mediterráneo natural. Hay más campos a lo largo de la costa para quienes quieran explorar otras opciones."
+      },
+      {
+        "category": "Actividades y aire libre",
+        "q": "¿La zona es buena para ciclismo o senderismo?",
+        "a": "La región es excelente para ambas cosas. Puedes disfrutar de recorridos fáciles y llanos por las orillas del Canal du Midi o afrontar suaves colinas entre viñedos. También hay rutas de senderismo escénicas desde la finca y en espacios naturales cercanos. Podemos ayudarte a organizar alquiler de bicicletas y sugerir rutas."
+      },
+      {
+        "category": "Teletrabajo y retiros",
+        "q": "¿La villa es adecuada para teletrabajo, retiros creativos o pequeños equipos?",
+        "a": "Sí. Con Wi-Fi rápido, rincones tranquilos para trabajar dentro y fuera de la casa y un entorno silencioso entre viñedos, Domaine des Montarels es ideal para combinar vacaciones con teletrabajo o para organizar un pequeño retiro o reunión de equipo. Podemos ayudar a configurar espacios para talleres, sesiones estratégicas o retiros creativos."
+      },
+      {
+        "category": "Teletrabajo y retiros",
+        "q": "¿Pueden proporcionar escritorios extra o equipamiento básico de oficina?",
+        "a": "Normalmente podemos añadir mesas, sillas cómodas y alargadores para crear estaciones de trabajo dedicadas. Si tienes requisitos específicos para un retiro de equipo —como rotafolios o una pantalla externa— avísanos con antelación para estudiar opciones."
+      },
+      {
+        "category": "Reservas y logística",
+        "q": "¿Cuál es el horario de check-in y check-out?",
+        "a": "El check-in estándar es a partir de las 16:00 y el check-out hasta las 10:00. Para estancias largas o fuera de temporada alta, siempre intentaremos ofrecer flexibilidad cuando sea posible. Comparte tus planes de viaje con antelación para que podamos aconsejarte las mejores opciones de llegada y salida."
+      },
+      {
+        "category": "Reservas y logística",
+        "q": "¿Hay estancia mínima?",
+        "a": "La estancia mínima varía según la temporada, pero la propiedad está pensada principalmente para vacaciones en villa, no para pernoctaciones cortas. Muchos huéspedes se quedan una semana completa o más. Para tus fechas concretas, consúltanos y confirmaremos estancia mínima y disponibilidad."
+      },
+      {
+        "category": "Reservas y logística",
+        "q": "¿Necesito visado para visitar Francia?",
+        "a": "Ciudadanos de muchos países —incluyendo la UE, Reino Unido, Estados Unidos y Canadá— pueden visitar Francia sin visado para estancias cortas de hasta 90 días. Algunos viajeros de países no pertenecientes a la UE pueden necesitar completar una autorización electrónica sencilla (como ETIAS) antes de viajar una vez esté plenamente implantada. Como las normas pueden cambiar, recomendamos revisar la información oficial más reciente de Francia o la UE para tu nacionalidad antes de viajar."
+      },
+      {
+        "category": "Sostenibilidad y entorno",
+        "q": "¿El Domaine sigue prácticas sostenibles?",
+        "a": "Sí. El Domaine está comprometido con un uso responsable del agua y la energía, con el apoyo a productores locales y bodegas de la zona, y con animar a los huéspedes a descubrir la región de forma respetuosa: mercados locales, enoturismo, ciclismo y estancias fuera de las semanas más saturadas siempre que sea posible."
+      },
+      {
+        "category": "Sostenibilidad y entorno",
+        "q": "¿Cómo podemos hacer nuestro viaje a Domaine des Montarels más sostenible?",
+        "a": "Pequeñas decisiones marcan la diferencia: considerar estancias más largas en lugar de varios viajes cortos, combinar tren y coche cuando sea posible, elegir vehículos híbridos o eléctricos, consumir productos y vinos locales y viajar fuera de las semanas de máxima afluencia. Estaremos encantados de compartir más ideas según cómo planees desplazarte y explorar la región."
+      },
+      {
+        "category": "Restaurantes y comida local",
+        "q": "¿A qué distancia están los restaurantes más cercanos de Domaine des Montarels?",
+        "a": "No tendrás que conducir lejos para comer bien. En un radio de 5–10 minutos del Domaine encontrarás bistrós de pueblo con encanto y cocinas kilómetro 0 en Alignan-du-Vent, Pézenas y pueblos cercanos. Direcciones como Relais Chantovent, La Ferme des 5 Saisons y otros favoritos locales son opciones fáciles para almuerzo o cena sin tener que hacer un trayecto largo."
+      },
+      {
+        "category": "Restaurantes y comida local",
+        "q": "¿Podemos ir caminando desde la villa a restaurantes en Alignan-du-Vent?",
+        "a": "Sí. Alignan-du-Vent es un pequeño pueblo vitivinícola y varios cafés, bares y restaurantes informales se alcanzan a pie o en un trayecto muy corto en coche, según tus preferencias y movilidad. Muchos huéspedes disfrutan de un paseo al atardecer entre viñedos o por las calles del pueblo antes de cenar, y luego regresan a pie bajo las estrellas."
+      },
+      {
+        "category": "Restaurantes y comida local",
+        "q": "¿Qué restaurante recomiendan para nuestra primera noche?",
+        "a": "Para una primera noche relajada pero especial, solemos recomendar un bistró o wine bar cercano —por ejemplo en Alignan-du-Vent o Pézenas— donde puedas entrar de lleno en los sabores locales sin un trayecto largo. Podemos hacer la reserva, compartir indicaciones y ayudarte a organizar un taxi si prefieres no conducir después del viaje."
+      },
+      {
+        "category": "Restaurantes y comida local",
+        "q": "¿Hay restaurantes gourmet o Michelin cerca de la villa?",
+        "a": "Sí. A 30–50 minutos en coche encontrarás mesas gastronómicas muy bien valoradas, incluidos restaurantes con estrella Michelin y Bib Gourmand en Béziers, Villeveyrac, Montpellier y alrededor del Étang de Thau. Domaine des Montarels es una base perfecta para una semana en la que alternes cenas relajadas en casa con una o dos noches gastronómicas verdaderamente especiales."
+      },
+      {
+        "category": "Restaurantes y comida local",
+        "q": "¿Pueden organizar un itinerario gastronómico para una semana de ‘foodie’?",
+        "a": "Por supuesto. Para huéspedes que se alojan 5–7 noches o más, podemos diseñar un itinerario culinario que incluya, por ejemplo, un almuerzo de mercado en Pézenas, una noche de marisco con vistas al Étang de Thau, una comida en mesa de viñedo y una o dos cenas gastronómicas. Adaptamos las propuestas a los gustos, presupuesto y necesidades dietéticas de tu grupo."
+      },
+      {
+        "category": "Restaurantes y comida local",
+        "q": "¿Es fácil encontrar opciones vegetarianas, veganas o sin gluten en los restaurantes locales?",
+        "a": "Sí. Muchos restaurantes en Pézenas, Béziers y el resto de Hérault ofrecen ya opciones vegetarianas, veganas y sin gluten bien pensadas, basadas en productos de temporada del mercado. Cuando te ayudamos con reservas, podemos avisar de tus necesidades para que los chefs estén preparados."
+      },
+      {
+        "category": "Restaurantes y comida local",
+        "q": "¿Podemos combinar el mercado de Pézenas del sábado con comida en el pueblo y cena en la villa?",
+        "a": "Es una de las mejores formas de vivir la región. Muchos huéspedes pasan la mañana del sábado en el mercado de Pézenas (a 10 minutos), almuerzan ligero en el centro histórico y regresan a Domaine des Montarels con cestas de productos y vino para disfrutar de una cena casera o preparada por un chef junto a la piscina."
+      },
+      {
+        "category": "Restaurantes y comida local",
+        "q": "¿Es realista probar un restaurante distinto cada noche en una semana completa?",
+        "a": "Sí. Una estancia de una o dos semanas permite fácilmente disfrutar de una experiencia culinaria diferente cada noche: desde platos sencillos de pueblo y wine bars hasta terrazas junto al mar y restaurantes gastronómicos formales. La ubicación central de la villa permite mantener los tiempos de trayecto razonables mientras pruebas lo mejor de la región."
+      },
+      {
+        "category": "Vino, ostras y Étang de Thau",
+        "q": "¿A qué distancia está el Étang de Thau para comer ostras y marisco?",
+        "a": "El Étang de Thau, famoso por sus ostras Bouzigues y mejillones, está a unos 35–45 minutos de la villa según el pueblo que elijas. Muchos huéspedes organizan un día que combina un trayecto escénico, un almuerzo de ostras y marisco sobre el agua y un paseo suave antes de volver al Domaine para ver el atardecer junto a la piscina."
+      },
+      {
+        "category": "Vino, ostras y Étang de Thau",
+        "q": "¿Podemos combinar una visita a bodega y una degustación de ostras en el mismo día?",
+        "a": "Sí. Un día clásico de Languedoc desde Domaine des Montarels es empezar con una cata en bodega a media mañana y luego continuar hacia el Étang de Thau para disfrutar ostras, mejillones y Picpoul de Pinet bien frío frente al agua. Podemos ayudarte con reservas y rutas escénicas entre ambos puntos."
+      },
+      {
+        "category": "Noche y salidas",
+        "q": "¿Dónde podemos ir para tomar algo tranquilo por la noche?",
+        "a": "Para noches relajadas, Pézenas y Béziers ofrecen excelentes wine bars, terrazas y cafés a 10–20 minutos de la villa. Puedes disfrutar de una copa de tinto del Languedoc o un rosé bien frío al aire libre y regresar al silencio del Domaine cuando te apetezca."
+      },
+      {
+        "category": "Noche y salidas",
+        "q": "¿Hay opciones de vida nocturna más animada a una distancia razonable?",
+        "a": "Si tu grupo quiere al menos una noche más animada, los clubes de playa y bares de verano de Cap d’Agde están a unos 25–30 minutos, mientras que Béziers y Montpellier ofrecen una escena más urbana con coctelerías y música en directo. La ventaja de alojarse en la villa es poder elegir cuando te apetece salir y, después, volver a un entorno completamente tranquilo."
+      },
+      {
+        "category": "Noche y salidas",
+        "q": "Si nos gusta salir de noche, ¿es mejor alojarse en Béziers o en la villa?",
+        "a": "Para la mayoría de grupos, la base en villa funciona mucho mejor. De día disfrutas de tu propio espacio, piscina, viñedos y campo; de noche puedes ir a la ciudad para cenar o tomar algo y luego regresar a un entorno de descanso absoluto. Con taxis y conductores designados, las noches son fáciles sin sacrificar confort ni privacidad."
+      },
+      {
+        "category": "Experiencias y excursiones",
+        "q": "¿Cuáles son las excursiones más populares desde Domaine des Montarels?",
+        "a": "Entre las favoritas de los huéspedes están: Pézenas (10 minutos) por sus mercados e historia; Béziers (20 minutos) por las esclusas del Canal du Midi y la catedral; el lago Salagou (unos 30 minutos) para senderismo y kayak; Cap d’Agde para días de playa; y Carcasona para una aventura medieval de día completo. La ubicación del Domaine está pensada para poder construir una semana variada con facilidad."
+      },
+      {
+        "category": "Experiencias y excursiones",
+        "q": "¿Merece la pena el lago Salagou desde la villa?",
+        "a": "Mucho. El lago Salagou ofrece paisajes de tierras rojizas, bañarse, hacer picnic, paseos suaves y deportes acuáticos en un entorno muy especial. Está a unos 30–40 minutos de Domaine des Montarels y es una excelente excursión de medio día o día completo, especialmente para familias y grupos activos."
+      },
+      {
+        "category": "Experiencias y excursiones",
+        "q": "¿Pueden sugerir un itinerario clásico de 3 días con base en la villa?",
+        "a": "Un plan inicial muy popular de tres días podría ser: Día 1 – Mercado de Pézenas, almuerzo en el pueblo, tarde en la piscina y cena en un bistró cercano. Día 2 – Visitas a viñedos y cata, apéritif al atardecer en la villa y cena con chef privado. Día 3 – Playa o ostras en el Étang de Thau y noche relajada en Béziers o de vuelta en el Domaine. Estancias más largas simplemente amplían este ritmo con más excursiones y experiencias culinarias."
+      },
+      {
+        "category": "Experiencias y excursiones",
+        "q": "¿Es Domaine des Montarels una buena base para una semana completa explorando Hérault?",
+        "a": "Sí. El Domaine está situado de forma que la mayoría de los puntos fuertes de la región —viñedos, pueblos históricos, playas, paisajes de lago y sitios culturales— quedan a entre 20 y 60 minutos. Una semana o más te da tiempo para explorar a fondo sin cambiar de alojamiento, deshacer la maleta una vez y volver cada noche a un entorno familiar."
+      },
+      {
+        "category": "Experiencias y excursiones",
+        "q": "¿Pueden ayudarnos a equilibrar días tranquilos en la villa con excursiones para no sobrecargar el programa?",
+        "a": "Por supuesto. Muchos huéspedes agradecen tener una estructura ligera que alterna días de villa y piscina con días más activos. Podemos ayudarte a diseñar un plan acorde con la energía de tu grupo, quizá uno o dos grandes días de excursión (Carcasona, Salagou) combinados con varias salidas de medio día y tardes tranquilas en la finca."
+      },
+      {
+        "category": "Grupos, celebraciones y estancias largas",
+        "q": "¿La villa es adecuada para vacaciones familiares multigeneracionales o celebraciones en grupo?",
+        "a": "Sí. Con varios dormitorios, amplios espacios interiores y exteriores y piscina privada, el Domaine es ideal para viajes multigeneracionales, cumpleaños importantes, aniversarios y reuniones íntimas de amigos. La proximidad a restaurantes top, viñedos y excursiones hace que cada uno pueda diseñar su día perfecto antes de reunirse por la tarde en la villa."
+      },
+      {
+        "category": "Grupos, celebraciones y estancias largas",
+        "q": "¿Por qué una villa como Domaine des Montarels funciona mejor que un hotel para una semana en la región?",
+        "a": "Alojarse en una villa permite que tu grupo se distribuya con comodidad, marque su propio ritmo y realmente viva el paisaje en lugar de ser solo visitante. Puedes comprar en mercados, cocinar o contratar chef, pasar horas junto a la piscina, teletrabajar si es necesario y salir a restaurantes, playas y viñedos cuando os apetezca. En una semana o más, este ritmo suele sentirse más lujoso y personal que una estancia clásica de hotel."
+      },
+      {
+        "category": "Grupos, celebraciones y estancias largas",
+        "q": "¿Recomiendan Domaine des Montarels como base para explorar tanto pueblos del interior como la costa mediterránea?",
+        "a": "Sí. El Domaine se encuentra justo en el punto adecuado para disfrutar de lo mejor de ambos mundos: el interior vinícola con Pézenas, Béziers y el lago Salagou por un lado, y la costa mediterránea —Cap d’Agde, Valras-Plage, Sérignan y el Étang de Thau— por el otro. Una estancia de 7–10 noches o más permite disfrutar de todo ello sin prisas."
+      },
+      {
+        "category": "Tecnología y conectividad",
+        "q": "¿La velocidad de internet es suficiente para videollamadas?",
+        "a": "Sí. Disponemos de fibra de alta velocidad, con una media de alrededor de 200 Mbps de descarga y 50 Mbps de subida. Es más que suficiente para varias videollamadas Zoom o Teams simultáneas, clases online y streaming en 4K por toda la casa."
+      },
+      {
+        "category": "Tecnología y conectividad",
+        "q": "¿Hay un espacio de trabajo dedicado?",
+        "a": "Sí. Contamos con espacios de trabajo ergonómicos con luz natural, asientos cómodos y muchos enchufes. Para estancias largas podemos proporcionar, bajo petición, monitor externo e impresora para que puedas montar una zona de oficina en condiciones."
+      },
+      {
+        "category": "Tecnología y conectividad",
+        "q": "¿Qué tipo de enchufes hay en la villa?",
+        "a": "La propiedad utiliza enchufes estándar europeos tipo C y E (230V). Proporcionamos algunos adaptadores universales y hubs de carga USB-C/USB-A en las zonas principales para mantener móviles, portátiles y tabletas cargados."
+      },
+      {
+        "category": "Tecnología y conectividad",
+        "q": "¿El Wi-Fi es fuerte en todas las zonas de la propiedad?",
+        "a": "Sí. Un sistema Wi-Fi en malla cubre la casa principal, los dormitorios y varias áreas exteriores de descanso, de modo que puedes trabajar junto a la piscina, reproducir música en la terraza o unirte a llamadas prácticamente desde cualquier punto del Domaine."
+      },
+      {
+        "category": "Tecnología y conectividad",
+        "q": "Si se cae internet, ¿tienen un plan de respaldo?",
+        "a": "Monitorizamos la conectividad de cerca y, en el improbable caso de un corte local, podemos recurrir a hotspots 4G/5G de respaldo para mantener servicios esenciales como correo y llamadas. Si el teletrabajo es crítico para ti, avísanos con antelación para adaptar las opciones de redundancia a tus necesidades."
+      },
+      {
+        "category": "Tecnología y conectividad",
+        "q": "¿La villa es apta para varias personas teletrabajando al mismo tiempo?",
+        "a": "Sí. Muchos de nuestros huéspedes combinan vacaciones con teletrabajo. Con internet rápido, múltiples rincones tranquilos y asientos flexibles dentro y fuera, varias personas pueden trabajar online a la vez sin competir por el ancho de banda."
+      },
+      {
+        "category": "Salud y seguridad",
+        "q": "¿Dónde está el hospital más cercano?",
+        "a": "El Centre Hospitalier de Béziers está a unos 20 minutos del Domaine y ofrece servicios de urgencias 24/7. Suele haber personal que habla inglés y podemos ayudarte con indicaciones o con la organización del transporte en caso de emergencia."
+      },
+      {
+        "category": "Salud y seguridad",
+        "q": "¿Hay farmacia cerca?",
+        "a": "Sí. Hay una farmacia en Alignan-du-Vent a pocos minutos en coche y varias más en Pézenas (a unos 10 minutos). Pueden proporcionar medicación habitual, productos de venta libre y renovación de recetas."
+      },
+      {
+        "category": "Salud y seguridad",
+        "q": "¿La propiedad es segura?",
+        "a": "Sí. Domaine des Montarels es una finca privada y vallada en un entorno campestre muy tranquilo. La entrada está controlada y la casa cuenta con sistema de alarma para mayor tranquilidad."
+      },
+      {
+        "category": "Salud y seguridad",
+        "q": "¿Facilitan teléfonos de emergencia e información médica a la llegada?",
+        "a": "Sí. A tu llegada recibirás una hoja de información concisa con números de emergencia, hospital y clínicas más cercanas, farmacias e instrucciones sobre qué hacer en situaciones urgentes. Nuestro equipo también está disponible para ayudar si surge algo inesperado durante la estancia."
+      },
+      {
+        "category": "Salud y seguridad",
+        "q": "¿Se puede organizar visita de un médico a la villa si fuese necesario?",
+        "a": "Cuando es posible, podemos ayudar a coordinar consultas con médicos de cabecera locales o doctores privados de la zona. Para casos no urgentes, también podemos recomendar clínicas en Pézenas o Béziers acostumbradas a atender a visitantes internacionales."
+      },
+      {
+        "category": "Salud y seguridad",
+        "q": "¿Hay un botiquín de primeros auxilios en la villa?",
+        "a": "Sí. En la propiedad se mantiene un botiquín bien surtido para pequeños cortes, rasguños e incidentes cotidianos. Siempre recomendamos que los huéspedes traigan sus medicaciones personales y consulten con su médico antes de viajar."
+      },
+      {
+        "category": "Salud y seguridad",
+        "q": "¿Recomiendan contratar seguro de viaje?",
+        "a": "Lo recomendamos encarecidamente. Un seguro de viaje completo que cubra asistencia médica, interrupción del viaje y retrasos proporciona una tranquilidad adicional. Aunque el sistema sanitario local es excelente, disponer de seguro facilita cualquier gestión imprevista."
+      },
+      {
+        "category": "Gastronomía y alta cocina",
+        "q": "¿Qué restaurantes de alta cocina recomiendan cerca de la villa?",
+        "a": "Recomendamos especialmente L'Alter-Native en Béziers (1 estrella Michelin) por sus menús de degustación centrados en el producto y la sostenibilidad, y L'Ambassade por su cocina francesa clásica con servicio refinado. En Pézenas, Le Pré Saint Jean es un favorito por su cocina moderna en un entorno muy encantador."
+      },
+      {
+        "category": "Gastronomía y alta cocina",
+        "q": "¿Pueden ayudarnos a conseguir reservas en L'Alter-Native o L'Ambassade?",
+        "a": "Sí. Estos restaurantes son muy solicitados, especialmente en verano. Estaremos encantados de contactarles en tu nombre y gestionar reservas según tus fechas, requisitos dietéticos y ocasiones especiales."
+      },
+      {
+        "category": "Gastronomía y alta cocina",
+        "q": "¿Dónde está la mejor experiencia de marisco cerca de Domaine des Montarels?",
+        "a": "Para marisco excepcional, sugerimos restaurantes como St Barth' o La Coquerie en Sète, además de las ostrerías alrededor del Étang de Thau (por ejemplo Chez Tarbouriech), donde se disfrutan ostras y mejillones prácticamente recién salidos del agua."
+      },
+      {
+        "category": "Gastronomía y alta cocina",
+        "q": "¿Podemos organizar un chef privado en la villa inspirado en la cocina Michelin local?",
+        "a": "Sí. Trabajamos con chefs privados que pueden diseñar menús inspirados en restaurantes como L'Alter-Native, L'Ambassade y la tradición marinera de Sète y el Étang de Thau. Es una opción excelente para celebraciones especiales o para disfrutar de alta cocina sin salir del Domaine."
+      },
+      {
+        "category": "Gastronomía y alta cocina",
+        "q": "¿Es posible organizar una semana completa centrada en vino y gastronomía desde la villa?",
+        "a": "Absolutamente. Muchos huéspedes reservan 5–7 noches o más específicamente para vivir la gastronomía y el vino del Languedoc. Podemos ayudarte a combinar visitas a viñedos, degustaciones de ostras en el Étang de Thau, cenas en restaurantes Michelin y Bib Gourmand y noches relajadas de cocina casera o chef privado en la villa."
+      },
+      {
+        "category": "Accesibilidad",
+        "q": "¿La villa es adecuada para huéspedes con movilidad reducida?",
+        "a": "La planta baja ofrece zonas de estar amplias y al menos un dormitorio al que se puede acceder sin usar escaleras, lo que la hace adecuada para algunos huéspedes con movilidad reducida. Sin embargo, ciertas zonas exteriores y dormitorios superiores se alcanzan por escalones. Te animamos a contactarnos con necesidades específicas para que podamos confirmar la idoneidad en tu caso."
+      },
+      {
+        "category": "Accesibilidad",
+        "q": "¿El aparcamiento está cerca y es relativamente llano?",
+        "a": "Sí. El aparcamiento está dentro de la finca y muy próximo a la entrada principal, con acceso bastante llano a la planta baja. Esto facilita la llegada para huéspedes con movilidad reducida o familias con niños pequeños y equipaje."
+      },
+      {
+        "category": "Accesibilidad",
+        "q": "¿Disponen de duchas a ras de suelo en lugar de bañeras?",
+        "a": "Varios baños cuentan con duchas a ras de suelo, más cómodas que las bañeras tradicionales. Si este punto es importante para tu estancia, dínoslo y asignaremos la configuración de habitaciones más adecuada para tu grupo."
+      },
+      {
+        "category": "Accesibilidad",
+        "q": "¿Pueden proporcionar equipamiento adicional como sillas de ducha o barras de apoyo?",
+        "a": "Cuando es posible, podemos añadir ayudas ligeras como silla de ducha portátil o barras adicionales para mejorar la comodidad y seguridad. Es importante solicitarlas con antelación para que podamos preparar la casa adecuadamente."
+      },
+      {
+        "category": "Eventos y bodas",
+        "q": "¿Podemos celebrar una boda o evento especial en Domaine des Montarels?",
+        "a": "Sí. Acogemos bodas íntimas y celebraciones hasta una capacidad de invitados cuidadosamente controlada, utilizando el viñedo y los jardines como telón de fondo. Se aplica una tarifa de evento independiente y exigimos trabajar con un wedding planner profesional. Contáctanos para nuestro dossier detallado de eventos."
+      },
+      {
+        "category": "Eventos y bodas",
+        "q": "¿Qué tipo de eventos se adaptan mejor a la propiedad?",
+        "a": "El Domaine es perfecto para bodas pequeñas, cumpleaños importantes, aniversarios, retiros y cenas elegantes entre viñedos. No está pensado para fiestas tipo discoteca, sino para celebraciones refinadas que respeten la tranquilidad del entorno vinícola."
+      },
+      {
+        "category": "Eventos y bodas",
+        "q": "¿Tienen horario límite de música o ruido para eventos?",
+        "a": "Por respeto a los vecinos y al campo circundante, la música amplificada suele reducirse a una hora determinada a última hora de la noche. El horario exacto depende del tamaño del evento y de la temporada y está detallado en nuestras normas para eventos."
+      },
+      {
+        "category": "Eventos y bodas",
+        "q": "¿Trabajan con proveedores y planners recomendados?",
+        "a": "Sí. Colaboramos con wedding planners, caterings, floristas, fotógrafos y músicos de confianza que conocen bien el Domaine y la región. También puedes proponer tus propios proveedores, sujetos a aprobación previa y al cumplimiento de nuestras normas de casa."
+      },
+      {
+        "category": "Eventos y bodas",
+        "q": "¿La villa es adecuada para retiros corporativos o pequeños offsites?",
+        "a": "Domaine des Montarels es una base excelente para retiros ejecutivos y pequeños offsites de equipo. La combinación de espacios para reuniones, internet rápido, terrazas para ‘breakouts’, catas de vino y restaurantes cercanos permite alternar sesiones de trabajo enfocadas con experiencias de equipo memorables en el campo del Languedoc."
+      },
+      {
+        "category": "Eventos y bodas",
+        "q": "¿Podemos reservar días adicionales antes o después de una boda para nuestras familias?",
+        "a": "Muchísimas parejas deciden reservar la villa varios días alrededor de la celebración para que familiares y amigos cercanos puedan instalarse, relajarse en la piscina y explorar la región antes o después del gran día. Las estancias más largas también te permiten disfrutar plenamente del Domaine más allá de la boda en sí."
+      }
+    ],
+    "seoLong": [
+      "Este retiro privado del Languedoc combina el carácter original de un antiguo monasterio —arcos, piedra, vigas— con confort moderno y silencioso. Es una base tranquila cerca de Pézenas y Béziers para playas, viñedos y slow travel en el sur de Francia.",
+      "Ideal para familias multigeneracionales y grupos de amigos, la finca ofrece una vida interior-exterior generosa, piscina climatizada de 12,5 m y servicio tipo concierge para catas, chefs privados y excursiones sencillas a la costa mediterránea."
+    ]
+  },
+  "amenities": [
+    "Piscina climatizada 12,5 m",
+    "Cocina de chef",
+    "Aire acondicionado silencioso",
+    "Wi-Fi de alta velocidad",
+    "Terraza lounge estilo marroquí",
+    "Mesa de ping-pong",
+    "Cama elástica",
+    "Asesoría de rutas de vino",
+    "Piano y guitarra"
+  ],
+  "specs": { "bedrooms": 5, "baths": 4, "guests": 12, "poolSize": "12.5m" },
+  "seasons": [
+    { "id": "request", "label": "Tarifa bajo petición", "price": null, "currency": null, "priceDisplay": "Tarifa bajo petición" }
+  ]
+}
+

@@ -1,10 +1,15 @@
 ---
+import FaqAccordion from './FaqAccordion.astro';
+
+type FaqGroup = { category: string; items: { q: string; a: string }[] };
+
 export interface Tab {
   id: string;
   label: string;
   heading: string;
   paragraphs?: string[];
   items?: string[];
+  faqGroups?: FaqGroup[];
 }
 const { tabs } = Astro.props as { tabs: Tab[] };
 ---
@@ -18,11 +23,14 @@ const { tabs } = Astro.props as { tabs: Tab[] };
     <section id={t.id} role="tabpanel" aria-labelledby={`${t.id}-tab`} class="tab-panel" style={i===0 ? undefined : 'display:none'}>
       <h2>{t.heading}</h2>
       {t.paragraphs?.map((paragraph) => <p>{paragraph}</p>)}
-      {t.items && (
+      
+      {t.faqGroups?.length ? (
+        <FaqAccordion groups={t.faqGroups} />
+      ) : t.items?.length ? (
         <ul class="amenity-list">
           {t.items.map((item) => <li>{item}</li>)}
         </ul>
-      )}
+      ) : null}
     </section>
   ))}
 </div>
@@ -90,7 +98,7 @@ const { tabs } = Astro.props as { tabs: Tab[] };
     color: #555;
     line-height: 1.6;
   }
-  
+
   /* Amenities list styled to match v2 aesthetic */
   .amenity-list { list-style: none; padding-left: 0; margin: 0; columns: 2; column-gap: 40px; color: #555; }
   .amenity-list li { break-inside: avoid; padding: 12px 0 12px 30px; position: relative; line-height: 1.6; }

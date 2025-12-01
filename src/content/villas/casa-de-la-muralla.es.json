@@ -1,83 +1,827 @@
 {
   "slug": "casa-de-la-muralla",
+  "language": "es",
   "name": "Casa de la Muralla",
-  "summary": "Paraíso exclusivo frente al mar en la Isla Tierrabomba, Cartagena — acceso privado, lujo caribeño y auténtica vida costera colombiana.",
+  "summary": "Escápate a una isla donde el mar y el cielo se encuentran y todo se siente más ligero. Casa de la Muralla está hecha para descansar sin esfuerzo y disfrutar cada momento. A solo 15 minutos de Cartagena, este refugio en Tierrabomba te da la desconexión total que todos buscamos.",
   "hero": {
-    "title": "Tu Escape Privado en una Isla del Caribe",
-    "subtitle": "Villa frente al mar en la histórica Tierrabomba — donde el encanto colonial se encuentra con aguas turquesas.",
-    "ctaText": "Explora la Isla"
-  },
-  "images": [
-    { "src": "/images/casa-muralla/001.webp", "alt": "Vista frente al mar de Casa de la Muralla", "caption": "Tu playa privada del Caribe, a pasos de la villa" },
-    { "src": "/images/casa-muralla/002.webp", "alt": "Terraza al aire libre con vista al océano", "caption": "Terraza de atardecer con vista al mar" },
-    { "src": "/images/casa-muralla/003.webp", "alt": "Habitación principal con decoración caribeña", "caption": "Amplia suite principal con diseño inspirado en la isla" }
-  ],
-  "headlines": {
-    "overview": "Vida Isleña Reimaginada",
-    "location": "Isla Tierrabomba, Cartagena"
-  },
-  "content": {
-    "overview": "Casa de la Muralla ofrece una experiencia caribeña incomparable en las costas prístinas de la Isla Tierrabomba. Esta exclusiva villa frente al mar combina la arquitectura colonial colombiana con el lujo moderno, brindando a los huéspedes acceso directo a la playa, vistas panorámicas al océano y la tranquilidad de la vida isleña, a solo un corto viaje en bote desde la histórica Cartagena. Perfecta para familias, grupos o escapadas románticas que buscan lujo costero auténtico lejos de los resorts abarrotados.",
-    "location": "Ubicada en la Isla Tierrabomba, una de las joyas escondidas de Cartagena, Casa de la Muralla es accesible mediante un pintoresco viaje en bote de 15 minutos desde la ciudad. La isla ofrece playas prístinas, pueblos de pescadores locales y una escapada pacífica del continente, mientras permanece cerca del centro histórico de Cartagena declarado Patrimonio de la Humanidad por la UNESCO, restaurantes de clase mundial y vibrante vida nocturna.",
-    "hosts": {
-      "names": "Familia Local de Cartagena",
-      "bio": "Tus anfitriones son una familia local de Cartagena apasionada por compartir la auténtica belleza de la costa caribeña de Colombia. Con raíces profundas en la región, ofrecen conocimiento interno de playas escondidas, restaurantes de mariscos locales y experiencias culturales que los turistas típicos nunca descubren."
-    },
-    "testimonials": [
-      { "quote": "El lugar más tranquilo y hermoso en el que nos hemos alojado. Despertar frente al océano cada mañana fue pura magia.", "attribution": "María S. — EE.UU." },
-      { "quote": "Auténtica vida caribeña en su máxima expresión. La villa superó todas nuestras expectativas.", "attribution": "Carlos M. — España" }
-    ],
-    "faq": [
-      { "q": "¿Cómo llegamos a la isla?", "a": "Organizamos traslados privados en bote desde Cartagena (15 minutos). El punto de recogida y el horario se proporcionan al momento de la reserva." },
-      { "q": "¿La playa es privada?", "a": "Sí, la villa tiene acceso directo a una sección de playa apartada. El área circundante es tranquila con mínimo tránsito peatonal." },
-      { "q": "¿Qué está incluido en el alquiler?", "a": "Acceso completo a la villa, ropa de cama, WiFi, traslados en bote, servicio de limpieza diario y provisiones de bienvenida. Chef privado y excursiones disponibles bajo solicitud." },
-      { "q": "¿Podemos visitar Cartagena fácilmente?", "a": "¡Por supuesto! Los traslados en bote se pueden organizar en cualquier momento. La ciudad vieja está a 15 minutos en bote." }
-    ],
-    "seoLong": [
-      "Experimenta el verdadero lujo caribeño en el retiro isleño más exclusivo de Colombia. Casa de la Muralla representa la cúspide de la vida costera, combinando privacidad frente al mar con fácil acceso a las riquezas culturales de Cartagena.",
-      "A diferencia de los concurridos resorts del continente, nuestra villa isleña ofrece tranquilidad completa, experiencias locales auténticas y el tipo de lujo íntimo que buscan los viajeros exigentes. Desde yoga al amanecer en tu playa privada hasta cócteles al atardecer con vista al Caribe, cada momento está diseñado para la relajación y la conexión."
+    "title": "El escape perfecto: serenidad, mar y experiencias únicas.",
+    "subtitle": "Encanto natural y lujo silencioso en un refugio tropical panorámico, creado para quienes viven el deporte y la aventura con estilo.",
+    "ctaText": "Descubrir",
+    "priorityImages": [
+      "/images/villas/casa-de-la-muralla/muralla-008.webp",
+      "/images/villas/casa-de-la-muralla/muralla-013.webp",
+      "/images/villas/casa-de-la-muralla/muralla-020.webp"
     ]
   },
-  "amenities": [
-    "Acceso Directo a la Playa",
-    "Traslados Privados en Bote",
-    "Terraza con Vista al Océano",
-    "Área de Comedor al Aire Libre",
-    "Hamacas y Tumbonas de Playa",
-    "Cocina Totalmente Equipada",
-    "WiFi (Starlink)",
-    "Aire Acondicionado",
-    "Ventiladores de Techo",
-    "Servicio de Limpieza Diario",
-    "Toallas de Playa y Sombrillas",
-    "Equipo de Snorkel",
-    "Kayaks",
-    "Ducha Exterior",
-    "Parrilla BBQ",
-    "Chef Privado (Bajo Solicitud)",
-    "Tours por la Isla (Bajo Solicitud)",
-    "Excursiones de Pesca (Bajo Solicitud)"
+  "images": [
+    { "src": "/images/villas/casa-de-la-muralla/muralla-008.webp", "alt": "Piscina infinita con vista al mar Caribe en Casa de la Muralla", "caption": "Piscina infinita con vista abierta al mar Caribe." },
+    { "src": "/images/villas/casa-de-la-muralla/muralla-013.webp", "alt": "Zona de camastros junto a la piscina frente al mar", "caption": "Zona de descanso junto a la piscina frente al océano." },
+    { "src": "/images/villas/casa-de-la-muralla/muralla-020.webp", "alt": "Vista aérea de Casa de la Muralla y su ubicación frente al mar", "caption": "Vista aérea de la villa y su ubicación privilegiada en Tierrabomba." },
+    { "src": "/images/villas/casa-de-la-muralla/muralla-001.webp", "alt": "Piscina iluminada por la noche con palmeras al fondo", "caption": "Piscina iluminada al anochecer con ambiente tropical." },
+    { "src": "/images/villas/casa-de-la-muralla/muralla-002.webp", "alt": "Habitación luminosa con decoración costera", "caption": "Habitación amplia y luminosa con detalles de estilo caribeño." },
+    { "src": "/images/villas/casa-de-la-muralla/muralla-003.webp", "alt": "Suite con camas dobles y luz natural", "caption": "Suite acogedora con camas dobles y luz natural." },
+    { "src": "/images/villas/casa-de-la-muralla/muralla-004.webp", "alt": "Terraza con vista al mar en Casa de la Muralla", "caption": "Terraza con vista directa al océano y zona de descanso." },
+    { "src": "/images/villas/casa-de-la-muralla/muralla-005.webp", "alt": "Cancha de tenis privada con vista panorámica al mar", "caption": "Cancha de tenis privada con vista impresionante al mar." },
+    { "src": "/images/villas/casa-de-la-muralla/muralla-006.webp", "alt": "Piscina con horizonte abierto al mar Caribe", "caption": "Piscina con vista despejada hacia el mar." },
+    { "src": "/images/villas/casa-de-la-muralla/muralla-007.webp", "alt": "Área de piscina al atardecer con vista al océano", "caption": "Piscina y camastros bajo un atardecer caribeño." },
+    { "src": "/images/villas/casa-de-la-muralla/muralla-009.webp", "alt": "Piscina iluminada de noche sobre deck de madera", "caption": "Piscina nocturna con iluminación cálida y deck de madera." },
+    { "src": "/images/villas/casa-de-la-muralla/muralla-010.webp", "alt": "Piscina con camastros y palmeras bajo cielo azul", "caption": "Piscina rodeada de palmeras bajo el cielo caribeño." },
+    { "src": "/images/villas/casa-de-la-muralla/muralla-011.webp", "alt": "Piscina con entrada tipo playa y vista al mar", "caption": "Piscina con entrada baja y vista al mar Caribe." },
+    { "src": "/images/villas/casa-de-la-muralla/muralla-012.webp", "alt": "Niños disfrutando la piscina en Casa de la Muralla", "caption": "Ambiente familiar disfrutando la piscina." },
+    { "src": "/images/villas/casa-de-la-muralla/muralla-014.webp", "alt": "Piscina con camastros bajo sombra de palapa", "caption": "Zona de piscina con camastros y sombra natural." },
+    { "src": "/images/villas/casa-de-la-muralla/muralla-015.webp", "alt": "Grupo disfrutando la piscina en un día soleado", "caption": "Huéspedes disfrutando un día perfecto en la piscina." },
+    { "src": "/images/villas/casa-de-la-muralla/muralla-016.webp", "alt": "Cancha de tenis junto a la piscina con fondo oceánico", "caption": "Cancha de tenis con vista espectacular al mar." },
+    { "src": "/images/villas/casa-de-la-muralla/muralla-017.webp", "alt": "Habitación acogedora con iluminación cálida", "caption": "Habitación cómoda con iluminación suave y relajante." },
+    { "src": "/images/villas/casa-de-la-muralla/muralla-018.webp", "alt": "Comedor exterior bajo techo tropical", "caption": "Comedor y sala exterior rodeados de naturaleza." },
+    { "src": "/images/villas/casa-de-la-muralla/muralla-019.webp", "alt": "Zona lounge estilo palapa frente a la piscina", "caption": "Área lounge estilo palapa con vista a la piscina." },
+    { "src": "/images/villas/casa-de-la-muralla/muralla-021.webp", "alt": "Fachada de la villa y piscina bajo el sol caribeño", "caption": "Piscina y fachada principal de la villa." },
+    { "src": "/images/villas/casa-de-la-muralla/muralla-022.webp", "alt": "Habitación de huéspedes con camas dobles", "caption": "Habitación luminosa con camas dobles." },
+    { "src": "/images/villas/casa-de-la-muralla/muralla-023.webp", "alt": "Cancha deportiva privada dentro de la villa", "caption": "Cancha deportiva ideal para actividades al aire libre." },
+    { "src": "/images/villas/casa-de-la-muralla/muralla-024.webp", "alt": "Habitación con camas individuales y decoración caribeña", "caption": "Habitación con estilo fresco y detalles tropicales." },
+    { "src": "/images/villas/casa-de-la-muralla/muralla-025.webp", "alt": "Atardecer dorado en la playa de Tierrabomba", "caption": "Impresionante atardecer frente a la villa." },
+    { "src": "/images/villas/casa-de-la-muralla/muralla-026.webp", "alt": "Huésped disfrutando el ambiente tropical de la villa", "caption": "Sonrisas y buen ambiente en Casa de la Muralla." },
+    { "src": "/images/villas/casa-de-la-muralla/muralla-028.webp", "alt": "Niña jugando en la arena en la playa de Casa de la Muralla", "caption": "Momentos familiares en la playa de Tierrabomba." }
   ],
-  "specs": {
-    "bedrooms": 4,
-    "baths": 3,
-    "guests": 10,
-    "poolSize": "Acceso a Playa"
+  "aboutUsImage": "/images/villas/casa-de-la-muralla/muralla-026.webp",
+  "headlines": {
+    "overview": "Casa de la Muralla",
+    "location": "Cartagena, Colombia"
   },
+  "specs": {
+    "guests": 16,
+    "bedrooms": 6,
+    "beds": 22,
+    "baths": 7.0
+  },
+  "location": {
+    "label": "Cartagena, Colombia",
+    "city": "Cartagena",
+    "country": "Colombia"
+  },
+  "amenities": [
+    "Piscina",
+    "Cancha de tenis",
+    "Vóley playa",
+    "Wifi",
+    "Cocina",
+    "Aire acondicionado",
+    "Televisión",
+    "Vista al mar",
+    "Jacuzzi",
+    "BBQ"
+  ],
   "seasons": [
     {
-      "id": "temporada-alta",
-      "label": "Temporada Alta (Dic-Abr)",
-      "priceDisplay": "Tarifa Bajo Consulta",
+      "id": "standard",
+      "label": "Temporada Estándar",
+      "priceDisplay": "Tarifa bajo solicitud",
       "price": null,
-      "currency": "USD"
-    },
-    {
-      "id": "temporada-baja",
-      "label": "Temporada Baja (May-Nov)",
-      "priceDisplay": "Tarifa Bajo Consulta",
-      "price": null,
-      "currency": "USD"
+      "currency": null
     }
-  ]
+  ],
+  "content": {
+    "overview": "Casa de la Muralla te invita a desconectarte por completo en una escapada tranquila y envolvente. Es un santuario en plena isla donde el mar, el cielo y la naturaleza se mezclan para crear un ambiente de lujo que se siente ligero y natural. A solo 15 minutos de Cartagena en lancha, este rincón privilegiado de Tierrabomba ofrece privacidad total, atardeceres que parecen de película y un ritmo de vida marcado por la brisa del Caribe.",
+    "location": "Ubicada en Cartagena, Colombia.",
+    "practicalDetails": [
+      "Entrada: 3:00 PM",
+      "Salida: 11:00 AM",
+      "No fumar",
+      "Se permiten mascotas"
+    ],
+    "rooms": [
+      {
+        "name": "Habitación 1",
+        "description": "Cama King/Queen, baño en suite, aire acondicionado."
+      },
+      {
+        "name": "Habitación 2",
+        "description": "Cama King/Queen, baño en suite, aire acondicionado."
+      },
+      {
+        "name": "Habitación 3",
+        "description": "Cama King/Queen, baño en suite, aire acondicionado."
+      },
+      {
+        "name": "Habitación 4",
+        "description": "Cama King/Queen, baño en suite, aire acondicionado."
+      },
+      {
+        "name": "Habitación 5",
+        "description": "Cama King/Queen, baño en suite, aire acondicionado."
+      },
+      {
+        "name": "Habitación 6",
+        "description": "Cama King/Queen, baño en suite, aire acondicionado."
+      }
+    ],
+    "familyRecreation": [
+      "Piscina",
+      "Acceso a la playa",
+      "Cancha de tenis",
+      "Vóley playa"
+    ],
+    "travel": {
+      "air": [
+        "Vuela al Aeropuerto Internacional Rafael Núñez (CTG)"
+      ],
+      "rail": [],
+      "drive": [
+        "Traslado privado disponible"
+      ]
+    },
+    "hosts": {
+      "image": "/images/villas/casa-de-la-muralla/muralla-026.webp",
+      "names": "Equipo de Conserjería",
+      "bio": "Equipo dedicado disponible 24/7."
+    },
+    "testimonials": [
+      {
+        "quote": "Una estancia inolvidable. La villa era incluso mejor que las fotos.",
+        "attribution": "Huésped Reciente, 2024"
+      }
+    ],
+    "faq": [
+            {
+        "q": "¿El desayuno está incluido?",
+        "a": "¡Sí! Podemos organizar la preparación del desayuno con nuestro servicio de chef (los víveres se pagan por separado)."
+      },
+      {
+        "q": "¿La zona es segura?",
+        "a": "Sí, la propiedad está ubicada en un área segura y exclusiva."
+      },
+      {
+        "q": "¿A qué distancia está la playa?",
+        "a": "La propiedad ofrece acceso directo o muy cercano a la playa."
+      },
+      {
+        "category": "VIP Arrival & Logistics",
+        "q": "¿Ofrecen servicio VIP de recibimiento en el aeropuerto?",
+        "a": "Sí. Nuestro concierge VIP puede organizar meet-and-greet en el aeropuerto Rafael Núñez (CTG), agilizando inmigración y aduana para una llegada sin contratiempos."
+      },
+      {
+        "category": "VIP Arrival & Logistics",
+        "q": "¿Pueden organizar transporte en vehículos blindados?",
+        "a": "Sí. Ofrecemos diferentes niveles de traslados privados: desde camionetas blindadas (Nivel 3 o superior) con conductores de seguridad entrenados hasta traslados estándar desde el aeropuerto en vans cómodas y limpias. Tarifas disponibles bajo solicitud."
+      },
+      {
+        "category": "VIP Arrival & Logistics",
+        "q": "¿Podemos llegar en helicóptero?",
+        "a": "Sí. Podemos coordinar aterrizajes en el helipuerto de Tierrabomba y, desde allí, un corto traslado de 5 minutos en lancha hasta nuestro muelle privado."
+      },
+      {
+        "category": "VIP Arrival & Logistics",
+        "q": "¿El muelle privado tiene profundidad suficiente para yates grandes?",
+        "a": "Nuestro muelle recibe embarcaciones de hasta 40 pies. Para yates más grandes (Azimut, Ferretti) o catamaranes, organizamos fondeo frente a la propiedad con servicio de lancha directamente al muelle."
+      },
+      {
+        "category": "VIP Arrival & Logistics",
+        "q": "¿Cuánto se tarda en llegar desde el aeropuerto de Cartagena hasta la villa?",
+        "a": "Normalmente son unos 20 minutos en carro desde el aeropuerto CTG hasta el muelle de La Bodeguita, y luego 15 minutos en lancha privada hasta la villa."
+      },
+      {
+        "category": "VIP Arrival & Logistics",
+        "q": "¿Gestionan el equipaje para grupos grandes?",
+        "a": "Sí. Para grupos numerosos con mucho equipaje, podemos organizar una lancha de carga separada para que el trayecto en la lancha principal sea cómodo y despejado."
+      },
+      {
+        "category": "VIP Arrival & Logistics",
+        "q": "¿Podemos atracar una lancha que hayamos alquilado por nuestra cuenta?",
+        "a": "Sí. Las lanchas alquiladas pueden atracar en nuestro muelle durante el día. El atraque nocturno requiere aprobación previa del capitán según las condiciones de la marea."
+      },
+      {
+        "category": "Location & Neighborhoods",
+        "q": "¿Qué tan cerca está la villa de la Ciudad Amurallada (Centro Histórico)?",
+        "a": "Estamos exactamente a 15 minutos en lancha de la Ciudad Amurallada (Centro Histórico), con acceso directo a la Torre del Reloj y la Plaza Santo Domingo."
+      },
+      {
+        "category": "Location & Neighborhoods",
+        "q": "¿Es fácil visitar Getsemaní?",
+        "a": "Sí. La lancha te deja en el Muelle de los Pegasos, a 5 minutos caminando del corazón de Getsemaní, famoso por la Plaza de la Trinidad y su arte urbano."
+      },
+      {
+        "category": "Location & Neighborhoods",
+        "q": "¿Podemos visitar Bocagrande desde la villa?",
+        "a": "Sí. Podemos dejarte en el muelle de Castillogrande o Bocagrande si necesitas ir a los centros comerciales modernos como Plaza Bocagrande."
+      },
+      {
+        "category": "Location & Neighborhoods",
+        "q": "¿El sector de la isla donde está la villa es privado?",
+        "a": "Sí. Estamos ubicados en el sector exclusivo de Punta Arena, en Tierrabomba, frente al mar Caribe abierto, lo que garantiza privacidad lejos del canal industrial."
+      },
+      {
+        "category": "Staff & Butler Service",
+        "q": "¿La villa cuenta con mayordomo?",
+        "a": "Sí. Un mayordomo dedicado se encarga del servicio de bebidas, montaje de comidas, refresco de toallas y de ser el principal enlace con el equipo de cocina."
+      },
+      {
+        "category": "Staff & Butler Service",
+        "q": "¿Qué idiomas habla el personal?",
+        "a": "El Villa Manager y el VIP Concierge hablan inglés y español. El personal de aseo y cocina es principalmente hispanohablante, y el mayordomo ayuda con la traducción."
+      },
+      {
+        "category": "Staff & Butler Service",
+        "q": "¿El personal está disponible 24/7?",
+        "a": "La seguridad es 24/7. El personal de servicio (chef, mayordomo) normalmente trabaja de 7:00 a.m. a 9:00 p.m., pero se pueden extender los horarios para eventos especiales o cenas tardías."
+      },
+      {
+        "category": "Staff & Butler Service",
+        "q": "¿El personal duerme en la propiedad?",
+        "a": "Sí, en una casa de servicio independiente, separada de la villa principal, para garantizar total privacidad y, al mismo tiempo, disponibilidad en caso de emergencia."
+      },
+      {
+        "category": "Staff & Butler Service",
+        "q": "¿Se puede solicitar un equipo de servicio solo femenino?",
+        "a": "Sí. Por motivos culturales o de privacidad, se puede organizar un equipo de servicio exclusivamente femenino para las áreas interiores de la villa."
+      },
+      {
+        "category": "Staff & Butler Service",
+        "q": "¿Ofrecen servicio de preparación de habitación (turndown)?",
+        "a": "Sí. En la noche, el equipo de housekeeping realiza turndown service: corre cortinas blackout, renueva toallas y deja las suites listas para dormir."
+      },
+      {
+        "category": "Food & Dining",
+        "q": "¿En qué tipo de cocina se especializa el chef?",
+        "a": "Nuestro chef se especializa en cocina caribeña colombiana (pescados y mariscos frescos, arroz con coco, patacones), y además está entrenado en cocina internacional, italiana y parrilla/BBQ."
+      },
+      {
+        "category": "Food & Dining",
+        "q": "¿Pueden atender dietas Kosher o Halal?",
+        "a": "Sí. Con aviso previo, podemos conseguir carnes Kosher o Halal y utilizar utensilios dedicados para respetar las normas alimentarias."
+      },
+      {
+        "category": "Food & Dining",
+        "q": "¿Ofrecen menú vegano o vegetariano?",
+        "a": "Claro. Diseñamos menús basados en plantas usando frutas y vegetales tropicales locales. Algunos favoritos son el ceviche de mango y los curries de vegetales al coco."
+      },
+      {
+        "category": "Food & Dining",
+        "q": "¿Cómo se adquieren los víveres?",
+        "a": "Nuestro equipo compra en Carulla (supermercado premium) y en mercados locales de pescado para garantizar máxima frescura. Entregamos las facturas para reembolso, más una tarifa de servicio del 10%."
+      },
+      {
+        "category": "Food & Dining",
+        "q": "¿Las bebidas alcohólicas están incluidas?",
+        "a": "No, pero podemos dejar el bar surtido con vinos, licores y mixers de tu preferencia antes de la llegada. Pagas precio de tienda, sin recargo."
+      },
+      {
+        "category": "Food & Dining",
+        "q": "¿Podemos contratar un mixólogo o bartender?",
+        "a": "Sí. Podemos traer un bartender profesional para crear cocteles de autor durante una pool party o la hora del atardecer."
+      },
+      {
+        "category": "Food & Dining",
+        "q": "¿Hay máquina de café?",
+        "a": "Sí. La cocina cuenta con máquina Nespresso (incluimos cápsulas) y cafetera tradicional de goteo al estilo colombiano."
+      },
+      {
+        "category": "Food & Dining",
+        "q": "¿El chef puede organizar una cena romántica en la playa?",
+        "a": "Sí. Se puede montar una mesa privada en el muelle o en la terraza de playa, con velas y flores para una noche especial."
+      },
+      {
+        "category": "Weddings & Events",
+        "q": "¿Cuál es la capacidad para bodas?",
+        "a": "Podemos recibir bodas y eventos de hasta 60 invitados. La cancha de tenis se puede techar con carpa o usar la zona de la piscina para recepciones al aire libre."
+      },
+      {
+        "category": "Weddings & Events",
+        "q": "¿Existe restricción de ruido para fiestas?",
+        "a": "Al estar en una isla privada, las restricciones de ruido son flexibles. Sin embargo, por respeto al entorno, normalmente bajamos el volumen después de las 2:00 a.m."
+      },
+      {
+        "category": "Weddings & Events",
+        "q": "¿Podemos traer proveedores externos?",
+        "a": "Sí. Se permiten catering, decoradores y planners externos. Podemos organizar una lancha de logística dedicada para el transporte de proveedores."
+      },
+      {
+        "category": "Weddings & Events",
+        "q": "¿Cobran una tarifa adicional por eventos?",
+        "a": "Sí. Se aplica una tarifa de evento para cualquier reunión que supere el número de huéspedes registrados (16 personas). Solicita información para conocer los valores específicos."
+      },
+      {
+        "category": "Weddings & Events",
+        "q": "¿Hay suficiente energía para una banda en vivo?",
+        "a": "Sí. Nuestro generador soporta sin problema montajes completos de sonido, luces y bandas en vivo."
+      },
+      {
+        "category": "Weddings & Events",
+        "q": "¿Trabajan con wedding planners?",
+        "a": "Sí. Tenemos relaciones preferenciales con los mejores organizadores de bodas de Cartagena, incluyendo Caribe Cordial y varios productores de eventos de lujo."
+      },
+      {
+        "category": "Amenities & Hardware",
+        "q": "¿Qué marca de amenities de baño utilizan?",
+        "a": "Suministramos productos L'Occitane en Provence (línea Verbena) en todos los baños."
+      },
+      {
+        "category": "Amenities & Hardware",
+        "q": "¿Cómo está configurada la cama en cada habitación?",
+        "a": "La villa tiene 6 habitaciones: 4 King Suites y 2 suites con dos camas Queen. Se pueden añadir camas sencillas para niños bajo solicitud."
+      },
+      {
+        "category": "Amenities & Hardware",
+        "q": "¿La ropa de cama es de gama alta?",
+        "a": "Sí. Usamos sábanas de algodón egipcio de 600 hilos y toallas gruesas de calidad hotelera."
+      },
+      {
+        "category": "Amenities & Hardware",
+        "q": "¿Hay secador de pelo en todas las habitaciones?",
+        "a": "Sí. Cada baño cuenta con secador de pelo profesional."
+      },
+      {
+        "category": "Amenities & Hardware",
+        "q": "¿Hay caja fuerte para objetos de valor?",
+        "a": "Sí. Cada habitación tiene una caja fuerte digital programable, con espacio para computadores portátiles y joyas."
+      },
+      {
+        "category": "Amenities & Hardware",
+        "q": "¿Cuentan con plancha o vaporizador de ropa?",
+        "a": "Sí. Disponemos de plancha a vapor y tabla de planchar. El personal también puede ayudarte a planchar la ropa."
+      },
+      {
+        "category": "Tech & Connectivity",
+        "q": "¿Qué tan confiable es el internet?",
+        "a": "Muy confiable. Usamos Internet satelital Starlink (150–200 Mbps) con red Wi-Fi en malla que cubre toda la propiedad, incluyendo la zona de la piscina."
+      },
+      {
+        "category": "Tech & Connectivity",
+        "q": "¿Hay impresora disponible?",
+        "a": "Sí. En la sala de medios hay una impresora láser inalámbrica para pasabordos o documentos de trabajo."
+      },
+      {
+        "category": "Tech & Connectivity",
+        "q": "¿Qué servicios de TV tienen?",
+        "a": "La sala de medios tiene Smart TV con acceso a Netflix, Amazon Prime, Disney+ y Apple TV para uso de los huéspedes."
+      },
+      {
+        "category": "Tech & Connectivity",
+        "q": "¿Necesito adaptador de corriente?",
+        "a": "La villa utiliza enchufes tipo A/B (los mismos que en Estados Unidos y Canadá). Los huéspedes europeos necesitan adaptador estándar."
+      },
+      {
+        "category": "Excursions & Activities",
+        "q": "¿Podemos ir a las Islas del Rosario?",
+        "a": "Sí. Las Islas del Rosario (Oceanario, pecio para snorkel) están a unos 45 minutos en lancha. Salir directamente desde la villa ahorra tiempo frente a partir desde la ciudad."
+      },
+      {
+        "category": "Excursions & Activities",
+        "q": "¿Y qué hay de Cholón?",
+        "a": "Cholón es el famoso punto de fiesta en el mar. Podemos organizar un yate para pasar el día allí y regresar a la villa para el atardecer."
+      },
+      {
+        "category": "Excursions & Activities",
+        "q": "¿Cuáles son los beach clubs más cercanos?",
+        "a": "Blue Apple Beach House (10 minutos), Amare Beach Club (5 minutos) y Namasté Beach Club (5 minutos) son nuestros vecinos más cercanos."
+      },
+      {
+        "category": "Excursions & Activities",
+        "q": "¿Se puede ir a Bora Bora Beach Club?",
+        "a": "Sí. Bora Bora está en las Islas del Rosario, aproximadamente a 40–50 minutos en lancha desde nuestro muelle."
+      },
+      {
+        "category": "Excursions & Activities",
+        "q": "¿Pueden organizar un tour histórico en Cartagena?",
+        "a": "Sí. Podemos reservar guías privados bilingües para recorridos a pie por la Ciudad Amurallada, el Castillo de San Felipe o el Palacio de la Inquisición."
+      },
+      {
+        "category": "Excursions & Activities",
+        "q": "¿Ofrecen salidas de pesca?",
+        "a": "Sí. Podemos organizar salidas de pesca artesanal con pescadores de la isla o alquilar un bote profesional de pesca deportiva para mar abierto."
+      },
+      {
+        "category": "Excursions & Activities",
+        "q": "¿Podemos recibir masajes en la villa?",
+        "a": "Sí. Contamos con terapeutas profesionales que pueden realizar masajes relajantes o de tejido profundo en la terraza al aire libre."
+      },
+      {
+        "category": "Excursions & Activities",
+        "q": "¿Se puede hacer yoga en la propiedad?",
+        "a": "Sí. Podemos traer un instructor privado de yoga para sesiones al amanecer o al atardecer en la terraza."
+      },
+      {
+        "category": "Nightlife & City",
+        "q": "¿Cuáles son los mejores restaurantes de Cartagena?",
+        "a": "Recomendamos La Vitrola (clásico cubano), Carmen (cocina colombiana moderna), Celele (fusión caribeña) y Alma (alta cocina). Nuestro concierge VIP se encarga de las reservas."
+      },
+      {
+        "category": "Nightlife & City",
+        "q": "¿Dónde está la mejor vida nocturna?",
+        "a": "Alquímico (bar de ranking mundial), Café Havana (salsa en Getsemaní) y La Movida (club) son algunas de las mejores opciones."
+      },
+      {
+        "category": "Nightlife & City",
+        "q": "¿Es seguro caminar por la Ciudad Amurallada de noche?",
+        "a": "Sí. El Centro Histórico y Getsemaní cuentan con buena presencia policial y, en general, son muy seguros para turistas en las noches."
+      },
+      {
+        "category": "Safety & Medical",
+        "q": "¿Hay un hospital cerca?",
+        "a": "El nuevo Hospital Bocagrande está a unos 15 minutos en lancha. Es una clínica moderna equipada para emergencias."
+      },
+      {
+        "category": "Safety & Medical",
+        "q": "¿Cuentan con botiquín de primeros auxilios?",
+        "a": "Sí. Mantenemos un botiquín médico bien equipado. Todo el personal está entrenado en protocolos básicos de respuesta ante emergencias."
+      },
+      {
+        "category": "Safety & Medical",
+        "q": "¿La corriente del mar es fuerte?",
+        "a": "El mar frente a la villa suele ser tranquilo, aunque las corrientes pueden cambiar. Recomendamos nadar solo cuando el capitán indica condiciones seguras."
+      },
+      {
+        "category": "Safety & Medical",
+        "q": "¿Hay medusas?",
+        "a": "En ciertas temporadas (generalmente a mitad de año) pueden aparecer medusas pequeñas. Revisamos el mar a diario y avisamos a los huéspedes si es necesario."
+      },
+      {
+        "category": "Families & Kids",
+        "q": "¿Tienen cuna disponible?",
+        "a": "Sí. Disponemos de una cuna tipo Pack 'n Play y silla alta para bebés."
+      },
+      {
+        "category": "Families & Kids",
+        "q": "¿La piscina es segura para niños?",
+        "a": "La piscina tiene un área poco profunda tipo playa, pero no está cercada. Los niños deben estar siempre supervisados. Podemos instalar una cerca de malla temporal en estancias con bebés o niños pequeños, bajo solicitud."
+      },
+      {
+        "category": "Families & Kids",
+        "q": "¿Pueden ayudar a conseguir niñera?",
+        "a": "Sí. Trabajamos con una agencia de niñeras en Cartagena que ofrece cuidadoras con verificación de antecedentes y certificación en RCP."
+      },
+      {
+        "category": "Families & Kids",
+        "q": "¿Qué actividades hay para adolescentes?",
+        "a": "Suelen disfrutar de paddleboard, alquiler de jet ski, clases de wakeboard y la visita al cercano Fuerte San Fernando."
+      },
+      {
+        "category": "Rates & Payments",
+        "q": "¿Cuál es la política de cancelación?",
+        "a": "En general, ofrecemos reembolso completo si se cancela con 60 días de anticipación. Dentro de los 60 días, los pagos no son reembolsables a menos que logremos volver a reservar las mismas fechas."
+      },
+      {
+        "category": "Rates & Payments",
+        "q": "¿Aceptan tarjetas de crédito?",
+        "a": "Sí. Aceptamos Visa, MasterCard y AMEX mediante enlace seguro de Stripe (aplica comisión del 3%). Las transferencias bancarias no tienen recargo."
+      },
+      {
+        "category": "Rates & Payments",
+        "q": "¿Se exige depósito de seguridad?",
+        "a": "Sí. Se solicita un depósito de seguridad reembolsable. Se libera dentro de las 48 horas posteriores al checkout, tras la inspección de la propiedad."
+      },
+      {
+        "category": "Rates & Payments",
+        "q": "¿Debemos pagar impuestos?",
+        "a": "Los turistas extranjeros están exentos del IVA del 19%. Los ciudadanos y residentes colombianos deben pagarlo por ley."
+      },
+      {
+        "category": "Accessibility",
+        "q": "¿La villa es apta para silla de ruedas?",
+        "a": "La planta baja (sala, comedor, terraza y piscina) y una habitación en este nivel son accesibles. Sin embargo, el trayecto desde el muelle hasta la casa incluye algunos escalones."
+      },
+      {
+        "category": "Accessibility",
+        "q": "¿La villa tiene ascensor?",
+        "a": "No. La villa tiene dos pisos. Las habitaciones del nivel superior se acceden por una escalera amplia."
+      },
+      {
+        "category": "Pets",
+        "q": "¿La villa admite mascotas?",
+        "a": "Sí, se aceptan perros pequeños y bien comportados. Se cobra una tarifa de limpieza por mascota y no se permite que suban a los muebles ni entren a la piscina."
+      },
+      {
+        "category": "Climate & Weather",
+        "q": "¿Cuándo es la temporada de lluvias?",
+        "a": "Octubre y noviembre suelen ser los meses más lluviosos, aunque las lluvias normalmente son chubascos tropicales cortos seguidos de sol."
+      },
+      {
+        "category": "Climate & Weather",
+        "q": "¿Hay brisa en la isla?",
+        "a": "Sí. Al estar en una punta de la isla, disfrutamos de vientos alisios constantes que mantienen la villa fresca y prácticamente libre de mosquitos."
+      },
+      {
+        "category": "Special Features",
+        "q": "Cuéntame sobre la cancha de tenis.",
+        "a": "Es una cancha dura de tamaño reglamentario, totalmente privada, con vista al mar y luces nocturnas. Incluimos raquetas y pelotas."
+      },
+      {
+        "category": "Special Features",
+        "q": "¿Hay gimnasio?",
+        "a": "No contamos con gimnasio de máquinas, pero sí con colchonetas de yoga, bandas de resistencia y pesas libres. La playa es perfecta para trotar."
+      },
+      {
+        "category": "Booking & Reservations",
+        "q": "¿Cuál es la estadía mínima en la villa?",
+        "a": "Nuestra estadía mínima estándar es de 3 noches, y de 4–5 noches en temporadas altas como Navidad, Año Nuevo y Semana Santa. Para estancias más cortas, se puede consultar y confirmamos según temporada y disponibilidad."
+      },
+      {
+        "category": "Booking & Reservations",
+        "q": "¿Con cuánta anticipación se debe reservar en temporada alta?",
+        "a": "Para Navidad, Año Nuevo y grandes eventos en Cartagena, recomendamos reservar con 6–9 meses de anticipación. Para fines de semana regulares y temporada baja, suele bastar con 2–3 meses, aunque la disponibilidad de último minuto puede ser limitada."
+      },
+      {
+        "category": "Booking & Reservations",
+        "q": "¿Se pueden bloquear fechas temporalmente mientras decidimos?",
+        "a": "En la mayoría de los casos podemos mantener tus fechas en cortesía hasta por 48 horas mientras coordinas vuelos y confirmas con el grupo. Pasado ese tiempo, se requiere un depósito para garantizar la reserva."
+      },
+      {
+        "category": "Booking & Reservations",
+        "q": "¿Qué depósito se requiere para confirmar la reserva?",
+        "a": "Normalmente se solicita un 50% para asegurar las fechas, y el 50% restante se paga 30 días antes de la llegada. En reservas de último minuto, puede requerirse el pago completo por adelantado."
+      },
+      {
+        "category": "Booking & Reservations",
+        "q": "¿Podemos reservar Casa de la Muralla por Airbnb u otras plataformas?",
+        "a": "Sí, la villa puede aparecer en plataformas como Airbnb o Vrbo, pero reservar directo con nuestro equipo de concierge VIP suele ofrecer términos más flexibles, prioridad en solicitudes especiales y mejor valor global."
+      },
+      {
+        "category": "Booking & Reservations",
+        "q": "¿Ofrecen descuentos por estancias largas?",
+        "a": "Sí. Para estancias de 10 noches o más, podemos ofrecer tarifas preferenciales o beneficios adicionales como traslados en lancha extra, actividades de cortesía o late checkout, según fechas."
+      },
+      {
+        "category": "House Rules & Policies",
+        "q": "¿Cuáles son las normas de fumadores en la villa?",
+        "a": "No se permite fumar dentro de las habitaciones ni en espacios interiores. Los huéspedes pueden fumar en áreas exteriores designadas, como la terraza o la zona de la piscina, utilizando los ceniceros para proteger la propiedad y el entorno."
+      },
+      {
+        "category": "House Rules & Policies",
+        "q": "¿Se permiten visitantes externos durante la estadía?",
+        "a": "Sí, se permiten visitas diurnas con previo aviso a nuestro concierge VIP y al equipo de seguridad. Para eventos o reuniones que superen el número de huéspedes registrados, aplican políticas y tarifas de evento."
+      },
+      {
+        "category": "House Rules & Policies",
+        "q": "¿Hay un número máximo de personas permitidas en la propiedad?",
+        "a": "La capacidad máxima para pasar la noche es de 16 huéspedes registrados. Para eventos o reuniones diurnas, podemos recibir hasta 60 personas con aprobación previa, plan de evento y pago de la tarifa correspondiente."
+      },
+      {
+        "category": "House Rules & Policies",
+        "q": "¿Se permiten drones en la propiedad?",
+        "a": "Los drones están permitidos para uso privado, siempre que no molesten a propiedades vecinas y cumplan con la normativa de aviación colombiana. Para producciones profesionales se requiere aprobación previa."
+      },
+      {
+        "category": "House Rules & Policies",
+        "q": "¿Podemos poner música alta hasta tarde?",
+        "a": "Pueden disfrutar música a buen volumen durante el día y la noche. Para fiestas, generalmente pedimos bajar el volumen después de las 2:00 a.m. por respeto al equipo, al entorno y a las regulaciones locales."
+      },
+      {
+        "category": "Remote Work & Corporate Retreats",
+        "q": "¿La villa es adecuada para retiros corporativos o team offsites?",
+        "a": "Sí. Casa de la Muralla es ideal para retiros ejecutivos y pequeños offsites. Podemos organizar espacios de trabajo, áreas de breakout, equipos audiovisuales, chef privado y experiencias diseñadas alrededor de estrategia, bienestar o integración de equipos."
+      },
+      {
+        "category": "Remote Work & Corporate Retreats",
+        "q": "¿Pueden proporcionar estaciones de trabajo adicionales o equipo de oficina?",
+        "a": "Podemos añadir sillas ergonómicas, mesas de trabajo, extensiones eléctricas y una impresora. Bajo solicitud, también se pueden gestionar monitores externos, rotafolios y pizarras para sesiones tipo workshop."
+      },
+      {
+        "category": "Remote Work & Corporate Retreats",
+        "q": "¿El Wi-Fi soporta a varias personas trabajando al mismo tiempo?",
+        "a": "Sí. Con Starlink y la red en malla, varios huéspedes pueden hacer videollamadas, subir archivos pesados y trabajar en línea simultáneamente en toda la villa y la zona de la piscina."
+      },
+      {
+        "category": "Sustainability & Environment",
+        "q": "¿Qué prácticas de sostenibilidad sigue la villa?",
+        "a": "Priorizamos el uso responsable del agua, la reducción de plásticos de un solo uso y la compra local. Utilizamos dispensadores de agua filtrada, productos de limpieza eco-conscientes cuando es posible y apoyamos a pescadores y agricultores locales para ingredientes frescos."
+      },
+      {
+        "category": "Sustainability & Environment",
+        "q": "¿Cómo manejan los residuos y el reciclaje en la isla?",
+        "a": "En la villa separamos los residuos y los trasladamos al continente para su correcta disposición. Siempre que se puede, reducimos plásticos desechables y favorecemos envases reutilizables y botellas de vidrio."
+      },
+      {
+        "category": "Sustainability & Environment",
+        "q": "¿La iluminación y la música afectan la vida silvestre local?",
+        "a": "Promovemos un uso responsable de luces exteriores y sonido, especialmente en la noche, para respetar la fauna local, tanto aves como vida marina. Nuestro equipo puede asesorar sobre mejores prácticas durante la estadía."
+      },
+      {
+        "category": "Security & Privacy",
+        "q": "¿La villa es adecuada para huéspedes VIP o de alto perfil?",
+        "a": "Sí. Casa de la Muralla es elegida con frecuencia por huéspedes VIP y figuras de alto perfil que valoran la privacidad. El acceso a la propiedad es controlado, el personal está entrenado en discreción y se pueden aplicar protocolos de seguridad extra bajo solicitud."
+      },
+      {
+        "category": "Security & Privacy",
+        "q": "¿Pueden firmar acuerdos de confidencialidad (NDA)?",
+        "a": "Sí. Nuestra empresa administradora está acostumbrada a trabajar bajo acuerdos de confidencialidad para retiros corporativos, estadías de celebridades y proyectos privados."
+      },
+      {
+        "category": "Security & Privacy",
+        "q": "¿Cómo se utiliza el sistema de CCTV en la propiedad?",
+        "a": "Las cámaras se usan únicamente en accesos exteriores como muelle y entrada principal, por motivos de seguridad. No hay cámaras dentro de la villa ni en áreas privadas de huéspedes."
+      },
+      {
+        "category": "Security & Privacy",
+        "q": "¿Comparten información de los huéspedes con terceros?",
+        "a": "No. La información de los huéspedes se utiliza únicamente para reservas, facturación y coordinación de servicios. No vendemos ni compartimos datos con terceros para fines de marketing."
+      },
+      {
+        "category": "Sports & Wellness",
+        "q": "¿Pueden organizar una clínica o mini torneo de tenis?",
+        "a": "Sí. Podemos coordinar entrenadores certificados, sparrings y formatos de mini torneo para grupos. Se puede montar tablero de puntuación, canastas de bolas y estaciones de hidratación en la cancha."
+      },
+      {
+        "category": "Sports & Wellness",
+        "q": "¿Ofrecen entrenadores personales o sesiones de fitness?",
+        "a": "Trabajamos con entrenadores personales que pueden dirigir sesiones de entrenamiento funcional, boxeo, HIIT o movilidad en la terraza, la cancha de tenis o la playa, al amanecer o atardecer."
+      },
+      {
+        "category": "Sports & Wellness",
+        "q": "¿Se pueden organizar retiros enfocados en bienestar?",
+        "a": "Sí. A solicitud, diseñamos estadías orientadas al wellness con yoga, masajes, menús saludables, sesiones de respiración y experiencias de detox digital adaptadas a cada grupo."
+      },
+      {
+        "category": "Content Creation & Production",
+        "q": "¿Podemos usar la villa para sesiones de fotos o producciones de video?",
+        "a": "Sí. Casa de la Muralla está disponible para campañas de marca, producciones de moda y contenido audiovisual. Se aplican tarifas de locación y lineamientos específicos según tamaño del equipo y tipo de uso."
+      },
+      {
+        "category": "Content Creation & Production",
+        "q": "¿Ofrecen apoyo para creadores de contenido e influencers?",
+        "a": "Podemos ayudar a coordinar horarios ideales de luz, tomas en lancha y drone, y conectar con fotógrafos, videógrafos, maquilladores y estilistas locales que conocen bien la zona."
+      },
+      {
+        "category": "Long Stays & Special Cases",
+        "q": "¿Podemos recibir paquetes o envíos durante la estadía?",
+        "a": "Sí. Los paquetes se pueden enviar a nuestra oficina o muelle en Cartagena y luego se trasladan en lancha a la villa. Es importante coordinar previamente con nuestro concierge VIP para manejar tiempos y recepción."
+      },
+      {
+        "category": "Long Stays & Special Cases",
+        "q": "¿La villa es adecuada para estancias mensuales o de temporada?",
+        "a": "Sí. Para estadías largas podemos ajustar horarios de personal, diseñar un plan de menús rotativo y adaptar la frecuencia de housekeeping. Tarifas especiales para long-stay se ofrecen bajo solicitud."
+      },
+      {
+        "category": "Climate & Seasons",
+        "q": "¿Cuáles son los mejores meses para tener mar tranquilo y sol?",
+        "a": "De diciembre a abril suele haber más días soleados y vientos alisios constantes. El mar suele estar especialmente tranquilo en las mañanas durante casi todo el año, ideal para salir en lancha y hacer actividades acuáticas."
+      },
+      {
+        "category": "Climate & Seasons",
+        "q": "¿Cartagena sufre huracanes?",
+        "a": "Cartagena está fuera del corredor principal de huracanes del Atlántico. Aunque podemos tener lluvias fuertes y tormentas ocasionales, los huracanes directos son muy raros comparado con otras islas del Caribe."
+      },
+      {
+        "category": "Beach Clubs & Day Trips",
+        "q": "¿Qué tan lejos está Amare Beach Club de Casa de la Muralla?",
+        "a": "Amare Beach Club (Punta Arena, Tierrabomba) es un spot local eco-friendly con música en vivo, hamacas y ambiente familiar. Desde Casa de la Muralla, el trayecto en lancha suele ser de 5–10 minutos. Desde Cartagena son unos 15 minutos en lancha. Amare tiene un enfoque comunitario y relajado, ideal para días tranquilos."
+      },
+      {
+        "category": "Beach Clubs & Day Trips",
+        "q": "¿Qué tan lejos está Anaho Beach Club de Casa de la Muralla?",
+        "a": "Anaho Beach Club es un refugio de lujo en Punta Arena con camastros privados, gastronomía gourmet y vistas al mar abierto. Desde Casa de la Muralla, el recorrido toma unos 10–15 minutos. Saliendo desde Cartagena, alrededor de 15 minutos. Perfecto para relax silencioso y sofisticado."
+      },
+      {
+        "category": "Beach Clubs & Day Trips",
+        "q": "¿Qué tan lejos está Ancestral Lounge Beach Club de la villa?",
+        "a": "Ancestral Lounge, en el centro de Tierrabomba, mezcla cultura caribeña con música en vivo, cocteles y zonas de descanso. El trayecto desde Casa de la Muralla es de aproximadamente 10–15 minutos. Desde Cartagena son unos 15 minutos. Ideal para grupos que buscan energía isleña auténtica."
+      },
+      {
+        "category": "Beach Clubs & Day Trips",
+        "q": "¿Qué tan lejos está Atolón Tierra Bomba Beach Club de Casa de la Muralla?",
+        "a": "Atolón, en Punta Arena, está enfocado en serenidad con piscinas, cabañas y actividades de bienestar como yoga. Desde Casa de la Muralla, el trayecto en lancha suele ser de 10–15 minutos. Desde Cartagena son unos 15 minutos. Recomendado para quienes buscan un día de calma y enfoque wellness."
+      },
+      {
+        "category": "Beach Clubs & Day Trips",
+        "q": "¿Qué tan lejos está Blue Apple Beach Club de la villa?",
+        "a": "Blue Apple Beach (sur de Tierrabomba) tiene inspiración mediterránea, fiestas en la piscina, coctelería potente, buena carta de vinos y destaca por su modelo B-Corp de sostenibilidad. Desde Casa de la Muralla, son unos 10–15 minutos en lancha. Desde Cartagena, 20–30 minutos en su shuttle. Es LGBTQI+ friendly y con ambiente social muy activo."
+      },
+      {
+        "category": "Beach Clubs & Day Trips",
+        "q": "¿Qué tan lejos está Bomba Beach Club de Casa de la Muralla?",
+        "a": "Bomba Beach Club (centro de Tierrabomba) ofrece hamacas tropicales, restaurante de mariscos y piscina. Desde Casa de la Muralla, el trayecto suele ser de 8–12 minutos en lancha. Desde Cartagena, alrededor de 10 minutos. Es eco-consciente, sin plásticos y con ambiente relajado."
+      },
+      {
+        "category": "Beach Clubs & Day Trips",
+        "q": "¿Qué tan lejos está Club Kabanna de Casa de la Muralla?",
+        "a": "Club Kabanna (Punta Arena) es un lounge exclusivo con cocina Nikkei, playa privada y energía muy fiestera. Desde Casa de la Muralla se llega en 8–12 minutos en lancha. Abre hasta las 11 p.m. Desde Cartagena el trayecto es de unos 10 minutos."
+      },
+      {
+        "category": "Beach Clubs & Day Trips",
+        "q": "¿Qué tan lejos está Eteka Slow Beach de Casa de la Muralla?",
+        "a": "Eteka Slow Beach es un espacio eco y wellness con clases de yoga, senderos de naturaleza y una atmósfera de ritmo lento. Desde Casa de la Muralla son unos 10–15 minutos en lancha. Desde Cartagena, alrededor de 15 minutos. Ideal para parejas y familias que buscan tranquilidad."
+      },
+      {
+        "category": "Beach Clubs & Day Trips",
+        "q": "¿Qué tan lejos está Fénix Beach Club de Casa de la Muralla?",
+        "a": "Fénix Beach Club (Punta Arena) tiene un estilo bohemio-moderno, vistas al skyline de Cartagena, voleibol de playa y almuerzos de paella. Desde Casa de la Muralla el trayecto es de 10–15 minutos. Desde Cartagena, unos 15 minutos. En fines de semana y festivos se siente tipo festival."
+      },
+      {
+        "category": "Beach Clubs & Day Trips",
+        "q": "¿Qué tan lejos está Hi Cartagena Beach Club de la villa?",
+        "a": "Hi Cartagena Beach Club (centro de Tierrabomba) es un spot más reciente, con música urbana y ambiente joven. Desde Casa de la Muralla se llega en 10–15 minutos en lancha. Desde Cartagena, unos 15 minutos. Excelente para grupos de perfil más juvenil."
+      },
+      {
+        "category": "Beach Clubs & Day Trips",
+        "q": "¿Qué tan lejos está Makani Luxury Beach Club de Casa de la Muralla?",
+        "a": "Makani (Punta Arena) ofrece un concepto ultra-lujo con piscina infinity, decks para yoga, alta gastronomía y deportes acuáticos. Desde Casa de la Muralla se llega en 10–15 minutos. Desde Cartagena son unos 15 minutos. Muy recomendado para eventos elegantes y días de playa con estilo."
+      },
+      {
+        "category": "Beach Clubs & Day Trips",
+        "q": "¿Qué tan lejos está Mangata Beach Club de Casa de la Muralla?",
+        "a": "Mangata Beach Club (Punta Arena) se destaca por su tranquilidad gourmet, coctelería de alto nivel y camastros premium. Desde Casa de la Muralla, el trayecto es de 10–15 minutos, similar a los 10–15 minutos desde Cartagena. Ideal para días de lujo sereno."
+      },
+      {
+        "category": "Beach Clubs & Day Trips",
+        "q": "¿Qué tan lejos está Namasté Beach Club de Casa de la Muralla?",
+        "a": "Namasté Beach Club (Punta Arena) es un espacio holístico con comida vegana/vegetariana, spa, piscinas y ceremonias ancestrales. Desde Casa de la Muralla, el recorrido suele ser de 10–15 minutos en lancha. Desde Cartagena, aproximadamente lo mismo. Perfecto para equilibrio mente-cuerpo."
+      },
+      {
+        "category": "Beach Clubs & Day Trips",
+        "q": "¿Qué tan lejos está Palmarito Beach Club de Casa de la Muralla?",
+        "a": "Palmarito Beach Club (Punta Arena) tiene un ambiente relajado y natural, con cabañas, puntos de snorkel y un lujo discreto. Desde Casa de la Muralla son unos 10–15 minutos en lancha. Desde Cartagena, alrededor de 15 minutos."
+      },
+      {
+        "category": "Beach Clubs & Day Trips",
+        "q": "¿Qué tan lejos está Área Beach (Arena Beach) en las Islas del Rosario?",
+        "a": "Área Beach (Isla Grande) ofrece días tipo resort con open bar y almuerzos típicos de isla. Desde Casa de la Muralla el trayecto en lancha es de 40–50 minutos, muy similar a los 45 minutos promedio desde Cartagena. Aguas claras y ambiente vibrante de perfil más upscale."
+      },
+      {
+        "category": "Beach Clubs & Day Trips",
+        "q": "¿Qué tan lejos está Bendita Beach Club de Casa de la Muralla?",
+        "a": "Bendita Beach (Isla Grande) se caracteriza por sus playas limpias, sin vendedores, piscina y DJs. Desde Casa de la Muralla, el recorrido en lancha toma 40–50 minutos. Desde Cartagena, unos 45 minutos. Es una escapada refinada, muy bien valorada por su exclusividad."
+      },
+      {
+        "category": "Beach Clubs & Day Trips",
+        "q": "¿Qué tan lejos está Bora Bora Beach Club de Casa de la Muralla?",
+        "a": "Bora Bora (Isla Grande) es un ícono de fiesta en el mar, con DJs, spa, cabañas y áreas VIP solo para adultos. Desde Casa de la Muralla el tiempo de navegación es de 40–50 minutos; desde Cartagena, unos 45–50 minutos. Es de las opciones top para grupos con mucha energía."
+      },
+      {
+        "category": "Beach Clubs & Day Trips",
+        "q": "¿Qué tan lejos está Ibbiza Island Beach Club de Casa de la Muralla?",
+        "a": "Ibbiza Island Beach Club (zona central de las Islas del Rosario) es una escapada exclusiva de arena blanca, almuerzos gourmet y vistas panorámicas al mar. Desde Casa de la Muralla, el trayecto en lancha es de unos 45 minutos; desde Cartagena, similar. Ideal para días silenciosos y muy high-end."
+      },
+      {
+        "category": "Beach Clubs & Day Trips",
+        "q": "¿Qué tan lejos está Islabela Cartagena Beach Club de la villa?",
+        "a": "Islabela (Isla Grande) ofrece playa privada, piscina, kayaks y pases de día con almuerzo incluido. Desde Casa de la Muralla son 40–50 minutos en lancha. Desde Cartagena, aproximadamente 45 minutos. Muy amigable para familias con niños por sus aguas tranquilas."
+      },
+      {
+        "category": "Beach Clubs & Day Trips",
+        "q": "¿Qué tan lejos está Mantas Beach Hideaway & Lounge de Casa de la Muralla?",
+        "a": "Mantas Beach (Barú, límite con las Islas del Rosario) es un refugio de calma con foco en naturaleza y hospitalidad. Desde Casa de la Muralla el trayecto toma 40–50 minutos en lancha. Desde Cartagena, tiempos similares. Recomendado para quienes buscan desconexión total."
+      },
+      {
+        "category": "Beach Clubs & Day Trips",
+        "q": "¿Qué tan lejos está Pa'o Pa'o Beach Club de la villa?",
+        "a": "Pa'o Pa'o (Islas del Rosario, zona central) es solo para adultos, con camas de piscina chic, música de DJ y ambiente animado pero elegante. Desde Casa de la Muralla el viaje toma 45–60 minutos. Desde Cartagena, entre 45 y 60 minutos."
+      },
+      {
+        "category": "Beach Clubs & Day Trips",
+        "q": "¿Qué tan lejos está Paue Cartagena Beach Lounge de Casa de la Muralla?",
+        "a": "Paue Beach Lounge (Isla Grande) es eco-chic, con arena blanca, cocteles y montajes ideales para grupos. Desde Casa de la Muralla son unos 45 minutos en lancha. Desde Cartagena, también alrededor de 45 minutos."
+      },
+      {
+        "category": "Beach Clubs & Day Trips",
+        "q": "¿Qué tan lejos está Rosario Beach Club de Casa de la Muralla?",
+        "a": "Rosario Beach Club (Isla Grande) cuenta con amplias playas, facilidades de lujo y eventos con música en vivo. Desde Casa de la Muralla, el trayecto en lancha suele ser de 45 minutos. Desde Cartagena, aproximadamente 45 minutos también."
+      },
+      {
+        "category": "Beach Clubs & Day Trips",
+        "q": "¿Qué tan lejos está Rosario del Mar de la villa?",
+        "a": "Rosario del Mar (Isla Grande) ofrece day passes con barra libre, snorkel y un ambiente animado de isla. Desde Casa de la Muralla, el viaje en lancha es de unos 45 minutos. Saliendo desde Cartagena, el tiempo es similar."
+      },
+      {
+        "category": "Beach Clubs & Day Trips",
+        "q": "¿Qué tan lejos está Vistamar Beach Club by Bluemars de Casa de la Muralla?",
+        "a": "Vistamar by Bluemars (zona central de las Islas del Rosario) tiene camastros modernos, mariscos frescos y vibra relajada frente al mar. Desde Casa de la Muralla, el trayecto en lancha dura unos 45–50 minutos. Desde Cartagena, alrededor de 45 minutos."
+      },
+      {
+        "category": "Beach Clubs & Day Trips",
+        "q": "¿Qué tan lejos está Club de Playa Playa Blanca de Casa de la Muralla?",
+        "a": "Club de Playa Playa Blanca (Barú) ofrece snorkel relajado, arena blanca y cocina caribeña tradicional. Desde Casa de la Muralla, el tiempo en lancha es de unos 45 minutos. Por tierra desde Cartagena, el trayecto también ronda los 45 minutos."
+      },
+      {
+        "category": "Beach Clubs & Day Trips",
+        "q": "¿Qué tan lejos está Mambo Beach Club (Barú) de Casa de la Muralla?",
+        "a": "Mambo Beach (Playa Blanca, Barú) tiene música urbana, excelente seafood, camas VIP y aguas especialmente cristalinas. Desde Casa de la Muralla se llega en unos 45 minutos en lancha. Por tierra desde Cartagena, igualmente unos 45 minutos."
+      },
+      {
+        "category": "Beach Clubs & Day Trips",
+        "q": "¿Qué tan lejos está Nena Beach Club de Casa de la Muralla?",
+        "a": "Nena Beach Club (Playa Blanca, Barú) es un beach club estiloso y sin vendedores, perfecto para almuerzos largos y atardeceres. Desde Casa de la Muralla son unos 45 minutos en lancha. Por tierra desde Cartagena, también cerca de 45 minutos."
+      },
+      {
+        "category": "Beach Clubs & Day Trips",
+        "q": "¿Qué tan lejos está Sabai Barú Beach Club de Casa de la Muralla?",
+        "a": "Sabai Barú (Playa Blanca, Barú) combina manglares tranquilos, piscina infinity, rooftop con vistas y gastronomía gourmet. Desde Casa de la Muralla, se llega en unos 45 minutos en lancha. Por tierra desde Cartagena, igualmente alrededor de 45 minutos."
+      },
+      {
+        "category": "Beach Clubs & Day Trips",
+        "q": "¿Realmente ahorramos tiempo visitando beach clubs al estar ya en Tierrabomba?",
+        "a": "Sí. Alojarse en Casa de la Muralla significa comenzar cada día de beach club desde nuestro muelle privado, sin filas en las marinas de la ciudad. La mayoría de clubes en Tierrabomba se sienten como un salto de 5–15 minutos desde la villa, mientras que las Islas del Rosario y Barú están a unos 40–50 minutos en lancha privada."
+      }
+
+    ],
+    "seoLong": [
+      "Casa de la Muralla es una de las villas de lujo más especiales cerca de Cartagena, con un entorno totalmente privado frente al mar en la isla de Tierrabomba. A solo 15 minutos de la ciudad, combina privacidad absoluta, vistas panorámicas del Caribe y un servicio completo que lo hace todo más fácil.",
+  
+  "Ideal para grupos, retiros y vacaciones familiares, la villa ofrece seis habitaciones amplias con baño privado, una piscina tipo infinity, acceso directo a la playa y la cancha de tenis privada más escénica de Colombia. Los huéspedes disfrutan de un equipo completo que incluye cocinera, ama de llaves y jardinero.",
+  
+  "Es una opción destacada para quienes buscan villas de lujo en Cartagena, casas frente al mar en Colombia, estadías en islas privadas o alternativas premium a Airbnb con servicio de concierge. Su ubicación aislada y su diseño refinado crean un refugio perfecto para descansar, hacer deporte y vivir nuevas experiencias.",
+  
+  "El equipo de concierge organiza traslados en lancha privada, alquiler de yates, recorridos por las islas, itinerarios personalizados y experiencias locales exclusivas. Ya sea un viaje familiar, un plan en grupo o unas vacaciones de lujo en Cartagena, Casa de la Muralla ofrece una experiencia caribeña única y elevada."
+    ]
+  },
+  "seo": {
+    "title": "Casa de la Muralla | Villa de lujo frente al mar cerca de Cartagena",
+    "description": "Descubre una de las mejores villas de lujo en Cartagena. Casa de la Muralla ofrece un entorno privado frente al mar, piscina infinity, personal completo y acceso exclusivo a la isla de Tierrabomba—ideal para grupos y viajeros premium"
+  }
 }

@@ -1,6 +1,15 @@
 ---
+interface Props {
+  slug?: string;
+  lang?: string;
+}
+const { slug = 'domaine-des-montarels', lang = 'en' } = Astro.props;
 ---
 <form method="POST" action="/api/inquire" id="inquire-form" class="inquiry-form" novalidate>
+  <!-- Villa context for proper redirect -->
+  <input type="hidden" name="slug" value={slug} />
+  <input type="hidden" name="lang" value={lang} />
+  
   <!-- Extra honeypots: invisible to humans, bots often fill them -->
   <input type="text" name="website" autocomplete="off" tabindex="-1"
          aria-hidden="true" style="position:absolute;left:-9999px;opacity:0;height:0;width:0;" />

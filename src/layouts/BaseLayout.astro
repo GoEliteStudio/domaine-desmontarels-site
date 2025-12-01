@@ -13,7 +13,21 @@ export interface Props {
   ogImage?: string;     // e.g., "/images/MONT_001.webp"
   themeColor?: string;  // e.g., "#0f0f0f"
   villaName?: string;   // Dynamic villa name for branding
+  homeUrl?: string;     // Villa home URL (e.g., /villas/casa-de-la-muralla/en)
   hreflangs?: Array<{ lang: string; locale: string; url: string }>; // Multi-language alternates
+  footer?: {
+    exploreHeading: string;
+    exploreLinks: Array<{ label: string; href: string }>;
+    infoHeading: string;
+    infoLinks: Array<{ label: string; href: string }>;
+    contactHeading: string;
+    contactLinks: Array<{ label: string; href: string }>;
+    copyrightSuffix: string;
+    socialLinks?: Array<{ platform: string; url: string }>;
+  };
+  navLinks?: Array<{ label: string; href: string }>;
+  navCtaLabel?: string;
+  navCtaHref?: string;
 }
 
 const { 
@@ -28,7 +42,12 @@ const {
   ogImage,
   themeColor = '#0f0f0f',
   villaName = 'Luxury Villa',
-  hreflangs = []
+  homeUrl = '/',
+  hreflangs = [],
+  footer,
+  navLinks,
+  navCtaLabel,
+  navCtaHref
 } = Astro.props as Props;
 
 // Generate canonical URL from current request if not provided
@@ -46,6 +65,18 @@ function absUrl(path?: string) {
   return path;
 }
 const ogAbs = absUrl(ogImage);
+
+const defaultNavLinks: Array<{ label: string; href: string }> = [
+  { label: 'Overview', href: '#overview' },
+  { label: 'Amenities', href: '#amenities' },
+  { label: 'Gallery', href: '#gallery' },
+  { label: 'Location', href: '#location' },
+  { label: 'Hosts', href: '#hosts' },
+  { label: 'Contact', href: '#contact' }
+];
+
+const resolvedNavLinks = Array.isArray(navLinks) && navLinks.length ? navLinks : defaultNavLinks;
+const resolvedNavCtaLabel = navCtaLabel ?? 'Inquire';
 ---
 <!DOCTYPE html>
 <html lang={lang} class={hasStickyPanel ? 'with-sticky-panel' : undefined}>
@@ -359,10 +390,6 @@ const ogAbs = absUrl(ogImage);
         border-radius: 50%;
         background-color: var(--color-accent);
         color: var(--color-white);
-      /* Shift concierge button when sticky panel is present */
-      .with-sticky-panel .concierge-button {
-        right: calc(var(--panel-width) + 30px);
-      }
         display: flex;
         align-items: center;
         justify-content: center;
@@ -372,6 +399,11 @@ const ogAbs = absUrl(ogImage);
         transition: var(--transition-fast);
         cursor: pointer;
         text-decoration: none;
+      }
+
+      /* Shift concierge button when sticky panel is present */
+      .with-sticky-panel .concierge-button {
+        right: calc(var(--panel-width) + 30px);
       }
       
       .concierge-button:hover {
@@ -429,15 +461,16 @@ const ogAbs = absUrl(ogImage);
   </head>
   <body>
     <header>
-      <a href="/" class="logo" aria-label="Home">{villaName.toUpperCase()}</a>
+      <a href={homeUrl} class="logo" aria-label="Home">{villaName.toUpperCase()}</a>
       <nav class="nav-links" aria-label="Primary">
-        <a href="#overview" class="nav-link" data-nav>Overview</a>
-        <a href="#amenities" class="nav-link" data-nav>Amenities</a>
-        <a href="#gallery" class="nav-link" data-nav>Gallery</a>
-        <a href="#location" class="nav-link" data-nav>Location</a>
-        <a href="#hosts" class="nav-link" data-nav>Hosts</a>
-        <a href="#contact" class="nav-link" data-nav>Contact</a>
-        <button type="button" class="nav-cta" id="nav-inquire" data-inquire>Inquire</button>
+        {resolvedNavLinks.map(({ href, label }) => (
+          <a href={href} class="nav-link" data-nav>{label}</a>
+        ))}
+        {navCtaHref ? (
+          <a href={navCtaHref} class="nav-cta">{resolvedNavCtaLabel}</a>
+        ) : (
+          <button type="button" class="nav-cta" id="nav-inquire" data-inquire>{resolvedNavCtaLabel}</button>
+        )}
       </nav>
       <button class="mobile-menu-btn" aria-expanded="false" aria-label="Toggle navigation">
         <i class="fas fa-bars"></i>
@@ -469,7 +502,20 @@ const ogAbs = absUrl(ogImage);
       </a>
     </main>
 
-    <Footer />
+    <slot name="footer">
+      <Footer
+        villaName={villaName}
+        description={description}
+        socialLinks={footer?.socialLinks ?? []}
+        exploreHeading={footer?.exploreHeading ?? 'Explore'}
+        exploreLinks={footer?.exploreLinks ?? []}
+        infoHeading={footer?.infoHeading ?? 'Information'}
+        infoLinks={footer?.infoLinks ?? []}
+        contactHeading={footer?.contactHeading ?? 'Contact'}
+        contactLinks={footer?.contactLinks ?? []}
+        copyrightSuffix={footer?.copyrightSuffix ?? 'All rights reserved. | Luxury Villa Retreat'}
+      />
+    </slot>
   
 
     <script>

@@ -5,50 +5,94 @@
   "hero": {
     "title": "The Languedoc's Most Secluded 10th-Century Sanctuary",
     "subtitle": "Ancient monastery character meets silent modern luxury. A private, panoramic retreat reserved for the few.",
-    "ctaText": "Tour the Domaine"
+    "ctaText": "Tour the Domaine",
+    "priorityImages": [
+      "/images/domaine-des-montarels/MONT_Pool_027.webp",
+      "/images/domaine-des-montarels/MONT_Pool_Aerial_031.webp",
+      "/images/domaine-des-montarels/MONT_001.webp"
+    ]
   },
   "images": [
-    { "src": "/images/MONT_001.webp", "alt": "Panoramic view of a blue lake framed by mountains", "caption": "Panoramic lake and mountains near the estate." },
-    { "src": "/images/MONT_002.webp", "alt": "Warm lounge with beamed ceiling and stone walls", "caption": "Main salon with rustic stone, beams, and plush seating." },
-    { "src": "/images/MONT_003.webp", "alt": "Intimate sitting area with tapestries and sofas", "caption": "A comfortable corner for reading or conversation." },
-    { "src": "/images/MONT_004.webp", "alt": "Long wooden table in a rustic dining room", "caption": "Characterful dining room ready for shared meals." },
-    { "src": "/images/MONT_005.webp", "alt": "Dining hall with arches and stone details", "caption": "Elegant dining hall with historic ambience." },
-    { "src": "/images/MONT_006.webp", "alt": "Vaulted stone interior with warm lighting", "caption": "Atmospheric stone room with original character." },
-    { "src": "/images/MONT_007.webp", "alt": "Outdoor lounge seating under an archway", "caption": "Relaxed courtyard seating beside the main house." },
-    { "src": "/images/MONT_008.webp", "alt": "Round tables on a terrace by the sea", "caption": "Waterside dining in a nearby coastal town." },
-    { "src": "/images/MONT_009.webp", "alt": "White umbrellas and lounge seating on the beach", "caption": "Beachfront spot for a day trip or lunch." },
-    { "src": "/images/MONT_010.webp", "alt": "The Historic Grandeur of Béziers", "caption": "Discover the rich history of Béziers, confirmed as one of the oldest towns in France and now a vibrant destination for luxury travelers. The city has seen vast improvements in recent years." },
-    { "src": "/images/MONT_011.webp", "alt": "Rolling green vineyards under a blue sky", "caption": "Vineyard views typical of the surrounding countryside." },
-    { "src": "/images/MONT_012.webp", "alt": "Chef plating a dish in a kitchen", "caption": "Private chef services available on request." },
-    { "src": "/images/MONT_013.webp", "alt": "Children playing on a colorful swing ride", "caption": "A glimpse of family-friendly events in the area." },
-    { "src": "/images/MONT_014.webp", "alt": "Silhouetted trees beside calm water at dusk", "caption": "Quiet sunset moments by the poolside." },
-    { "src": "/images/MONT_015.webp", "alt": "Warm sunset sky with distant hills and cypress", "caption": "Evening light over the Mediterranean landscape." },
-    { "src": "/images/MONT_016.webp", "alt": "Light-filled bedroom with armchair and artwork", "caption": "Airy guest bedroom with soft tones." },
-    { "src": "/images/MONT_017.webp", "alt": "Double bed with red pillows and wall lamps", "caption": "Comfortable double room with warm lighting." },
-    { "src": "/images/MONT_018.webp", "alt": "Modern shower and vanity in light tones", "caption": "Fresh ensuite with walk-in shower." },
-    { "src": "/images/MONT_019.webp", "alt": "Bathroom with freestanding tub and framed art", "caption": "Relaxing bathroom with bathtub." },
-    { "src": "/images/MONT_020.webp", "alt": "Bathroom with two basins and rustic details", "caption": "Charming bathroom with double vanity." },
-    { "src": "/images/MONT_021.webp", "alt": "Shaded stone courtyard with tree and shutters", "caption": "Traditional courtyard at the property." },
-    { "src": "/images/MONT_022.webp", "alt": "Bedroom with blue quilt and chandelier", "caption": "Inviting double bedroom with classic décor." },
-    { "src": "/images/MONT_023.webp", "alt": "Trampoline under leafy trees in the garden", "caption": "Great outdoor fun for younger guests." },
-    { "src": "/images/MONT_024.webp", "alt": "Blue outdoor table tennis beside the pool", "caption": "Ping-pong with a view!" },
-    { "src": "/images/MONT_025.webp", "alt": "Shaded garden with olive trees and bench", "caption": "Quiet garden corner beneath mature olives." },
-    { "src": "/images/MONT_026.webp", "alt": "White sofas on a covered terrace", "caption": "Shaded outdoor living space for warm days." },
-    { "src": "/images/MONT_Pool_027.webp", "alt": "Pool terrace with palm and sun loungers", "caption": "Sun-drenched pool with Mediterranean vibe." },
-    { "src": "/images/MONT_Pool_028.webp", "alt": "Long pool bordered by lawn and trees", "caption": "Expansive garden surrounding the pool." },
-    { "src": "/images/MONT_Pool_029.webp", "alt": "Pool with steps beside a stone façade", "caption": "Swimming pool adjacent to the main house." },
-    { "src": "/images/MONT_030.webp", "alt": "Sunlit path beside stone walls and trees", "caption": "Characterful exterior with Mediterranean planting." },
-    { "src": "/images/MONT_Pool_Aerial_031.webp", "alt": "Aerial photo of the pool terrace", "caption": "Bird’s-eye view of the pool area and deck." },
-    { "src": "/images/MONT_032.webp", "alt": "Bedroom with ceiling beams and red cushions", "caption": "Charming double room with beams." },
-    { "src": "/images/MONT_033.webp", "alt": "Bedroom with exposed beams and two beds", "caption": "Cozy twin/double sleeping under the rafters." },
-    { "src": "/images/MONT_034.webp", "alt": "Bright bedroom with chandelier and red accents", "caption": "Elegant bedroom with classic touches." },
-    { "src": "/images/MONT_035.webp", "alt": "Bright bedroom seating area in white tones", "caption": "Serene guest room flooded with light." },
-    { "src": "/images/MONT_036.webp", "alt": "Covered terrace with fireplace and chimney", "caption": "Evening gatherings by the outdoor hearth." },
-    { "src": "/images/MONT_037.webp", "alt": "Warm salon with leather sofas and bookshelves", "caption": "Grand salon with library feel and stone arches." },
-    { "src": "/images/MONT_038.webp", "alt": "Graphic of the estate crest and name", "caption": "The estate insignia." },
-    { "src": "/images/MONT_039.webp", "alt": "Document with house information and inventory", "caption": "Practical information for guests (illustrative)." },
-    { "src": "/images/MONT_040.webp", "alt": "Soft sunset over vineyards and rolling hills", "caption": "Golden hour across the valley." },
-    { "src": "/images/MONT_041.webp", "alt": "Two people dining beside a riverside quay", "caption": "Your hosts Ian and Katie Jackson have lived in Domaine des Montarels since 2013,  having fallen in love with the house the moment they saw it.  " }
+    { "src": "/images/domaine-des-montarels/MONT_001.webp", "alt": "Panoramic view of a blue lake framed by mountains", "caption": "Panoramic lake and mountains near the estate." },
+    { "src": "/images/domaine-des-montarels/MONT_002.webp", "alt": "Warm lounge with beamed ceiling and stone walls", "caption": "Main salon with rustic stone, beams, and plush seating." },
+    { "src": "/images/domaine-des-montarels/MONT_003.webp", "alt": "Intimate sitting area with tapestries and sofas", "caption": "A comfortable corner for reading or conversation." },
+    { "src": "/images/domaine-des-montarels/MONT_004.webp", "alt": "Long wooden table in a rustic dining room", "caption": "Characterful dining room ready for shared meals." },
+    { "src": "/images/domaine-des-montarels/MONT_005.webp", "alt": "Dining hall with arches and stone details", "caption": "Elegant dining hall with historic ambience." },
+    { "src": "/images/domaine-des-montarels/MONT_006.webp", "alt": "Vaulted stone interior with warm lighting", "caption": "Atmospheric stone room with original character." },
+    { "src": "/images/domaine-des-montarels/MONT_007.webp", "alt": "Outdoor lounge seating under an archway", "caption": "Relaxed courtyard seating beside the main house." },
+    { "src": "/images/domaine-des-montarels/MONT_008.webp", "alt": "Round tables on a terrace by the sea", "caption": "Waterside dining in a nearby coastal town." },
+    { "src": "/images/domaine-des-montarels/MONT_009.webp", "alt": "White umbrellas and lounge seating on the beach", "caption": "Beachfront spot for a day trip or lunch." },
+    { "src": "/images/domaine-des-montarels/MONT_010.webp", "alt": "The Historic Grandeur of Béziers", "caption": "Discover the rich history of Béziers, confirmed as one of the oldest towns in France and now a vibrant destination for luxury travelers. The city has seen vast improvements in recent years." },
+    { "src": "/images/domaine-des-montarels/MONT_011.webp", "alt": "Rolling green vineyards under a blue sky", "caption": "Vineyard views typical of the surrounding countryside." },
+    { "src": "/images/domaine-des-montarels/MONT_012.webp", "alt": "Chef plating a dish in a kitchen", "caption": "Private chef services available on request." },
+    { "src": "/images/domaine-des-montarels/MONT_013.webp", "alt": "Children playing on a colorful swing ride", "caption": "A glimpse of family-friendly events in the area." },
+    { "src": "/images/domaine-des-montarels/MONT_014.webp", "alt": "Silhouetted trees beside calm water at dusk", "caption": "Quiet sunset moments by the poolside." },
+    { "src": "/images/domaine-des-montarels/MONT_015.webp", "alt": "Warm sunset sky with distant hills and cypress", "caption": "Evening light over the Mediterranean landscape." },
+    { "src": "/images/domaine-des-montarels/MONT_016.webp", "alt": "Light-filled bedroom with armchair and artwork", "caption": "Airy guest bedroom with soft tones." },
+    { "src": "/images/domaine-des-montarels/MONT_017.webp", "alt": "Double bed with red pillows and wall lamps", "caption": "Comfortable double room with warm lighting." },
+    { "src": "/images/domaine-des-montarels/MONT_018.webp", "alt": "Modern shower and vanity in light tones", "caption": "Fresh ensuite with walk-in shower." },
+    { "src": "/images/domaine-des-montarels/MONT_019.webp", "alt": "Bathroom with freestanding tub and framed art", "caption": "Relaxing bathroom with bathtub." },
+    { "src": "/images/domaine-des-montarels/MONT_020.webp", "alt": "Bathroom with two basins and rustic details", "caption": "Charming bathroom with double vanity." },
+    { "src": "/images/domaine-des-montarels/MONT_021.webp", "alt": "Shaded stone courtyard with tree and shutters", "caption": "Traditional courtyard at the property." },
+    { "src": "/images/domaine-des-montarels/MONT_022.webp", "alt": "Bedroom with blue quilt and chandelier", "caption": "Inviting double bedroom with classic décor." },
+    { "src": "/images/domaine-des-montarels/MONT_023.webp", "alt": "Trampoline under leafy trees in the garden", "caption": "Great outdoor fun for younger guests." },
+    { "src": "/images/domaine-des-montarels/MONT_024.webp", "alt": "Blue outdoor table tennis beside the pool", "caption": "Ping-pong with a view!" },
+    { "src": "/images/domaine-des-montarels/MONT_025.webp", "alt": "Shaded garden with olive trees and bench", "caption": "Quiet garden corner beneath mature olives." },
+    { "src": "/images/domaine-des-montarels/MONT_026.webp", "alt": "White sofas on a covered terrace", "caption": "Shaded outdoor living space for warm days." },
+    { "src": "/images/domaine-des-montarels/MONT_Pool_027.webp", "alt": "Pool terrace with palm and sun loungers", "caption": "Sun-drenched pool with Mediterranean vibe." },
+    { "src": "/images/domaine-des-montarels/MONT_Pool_028.webp", "alt": "Long pool bordered by lawn and trees", "caption": "Expansive garden surrounding the pool." },
+    { "src": "/images/domaine-des-montarels/MONT_Pool_029.webp", "alt": "Pool with steps beside a stone façade", "caption": "Swimming pool adjacent to the main house." },
+    { "src": "/images/domaine-des-montarels/MONT_030.webp", "alt": "Sunlit path beside stone walls and trees", "caption": "Characterful exterior with Mediterranean planting." },
+    { "src": "/images/domaine-des-montarels/MONT_Pool_Aerial_031.webp", "alt": "Aerial photo of the pool terrace", "caption": "Bird’s-eye view of the pool area and deck." },
+    { "src": "/images/domaine-des-montarels/MONT_032.webp", "alt": "Bedroom with ceiling beams and red cushions", "caption": "Charming double room with beams." },
+    { "src": "/images/domaine-des-montarels/MONT_033.webp", "alt": "Bedroom with exposed beams and two beds", "caption": "Cozy twin/double sleeping under the rafters." },
+    { "src": "/images/domaine-des-montarels/MONT_034.webp", "alt": "Bright bedroom with chandelier and red accents", "caption": "Elegant bedroom with classic touches." },
+    { "src": "/images/domaine-des-montarels/MONT_035.webp", "alt": "Bright bedroom seating area in white tones", "caption": "Serene guest room flooded with light." },
+    { "src": "/images/domaine-des-montarels/MONT_036.webp", "alt": "Covered terrace with fireplace and chimney", "caption": "Evening gatherings by the outdoor hearth." },
+    { "src": "/images/domaine-des-montarels/MONT_037.webp", "alt": "Warm salon with leather sofas and bookshelves", "caption": "Grand salon with library feel and stone arches." },
+    { "src": "/images/domaine-des-montarels/MONT_038.webp", "alt": "Graphic of the estate crest and name", "caption": "The estate insignia." },
+    { "src": "/images/domaine-des-montarels/MONT_039.webp", "alt": "Document with house information and inventory", "caption": "Practical information for guests (illustrative)." },
+    { "src": "/images/domaine-des-montarels/MONT_040.webp", "alt": "Soft sunset over vineyards and rolling hills", "caption": "Golden hour across the valley." },
+    { "src": "/images/domaine-des-montarels/MONT_041.webp", "alt": "Two people dining beside a riverside quay", "caption": "Your hosts Ian and Katie Jackson have lived in Domaine des Montarels since 2013, having fallen in love with the house the moment they saw it." },
+    { "src": "/images/domaine-des-montarels/MONT-042.webp", "alt": "Shaded garden seating beneath mature olive trees with sunlight filtering onto the lawn", "caption": "Peaceful garden lounge nestled under century-old olive trees." },
+    { "src": "/images/domaine-des-montarels/MONT-043.webp", "alt": "Vibrant Languedoc sunset with silhouettes of cypress trees and rolling hills", "caption": "A dramatic sunset painting the Languedoc landscape in warm hues." },
+    { "src": "/images/domaine-des-montarels/MONT-044.webp", "alt": "Cozy countryside bedroom with sloped ceiling, warm lighting, and floral curtains", "caption": "A charming attic-style bedroom with serene rustic details." },
+    { "src": "/images/domaine-des-montarels/MONT-046.webp", "alt": "Elevated wooden deck surrounded by pine trees with a blue outdoor mat", "caption": "A tranquil forest-edge deck space immersed in nature." },
+    { "src": "/images/domaine-des-montarels/MONT-049.webp", "alt": "Rustic wooden bookshelf built into a stone wall with vintage decor", "caption": "A handcrafted wooden library nook full of old-world charm." },
+    { "src": "/images/domaine-des-montarels/MONT-052.webp", "alt": "Arched French window with flowers and patterned curtains overlooking the garden", "caption": "Romantic countryside window framed by floral textiles." },
+    { "src": "/images/domaine-des-montarels/MONT-053.webp", "alt": "Bright double bedroom with neutral décor, chandelier, and soft morning light", "caption": "Airy, elegant bedroom designed for restful countryside nights." },
+    { "src": "/images/domaine-des-montarels/MONT-054.webp", "alt": "Outdoor breakfast table under the trees with pastries and fresh drinks", "caption": "Alfresco dining amid shade and Mediterranean greenery." },
+    { "src": "/images/domaine-des-montarels/MONT-055.webp", "alt": "Sun loungers with red towels overlooking a serene turquoise pool", "caption": "Poolside relaxation with uninterrupted views of nature." },
+    { "src": "/images/domaine-des-montarels/MONT-056.webp", "alt": "Minimalist bathroom with walk-in shower, white tiles, and bright lighting", "caption": "Clean, modern bathroom with a fresh, simple aesthetic." },
+    { "src": "/images/domaine-des-montarels/MONT-057.webp", "alt": "Spacious countryside bedroom with twin beds and vintage French furnishings", "caption": "Classic French country bedroom blending comfort and tradition." },
+    { "src": "/images/domaine-des-montarels/MONT-058.webp", "alt": "Stone-walled interior with antique wooden wardrobe and upholstered armchair", "caption": "A historic stone room enriched with authentic period pieces." },
+    { "src": "/images/domaine-des-montarels/MONT-059.webp", "alt": "Sunlit garden with manicured lawn and estate buildings in the background", "caption": "Expansive lawn offering open space and southern-France serenity." },
+    { "src": "/images/domaine-des-montarels/MONT-060.webp", "alt": "Aerial view of the pool terrace with loungers and countryside surroundings", "caption": "Panoramic look at the estate's pool oasis from above." },
+    { "src": "/images/domaine-des-montarels/MONT-061.webp", "alt": "Quiet interior corner with a small desk and sunlit window", "caption": "A peaceful nook bathed in soft natural light." },
+    { "src": "/images/domaine-des-montarels/MONT-062.webp", "alt": "Iron garden railing overlooking fields, hills, and open sky", "caption": "Countryside views framed by elegant wrought-iron details." },
+    { "src": "/images/domaine-des-montarels/MONT-063.webp", "alt": "Bright bathroom with double mirrors, white vanity, and terracotta floor", "caption": "A warm, refined bathroom filled with gentle natural light." },
+    { "src": "/images/domaine-des-montarels/MONT-064.webp", "alt": "Outdoor terrace with plush red seating under stone arches", "caption": "Luxurious shaded terrace designed for long, social afternoons." },
+    { "src": "/images/domaine-des-montarels/MONT-065.webp", "alt": "Close-up of bedside table with soft lamp and linen textures", "caption": "Cozy, atmospheric lighting enhancing a restful bedroom." },
+    { "src": "/images/domaine-des-montarels/MONT-066.webp", "alt": "White mantelpiece with elegant floral arrangements and gold accents", "caption": "A refined decorative fireplace with French countryside elegance." },
+    { "src": "/images/domaine-des-montarels/MONT-067.webp", "alt": "Spacious living room with sofa, armchairs, and framed artwork", "caption": "Comfortable lounge merging rustic charm with modern comfort." },
+    { "src": "/images/domaine-des-montarels/MONT-068.webp", "alt": "Turquoise swimming pool surrounded by lawn and olive trees", "caption": "A sun-drenched pool bordered by Mediterranean greenery." },
+    { "src": "/images/domaine-des-montarels/MONT-070.webp", "alt": "Warm-toned bathroom with his-and-hers sinks and classic wall art", "caption": "Elegant bathroom blending rustic textures with refined touches." },
+    { "src": "/images/domaine-des-montarels/MONT-071.webp", "alt": "Stone-walled bathroom with warm lighting and vintage washbasin", "caption": "An inviting, old-world bathroom crafted from natural stone." },
+    { "src": "/images/domaine-des-montarels/MONT-072.webp", "alt": "White vanity mirror with carved frame and lavender decoration", "caption": "A charming, vintage-style vanity full of delicate detailing." },
+    { "src": "/images/domaine-des-montarels/MONT-073.webp", "alt": "Ornate dining hall with antique chairs, chandeliers, and golden walls", "caption": "Regal dining room celebrating traditional Languedoc craftsmanship." },
+    { "src": "/images/domaine-des-montarels/MONT-074.webp", "alt": "Twin bedroom with natural light, neutral bedding, and countryside details", "caption": "Elegant twin room ideal for families or shared stays." },
+    { "src": "/images/domaine-des-montarels/MONT-075.webp", "alt": "Wall plaque reading Maison d'Hôtes with decorative hooks", "caption": "A welcoming French detail marking the estate's guest area." },
+    { "src": "/images/domaine-des-montarels/MONT-076.webp", "alt": "Pool steps leading into a shimmering turquoise swimming pool", "caption": "Refreshing pool entry designed for leisurely summer dips." },
+    { "src": "/images/domaine-des-montarels/MONT-077.webp", "alt": "Bathroom with rustic décor, artwork, and terracotta tiles", "caption": "A warm, character-filled bathroom with classic Mediterranean elements." },
+    { "src": "/images/domaine-des-montarels/MONT-078.webp", "alt": "Fully equipped home gym with exercise machines and bright natural light", "caption": "Private fitness room offering a complete workout experience." },
+    { "src": "/images/domaine-des-montarels/MONT-079.webp", "alt": "Rustic dining hall with wooden beams, long banquet table, and antique décor", "caption": "Historic Languedoc dining room perfect for group gatherings." },
+    { "src": "/images/domaine-des-montarels/MONT-080.webp", "alt": "Small powder room with natural light from a window and simple white fixtures", "caption": "Bright, minimalist powder room with countryside charm." },
+    { "src": "/images/domaine-des-montarels/MONT-081.webp", "alt": "Stone-arched terrace overlooking clear blue sky and countryside views", "caption": "A breathtaking terrace framed by timeless stone architecture." },
+    { "src": "/images/domaine-des-montarels/MONT-082.webp", "alt": "Cozy bedroom with patterned curtains, soft linens, and warm lighting", "caption": "An intimate bedroom designed for comfort and calm." },
+    { "src": "/images/domaine-des-montarels/MONT-083.webp", "alt": "Elegant bathroom with a refined white vanity, gold accents, and soft décor", "caption": "A sophisticated bathroom blending style and serenity." },
+    { "src": "/images/domaine-des-montarels/MONT-084.webp", "alt": "Close-up of a classic vanity tray with ornate gold detailing", "caption": "Refined decorative touches enhancing the estate's elegance." },
+    { "src": "/images/domaine-des-montarels/MONT-085.webp", "alt": "Contemporary walk-in shower with minimalist white tiling and chrome fixtures", "caption": "A fresh, modern bathroom with clean architectural lines." },
+    { "src": "/images/domaine-des-montarels/MONT-086.webp", "alt": "Row of antique brass hooks mounted on a rustic wall", "caption": "Authentic brass hardware adding timeless Provençal character." }
   ],
   "headlines": {
     "overview": "A Vibe of Quiet Grandeur",
@@ -114,6 +158,7 @@
       ]
     },
     "hosts": {
+      "image": "/images/domaine-des-montarels/MONT_041.webp",
       "names": "Ian & Katie Jackson",
       "bio": "Your hosts Ian and Katie Jackson have lived at Domaine des Montarels since 2013 and curate each stay personally — from chef suppers to quiet itineraries through vineyards and coastal villages."
     },
@@ -121,11 +166,546 @@
       { "quote": "A rare blend of history, privacy, and warmth — our family left restored.", "attribution": "Guest, Summer 2024" }
     ],
     "faq": [
-      { "q": "Is the pool heated?", "a": "Yes — a private 12.5m pool, typically available in-season. Please inquire for dates." },
-      { "q": "How many guests can stay?", "a": "Up to 12 guests across five bedrooms and four bathrooms." },
-      { "q": "Is air‑conditioning available?", "a": "Silent air‑conditioning is provided in key sleeping spaces for comfort." },
-      { "q": "Are children welcome?", "a": "Yes — families are welcome. The garden features a trampoline and table tennis." },
-      { "q": "Do you allow events?", "a": "Small, respectful gatherings may be possible with prior approval; please share details in your inquiry." }
+    {
+      "category": "Location & Arrival",
+      "q": "How close is the villa to international airports?",
+      "a": "We are strategically located around 20 minutes from Béziers Cap d’Agde Airport (BZR), 45–50 minutes from Montpellier–Méditerranée (MPL), and about 1 hour 20 minutes from Carcassonne (CCF). Béziers is the closest and best for low-cost European routes, while Montpellier is usually the most convenient hub for long-haul and international arrivals. We can arrange private transfers from any of these airports."
+    },
+    {
+      "category": "Location & Arrival",
+      "q": "Is there a TGV train station nearby?",
+      "a": "Yes. Gare de Béziers is only about 20 minutes from the estate and is served by high-speed TGV trains from Paris (around 4 hours), as well as connections from Barcelona, Lyon and other major cities. From the station, you can reach Domaine des Montarels by taxi or rental car in roughly 20 minutes."
+    },
+    {
+      "category": "Location & Arrival",
+      "q": "Can we fly directly from the UK or Germany?",
+      "a": "Yes. Béziers Cap d’Agde Airport (BZR) offers direct low-cost flights (seasonal and year-round) from several UK cities such as London (Stansted/Luton), Manchester, Edinburgh and Bristol, as well as German and Belgian routes including Düsseldorf (Weeze) depending on the season. Montpellier and Marseille also serve airlines such as British Airways, easyJet, Lufthansa, Transavia and others, providing additional options from the UK, Germany and across Europe."
+    },
+    {
+      "category": "Location & Arrival",
+      "q": "Do we need a car?",
+      "a": "While we can organise airport transfers and private drivers, we strongly recommend renting a car. The estate is set in a rural wine-growing area and having your own vehicle gives you maximum freedom to explore Pézenas, Béziers, local vineyards, the Canal du Midi and the Mediterranean beaches. We provide secure private parking on the estate."
+    },
+    {
+      "category": "Location & Arrival",
+      "q": "How far is the beach?",
+      "a": "The Mediterranean coast is only around a 25-minute drive from Domaine des Montarels. You’ll have easy access to the golden sands of Valras-Plage and Sérignan, as well as the chic beach clubs and marinas of Cap d’Agde."
+    },
+    {
+      "category": "Location & Arrival",
+      "q": "What is the exact location of the Domaine for GPS?",
+      "a": "Domaine des Montarels is located in Alignan-du-Vent (34290), in the Hérault department of the Occitanie region in southern France. It sits roughly 50 km (31 miles) southwest of Montpellier and about 25 km (15 miles) from the beaches of Cap d’Agde, in the heart of the Languedoc wine country."
+    },
+    {
+      "category": "Location & Arrival",
+      "q": "Are there electric vehicle (EV) charging options nearby?",
+      "a": "Yes. The region has been steadily adding EV charging stations at airports, motorway service areas and major supermarkets. If you plan to rent an electric vehicle, let us know and we can suggest convenient charging points on your route between the airport, the estate and nearby towns."
+    },
+    {
+      "category": "Airports & Flights – Essentials",
+      "q": "What is the closest airport to Domaine des Montarels?",
+      "a": "The closest airport is Béziers Cap d’Agde (BZR), located roughly 16 km away—about a 20-minute drive. It is a small, easy-to-navigate airport that mainly serves low-cost carriers, making it ideal for guests arriving from the UK and other parts of Europe looking for quick, budget-friendly access."
+    },
+    {
+      "category": "Airports & Flights – Essentials",
+      "q": "What is the best airport for long-haul or intercontinental arrivals?",
+      "a": "For guests arriving from the USA, Canada, South America, Asia or the Middle East, Montpellier–Méditerranée (MPL) is usually the most practical hub. It offers frequent connections via major European airports such as Paris (CDG), Amsterdam (AMS) and Madrid (MAD). From Montpellier, the drive to Domaine des Montarels takes approximately 45–50 minutes."
+    },
+    {
+      "category": "Airports & Flights – USA & Canada",
+      "q": "Are there direct flights from the USA or Canada to Montpellier?",
+      "a": "There are currently no direct long-haul flights from North America to Montpellier. The most efficient routes connect through major hubs such as Paris Charles de Gaulle (CDG), Amsterdam Schiphol (AMS) or Madrid (MAD). From there, you can either take a short connecting flight to Montpellier (MPL) or travel by high-speed TGV train to Béziers."
+    },
+    {
+      "category": "Airports & Flights – USA & Canada",
+      "q": "What is the best route from New York to the villa?",
+      "a": "A popular option is to fly from New York (JFK) to Paris (CDG) with Air France or Delta, then take a short connecting flight to Montpellier (MPL). From Montpellier Airport it’s about a 45–50 minute drive to the estate. Alternatively, you can take a TGV from Paris to Béziers and then a taxi or rental car to the property."
+    },
+    {
+      "category": "Airports & Flights – USA & Canada",
+      "q": "How do guests typically travel from the West Coast of the USA?",
+      "a": "From cities such as Los Angeles or San Francisco, guests usually fly via Paris (CDG) or Amsterdam (AMS) with Air France, KLM or their partners. From there, a short flight to Montpellier or a TGV journey to Béziers completes the trip. Door-to-door travel time is typically 15–18 hours depending on layovers."
+    },
+    {
+      "category": "Airports & Flights – USA & Canada",
+      "q": "What is the recommended route from Canada?",
+      "a": "From Montreal or Toronto, many guests fly with Air France or KLM via Paris (CDG) or Amsterdam (AMS), then continue to Montpellier by air or to Béziers by TGV. Both options are straightforward and well-connected year-round."
+    },
+    {
+      "category": "Airports & Flights – Latin America",
+      "q": "What is the best route from Brazil, Argentina or Chile?",
+      "a": "From major South American hubs such as São Paulo, Buenos Aires or Santiago, the most efficient connections usually route via Madrid (MAD), Paris (CDG) or Lisbon (LIS) on airlines like LATAM, Iberia or Air France. From those hubs, you can fly into Montpellier (MPL) or take a TGV to Béziers and complete the journey by car."
+    },
+    {
+      "category": "Airports & Flights – Latin America",
+      "q": "How do travellers from Colombia or other Andean countries usually arrive?",
+      "a": "Travellers from Bogotá and other Andean capitals typically fly to Madrid (MAD) or Paris (CDG) with airlines such as Avianca, Iberia or Air France. From there, it’s an easy onward connection to Montpellier (MPL) or Béziers via train."
+    },
+    {
+      "category": "Airports & Flights – Europe & UK",
+      "q": "Which low-cost airlines fly to Béziers or Montpellier?",
+      "a": "Béziers (BZR) is mainly served by Ryanair and Volotea, offering seasonal and year-round routes from cities across the UK and northern Europe. Montpellier (MPL) is served by Transavia, Volotea, easyJet, Air France, KLM and others, with direct connections to major European cities. Routes vary slightly each season, so we recommend checking current schedules when planning."
+    },
+    {
+      "category": "Airports & Flights – Europe & UK",
+      "q": "Can we arrive by high-speed train from Paris or Barcelona?",
+      "a": "Yes. High-speed TGV services run from Paris to Béziers in roughly 4 hours and from Barcelona via Narbonne. From Béziers station, it’s about a 20-minute taxi or rental-car journey to the estate, making this a very comfortable and scenic option."
+    },
+    {
+      "category": "Ground Transport & Transfers",
+      "q": "How much is a taxi or private transfer from Montpellier Airport?",
+      "a": "As a general guideline, a private taxi or transfer from Montpellier Airport (MPL) to Domaine des Montarels ranges from approximately €80 to €120 one-way depending on vehicle type and time of day. Luxury minivans for groups are typically slightly higher. We are happy to organise quotes and pre-book transfers for you."
+    },
+    {
+      "category": "Ground Transport & Transfers",
+      "q": "Is ride-sharing (such as Uber) available in the region?",
+      "a": "Ride-sharing services such as Uber operate in Montpellier and Béziers, but coverage in small villages and rural areas can be limited—especially for pickups at the estate. For arrivals and departures, we recommend pre-booking a taxi or private transfer to avoid delays."
+    },
+    {
+      "category": "Ground Transport & Transfers",
+      "q": "Can we reach the villa using public transport?",
+      "a": "It is possible to combine regional trains and buses to reach Alignan-du-Vent via Béziers and Pézenas, but this solution is slower and less convenient, particularly with luggage or children. Most guests prefer a rental car or a private transfer for comfort and flexibility."
+    },
+    {
+      "category": "Ground Transport & Transfers",
+      "q": "Is driving in the region straightforward for visitors?",
+      "a": "Yes. Roads are well maintained and clearly signposted, and GPS navigation makes driving very simple. The A9 motorway connects major cities, and local roads wind gently through vineyards and villages. Motorway tolls are easy to pay by card or cash at the booths."
+    },
+    {
+      "category": "Stay Duration & Experience",
+      "q": "What is the ideal length of stay at Domaine des Montarels?",
+      "a": "While a long weekend can offer a wonderful introduction, most groups find that 5–7 nights is the sweet spot to truly relax, visit several vineyards, explore Pézenas and Béziers, enjoy a beach day or two and still have time to simply do nothing by the pool. For deeper immersion in the region’s food, wine and culture, many guests choose 10–14 nights or even longer."
+    },
+    {
+      "category": "Stay Duration & Experience",
+      "q": "Why is the estate especially suited to longer villa holidays?",
+      "a": "Domaine des Montarels is designed as a comfortable home base rather than a simple overnight stop. With its private pool, spacious interiors, fully equipped kitchen, fast Wi-Fi, gardens and local concierge support, it naturally invites week-long or extended stays where you can unpack, slow down and live like a local in southern France."
+    },
+    {
+      "category": "Stay Duration & Experience",
+      "q": "Is Domaine des Montarels better as a quick stop or a home base?",
+      "a": "The estate is designed as a true home base rather than a one-night stop. You unpack once and use the villa as your private hub for vineyards, Pézenas, Béziers, Carcassonne, the Étang de Thau and the Mediterranean beaches. Over a week or more, this feels far more relaxed and luxurious than changing hotels every couple of days."
+    },
+    {
+      "category": "Stay Duration & Experience",
+      "q": "Do you offer preferential conditions for extended stays or month-long visits?",
+      "a": "Yes. For longer stays (generally 10 nights or more), we can often offer preferential pricing or added-value extras such as mid-stay housekeeping, a curated selection of local wines, or flexible check-in/out where availability allows. For month-long or seasonal stays, we can tailor services, cleaning schedules and local experiences to your group’s rhythm."
+    },
+    {
+      "category": "Region & Seasons",
+      "q": "When is the best time of year to visit?",
+      "a": "Each season offers something special. Spring (April–June) brings mild temperatures, wildflowers and quieter beaches. Summer (July–August) is warm and vibrant, ideal for pool days and coastal outings. Autumn (September–October) is beloved for grape harvest, golden vineyards and comfortable weather. Winter stays are peaceful and cosy, with fewer crowds and plenty of culture, markets and wine experiences."
+    },
+    {
+      "category": "Region & Seasons",
+      "q": "What is the climate like in the Languedoc region?",
+      "a": "The area enjoys a classic Mediterranean climate: hot, dry summers; mild, sunny springs and autumns; and relatively gentle winters. Expect plenty of sunshine, especially from May to October. Evenings can be cooler outside of high summer, so we recommend packing a light jacket or wrap."
+    },
+    {
+      "category": "Region & Seasons",
+      "q": "Are there notable festivals or events we should know about?",
+      "a": "Yes. Highlights include the Béziers Feria in August, various wine and jazz festivals, summer concerts in château courtyards, and traditional markets and brocantes throughout the year. We can share an up-to-date calendar for your travel dates and help build an itinerary around local events."
+    },
+    {
+      "category": "Wine & Vineyards",
+      "q": "Is the villa located in a wine region?",
+      "a": "Yes. Domaine des Montarels is in the heart of the Languedoc, the world’s largest wine-producing region. The surrounding countryside is dominated by vineyards belonging to appellations such as Côtes de Thongue and AOP Pézenas, making it a fantastic base for wine-focused holidays."
+    },
+    {
+      "category": "Wine & Vineyards",
+      "q": "Do you offer private wine tours?",
+      "a": "Yes. We can curate private half-day or full-day wine tours. Unlike standard group excursions, our recommendations focus on independent domaines and family-run estates, often including visits that are normally reserved for insiders or by-appointment tastings."
+    },
+    {
+      "category": "Wine & Vineyards",
+      "q": "What kind of wine experiences can we expect?",
+      "a": "Depending on season and interest, you might walk through the vines with a winemaker, tour production facilities, taste Syrah, Grenache and Mourvèdre blends, and enjoy relaxed dégustations under the trees. We can also arrange vineyard picnics, food-and-wine pairings and cellar-door purchases to enjoy back at the villa."
+    },
+    {
+      "category": "Dining & Gastronomy",
+      "q": "Can you recommend local restaurants?",
+      "a": "Absolutely. We share our personal ‘little black book’ of restaurants—from authentic village bistros in Alignan-du-Vent and Pézenas to atmospheric wine bars and modern kitchens in Béziers. Many of these places are loved by locals and remain well under the mainstream tourist radar."
+    },
+    {
+      "category": "Dining & Gastronomy",
+      "q": "Is there fine dining nearby?",
+      "a": "Yes. The region boasts several Michelin-starred and Gault&Millau-recognised restaurants. We can help you secure reservations at standout addresses in Béziers, Pézenas and on the coast, depending on your tastes and dates."
+    },
+    {
+      "category": "Dining & Gastronomy",
+      "q": "Where is the best local market?",
+      "a": "The Saturday market in nearby Pézenas (about 10 minutes away) is legendary. It takes over the entire historic centre with stalls selling local cheeses, charcuterie, olives (especially Lucques), seasonal fruits and vegetables, flowers and antiques."
+    },
+    {
+      "category": "Dining & Gastronomy",
+      "q": "Can we enjoy fresh seafood during our stay?",
+      "a": "Yes. We are close to the Étang de Thau, famous for its Bouzigues oysters and mussels. We can arrange an oyster tasting platter at the villa or a trip to the oyster beds and waterside restaurants overlooking the lagoon."
+    },
+    {
+      "category": "Beaches & Mediterranean Coast",
+      "q": "Which beaches do you recommend?",
+      "a": "Our guests particularly enjoy the wide sandy beaches of Valras-Plage and Sérignan, as well as the more developed stretches and beach clubs of Cap d’Agde. Each has a slightly different personality—from family-friendly to stylish and social—so we’re happy to guide you based on the vibe you’re looking for."
+    },
+    {
+      "category": "Beaches & Mediterranean Coast",
+      "q": "Are the beaches crowded in summer?",
+      "a": "In July and August, the most popular beaches can be lively, especially at midday and on weekends. With a car, it’s easy to time your visits for mornings or late afternoons, or to seek out quieter stretches of coast. We can suggest less crowded options and favourite spots for sunsets and apéritifs by the sea."
+    },
+    {
+      "category": "Nightlife & Entertainment",
+      "q": "Is there nightlife nearby?",
+      "a": "Yes. You’ll find sophisticated wine bars and lively cafés in Pézenas and Béziers, summer soirées in nearby châteaux, and seasonal events at beach clubs along the coast. We can point you to places that match your preferred energy—whether that’s relaxed glasses of wine or late-night dancing."
+    },
+    {
+      "category": "Nightlife & Entertainment",
+      "q": "What is the general vibe of the local nightlife?",
+      "a": "The atmosphere tends to be stylish and relaxed rather than wild. Think courtyard wine bars, open-air concerts, summer parties at vineyards and occasional DJ nights at beach clubs—perfect for groups who enjoy good music, great wine and a beautiful setting."
+    },
+    {
+      "category": "History & Culture",
+      "q": "Is there much history and culture in the area?",
+      "a": "Yes. Béziers, about 20 minutes away, is considered one of the oldest towns in France, with roots predating the Romans. The region is rich in medieval villages, Roman remains, churches and traditional markets, offering plenty to see beyond the vineyard and the pool."
+    },
+    {
+      "category": "History & Culture",
+      "q": "What are the must-see historical sites?",
+      "a": "Top highlights include the 9 Locks of Fonseranes on the Canal du Midi (a UNESCO-listed site), the Saint-Nazaire Cathedral in Béziers, and the beautifully preserved streets of Pézenas where Molière once performed. Carcassonne’s fortified citadel is also highly recommended for a full-day outing."
+    },
+    {
+      "category": "History & Culture",
+      "q": "Can we visit Carcassonne from the villa?",
+      "a": "Yes. The medieval citadel of Carcassonne is roughly a 1 hour 20 minute drive from Domaine des Montarels. Many guests enjoy combining the visit with a scenic lunch stop, making it an excellent day trip."
+    },
+    {
+      "category": "Villa Amenities",
+      "q": "Is the pool private?",
+      "a": "Yes. You have exclusive use of a private heated swimming pool set within the estate’s landscaped Mediterranean gardens. It’s the perfect place for lazy afternoons, family fun and long, sociable evenings outdoors."
+    },
+    {
+      "category": "Villa Amenities",
+      "q": "Is there high-speed Wi-Fi?",
+      "a": "Yes. The villa is equipped with reliable high-speed Wi-Fi suitable for everyday browsing, streaming and remote work. For more technical details, please see our Tech & Connectivity information."
+    },
+    {
+      "category": "Villa Amenities",
+      "q": "Do you have air conditioning?",
+      "a": "Yes. Key living and sleeping areas are air-conditioned to ensure comfort during the warm Languedoc summers, complementing the villa’s thick stone walls and natural ventilation."
+    },
+    {
+      "category": "Villa Amenities",
+      "q": "Is the kitchen fully equipped?",
+      "a": "Yes. The kitchen is designed for food lovers, with modern appliances, quality cookware and ample workspace for preparing meals with produce from local markets. We can also arrange a private chef for special dinners or to take care of most of the cooking during your stay."
+    },
+    {
+      "category": "Service & Staff",
+      "q": "Do the hosts live on site?",
+      "a": "No. Your hosts live nearby rather than in the villa itself, offering the ideal balance between complete privacy and having someone close at hand if you need recommendations, help with bookings or assistance during your stay."
+    },
+    {
+      "category": "Service & Staff",
+      "q": "Can you organise grocery stocking before we arrive?",
+      "a": "Yes. On request, we can stock the fridge with essentials such as breakfast items, snacks, soft drinks and local wines so that you can begin your holiday immediately upon arrival without needing to visit a supermarket straight away."
+    },
+    {
+      "category": "Families & Children",
+      "q": "Is the villa suitable for children and multi-generational groups?",
+      "a": "Yes. Domaine des Montarels works very well for families and multi-generational stays. The pool, gardens, generous living spaces and nearby attractions provide plenty to do for all ages. On request we can provide cots, high chairs and suggestions for family-friendly beaches, markets and activities."
+    },
+    {
+      "category": "Families & Children",
+      "q": "Are there kid-friendly activities in the area?",
+      "a": "There are many. Families enjoy beach days, boat trips, tree-top adventure parks, the Dinosaur Museum in Mèze, bike rides along the Canal du Midi and simply exploring medieval streets, markets and squares together."
+    },
+    {
+      "category": "Activities & Outdoor Adventures",
+      "q": "Can we play golf nearby?",
+      "a": "Yes. Golf Saint-Thomas near Béziers (around 15–20 minutes from the villa) offers an 18-hole course in a natural Mediterranean setting. There are additional courses along the coast for guests who wish to explore further."
+    },
+    {
+      "category": "Activities & Outdoor Adventures",
+      "q": "Is the area good for cycling or hiking?",
+      "a": "The region is excellent for both. You can enjoy flat, easy rides along the Canal du Midi towpaths or tackle rolling vineyard hills. There are also scenic walking trails from the estate and in nearby nature areas. We can help organise bike rental and provide suggested routes."
+    },
+    {
+      "category": "Remote Work & Retreats",
+      "q": "Is the villa suitable for remote work, creative retreats or small team gatherings?",
+      "a": "Yes. With fast Wi-Fi, quiet indoor and outdoor workspaces and a peaceful setting among the vines, Domaine des Montarels is ideal for combining holiday time with remote work or hosting a small off-site. We can help configure spaces for workshops, planning sessions or creative retreats."
+    },
+    {
+      "category": "Remote Work & Retreats",
+      "q": "Can you provide extra desks or basic office equipment?",
+      "a": "We can usually provide extra tables, comfortable chairs and extension leads to create dedicated workstations. If you have specific requirements for a team retreat—such as flipcharts or an external screen—please let us know in advance so we can explore options."
+    },
+    {
+      "category": "Booking & Logistics",
+      "q": "What is the check-in/check-out time?",
+      "a": "Standard check-in is from 4:00 pm and check-out is by 10:00 am. For longer stays or off-peak dates, we will always try to offer flexibility where possible. Please share your travel plans in advance so we can advise on the best options for arrival and departure."
+    },
+    {
+      "category": "Booking & Logistics",
+      "q": "Is there a minimum stay requirement?",
+      "a": "Minimum stay requirements vary by season, but the property is primarily set up for relaxed villa holidays rather than short overnights. Many guests stay a full week or longer. For your specific dates, please contact us and we will confirm the minimum stay and availability."
+    },
+    {
+      "category": "Booking & Logistics",
+      "q": "Do I need a visa to visit France?",
+      "a": "Citizens of many countries—including the EU, UK, USA and Canada—can visit France without a visa for short stays of up to 90 days. Travellers from some non-EU countries may also need to complete a simple online travel authorisation (such as ETIAS) before arrival once fully implemented. Because entry rules can change, we recommend checking the latest guidance from official French or EU government sources for your nationality before travelling."
+    },
+    {
+      "category": "Sustainability & Environment",
+      "q": "Does the estate follow sustainability practices?",
+      "a": "Yes. The Domaine is committed to responsible water and energy use, supporting local producers and winemakers, and encouraging guests to explore the area in a thoughtful, low-impact way—through local markets, wine tourism, cycling and off-season stays whenever possible."
+    },
+    {
+      "category": "Sustainability & Environment",
+      "q": "How can we make our trip to Domaine des Montarels more sustainable?",
+      "a": "Simple choices make a real difference: consider longer stays instead of multiple short trips, combine train and car travel where possible, choose hybrid or electric vehicles, enjoy locally produced food and wine, and travel outside the busiest peak weeks. We are happy to share further ideas tailored to how you plan to travel and explore the region."
+    },
+    {
+      "category": "Restaurants & Local Dining",
+      "q": "How close are the nearest restaurants to Domaine des Montarels?",
+      "a": "You don’t have to drive far to eat well. Within 5–10 minutes of the estate you’ll find charming village bistros and farm-to-table kitchens in Alignan-du-Vent, Pézenas and the surrounding countryside. Relais Chantovent, La Ferme des 5 Saisons and other local gems are all easy lunch or dinner options without committing to a long drive."
+    },
+    {
+      "category": "Restaurants & Local Dining",
+      "q": "Can we walk from the villa to restaurants in Alignan-du-Vent?",
+      "a": "Yes. Alignan-du-Vent is a small wine village and several cafés, bars and casual restaurants are reachable on foot or by a very short drive, depending on your preferences and mobility. Many guests enjoy an early evening stroll through the vines or village streets before dinner and then walk home under the stars."
+    },
+    {
+      "category": "Restaurants & Local Dining",
+      "q": "Which restaurant do you recommend for our first night?",
+      "a": "For a relaxed yet memorable first evening, we usually suggest a nearby village bistro or wine bar—such as a cosy spot in Alignan-du-Vent or Pézenas—where you can ease into local flavours without a long journey. We can make a reservation, share directions and arrange a taxi if you prefer not to drive after your travel day."
+    },
+    {
+      "category": "Restaurants & Local Dining",
+      "q": "Are there gourmet or Michelin-level restaurants within easy reach of the villa?",
+      "a": "Yes. Within 30–50 minutes’ drive you’ll find highly rated gastronomic tables, including Michelin-starred and Bib Gourmand addresses in Béziers, Villeveyrac, Montpellier and along the Étang de Thau. Domaine des Montarels is perfectly placed for a week where you alternate relaxed meals at home with a couple of truly special restaurant evenings."
+    },
+    {
+      "category": "Restaurants & Local Dining",
+      "q": "Can you organise a restaurant itinerary for a foodie week?",
+      "a": "Absolutely. For guests staying 5–7 nights or more, we can design a curated dining itinerary that might include a market lunch in Pézenas, a seafood evening overlooking the Étang de Thau, a vineyard table lunch and one or two gastronomic dinners. We tailor suggestions to your group’s tastes, budget and dietary preferences."
+    },
+    {
+      "category": "Restaurants & Local Dining",
+      "q": "Are vegetarian, vegan or gluten-free diets easy to accommodate in local restaurants?",
+      "a": "Yes. Many restaurants in Pézenas, Béziers and the wider Hérault now offer thoughtful vegetarian, vegan and gluten-free options, often based on seasonal market produce. When we help with reservations, we can flag your requirements so that chefs are prepared in advance."
+    },
+    {
+      "category": "Restaurants & Local Dining",
+      "q": "Can we combine the Pézenas Saturday market with lunch in town and dinner back at the villa?",
+      "a": "That’s one of the best ways to experience the region. Many guests spend Saturday morning at the Pézenas market (10 minutes from the estate), enjoy a light lunch in the historic centre, then return to Domaine des Montarels with baskets of local produce and wine for a leisurely home-cooked dinner or chef-prepared feast by the pool."
+    },
+    {
+      "category": "Restaurants & Local Dining",
+      "q": "Is it realistic to explore different restaurants every night if we stay a full week?",
+      "a": "Yes. A one- or two-week stay easily supports a different culinary experience every evening—from simple village plates and wine bars to chic seaside terraces and formal gastronomic dining. The villa’s central location means you can keep driving times modest while still tasting the best of the region."
+    },
+    {
+      "category": "Wine, Oysters & the Étang de Thau",
+      "q": "How far is the Étang de Thau for oysters and seafood lunches?",
+      "a": "The Étang de Thau, famous for Bouzigues oysters and mussels, is around 35–45 minutes from the villa depending on your chosen village. Many guests plan a day that combines a scenic drive, an oyster-tasting lunch over the water and a gentle walk before heading back to the estate for sunset by the pool."
+    },
+    {
+      "category": "Wine, Oysters & the Étang de Thau",
+      "q": "Can you link a vineyard visit with an oyster tasting on the same day?",
+      "a": "Yes. A classic Languedoc day from Domaine des Montarels is to start with a late-morning vineyard tasting inland, then continue to the Étang de Thau for oysters, mussels and crisp Picpoul de Pinet by the water. We can help time reservations and suggest scenic driving routes between the two."
+    },
+    {
+      "category": "Nightlife & Evenings Out",
+      "q": "Where should we go for a relaxed drink in the evening?",
+      "a": "For low-key evenings, Pézenas and Béziers offer excellent wine bars, terraces and cafés within 10–20 minutes of the villa. You can enjoy a glass of Languedoc red or a chilled rosé al fresco, then return to the calm of the estate whenever you’re ready to unwind."
+    },
+    {
+      "category": "Nightlife & Evenings Out",
+      "q": "Is there livelier nightlife within driving distance?",
+      "a": "If your group wants at least one energetic night out, Cap d’Agde’s summer beach clubs and bars are around 25–30 minutes away, while Béziers and Montpellier offer more urban options such as cocktail bars and live music. The advantage of staying at the villa is that you can choose nightlife when you’re in the mood, then retreat to complete peace and quiet afterwards."
+    },
+    {
+      "category": "Nightlife & Evenings Out",
+      "q": "Is it better to stay in Béziers or at the villa if we enjoy nights out?",
+      "a": "For most groups, a villa base works far better. By day you enjoy private space, the pool, vineyards and countryside, and by night you can dip into town for dinner and drinks, then return to a restful, quiet setting. Taxis and designated drivers keep evenings easy without sacrificing comfort or privacy."
+    },
+    {
+      "category": "Experiences & Day Trips",
+      "q": "What are the most popular day trips from Domaine des Montarels?",
+      "a": "Guest favourites include: Pézenas (10 minutes) for markets and history; Béziers (20 minutes) for the Canal du Midi locks and cathedral; Lake Salagou (about 30 minutes) for hiking and kayaking; Cap d’Agde for beach days; and Carcassonne for a full-day medieval adventure. The estate is intentionally positioned so you can build a varied programme over a week or more."
+    },
+    {
+      "category": "Experiences & Day Trips",
+      "q": "Is Lake Salagou worth the drive from the villa?",
+      "a": "Very much so. Lake Salagou offers striking red-ochre landscapes, swimming, picnicking, gentle hikes and water sports in an otherworldly setting. It is about 30–40 minutes from Domaine des Montarels and makes an excellent full-day or half-day outing, especially for families and active groups."
+    },
+    {
+      "category": "Experiences & Day Trips",
+      "q": "Can you suggest a classic 3-day itinerary built around the villa?",
+      "a": "A popular three-day starter plan is: Day 1 – Pézenas market, lunch in town, afternoon by the pool, dinner at a nearby bistro. Day 2 – Vineyard visits and tasting, sunset apéritif at the villa, private chef dinner. Day 3 – Beach or Étang de Thau oysters, then a relaxed evening in Béziers or back at the estate. Longer stays simply expand this rhythm with more excursions and restaurant experiences."
+    },
+    {
+      "category": "Experiences & Day Trips",
+      "q": "Is Domaine des Montarels a good base for a full week of exploring Hérault?",
+      "a": "Yes. The estate is centrally located so that most of the region’s highlights—vineyards, historic towns, beaches, lake landscapes and cultural sites—are within 20–60 minutes. A week or longer gives you time to explore deeply without changing hotels, unpack once and come ‘home’ to familiar surroundings each evening."
+    },
+    {
+      "category": "Experiences & Day Trips",
+      "q": "Can you help us balance quiet villa days with excursions so we don’t over-schedule?",
+      "a": "Of course. Many guests appreciate having a loose structure that alternates pool or villa days with fuller excursion days. We can help design a plan that suits your group’s energy—perhaps one or two big outings (Carcassonne, Lake Salagou) combined with several half-day trips and lazy afternoons at the estate."
+    },
+    {
+      "category": "Groups, Celebrations & Longer Stays",
+      "q": "Is the villa suitable for multi-generational family holidays or group celebrations?",
+      "a": "Yes. With multiple bedrooms, generous indoor and outdoor spaces and a private pool, the estate is ideal for multi-generational trips, milestone birthdays, anniversaries and small gatherings of friends. Being close to top restaurants, vineyards and excursions means everyone can find their version of the perfect day before reconnecting at the villa in the evening."
+    },
+    {
+      "category": "Groups, Celebrations & Longer Stays",
+      "q": "Why does a villa like Domaine des Montarels work better than a hotel for a week in this region?",
+      "a": "A villa stay lets your group spread out, keep a relaxed schedule and truly live in the landscape rather than just visit it. You can shop at markets, cook or bring in a chef, linger by the pool, work remotely if needed and then head out to restaurants, beaches and vineyards when you wish. Over a week or longer, this rhythm usually feels more luxurious and personal than a conventional hotel stay."
+    },
+    {
+      "category": "Groups, Celebrations & Longer Stays",
+      "q": "Do you recommend Domaine des Montarels as a base for exploring both inland villages and the Mediterranean coast?",
+      "a": "Yes. The estate sits in exactly the right position to experience the best of both worlds: inland wine country with Pézenas, Béziers and Lake Salagou on one side, and the Mediterranean coastline—Cap d’Agde, Valras-Plage, Sérignan and the Étang de Thau—on the other. A stay of 7–10 nights or more allows you to enjoy both in depth without feeling rushed."
+    },
+    {
+      "category": "Tech & Connectivity",
+      "q": "Is the internet speed sufficient for video conferencing?",
+      "a": "Yes. We utilize high-speed fiber connectivity, averaging around 200 Mbps download and 50 Mbps upload. It comfortably supports multiple simultaneous Zoom or Teams calls, remote schooling, and 4K streaming throughout the villa."
+    },
+    {
+      "category": "Tech & Connectivity",
+      "q": "Is there a dedicated workspace?",
+      "a": "Yes. We offer ergonomic workspaces with natural light, comfortable seating, and plenty of power outlets. For longer stays, we can provide an external monitor and printer on request so that remote workers can set up a proper office zone."
+    },
+    {
+      "category": "Tech & Connectivity",
+      "q": "What power outlets are used at the villa?",
+      "a": "The property uses standard European Type C and Type E plugs (230V). We provide a small selection of universal adapters and USB-C/USB-A charging hubs in the main living areas to keep phones, laptops, and tablets powered."
+    },
+    {
+      "category": "Tech & Connectivity",
+      "q": "Is the Wi-Fi strong in all areas of the property?",
+      "a": "Yes. A mesh Wi-Fi system covers the main house, bedrooms, and outdoor lounge areas so you can work by the pool, stream music on the terrace, or join calls from almost anywhere on the estate."
+    },
+    {
+      "category": "Tech & Connectivity",
+      "q": "Do you have a backup plan if the internet goes down?",
+      "a": "We monitor connectivity closely and, in the unlikely event of a local outage, we can switch to 4G/5G backup hotspots to keep essential services such as email and calls running. For mission-critical remote work, please notify us in advance so we can tailor redundancy options to your needs."
+    },
+    {
+      "category": "Tech & Connectivity",
+      "q": "Is the villa suitable for several people working remotely at the same time?",
+      "a": "Yes. Many of our guests combine holiday time with remote work. With high-speed internet, multiple quiet corners, and flexible seating indoors and outdoors, several guests can comfortably work online at once without competing for bandwidth."
+    },
+    {
+      "category": "Medical & Safety",
+      "q": "Where is the nearest hospital?",
+      "a": "The Centre Hospitalier de Béziers is approximately 20 minutes from the estate and offers 24/7 emergency services. There are usually English-speaking staff on duty, and we can assist with directions or arranging transport in case of an emergency."
+    },
+    {
+      "category": "Medical & Safety",
+      "q": "Is there a pharmacy nearby?",
+      "a": "Yes. There is a pharmacy in Alignan-du-Vent just a couple of minutes away by car, and several more in Pézenas (around 10 minutes). They can supply common medications, over-the-counter remedies, and prescription refills."
+    },
+    {
+      "category": "Medical & Safety",
+      "q": "Is the property secure?",
+      "a": "Yes. Domaine des Montarels is a private, gated estate in a very calm countryside setting. The entrance is controlled, the grounds are fenced, and the villa is equipped with an alarm system for additional peace of mind."
+    },
+    {
+      "category": "Medical & Safety",
+      "q": "Do you provide emergency numbers and medical information on arrival?",
+      "a": "Yes. On arrival you will receive a concise information sheet with local emergency numbers, the nearest hospital and clinics, pharmacies, and instructions on what to do in urgent situations. Our team is also on hand to assist if something unexpected arises during your stay."
+    },
+    {
+      "category": "Medical & Safety",
+      "q": "Is there a doctor who can visit the villa if needed?",
+      "a": "When available, we can help arrange consultations with local general practitioners or private doctors in the area. In non-urgent situations, we can recommend clinics in Pézenas or Béziers that are accustomed to seeing international visitors."
+    },
+    {
+      "category": "Medical & Safety",
+      "q": "Do you provide a first-aid kit at the villa?",
+      "a": "Yes. A well-stocked first-aid kit is kept on the property for minor cuts, scrapes, and everyday mishaps. We always recommend that guests bring any personal medications and consult their own doctor before travelling."
+    },
+    {
+      "category": "Medical & Safety",
+      "q": "Do you recommend travel insurance for guests?",
+      "a": "We strongly recommend comprehensive travel insurance that covers medical care, trip interruption, and travel delays. While the local healthcare system is excellent, having insurance in place gives peace of mind for you and your family."
+    },
+    {
+      "category": "Gastronomy & Michelin Dining",
+      "q": "Which specific fine dining restaurants do you recommend near the villa?",
+      "a": "We highly recommend L'Alter-Native in Béziers (1 Michelin star) for its sustainable, produce-driven tasting menus, and L'Ambassade for classic French elegance with refined service. In Pézenas, Le Pré Saint Jean is a favourite for modern cuisine in a charming setting."
+    },
+    {
+      "category": "Gastronomy & Michelin Dining",
+      "q": "Can you help us secure reservations at L'Alter-Native or L'Ambassade?",
+      "a": "Yes. These restaurants are very popular, especially in summer, so we are happy to contact them on your behalf and arrange reservations based on your preferred dates, dietary requirements, and occasion."
+    },
+    {
+      "category": "Gastronomy & Michelin Dining",
+      "q": "Where is the best seafood experience near Domaine des Montarels?",
+      "a": "For exceptional seafood, we suggest St Barth' or La Coquerie in Sète, as well as the oyster farms around the Étang de Thau, such as Chez Tarbouriech, where you can enjoy oysters and mussels almost straight from the water."
+    },
+    {
+      "category": "Gastronomy & Michelin Dining",
+      "q": "Can we arrange a private chef at the villa inspired by local Michelin-level cuisine?",
+      "a": "Yes. We work with private chefs who can design menus inspired by restaurants like L'Alter-Native, L'Ambassade and the seafood traditions of Sète and the Étang de Thau. This is an excellent option for special celebrations or for enjoying fine dining without leaving the estate."
+    },
+    {
+      "category": "Gastronomy & Michelin Dining",
+      "q": "Is it possible to organize a full 'wine and gastronomy' week from the villa?",
+      "a": "Absolutely. Many guests book 5–7 nights or longer specifically to experience the food and wine of Languedoc. We can help you combine vineyard visits, oyster tastings on the Étang de Thau, dinners at Michelin and Bib Gourmand restaurants, and relaxed home-cooked evenings at the villa."
+    },
+    {
+      "category": "Accessibility",
+      "q": "Is the villa suitable for guests with reduced mobility?",
+      "a": "The ground floor offers spacious living areas and at least one bedroom that can be accessed without using stairs, making it suitable for some guests with reduced mobility. However, certain outdoor areas and upstairs bedrooms are reached via steps. We encourage you to contact us with specific mobility questions so we can confirm suitability for your needs."
+    },
+    {
+      "category": "Accessibility",
+      "q": "Is the parking area close and relatively flat?",
+      "a": "Yes. Parking is on the estate and positioned close to the main entrance, with relatively level access to the ground floor. This helps guests with reduced mobility or families with young children and luggage."
+    },
+    {
+      "category": "Accessibility",
+      "q": "Do you have walk-in showers instead of bathtubs?",
+      "a": "Several bathrooms feature walk-in showers that are easier to access than traditional tubs. If a walk-in shower is important for your stay, please let us know so we can assign the most suitable room configuration for your group."
+    },
+    {
+      "category": "Accessibility",
+      "q": "Can you provide extra support equipment such as shower chairs or handrails?",
+      "a": "Where possible, we can add small aids such as a portable shower chair or additional grab bars to improve comfort and safety. These should be requested in advance so we can prepare the house accordingly."
+    },
+    {
+      "category": "Events & Weddings",
+      "q": "Can we host a wedding or special event at Domaine des Montarels?",
+      "a": "Yes. We welcome intimate weddings and celebrations up to a carefully controlled guest capacity, using the vineyard and garden areas as a beautiful backdrop. A separate event fee applies, and we require that you work with a professional planner. Please contact us for our detailed event brochure."
+    },
+    {
+      "category": "Events & Weddings",
+      "q": "What types of events are best suited to the property?",
+      "a": "The estate is ideal for small weddings, milestone birthdays, anniversary celebrations, retreats, and elegant dinners in the vines. It is not intended for nightclub-style parties, but for refined gatherings that suit the peaceful wine-country setting."
+    },
+    {
+      "category": "Events & Weddings",
+      "q": "Do you have a noise or music curfew for events?",
+      "a": "Out of respect for neighbours and the surrounding countryside, amplified music is usually reduced by a set time in the late evening. Exact timings depend on event size and season and are specified in our event guidelines."
+    },
+    {
+      "category": "Events & Weddings",
+      "q": "Do you work with preferred planners and vendors?",
+      "a": "Yes. We collaborate with trusted local wedding and event planners, caterers, florists, photographers and musicians who know the estate and the region well. You may also propose your own vendors, subject to prior approval and compliance with our house rules."
+    },
+    {
+      "category": "Events & Weddings",
+      "q": "Is the villa suitable for corporate retreats or small offsites?",
+      "a": "Domaine des Montarels is an excellent base for executive retreats and small team offsites. The combination of meeting spaces, high-speed internet, breakout terraces, wine tastings and nearby restaurants allows you to mix focused work sessions with memorable team experiences in the Languedoc countryside."
+    },
+    {
+      "category": "Events & Weddings",
+      "q": "Can we schedule a pre-wedding or post-wedding stay for our families?",
+      "a": "Many couples choose to book the villa for several days around their celebration so close family and friends can settle in, relax by the pool, and explore the region before or after the main event. Longer stays also allow you to fully enjoy the estate beyond the wedding day itself."
+    }
     ],
     "seoLong": [
       "This private Languedoc retreat pairs original monastery character — arches, stone, old beams — with modern, silent comfort. It is a calm base near Pézenas and Béziers for beaches, vineyards, and slow travel in the South of France.",
@@ -140,3 +720,4 @@
     { "id": "request", "label": "Rate on Request", "price": null, "currency": null, "priceDisplay": "Rate on Request" }
   ]
 }
+

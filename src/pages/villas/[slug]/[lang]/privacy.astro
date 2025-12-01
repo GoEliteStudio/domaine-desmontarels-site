@@ -1,0 +1,208 @@
+---
+import BaseLayout from '../../../../layouts/BaseLayout.astro';
+import { VILLA_LANGUAGES } from '../../../../config/i18n';
+import { getUIStrings } from '../../../../config/uiStrings';
+
+export const prerender = true;
+
+export async function getStaticPaths() {
+  const paths = [];
+  for (const [slug, languages] of Object.entries(VILLA_LANGUAGES)) {
+    for (const lang of languages) {
+      paths.push({ params: { slug, lang } });
+    }
+  }
+  return paths;
+}
+
+const { slug, lang } = Astro.params;
+
+// Load villa data for the specific language
+let villa;
+try {
+  const villaModule = await import(`../../../../content/villas/${slug}.${lang}.json`);
+  villa = villaModule.default;
+} catch {
+  const villaModule = await import(`../../../../content/villas/${slug}.en.json`);
+  villa = villaModule.default;
+}
+
+// Get UI strings for this language
+const ui = getUIStrings(lang);
+const privacyUI = ui.privacy;
+
+// Villa-specific paths
+const villaBasePath = `/villas/${slug}`;
+const langBasePath = `${villaBasePath}/${lang}`;
+
+// Header navigation
+const navLinks = ui.header.navigation.map((link: { label: string; href: string }) => ({
+  ...link,
+  href: link.href.startsWith('#') ? `${langBasePath}/${link.href}` : link.href
+}));
+const navCtaLabel = ui.header.inquireCta;
+
+// Villa-specific privacy email
+const privacyContent: Record<string, { contactEmail: string }> = {
+  'casa-de-la-muralla': { contactEmail: 'privacy@elitecartagena.com' },
+  'domaine-des-montarels': { contactEmail: 'privacy@domaine-desmontarels.com' }
+};
+const content = privacyContent[slug] || { contactEmail: 'privacy@villa.com' };
+
+// Villa-specific footer with localized links
+const villaFooter = {
+  ...ui.footer,
+  brandDescription: villa.summary,
+  exploreLinks: ui.footer.exploreLinks.map((link: { label: string; href: string }) => {
+    // Point explore links to main villa page sections
+    if (link.href.startsWith('#')) return { ...link, href: `${langBasePath}/${link.href}` };
+    return link;
+  }),
+  infoLinks: ui.footer.infoLinks.map((link: { label: string; href: string }) => {
+    if (link.href === '/rates') return { ...link, href: `${langBasePath}/rates` };
+    if (link.href === '/terms') return { ...link, href: `${langBasePath}/terms` };
+    if (link.href === '/privacy') return { ...link, href: `${langBasePath}/privacy` };
+    return link;
+  }),
+  contactLinks: ui.footer.contactLinks.map((link: { label: string; href: string }) => {
+    if (link.href === '/contact') return { ...link, href: `${langBasePath}/contact` };
+    return link;
+  })
+};
+
+const title = `${privacyUI.pageTitle} — ${villa.name}`;
+const description = privacyUI.intro.replace('{villaName}', villa.name);
+---
+<BaseLayout 
+  title={title} 
+  description={description} 
+  canonical={`https://example.com${langBasePath}/privacy`}
+  villaName={villa.name}
+  homeUrl={langBasePath}
+  navLinks={navLinks}
+  navCtaLabel={navCtaLabel}
+  navCtaHref={`${langBasePath}/contact`}
+  footer={villaFooter}
+  lang={lang}
+>
+  <section class="container policy" id="privacy">
+    <h1>{privacyUI.pageTitle}</h1>
+    <p class="intro">{privacyUI.intro.replace('{villaName}', villa.name)}</p>
+    
+    <div class="section">
+      <h2>{privacyUI.infoCollectHeading}</h2>
+      <ul>
+        {privacyUI.infoCollectItems.map((item: string) => <li>{item}</li>)}
+      </ul>
+    </div>
+    
+    <div class="section">
+      <h2>{privacyUI.howWeUseHeading}</h2>
+      <p>{privacyUI.howWeUseText}</p>
+    </div>
+    
+    <div class="section">
+      <h2>{privacyUI.cookiesHeading}</h2>
+      <p>{privacyUI.cookiesText}</p>
+    </div>
+    
+    <div class="section">
+      <h2>{privacyUI.retentionHeading}</h2>
+      <p>{privacyUI.retentionText}</p>
+    </div>
+    
+    <div class="section">
+      <h2>{privacyUI.rightsHeading}</h2>
+      <p>{privacyUI.rightsText} <a href={`mailto:${content.contactEmail}`}>{content.contactEmail}</a>.</p>
+    </div>
+    
+    <div class="section">
+      <h2>{privacyUI.contactHeading}</h2>
+      <p>{privacyUI.contactText} <a href={`mailto:${content.contactEmail}`}>{content.contactEmail}</a>.</p>
+    </div>
+  </section>
+  
+  <style>
+    .policy {
+      max-width: 800px;
+      margin: 120px auto;
+      padding: 0 1.5rem;
+      box-sizing: border-box;
+      font-family: var(--font-sans, system-ui, sans-serif);
+      font-size: 1.05rem;
+      line-height: 1.8;
+      color: #333;
+    }
+    .policy h1 {
+      font-family: var(--font-serif, serif);
+      font-size: 2.8rem;
+      font-weight: 500;
+      color: var(--color-black, #111);
+      margin-bottom: 1rem;
+      line-height: 1.2;
+    }
+    .policy .intro {
+      font-size: 1.1rem;
+      color: #555;
+      margin-bottom: 2.5rem;
+      padding-bottom: 1.5rem;
+      border-bottom: 1px solid #eee;
+    }
+    .policy .section {
+      margin-bottom: 2rem;
+    }
+    .policy h2 {
+      font-family: var(--font-serif, serif);
+      font-size: 1.5rem;
+      font-weight: 500;
+      color: var(--color-black, #111);
+      margin-bottom: 1rem;
+    }
+    .policy p {
+      margin-bottom: 1rem;
+    }
+    .policy ul {
+      padding-left: 0;
+      list-style: none;
+      margin-bottom: 1rem;
+    }
+    .policy li {
+      margin-bottom: 0.75rem;
+      padding-left: 1.25rem;
+      position: relative;
+    }
+    .policy li::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 0.6em;
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--color-accent, #a58e76);
+    }
+    .policy a {
+      color: var(--color-accent, #a58e76);
+      text-decoration: none;
+      font-weight: 500;
+      transition: color 0.3s ease;
+    }
+    .policy a:hover {
+      color: var(--color-black, #111);
+      text-decoration: underline;
+      text-decoration-thickness: 1px;
+    }
+    @media (max-width: 768px) {
+      .policy {
+        margin: 80px auto;
+        font-size: 1rem;
+      }
+      .policy h1 {
+        font-size: 2.2rem;
+      }
+      .policy h2 {
+        font-size: 1.3rem;
+      }
+    }
+  </style>
+</BaseLayout>

@@ -1,0 +1,28 @@
+---
+/**
+ * /villas/[slug]/ → Redirect to default language
+ * 
+ * This is a catch-all redirect for when someone visits /villas/casa-de-la-muralla/
+ * without specifying a language. It redirects to the first supported language.
+ * 
+ * DO NOT wire any components or logic into this file.
+ * All villa rendering happens in [lang].astro
+ */
+import { VILLA_LANGUAGES, DEFAULT_LANG } from '../../../config/i18n';
+
+export const prerender = true;
+
+export async function getStaticPaths() {
+  const paths = [];
+  for (const slug of Object.keys(VILLA_LANGUAGES)) {
+    paths.push({ params: { slug } });
+  }
+  return paths;
+}
+
+const { slug } = Astro.params;
+const supported = VILLA_LANGUAGES[slug] || [];
+const targetLang = supported[0] || DEFAULT_LANG;
+
+return Astro.redirect(`/villas/${slug}/${targetLang}/`, 301);
+---

@@ -1,0 +1,665 @@
+---
+import BaseLayout from '../../../../layouts/BaseLayout.astro';
+import { VILLA_LANGUAGES, DEFAULT_LANG } from '../../../../config/i18n';
+import { getUIStrings } from '../../../../config/uiStrings';
+
+export const prerender = true;
+
+export async function getStaticPaths() {
+  const paths = [];
+  for (const [slug, languages] of Object.entries(VILLA_LANGUAGES)) {
+    for (const lang of languages) {
+      paths.push({ params: { slug, lang } });
+    }
+  }
+  return paths;
+}
+
+const { slug, lang } = Astro.params;
+
+// Load villa data for the specific language
+let villa;
+try {
+  const villaModule = await import(`../../../../content/villas/${slug}.${lang}.json`);
+  villa = villaModule.default;
+} catch {
+  // Fallback to English if language file doesn't exist
+  const villaModule = await import(`../../../../content/villas/${slug}.en.json`);
+  villa = villaModule.default;
+}
+
+// Get UI strings for this language
+const ui = getUIStrings(lang);
+const contactUI = ui.contact;
+
+// Villa-specific paths
+const villaBasePath = `/villas/${slug}`;
+const langBasePath = `${villaBasePath}/${lang}`;
+
+// Header navigation (localized) - point to villa page sections
+const navLinks = ui.header.navigation.map((link: { label: string; href: string }) => ({
+  ...link,
+  href: link.href.startsWith('#') ? `${langBasePath}/${link.href}` : link.href
+}));
+const navCtaLabel = ui.header.inquireCta;
+
+// Villa-specific footer with localized links
+const villaFooter = {
+  ...ui.footer,
+  brandDescription: villa.summary,
+  exploreLinks: ui.footer.exploreLinks.map((link: { label: string; href: string }) => {
+    // Point explore links to main villa page sections
+    if (link.href.startsWith('#')) return { ...link, href: `${langBasePath}/${link.href}` };
+    return link;
+  }),
+  infoLinks: ui.footer.infoLinks.map((link: { label: string; href: string }) => {
+    if (link.href === '/rates') return { ...link, href: `${langBasePath}/rates` };
+    if (link.href === '/terms') return { ...link, href: `${langBasePath}/terms` };
+    if (link.href === '/privacy') return { ...link, href: `${langBasePath}/privacy` };
+    return link;
+  }),
+  contactLinks: ui.footer.contactLinks.map((link: { label: string; href: string }) => {
+    if (link.href === '/contact') return { ...link, href: `${langBasePath}/contact` };
+    return link;
+  })
+};
+
+// Villa-specific contact info
+const contactInfo: Record<string, { phone: string; email: string; whatsapp?: string }> = {
+  'casa-de-la-muralla': {
+    phone: '+57 300 123 4567',
+    email: 'reservations@elitecartagena.com',
+    whatsapp: '+573001234567'
+  },
+  'domaine-des-montarels': {
+    phone: '+33 4 90 00 00 00',
+    email: 'reservations@domaine-desmontarels.com'
+  }
+};
+
+const contact = contactInfo[slug] || contactInfo['domaine-des-montarels'];
+
+// Generate page metadata
+const title = `${contactUI.pageTitle} — ${villa.name}`;
+const subtitle = contactUI.subtitle.replace('{villaName}', villa.name);
+const description = subtitle;
+
+// Generate timestamp for honeypot
+const formLoadTime = Date.now();
+
+// Quick facts labels by language
+const quickFactsLabels: Record<string, { guests: string; bedrooms: string; location: string }> = {
+  en: { guests: 'Guests', bedrooms: 'Bedrooms', location: 'Location' },
+  es: { guests: 'Huéspedes', bedrooms: 'Dormitorios', location: 'Ubicación' },
+  fr: { guests: 'Invités', bedrooms: 'Chambres', location: 'Emplacement' }
+};
+const qfLabels = quickFactsLabels[lang] || quickFactsLabels.en;
+
+// Trust items by language
+const trustItems: Record<string, Array<{ icon: string; label: string }>> = {
+  en: [
+    { icon: 'fas fa-shield-alt', label: 'Secure & Private' },
+    { icon: 'fas fa-clock', label: 'Response within 24h' },
+    { icon: 'fas fa-hand-holding-heart', label: 'Personalized Service' }
+  ],
+  es: [
+    { icon: 'fas fa-shield-alt', label: 'Seguro y Privado' },
+    { icon: 'fas fa-clock', label: 'Respuesta en 24h' },
+    { icon: 'fas fa-hand-holding-heart', label: 'Servicio Personalizado' }
+  ],
+  fr: [
+    { icon: 'fas fa-shield-alt', label: 'Sécurisé et Privé' },
+    { icon: 'fas fa-clock', label: 'Réponse sous 24h' },
+    { icon: 'fas fa-hand-holding-heart', label: 'Service Personnalisé' }
+  ]
+};
+const trust = trustItems[lang] || trustItems.en;
+---
+<BaseLayout 
+  title={title} 
+  description={description} 
+  canonical={`https://example.com${langBasePath}/contact`}
+  villaName={villa.name}
+  homeUrl={langBasePath}
+  navLinks={navLinks}
+  navCtaLabel={navCtaLabel}
+  navCtaHref={`${langBasePath}/contact`}
+  footer={villaFooter}
+  lang={lang}
+>
+  <section class="contact-page">
+    <div class="contact-container">
+      <div class="contact-header">
+        <h1>{contactUI.pageTitle}</h1>
+        <p class="subtitle">{subtitle}</p>
+      </div>
+
+      <div class="contact-content">
+        <form 
+          class="inquiry-form" 
+          action="/api/inquire" 
+          method="POST"
+          data-villa={slug}
+          data-lang={lang}
+          data-load-time={formLoadTime}
+        >
+          <!-- Honeypot fields (hidden from humans) -->
+          <div class="hp-field" aria-hidden="true">
+            <input type="text" name="company" tabindex="-1" autocomplete="off" />
+            <input type="text" name="website" tabindex="-1" autocomplete="off" />
+            <input type="text" name="hpt" tabindex="-1" autocomplete="off" />
+          </div>
+          <input type="hidden" name="dwellStart" value={formLoadTime} />
+          <input type="hidden" name="villa" value={slug} />
+          <input type="hidden" name="lang" value={lang} />
+
+          <div class="form-row">
+            <div class="form-group">
+              <label for="fullName">{contactUI.formLabels.fullName} <span class="required">{contactUI.formLabels.required}</span></label>
+              <input 
+                type="text" 
+                id="fullName" 
+                name="fullName" 
+                placeholder={contactUI.formLabels.fullName}
+                required 
+              />
+            </div>
+            <div class="form-group">
+              <label for="email">{contactUI.formLabels.email} <span class="required">{contactUI.formLabels.required}</span></label>
+              <input 
+                type="email" 
+                id="email" 
+                name="email" 
+                placeholder="you@example.com"
+                required 
+              />
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label for="phone">{contactUI.formLabels.phone}</label>
+              <input 
+                type="tel" 
+                id="phone" 
+                name="phone" 
+                placeholder="+1 555 123 4567"
+              />
+            </div>
+            <div class="form-group">
+              <label for="guests">{contactUI.formLabels.guests}</label>
+              <select id="guests" name="guests">
+                <option value="">{contactUI.formLabels.guestsPlaceholder}</option>
+                {contactUI.formLabels.guestsOptions.map((opt: string) => (
+                  <option value={opt}>{opt}</option>
+                ))}
+              </select>
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label for="checkIn">{contactUI.formLabels.checkIn}</label>
+              <input 
+                type="date" 
+                id="checkIn" 
+                name="checkIn"
+              />
+            </div>
+            <div class="form-group">
+              <label for="checkOut">{contactUI.formLabels.checkOut}</label>
+              <input 
+                type="date" 
+                id="checkOut" 
+                name="checkOut"
+              />
+            </div>
+          </div>
+
+          <div class="form-group full-width">
+            <label for="message">{contactUI.formLabels.message}</label>
+            <textarea 
+              id="message" 
+              name="message" 
+              rows="4"
+              placeholder={contactUI.formLabels.messagePlaceholder}
+            ></textarea>
+          </div>
+
+          <div class="form-group full-width checkbox-group">
+            <label class="checkbox-label">
+              <input type="checkbox" name="newsletter" value="yes" />
+              <span>{contactUI.formLabels.newsletter}</span>
+            </label>
+          </div>
+
+          <button type="submit" class="submit-button">
+            {contactUI.formLabels.submit}
+          </button>
+
+          <p class="form-note" set:html={
+            contactUI.formNote
+              .replace('{privacyLink}', `<a href="${langBasePath}/privacy">${contactUI.privacyLabel}</a>`)
+              .replace('{termsLink}', `<a href="${langBasePath}/terms">${contactUI.termsLabel}</a>`)
+          } />
+        </form>
+
+        <aside class="contact-sidebar">
+          <div class="sidebar-card">
+            <h3>{contactUI.sidebar.heading}</h3>
+            <p>{contactUI.sidebar.description}</p>
+            
+            <div class="contact-methods">
+              <a href={`tel:${contact.phone.replace(/\s/g, '')}`} class="contact-method">
+                <i class="fas fa-phone"></i>
+                <span>{contact.phone}</span>
+              </a>
+              
+              <a href={`mailto:${contact.email}`} class="contact-method">
+                <i class="fas fa-envelope"></i>
+                <span>{contact.email}</span>
+              </a>
+              
+              {contact.whatsapp && (
+                <a href={`https://wa.me/${contact.whatsapp}`} class="contact-method whatsapp" target="_blank" rel="noopener">
+                  <i class="fab fa-whatsapp"></i>
+                  <span>{contactUI.sidebar.whatsappLabel}</span>
+                </a>
+              )}
+            </div>
+          </div>
+
+          <div class="sidebar-card">
+            <h3>{qfLabels.guests}</h3>
+            <ul class="quick-facts">
+              <li><strong>{qfLabels.guests}:</strong> {villa.specs.guests}</li>
+              <li><strong>{qfLabels.bedrooms}:</strong> {villa.specs.bedrooms}</li>
+              <li><strong>{qfLabels.location}:</strong> {villa.location?.label || villa.headlines?.location}</li>
+            </ul>
+          </div>
+
+          <div class="sidebar-card trust">
+            {trust.map((item) => (
+              <div class="trust-item">
+                <i class={item.icon}></i>
+                <span>{item.label}</span>
+              </div>
+            ))}
+          </div>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+  <style>
+    .contact-page {
+      min-height: 100vh;
+      padding: 120px 0 80px;
+      background: linear-gradient(180deg, #fafafa 0%, #fff 100%);
+    }
+
+    .contact-container {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 1.5rem;
+    }
+
+    .contact-header {
+      text-align: center;
+      margin-bottom: 3rem;
+    }
+
+    .contact-header h1 {
+      font-family: var(--font-serif, serif);
+      font-size: 2.8rem;
+      font-weight: 500;
+      color: var(--color-black, #111);
+      margin: 0 0 1rem;
+    }
+
+    .contact-header .subtitle {
+      font-size: 1.1rem;
+      color: #666;
+      max-width: 600px;
+      margin: 0 auto;
+      line-height: 1.7;
+    }
+
+    .contact-content {
+      display: grid;
+      grid-template-columns: 1fr 340px;
+      gap: 3rem;
+      align-items: start;
+    }
+
+    /* Form Styles */
+    .inquiry-form {
+      background: #fff;
+      border: 1px solid rgba(0,0,0,0.06);
+      border-radius: 16px;
+      padding: 2.5rem;
+      box-shadow: 0 4px 24px rgba(0,0,0,0.04);
+    }
+
+    .hp-field {
+      position: absolute;
+      left: -9999px;
+      opacity: 0;
+      pointer-events: none;
+    }
+
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.25rem;
+      margin-bottom: 1.25rem;
+    }
+
+    .form-group {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .form-group.full-width {
+      grid-column: 1 / -1;
+    }
+
+    .form-group label {
+      font-size: 0.85rem;
+      font-weight: 500;
+      color: #333;
+      margin-bottom: 0.5rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    .form-group .required {
+      color: var(--color-accent, #a58e76);
+    }
+
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+      padding: 14px 16px;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      font-size: 1rem;
+      font-family: inherit;
+      transition: border-color 0.2s ease, box-shadow 0.2s ease;
+      background: #fafafa;
+    }
+
+    .form-group input:focus,
+    .form-group select:focus,
+    .form-group textarea:focus {
+      outline: none;
+      border-color: var(--color-accent, #a58e76);
+      box-shadow: 0 0 0 3px rgba(165, 142, 118, 0.1);
+      background: #fff;
+    }
+
+    .form-group input::placeholder,
+    .form-group textarea::placeholder {
+      color: #aaa;
+    }
+
+    .form-group textarea {
+      resize: vertical;
+      min-height: 120px;
+    }
+
+    .checkbox-group {
+      margin: 1rem 0;
+    }
+
+    .checkbox-label {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      cursor: pointer;
+      font-size: 0.95rem;
+      color: #555;
+    }
+
+    .checkbox-label input[type="checkbox"] {
+      width: 18px;
+      height: 18px;
+      accent-color: var(--color-accent, #a58e76);
+    }
+
+    .submit-button {
+      width: 100%;
+      padding: 16px 32px;
+      background: var(--color-black, #111);
+      color: #fff;
+      border: none;
+      border-radius: 8px;
+      font-size: 1rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      cursor: pointer;
+      transition: background 0.3s ease;
+      margin-top: 1rem;
+    }
+
+    .submit-button:hover {
+      background: var(--color-accent, #a58e76);
+    }
+
+    .form-note {
+      font-size: 0.8rem;
+      color: #888;
+      text-align: center;
+      margin-top: 1.25rem;
+    }
+
+    .form-note :global(a) {
+      color: var(--color-accent, #a58e76);
+      text-decoration: none;
+    }
+
+    .form-note :global(a:hover) {
+      text-decoration: underline;
+    }
+
+    /* Sidebar Styles */
+    .contact-sidebar {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+    }
+
+    .sidebar-card {
+      background: #fff;
+      border: 1px solid rgba(0,0,0,0.06);
+      border-radius: 12px;
+      padding: 1.5rem;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.03);
+    }
+
+    .sidebar-card h3 {
+      font-family: var(--font-serif, serif);
+      font-size: 1.15rem;
+      font-weight: 500;
+      color: var(--color-black, #111);
+      margin: 0 0 0.75rem;
+    }
+
+    .sidebar-card p {
+      font-size: 0.9rem;
+      color: #666;
+      margin: 0 0 1rem;
+      line-height: 1.6;
+    }
+
+    .contact-methods {
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+    }
+
+    .contact-method {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      padding: 12px 14px;
+      background: #f8f8f8;
+      border-radius: 8px;
+      text-decoration: none;
+      color: #333;
+      font-size: 0.9rem;
+      transition: background 0.2s ease;
+    }
+
+    .contact-method:hover {
+      background: #f0f0f0;
+    }
+
+    .contact-method i {
+      color: var(--color-accent, #a58e76);
+      font-size: 1rem;
+      width: 20px;
+      text-align: center;
+    }
+
+    .contact-method.whatsapp {
+      background: #25D366;
+      color: #fff;
+    }
+
+    .contact-method.whatsapp:hover {
+      background: #20bd5a;
+    }
+
+    .contact-method.whatsapp i {
+      color: #fff;
+    }
+
+    .quick-facts {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .quick-facts li {
+      padding: 0.5rem 0;
+      border-bottom: 1px solid #f0f0f0;
+      font-size: 0.9rem;
+      color: #555;
+    }
+
+    .quick-facts li:last-child {
+      border-bottom: none;
+      padding-bottom: 0;
+    }
+
+    .quick-facts strong {
+      color: #333;
+    }
+
+    .sidebar-card.trust {
+      background: linear-gradient(180deg, #faf9f7 0%, #f5f3f0 100%);
+      border-color: rgba(165, 142, 118, 0.15);
+    }
+
+    .trust-item {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      padding: 0.6rem 0;
+      font-size: 0.85rem;
+      color: #555;
+    }
+
+    .trust-item i {
+      color: var(--color-accent, #a58e76);
+      font-size: 0.9rem;
+      width: 18px;
+      text-align: center;
+    }
+
+    /* Responsive */
+    @media (max-width: 900px) {
+      .contact-content {
+        grid-template-columns: 1fr;
+      }
+
+      .contact-sidebar {
+        order: -1;
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 1rem;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .contact-page {
+        padding: 100px 0 60px;
+      }
+
+      .contact-header h1 {
+        font-size: 2.2rem;
+      }
+
+      .inquiry-form {
+        padding: 1.5rem;
+      }
+
+      .form-row {
+        grid-template-columns: 1fr;
+      }
+
+      .contact-sidebar {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+
+  <script is:inline define:vars={{ lang, slug }}>
+    (function() {
+      const form = document.querySelector('.inquiry-form');
+      if (!form) return;
+
+      // Localized messages
+      const messages = {
+        en: { sending: 'Sending...', error: 'There was an error sending your inquiry. Please try again or contact us directly.' },
+        es: { sending: 'Enviando...', error: 'Hubo un error al enviar su consulta. Por favor, inténtelo de nuevo o contáctenos directamente.' },
+        fr: { sending: 'Envoi en cours...', error: 'Une erreur s\'est produite lors de l\'envoi de votre demande. Veuillez réessayer ou nous contacter directement.' }
+      };
+      const msg = messages[lang] || messages.en;
+
+      form.addEventListener('submit', async function(e) {
+        e.preventDefault();
+        
+        const submitBtn = form.querySelector('.submit-button');
+        const originalText = submitBtn.textContent;
+        submitBtn.textContent = msg.sending;
+        submitBtn.disabled = true;
+
+        try {
+          const formData = new FormData(form);
+          const response = await fetch('/api/inquire', {
+            method: 'POST',
+            body: formData
+          });
+
+          const result = await response.json();
+          
+          if (result.ok) {
+            // Redirect to localized thank you page
+            window.location.href = `/villas/${slug}/${lang}/thank-you/`;
+          } else {
+            alert(msg.error);
+            submitBtn.textContent = originalText;
+            submitBtn.disabled = false;
+          }
+        } catch (err) {
+          alert(msg.error);
+          submitBtn.textContent = originalText;
+          submitBtn.disabled = false;
+        }
+      });
+    })();
+  </script>
+</BaseLayout>

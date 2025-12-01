@@ -1,0 +1,18 @@
+---
+import { VILLA_LANGUAGES, DEFAULT_LANG } from '../../../config/i18n';
+
+export const prerender = true;
+
+export async function getStaticPaths() {
+  const paths = [];
+  for (const slug of Object.keys(VILLA_LANGUAGES)) {
+    paths.push({ params: { slug } });
+  }
+  return paths;
+}
+
+const { slug } = Astro.params;
+
+// Redirect to the default language thank-you page
+return Astro.redirect(`/villas/${slug}/${DEFAULT_LANG}/thank-you/`, 301);
+---

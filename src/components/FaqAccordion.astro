@@ -1,0 +1,298 @@
+---
+export interface FaqGroup {
+  category: string;
+  items: { q: string; a: string }[];
+}
+
+const { groups } = Astro.props as { groups: FaqGroup[] };
+
+const VISIBLE_COUNT = 4;
+---
+
+<div class="faq-accordion" data-component="faq-accordion">
+  {groups.map((group, idx) => (
+    <section
+      class="faq-category"
+      data-open={idx === 0 ? 'true' : 'false'}
+      data-expanded="false"
+    >
+      <button
+        class="faq-category__header"
+        type="button"
+        aria-expanded={idx === 0 ? 'true' : 'false'}
+      >
+        <span class="faq-category__label">
+          <span class="faq-category__title">{group.category}</span>
+          <span class="faq-category__count">{group.items.length}</span>
+        </span>
+        <span class="faq-category__chevron" aria-hidden="true">⌄</span>
+      </button>
+
+      <div class="faq-items" hidden={idx !== 0}>
+        {group.items.map((item, itemIdx) => (
+          <article
+            class="faq-item"
+            data-extra={itemIdx >= VISIBLE_COUNT ? 'true' : 'false'}
+          >
+            <h3>{item.q}</h3>
+            <p>{item.a}</p>
+          </article>
+        ))}
+
+        {group.items.length > VISIBLE_COUNT && (
+          <button
+            type="button"
+            class="faq-category__toggle"
+          >
+            Show all {group.items.length} questions
+          </button>
+        )}
+      </div>
+    </section>
+  ))}
+</div>
+
+<style>
+  .faq-accordion {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    max-width: 680px;
+    margin: 0 auto;
+  }
+
+  .faq-category {
+    border-bottom: 1px solid rgba(165, 142, 118, 0.2);
+  }
+
+  .faq-category:last-child {
+    border-bottom: none;
+  }
+
+  .faq-category__header {
+    width: 100%;
+    background: transparent;
+    border: none;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    font-family: var(--font-serif);
+    font-size: 1rem;
+    font-weight: 400;
+    padding: 16px 0;
+    color: var(--color-black);
+    cursor: pointer;
+    text-align: left;
+    transition: color 0.2s ease;
+  }
+
+  .faq-category__header:focus {
+    outline: none;
+  }
+
+  .faq-category__header:focus-visible {
+    outline: 1px solid var(--color-accent);
+    outline-offset: 4px;
+  }
+
+  .faq-category__header:hover {
+    color: var(--color-accent);
+  }
+
+  .faq-category__label {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .faq-category__title {
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    font-weight: 400;
+  }
+
+  .faq-category__count {
+    font-family: var(--font-sans, Inter, sans-serif);
+    font-size: 0.8rem;
+    font-weight: 500;
+    color: rgba(165, 142, 118, 0.8);
+    letter-spacing: 0.02em;
+  }
+
+  .faq-category__chevron {
+    font-size: 0.75rem;
+    color: var(--color-accent);
+    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    flex-shrink: 0;
+    opacity: 0.6;
+  }
+
+  .faq-category[data-open="true"] .faq-category__chevron {
+    transform: rotate(180deg);
+    opacity: 1;
+  }
+
+  .faq-items {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    padding: 0 0 14px 0;
+    margin-left: 12px;
+    border-left: 1px solid rgba(165, 142, 118, 0.12);
+    padding-left: 20px;
+  }
+
+  .faq-items[hidden] {
+    display: none !important;
+  }
+
+  /* Hide extra items when not expanded */
+  .faq-category[data-expanded="false"] .faq-item[data-extra="true"] {
+    display: none;
+  }
+
+  .faq-item {
+    padding: 12px 0;
+    border-bottom: 1px solid rgba(165, 142, 118, 0.06);
+  }
+
+  .faq-item:first-child {
+    padding-top: 0;
+  }
+
+  .faq-item:last-of-type {
+    border-bottom: none;
+    padding-bottom: 0;
+  }
+
+  .faq-item h3 {
+    font-family: var(--font-serif);
+    font-size: 1.05rem;
+    font-weight: 500;
+    margin: 0 0 6px;
+    color: var(--color-black);
+    letter-spacing: 0.01em;
+  }
+
+  .faq-item p {
+    margin: 0;
+    color: #555;
+    font-size: 0.95rem;
+    line-height: 1.7;
+  }
+
+  .faq-category__toggle {
+    margin-top: 10px;
+    border: none;
+    background: transparent;
+    font-family: var(--font-sans, Inter, sans-serif);
+    font-size: 0.7rem;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--color-accent);
+    cursor: pointer;
+    padding: 0;
+    transition: opacity 0.2s ease;
+  }
+
+  .faq-category__toggle:hover {
+    opacity: 0.7;
+  }
+
+  @media (max-width: 768px) {
+    .faq-category__header {
+      font-size: 0.85rem;
+      padding: 12px 0;
+    }
+
+    .faq-items {
+      padding-left: 14px;
+      padding-bottom: 12px;
+      margin-left: 8px;
+    }
+
+    .faq-item {
+      padding: 10px 0;
+    }
+
+    .faq-item h3 {
+      font-size: 0.875rem;
+    }
+
+    .faq-item p {
+      font-size: 0.825rem;
+    }
+  }
+</style>
+
+<script is:inline>
+  (function() {
+    function initFaqAccordion() {
+      const accordions = document.querySelectorAll('[data-component="faq-accordion"]');
+
+      accordions.forEach(function(accordion) {
+        // Skip if already initialized
+        if (accordion.dataset.initialized === 'true') return;
+        accordion.dataset.initialized = 'true';
+
+        const sections = accordion.querySelectorAll('.faq-category');
+
+        sections.forEach(function(section) {
+          const header = section.querySelector('.faq-category__header');
+          const items = section.querySelector('.faq-items');
+          const toggle = section.querySelector('.faq-category__toggle');
+
+          if (!header || !items) return;
+
+          // Category header click — open/close accordion
+          header.addEventListener('click', function() {
+            const wasOpen = section.getAttribute('data-open') === 'true';
+
+            // 1) Close everything
+            sections.forEach(function(sec) {
+              const btn = sec.querySelector('.faq-category__header');
+              const panel = sec.querySelector('.faq-items');
+
+              sec.setAttribute('data-open', 'false');
+              if (btn) btn.setAttribute('aria-expanded', 'false');
+              if (panel) panel.hidden = true;
+            });
+
+            // 2) If it was closed, open the clicked one
+            if (!wasOpen) {
+              section.setAttribute('data-open', 'true');
+              header.setAttribute('aria-expanded', 'true');
+              items.hidden = false;
+            }
+          });
+
+          // "Show all / Show fewer" toggle click
+          if (toggle) {
+            var totalCount = section.querySelectorAll('.faq-item').length;
+            toggle.dataset.total = totalCount;
+
+            toggle.addEventListener('click', function() {
+              var isExpanded = section.getAttribute('data-expanded') === 'true';
+              section.setAttribute('data-expanded', isExpanded ? 'false' : 'true');
+
+              if (isExpanded) {
+                toggle.textContent = 'Show all ' + totalCount + ' questions';
+              } else {
+                toggle.textContent = 'Show fewer';
+              }
+            });
+          }
+        });
+      });
+    }
+
+    // Run immediately if DOM is ready, otherwise wait
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', initFaqAccordion);
+    } else {
+      initFaqAccordion();
+    }
+  })();
+</script>

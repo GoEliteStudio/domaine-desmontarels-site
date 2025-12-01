@@ -8,18 +8,72 @@ export function langTag(lang: 'en' | 'fr' | 'es'): string {
   return lang === 'fr' ? '[FR]' : lang === 'es' ? '[ES]' : '[EN]';
 }
 
-export function ownerNoticeHtml(payload: {
-  fullName: string; email: string; checkIn: string; checkOut: string;
-  adults: number; children: number; notes?: string; ip?: string; userAgent?: string; lang?: 'en'|'fr'|'es';
-}) {
+function getCurrencySymbol(currency: string): string {
+  const symbols: Record<string, string> = {
+    EUR: '€', USD: '$', GBP: '£', CHF: 'CHF ',
+    COP: 'COP $', MXN: 'MX$', BRL: 'R$', ARS: 'ARS $',
+    CAD: 'CA$', AUD: 'A$', NZD: 'NZ$', ZAR: 'R',
+    THB: '฿', IDR: 'Rp', MYR: 'RM', AED: 'AED ', SAR: 'SAR ',
+    INR: '₹', JPY: '¥', CNY: '¥', KRW: '₩',
+    SEK: 'kr', NOK: 'kr', DKK: 'kr', PLN: 'zł',
+    CZK: 'Kč', HUF: 'Ft', TRY: '₺', ILS: '₪',
+  };
+  return symbols[currency] || `${currency} `;
+}
+
+export interface OwnerNoticePayload {
+  fullName: string;
+  email: string;
+  checkIn: string;
+  checkOut: string;
+  adults: number;
+  children: number;
+  notes?: string;
+  ip?: string;
+  userAgent?: string;
+  lang?: 'en' | 'fr' | 'es';
+  // New fields for action buttons
+  quoteAmount?: number;
+  currency?: string;
+  approveUrl?: string;
+  declineUrl?: string;
+  villaName?: string;
+}
+
+export function ownerNoticeHtml(payload: OwnerNoticePayload) {
   const wa = `https://wa.me/15164936070?text=${encodeURIComponent(
     `Hi, this is ${payload.fullName} about ${payload.checkIn} → ${payload.checkOut}.`
   )}`;
   const mailtoGuest = `mailto:${encodeURIComponent(payload.email)}?subject=${encodeURIComponent(
-    `Re: Domaine des Montarels — ${payload.checkIn} → ${payload.checkOut}`
+    `Re: ${payload.villaName || 'Domaine des Montarels'} — ${payload.checkIn} → ${payload.checkOut}`
   )}`;
 
   const tag = langTag(payload.lang || 'en');
+  const brandName = payload.villaName || 'DOMAINE DES MONTARELS';
+  
+  // Quote display
+  const hasQuote = payload.quoteAmount && payload.currency;
+  const quoteDisplay = hasQuote 
+    ? `${getCurrencySymbol(payload.currency!)}${payload.quoteAmount!.toLocaleString()}`
+    : null;
+  
+  // Action buttons HTML
+  const actionButtonsHtml = payload.approveUrl && payload.declineUrl ? `
+        <div style="margin:24px 0;padding:20px;background:#f8f6f4;border-radius:12px;text-align:center;">
+          <p style="margin:0 0 8px;font-size:14px;color:#666;">Respond to this inquiry:</p>
+          ${hasQuote ? `<p style="margin:0 0 16px;font-size:24px;font-weight:600;color:#1a1a1a;">Proposed Total: ${quoteDisplay}</p>` : ''}
+          <div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap;">
+            <a href="${esc(payload.approveUrl)}" style="display:inline-block;background:#2d7d46;color:#fff !important;text-decoration:none;padding:14px 28px;border-radius:8px;font-size:14px;font-weight:600;letter-spacing:0.5px;">
+              ✓ Approve${hasQuote ? ` ${quoteDisplay}` : ''}
+            </a>
+            <a href="${esc(payload.declineUrl)}" style="display:inline-block;background:#c0392b;color:#fff !important;text-decoration:none;padding:14px 28px;border-radius:8px;font-size:14px;font-weight:600;letter-spacing:0.5px;">
+              ✗ Decline
+            </a>
+          </div>
+          <p style="margin:16px 0 0;font-size:12px;color:#999;">Links expire in 72 hours</p>
+        </div>
+  ` : '';
+
   return `<!doctype html><html><head><meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <title>New Inquiry — ${esc(payload.fullName)}</title>
@@ -44,7 +98,7 @@ export function ownerNoticeHtml(payload: {
   </head><body>
     <div class="wrap">
       <div class="hero">
-        <div class="brand">DOMAINE DES MONTARELS</div>
+        <div class="brand">${esc(brandName.toUpperCase())}</div>
         <div class="pill">New inquiry ${esc(tag)}</div>
       </div>
       <div class="card">
@@ -53,38 +107,59 @@ export function ownerNoticeHtml(payload: {
 
         <ul class="list">
           <li><strong>Email:</strong> ${esc(payload.email)}</li>
+          ${hasQuote ? `<li><strong>Proposed Quote:</strong> ${quoteDisplay}</li>` : ''}
           <li><strong>Notes:</strong> ${esc(payload.notes || '—')}</li>
           <li><strong>IP:</strong> ${esc(payload.ip || '—')}</li>
           <li><strong>UA:</strong> ${esc(payload.userAgent || '—')}</li>
         </ul>
+
+        ${actionButtonsHtml}
 
         <div class="row">
           <a class="btn" href="${mailtoGuest}">Reply to guest</a>
           <a class="btn btn-secondary" href="${wa}">Open WhatsApp</a>
         </div>
 
-        <p class="muted" style="margin-top:12px">Tip: use “Reply to guest” so your response thread is clean.</p>
+        <p class="muted" style="margin-top:12px">Tip: use "Reply to guest" so your response thread is clean.</p>
       </div>
 
       <div class="footer">
-        © ${new Date().getFullYear()} Domaine des Montarels • Internal notification
+        © ${new Date().getFullYear()} ${esc(payload.villaName || 'Domaine des Montarels')} • Internal notification
       </div>
     </div>
   </body></html>`;
 }
 
-export function ownerNoticeText(p: {
-  fullName: string; email: string; checkIn: string; checkOut: string;
-  adults: number; children: number; notes?: string; ip?: string; userAgent?: string; lang?: 'en'|'fr'|'es';
-}) {
+export function ownerNoticeText(p: OwnerNoticePayload) {
   const tag = langTag(p.lang || 'en');
-  return [
+  const hasQuote = p.quoteAmount && p.currency;
+  const quoteDisplay = hasQuote 
+    ? `${getCurrencySymbol(p.currency!)}${p.quoteAmount!.toLocaleString()}`
+    : null;
+  
+  const lines = [
     `New Inquiry ${tag} — ${p.fullName}`,
+    `Villa: ${p.villaName || 'Domaine des Montarels'}`,
     `Dates: ${p.checkIn} -> ${p.checkOut}`,
     `Guests: ${p.adults} adults, ${p.children} children`,
     `Email: ${p.email}`,
-    `Notes: ${p.notes || '-'}`,
-    `IP: ${p.ip || '-'}`,
-    `UA: ${p.userAgent || '-'}`,
-  ].join('\n');
+  ];
+  
+  if (hasQuote) {
+    lines.push(`Proposed Quote: ${quoteDisplay}`);
+  }
+  
+  lines.push(`Notes: ${p.notes || '-'}`);
+  lines.push(`IP: ${p.ip || '-'}`);
+  lines.push(`UA: ${p.userAgent || '-'}`);
+  
+  if (p.approveUrl && p.declineUrl) {
+    lines.push('');
+    lines.push('--- ACTIONS ---');
+    lines.push(`APPROVE${hasQuote ? ` ${quoteDisplay}` : ''}: ${p.approveUrl}`);
+    lines.push(`DECLINE: ${p.declineUrl}`);
+    lines.push('(Links expire in 72 hours)');
+  }
+  
+  return lines.join('\n');
 }

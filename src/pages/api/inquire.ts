@@ -2,6 +2,10 @@ import type { APIRoute } from 'astro';
 import { Resend } from 'resend';
 import { sendClientReceipt } from '../../lib/clientReceipt';
 import { ownerNoticeHtml, ownerNoticeText } from '../../lib/ownerNotice';
+import { createInquiry, getListingBySlug } from '../../lib/firestore/collections';
+import type { InquiryOrigin, Listing } from '../../lib/firestore/types';
+import { generateApproveUrl, generateDeclineUrl } from '../../lib/signing';
+import { calculateQuote, getDefaultPricing } from '../../lib/pricing';
 
 type InquireBody = {
   fullName?: string;
@@ -14,10 +18,16 @@ type InquireBody = {
   adults?: string | number;
   children?: string | number;
   notes?: string;
-  company?: string; // honeypot
-  website?: string; // extra honeypot
-  hpt?: string;     // extra honeypot (generic)
-  __ts?: string;    // client timestamp (ms)
+  occasion?: string;    // special occasion (birthday, anniversary, etc.)
+  phone?: string;       // guest phone number
+  slug?: string;        // villa slug for redirect
+  villa?: string;       // alternate key for slug (from contact form)
+  lang?: string;        // language for redirect
+  origin?: InquiryOrigin; // where inquiry came from (defaults to villa_site)
+  company?: string;     // honeypot
+  website?: string;     // extra honeypot
+  hpt?: string;         // extra honeypot (generic)
+  __ts?: string;        // client timestamp (ms)
 };
 
 const required = (v?: string) => typeof v === 'string' && v.trim().length > 0;
@@ -95,22 +105,108 @@ export const POST: APIRoute = async ({ request }) => {
       adults: Number(data.adults ?? '2') || 2,
       children: Number(data.children ?? '0') || 0,
       notes: (data.notes ?? '').toString().slice(0, 2000),
+      occasion: (data.occasion ?? '').toString().slice(0, 500),
+      phone: (data.phone ?? '').toString().slice(0, 50),
       userAgent: request.headers.get('user-agent') || undefined,
       ip: request.headers.get('x-forwarded-for') || undefined
     };
 
+    // Villa context
+    const slug = data.slug || data.villa || 'domaine-des-montarels';
+    const origin: InquiryOrigin = data.origin || 'villa_site';
+
+    // Try to persist inquiry to Firestore (non-blocking for email flow)
+    let inquiryId: string | undefined;
+    let listingId: string | undefined;
+    
+    try {
+      // Look up listing by slug
+      const listing = await getListingBySlug(slug);
+      listingId = listing?.id;
+      
+      // Create inquiry in Firestore
+      const inquiry = await createInquiry({
+        listingId: listingId || slug, // fallback to slug if listing not found
+        guestName: payload.fullName,
+        guestEmail: payload.email,
+        guestPhone: payload.phone || undefined,
+        checkIn: payload.checkIn,
+        checkOut: payload.checkOut,
+        partySize: payload.adults + payload.children,
+        message: payload.notes || undefined,
+        occasion: payload.occasion || undefined,
+        origin,
+        status: 'pending_owner',
+        currency: listing?.baseCurrency || 'EUR', // default currency, will be confirmed at approval
+      });
+      inquiryId = inquiry.id;
+      console.log('[inquire] Firestore inquiry created:', { inquiryId, listingId, slug });
+    } catch (firestoreErr) {
+      // Log but don't fail - email flow should still work
+      console.warn('[inquire] Firestore write failed (continuing with email):', firestoreErr);
+    }
+
     // Env
     const RESEND_API_KEY = import.meta.env.RESEND_API_KEY || process.env.RESEND_API_KEY;
     const OWNER_EMAIL = import.meta.env.OWNER_EMAIL || process.env.OWNER_EMAIL || 'reservations@domaine-desmontarels.com';
-  // Use verified domain sender to maximize deliverability
-  const FROM_EMAIL = import.meta.env.FROM_EMAIL || process.env.FROM_EMAIL || 'contact@visaiq.co';
+    // Use verified domain sender to maximize deliverability
+    const FROM_EMAIL = import.meta.env.FROM_EMAIL || process.env.FROM_EMAIL || 'contact@visaiq.co';
+    // Base URL for action links
+    const SITE_URL = import.meta.env.SITE_URL || import.meta.env.PUBLIC_SITE_URL || 'https://domaine-desmontarels-site.vercel.app';
 
-  const lang = detectLang(request);
-  const tag = lang === 'fr' ? '[FR]' : lang === 'es' ? '[ES]' : '[EN]';
-  const subject = `${tag} New Inquiry — ${payload.fullName} (${payload.checkIn} → ${payload.checkOut})`;
+    const lang = detectLang(request);
+    const tag = lang === 'fr' ? '[FR]' : lang === 'es' ? '[ES]' : '[EN]';
+    const subject = `${tag} New Inquiry — ${payload.fullName} (${payload.checkIn} → ${payload.checkOut})`;
 
-  const html = ownerNoticeHtml({ ...payload, lang });
-  const text = ownerNoticeText({ ...payload, lang });
+    // Calculate proposed quote (owner will confirm/adjust)
+    let quoteAmount: number | undefined;
+    let currency: string = 'EUR';
+    let listing: Listing | null = null;
+    
+    try {
+      listing = await getListingBySlug(slug);
+      if (listing) {
+        currency = listing.baseCurrency;
+        const pricing = getDefaultPricing(listing); // TODO: Load from Firestore pricing collection
+        const quote = calculateQuote(
+          pricing,
+          payload.checkIn,
+          payload.checkOut,
+          payload.adults + payload.children
+        );
+        quoteAmount = quote.total;
+      }
+    } catch (pricingErr) {
+      console.warn('[inquire] Quote calculation failed:', pricingErr);
+    }
+
+    // Generate signed action URLs (only if we have an inquiry ID)
+    let approveUrl: string | undefined;
+    let declineUrl: string | undefined;
+    
+    if (inquiryId && quoteAmount) {
+      approveUrl = generateApproveUrl(SITE_URL, inquiryId, quoteAmount, currency);
+      declineUrl = generateDeclineUrl(SITE_URL, inquiryId);
+    }
+
+    const html = ownerNoticeHtml({
+      ...payload,
+      lang,
+      quoteAmount,
+      currency,
+      approveUrl,
+      declineUrl,
+      villaName: listing?.name,
+    });
+    const text = ownerNoticeText({
+      ...payload,
+      lang,
+      quoteAmount,
+      currency,
+      approveUrl,
+      declineUrl,
+      villaName: listing?.name,
+    });
 
     if (!RESEND_API_KEY) {
       console.log('[inquire] (NOOP) Would send email:', { to: OWNER_EMAIL, from: FROM_EMAIL, subject, payload });
@@ -155,13 +251,16 @@ export const POST: APIRoute = async ({ request }) => {
 
     const accept = (request.headers.get('accept') || '').toLowerCase();
     if (accept.includes('text/html')) {
-      const ty = new URL('/thank-you', request.url);
+      // Use villa slug and lang from form for proper localized redirect
+      const formLang = data.lang || lang;
+      const ty = new URL(`/villas/${slug}/${formLang}/thank-you`, request.url);
       ty.searchParams.set('name', payload.fullName);
       ty.searchParams.set('d', `${payload.checkIn} → ${payload.checkOut}`);
+      if (inquiryId) ty.searchParams.set('ref', inquiryId);
       return Response.redirect(ty.toString(), 303);
     }
 
-    return new Response(JSON.stringify({ ok: true, id }), { status: 200, headers: { 'Content-Type': 'application/json' } });
+    return new Response(JSON.stringify({ ok: true, id, inquiryId }), { status: 200, headers: { 'Content-Type': 'application/json' } });
   } catch (err) {
     console.error('[inquire] Fatal error:', err);
     return new Response(JSON.stringify({ ok: false, error: 'Internal error' }), { status: 500, headers: { 'Content-Type': 'application/json' } });

@@ -160,6 +160,16 @@ declare module 'astro:content' {
   collection: "villas";
   data: any
 };
+"domaine-des-montarels.es": {
+	id: "domaine-des-montarels.es";
+  collection: "villas";
+  data: any
+};
+"domaine-des-montarels.fr": {
+	id: "domaine-des-montarels.fr";
+  collection: "villas";
+  data: any
+};
 };
 
 	};

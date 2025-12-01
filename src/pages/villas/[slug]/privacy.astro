@@ -1,0 +1,22 @@
+---
+/**
+ * Redirect to localized privacy page
+ * /villas/[slug]/privacy → /villas/[slug]/en/privacy
+ */
+import { VILLA_LANGUAGES, DEFAULT_LANG } from '../../../config/i18n';
+
+export const prerender = true;
+
+export async function getStaticPaths() {
+  const paths = [];
+  for (const slug of Object.keys(VILLA_LANGUAGES)) {
+    paths.push({ params: { slug } });
+  }
+  return paths;
+}
+
+const { slug } = Astro.params;
+
+// Redirect to default language version
+return Astro.redirect(`/villas/${slug}/${DEFAULT_LANG}/privacy`, 301);
+---

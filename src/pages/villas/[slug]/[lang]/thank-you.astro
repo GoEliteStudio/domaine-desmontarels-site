@@ -1,0 +1,312 @@
+---
+import BaseLayout from '../../../../layouts/BaseLayout.astro';
+import { VILLA_LANGUAGES, DEFAULT_LANG } from '../../../../config/i18n';
+import { getUIStrings } from '../../../../config/uiStrings';
+
+export const prerender = true;
+
+export async function getStaticPaths() {
+  const paths = [];
+  for (const [slug, languages] of Object.entries(VILLA_LANGUAGES)) {
+    for (const lang of languages) {
+      paths.push({ params: { slug, lang } });
+    }
+  }
+  return paths;
+}
+
+const { slug, lang } = Astro.params;
+
+// Load villa data for the specific language
+let villa;
+try {
+  const villaModule = await import(`../../../../content/villas/${slug}.${lang}.json`);
+  villa = villaModule.default;
+} catch {
+  // Fallback to English if language file doesn't exist
+  const villaModule = await import(`../../../../content/villas/${slug}.en.json`);
+  villa = villaModule.default;
+}
+
+// Get UI strings for this language
+const ui = getUIStrings(lang);
+const thankYouUI = ui.thankYou;
+
+// Villa-specific paths
+const villaBasePath = `/villas/${slug}`;
+const langBasePath = `${villaBasePath}/${lang}`;
+
+// Header navigation (localized) - point to villa page sections
+const navLinks = ui.header.navigation.map((link: { label: string; href: string }) => ({
+  ...link,
+  href: link.href.startsWith('#') ? `${langBasePath}/${link.href}` : link.href
+}));
+const navCtaLabel = ui.header.inquireCta;
+
+// Villa-specific footer with localized links
+const villaFooter = {
+  ...ui.footer,
+  brandDescription: villa.summary,
+  exploreLinks: ui.footer.exploreLinks.map((link: { label: string; href: string }) => {
+    // Point explore links to main villa page sections
+    if (link.href.startsWith('#')) return { ...link, href: `${langBasePath}/${link.href}` };
+    return link;
+  }),
+  infoLinks: ui.footer.infoLinks.map((link: { label: string; href: string }) => {
+    if (link.href === '/rates') return { ...link, href: `${langBasePath}/rates` };
+    if (link.href === '/terms') return { ...link, href: `${langBasePath}/terms` };
+    if (link.href === '/privacy') return { ...link, href: `${langBasePath}/privacy` };
+    return link;
+  }),
+  contactLinks: ui.footer.contactLinks.map((link: { label: string; href: string }) => {
+    if (link.href === '/contact') return { ...link, href: `${langBasePath}/contact` };
+    return link;
+  })
+};
+
+// Villa-specific contact email
+const contactEmails: Record<string, string> = {
+  'casa-de-la-muralla': 'reservations@elitecartagena.com',
+  'domaine-des-montarels': 'reservations@domaine-desmontarels.com'
+};
+const contactEmail = contactEmails[slug] || contactEmails['domaine-des-montarels'];
+
+// Page metadata
+const title = `${thankYouUI.pageTitle} — ${villa.name}`;
+const description = thankYouUI.subtitle;
+---
+<BaseLayout 
+  title={title} 
+  description={description} 
+  canonical={`https://example.com${langBasePath}/thank-you`}
+  villaName={villa.name}
+  homeUrl={langBasePath}
+  navLinks={navLinks}
+  navCtaLabel={navCtaLabel}
+  navCtaHref={`${langBasePath}/contact`}
+  footer={villaFooter}
+  lang={lang}
+>
+  <section class="thank-you-page">
+    <div class="thank-you-container">
+      <div class="success-icon">
+        <i class="fas fa-check"></i>
+      </div>
+      
+      <h1>{thankYouUI.heading}</h1>
+      <p class="subtitle">{thankYouUI.subtitle}</p>
+
+      <div class="next-steps">
+        <h2>{thankYouUI.nextSteps.heading}</h2>
+        <ol>
+          {thankYouUI.nextSteps.steps.map((step: { title: string; description: string }) => (
+            <li>
+              <strong>{step.title}</strong>
+              <span>{step.description}</span>
+            </li>
+          ))}
+        </ol>
+      </div>
+
+      <div class="actions">
+        <a href={`${langBasePath}/`} class="btn btn-primary">
+          {thankYouUI.backToVilla.replace('{villaName}', villa.name)}
+        </a>
+        <a href={`${langBasePath}/#gallery`} class="btn btn-secondary">
+          {thankYouUI.viewGallery}
+        </a>
+      </div>
+
+      <p class="contact-note">
+        {thankYouUI.contactNote} <a href={`mailto:${contactEmail}`}>{contactEmail}</a>
+      </p>
+    </div>
+  </section>
+
+  <style>
+    .thank-you-page {
+      min-height: 80vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 120px 1.5rem 80px;
+      background: linear-gradient(180deg, #fafafa 0%, #fff 100%);
+    }
+
+    .thank-you-container {
+      max-width: 600px;
+      text-align: center;
+    }
+
+    .success-icon {
+      width: 80px;
+      height: 80px;
+      background: linear-gradient(135deg, var(--color-accent, #a58e76) 0%, #c4a882 100%);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 2rem;
+    }
+
+    .success-icon i {
+      font-size: 2rem;
+      color: #fff;
+    }
+
+    h1 {
+      font-family: var(--font-serif, serif);
+      font-size: 2.8rem;
+      font-weight: 500;
+      color: var(--color-black, #111);
+      margin: 0 0 1rem;
+    }
+
+    .subtitle {
+      font-size: 1.15rem;
+      color: #666;
+      line-height: 1.7;
+      margin-bottom: 2.5rem;
+    }
+
+    .next-steps {
+      background: #fff;
+      border: 1px solid rgba(0,0,0,0.06);
+      border-radius: 16px;
+      padding: 2rem;
+      text-align: left;
+      margin-bottom: 2.5rem;
+      box-shadow: 0 4px 24px rgba(0,0,0,0.04);
+    }
+
+    .next-steps h2 {
+      font-family: var(--font-serif, serif);
+      font-size: 1.3rem;
+      font-weight: 500;
+      color: var(--color-black, #111);
+      margin: 0 0 1.5rem;
+      text-align: center;
+    }
+
+    .next-steps ol {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      counter-reset: steps;
+    }
+
+    .next-steps li {
+      display: flex;
+      flex-direction: column;
+      padding: 1rem 0 1rem 3.5rem;
+      border-bottom: 1px solid #f0f0f0;
+      position: relative;
+      counter-increment: steps;
+    }
+
+    .next-steps li:last-child {
+      border-bottom: none;
+      padding-bottom: 0;
+    }
+
+    .next-steps li::before {
+      content: counter(steps);
+      position: absolute;
+      left: 0;
+      top: 1rem;
+      width: 28px;
+      height: 28px;
+      background: var(--color-accent, #a58e76);
+      color: #fff;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.85rem;
+      font-weight: 600;
+    }
+
+    .next-steps li strong {
+      font-size: 1rem;
+      color: #333;
+      margin-bottom: 0.25rem;
+    }
+
+    .next-steps li span {
+      font-size: 0.9rem;
+      color: #777;
+    }
+
+    .actions {
+      display: flex;
+      gap: 1rem;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin-bottom: 2rem;
+    }
+
+    .btn {
+      padding: 14px 28px;
+      border-radius: 8px;
+      font-size: 0.9rem;
+      font-weight: 600;
+      text-decoration: none;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      transition: all 0.3s ease;
+    }
+
+    .btn-primary {
+      background: var(--color-black, #111);
+      color: #fff;
+    }
+
+    .btn-primary:hover {
+      background: var(--color-accent, #a58e76);
+    }
+
+    .btn-secondary {
+      background: transparent;
+      color: var(--color-black, #111);
+      border: 1px solid #ddd;
+    }
+
+    .btn-secondary:hover {
+      border-color: var(--color-accent, #a58e76);
+      color: var(--color-accent, #a58e76);
+    }
+
+    .contact-note {
+      font-size: 0.9rem;
+      color: #888;
+    }
+
+    .contact-note a {
+      color: var(--color-accent, #a58e76);
+      text-decoration: none;
+    }
+
+    .contact-note a:hover {
+      text-decoration: underline;
+    }
+
+    @media (max-width: 600px) {
+      h1 {
+        font-size: 2.2rem;
+      }
+
+      .next-steps {
+        padding: 1.5rem;
+      }
+
+      .actions {
+        flex-direction: column;
+      }
+
+      .btn {
+        width: 100%;
+        text-align: center;
+      }
+    }
+  </style>
+</BaseLayout>

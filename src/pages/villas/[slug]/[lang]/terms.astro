@@ -1,0 +1,641 @@
+---
+import BaseLayout from '../../../../layouts/BaseLayout.astro';
+import { VILLA_LANGUAGES } from '../../../../config/i18n';
+import { getUIStrings } from '../../../../config/uiStrings';
+
+export const prerender = true;
+
+export async function getStaticPaths() {
+  const paths = [];
+  for (const [slug, languages] of Object.entries(VILLA_LANGUAGES)) {
+    for (const lang of languages) {
+      paths.push({ params: { slug, lang } });
+    }
+  }
+  return paths;
+}
+
+const { slug, lang } = Astro.params;
+
+// Load villa data for the specific language
+let villa;
+try {
+  const villaModule = await import(`../../../../content/villas/${slug}.${lang}.json`);
+  villa = villaModule.default;
+} catch {
+  const villaModule = await import(`../../../../content/villas/${slug}.en.json`);
+  villa = villaModule.default;
+}
+
+// Get UI strings for this language
+const ui = getUIStrings(lang);
+const termsUI = ui.terms;
+
+// Villa-specific paths
+const villaBasePath = `/villas/${slug}`;
+const langBasePath = `${villaBasePath}/${lang}`;
+
+// Header navigation
+const navLinks = ui.header.navigation.map((link: { label: string; href: string }) => ({
+  ...link,
+  href: link.href.startsWith('#') ? `${langBasePath}/${link.href}` : link.href
+}));
+const navCtaLabel = ui.header.inquireCta;
+
+// Villa-specific footer with localized links
+const villaFooter = {
+  ...ui.footer,
+  brandDescription: villa.summary,
+  exploreLinks: ui.footer.exploreLinks.map((link: { label: string; href: string }) => {
+    // Point explore links to main villa page sections
+    if (link.href.startsWith('#')) return { ...link, href: `${langBasePath}/${link.href}` };
+    return link;
+  }),
+  infoLinks: ui.footer.infoLinks.map((link: { label: string; href: string }) => {
+    if (link.href === '/rates') return { ...link, href: `${langBasePath}/rates` };
+    if (link.href === '/terms') return { ...link, href: `${langBasePath}/terms` };
+    if (link.href === '/privacy') return { ...link, href: `${langBasePath}/privacy` };
+    return link;
+  }),
+  contactLinks: ui.footer.contactLinks.map((link: { label: string; href: string }) => {
+    if (link.href === '/contact') return { ...link, href: `${langBasePath}/contact` };
+    return link;
+  })
+};
+
+// =============================================================================
+// DEFAULT TERMS TEMPLATE - Used for all new villas automatically
+// Uses {villaName} placeholder which gets replaced with actual villa name
+// To customize for a specific villa, add an entry to villaOverrides below
+// =============================================================================
+
+type TermsSection = { heading: string; content: string | string[] };
+type TermsData = {
+  intro: string;
+  sections: TermsSection[];
+  jurisdiction: string;
+  contact: { email: string; note: string };
+};
+
+// Default template with {villaName} placeholder - works for ANY villa
+const defaultTerms: Record<string, TermsData> = {
+  en: {
+    intro: `These terms govern reservations, guest conduct, and operational policies for {villaName}.`,
+    sections: [
+      {
+        heading: '1. Reservations & Payments',
+        content: [
+          '<strong>Booking Confirmation</strong> — All reservations must be confirmed in writing by our concierge team.',
+          '<strong>Deposit Requirement</strong> — A 50% deposit is required to secure the dates.',
+          '<strong>Balance Due</strong> — The remaining 50% balance is due 30 days prior to arrival.',
+          '<strong>Security Deposit</strong> — A refundable security deposit may be held to cover damages.'
+        ]
+      },
+      {
+        heading: '2. Cancellation Policy',
+        content: [
+          '<strong>More than 90 days before arrival</strong> — Eligible for a 75% refund.',
+          '<strong>Between 90 and 30 days before arrival</strong> — Payments are non-refundable.',
+          '<strong>Less than 30 days or No-Show</strong> — All payments are forfeited.',
+          '<strong>Travel Insurance</strong> — We strongly recommend guests obtain travel insurance.'
+        ]
+      },
+      {
+        heading: '3. Guest Responsibilities',
+        content: [
+          'Treat the villa, furnishings, equipment, and staff with respect.',
+          'Comply with local guidelines regarding music and nighttime noise.',
+          'No smoking inside any interior spaces.',
+          'Supervise children at all times, especially around the pool.',
+          'Report damages or maintenance issues immediately.'
+        ]
+      },
+      {
+        heading: '4. Staff & Service Hours',
+        content: [
+          'The villa includes chef, butler, and housekeeping, with service hours from 7:00 AM to 9:00 PM.',
+          'Security personnel remain on the grounds 24/7.',
+          'Additional late-night service may incur extra fees.'
+        ]
+      },
+      {
+        heading: '5. Liability & Personal Property',
+        content: [
+          '{villaName} is not responsible for loss or damage to personal belongings.',
+          'Guests assume responsibility for their own safety when using facilities.',
+          'The villa is not liable for service interruptions beyond its control.'
+        ]
+      },
+      {
+        heading: '6. Weather Conditions',
+        content: [
+          'Seasonal conditions may affect outdoor activities.',
+          'Pool and outdoor amenities may be unavailable during inclement weather.',
+          'The villa is not responsible for weather-related disruptions.'
+        ]
+      },
+      {
+        heading: '7. Events & Gatherings',
+        content: [
+          'Events with more than 16 guests require prior approval.',
+          'Outside vendors are permitted with advance coordination.',
+          'Music for events may continue until 2:00 AM.'
+        ]
+      },
+      {
+        heading: '8. Force Majeure',
+        content: `In the event of circumstances beyond reasonable control, {villaName} may reschedule the stay or offer a credit for future use.`
+      }
+    ],
+    jurisdiction: 'These terms are governed by local law.',
+    contact: { email: '{villaEmail}', note: 'or contact your dedicated concierge.' }
+  },
+  es: {
+    intro: `Estos términos rigen las reservas, conducta de los huéspedes y políticas operativas para {villaName}.`,
+    sections: [
+      {
+        heading: '1. Reservas y Pagos',
+        content: [
+          '<strong>Confirmación de Reserva</strong> — Todas las reservas deben ser confirmadas por escrito por nuestro equipo de conserjería.',
+          '<strong>Requisito de Depósito</strong> — Se requiere un depósito del 50% para asegurar las fechas.',
+          '<strong>Saldo Pendiente</strong> — El 50% restante debe pagarse 30 días antes de la llegada.',
+          '<strong>Depósito de Seguridad</strong> — Se puede retener un depósito de seguridad reembolsable para cubrir daños.'
+        ]
+      },
+      {
+        heading: '2. Política de Cancelación',
+        content: [
+          '<strong>Más de 90 días antes de la llegada</strong> — Elegible para reembolso del 75%.',
+          '<strong>Entre 90 y 30 días antes de la llegada</strong> — Los pagos no son reembolsables.',
+          '<strong>Menos de 30 días o No presentación</strong> — Todos los pagos se pierden.',
+          '<strong>Seguro de Viaje</strong> — Recomendamos encarecidamente que los huéspedes obtengan seguro de viaje.'
+        ]
+      },
+      {
+        heading: '3. Responsabilidades del Huésped',
+        content: [
+          'Tratar la villa, muebles, equipos y personal con respeto.',
+          'Cumplir con las normas locales sobre música y ruido nocturno.',
+          'No fumar dentro de espacios interiores.',
+          'Supervisar a los niños en todo momento, especialmente cerca de la piscina.',
+          'Reportar daños o problemas de mantenimiento inmediatamente.'
+        ]
+      },
+      {
+        heading: '4. Personal y Horarios de Servicio',
+        content: [
+          'La villa incluye chef, mayordomo y servicio de limpieza, con horario de 7:00 AM a 9:00 PM.',
+          'El personal de seguridad permanece en las instalaciones 24/7.',
+          'El servicio nocturno adicional puede incurrir en cargos extra.'
+        ]
+      },
+      {
+        heading: '5. Responsabilidad y Propiedad Personal',
+        content: [
+          '{villaName} no es responsable por pérdida o daño a pertenencias personales.',
+          'Los huéspedes asumen responsabilidad por su propia seguridad al usar las instalaciones.',
+          'La villa no es responsable por interrupciones de servicio fuera de su control.'
+        ]
+      },
+      {
+        heading: '6. Condiciones Climáticas',
+        content: [
+          'Las condiciones estacionales pueden afectar las actividades al aire libre.',
+          'La piscina y amenidades exteriores pueden no estar disponibles durante mal tiempo.',
+          'La villa no es responsable por interrupciones relacionadas con el clima.'
+        ]
+      },
+      {
+        heading: '7. Eventos y Reuniones',
+        content: [
+          'Los eventos con más de 16 invitados requieren aprobación previa.',
+          'Se permiten proveedores externos con coordinación anticipada.',
+          'La música para eventos puede continuar hasta las 2:00 AM.'
+        ]
+      },
+      {
+        heading: '8. Fuerza Mayor',
+        content: `En caso de circunstancias fuera de control razonable, {villaName} puede reprogramar la estadía u ofrecer un crédito para uso futuro.`
+      }
+    ],
+    jurisdiction: 'Estos términos se rigen por la ley local.',
+    contact: { email: '{villaEmail}', note: 'o contacte a su conserje dedicado.' }
+  },
+  fr: {
+    intro: `Ces conditions régissent les réservations, la conduite des clients et les politiques opérationnelles de {villaName}.`,
+    sections: [
+      {
+        heading: '1. Réservations et Paiements',
+        content: [
+          '<strong>Confirmation de Réservation</strong> — Toutes les réservations doivent être confirmées par écrit par notre équipe de conciergerie.',
+          '<strong>Exigence d\'Acompte</strong> — Un acompte de 50% est requis pour garantir les dates.',
+          '<strong>Solde Dû</strong> — Le solde de 50% restant est dû 30 jours avant l\'arrivée.',
+          '<strong>Dépôt de Garantie</strong> — Un dépôt de garantie remboursable peut être retenu pour couvrir les dommages.'
+        ]
+      },
+      {
+        heading: '2. Politique d\'Annulation',
+        content: [
+          '<strong>Plus de 90 jours avant l\'arrivée</strong> — Éligible à un remboursement de 75%.',
+          '<strong>Entre 90 et 30 jours avant l\'arrivée</strong> — Les paiements ne sont pas remboursables.',
+          '<strong>Moins de 30 jours ou Non-présentation</strong> — Tous les paiements sont perdus.',
+          '<strong>Assurance Voyage</strong> — Nous recommandons fortement aux clients de souscrire une assurance voyage.'
+        ]
+      },
+      {
+        heading: '3. Responsabilités des Clients',
+        content: [
+          'Traiter la villa, le mobilier, l\'équipement et le personnel avec respect.',
+          'Respecter les directives locales concernant la musique et le bruit nocturne.',
+          'Ne pas fumer à l\'intérieur des espaces intérieurs.',
+          'Surveiller les enfants à tout moment, surtout près de la piscine.',
+          'Signaler immédiatement les dommages ou problèmes de maintenance.'
+        ]
+      },
+      {
+        heading: '4. Personnel et Heures de Service',
+        content: [
+          'La villa comprend chef, majordome et ménage, avec des heures de service de 7h00 à 21h00.',
+          'Le personnel de sécurité reste sur place 24h/24.',
+          'Le service de nuit supplémentaire peut entraîner des frais supplémentaires.'
+        ]
+      },
+      {
+        heading: '5. Responsabilité et Biens Personnels',
+        content: [
+          '{villaName} n\'est pas responsable de la perte ou des dommages aux effets personnels.',
+          'Les clients assument la responsabilité de leur propre sécurité lors de l\'utilisation des installations.',
+          'La villa n\'est pas responsable des interruptions de service hors de son contrôle.'
+        ]
+      },
+      {
+        heading: '6. Conditions Météorologiques',
+        content: [
+          'Les conditions saisonnières peuvent affecter les activités de plein air.',
+          'La piscine et les équipements extérieurs peuvent être indisponibles par mauvais temps.',
+          'La villa n\'est pas responsable des perturbations liées aux conditions météorologiques.'
+        ]
+      },
+      {
+        heading: '7. Événements et Rassemblements',
+        content: [
+          'Les événements de plus de 16 invités nécessitent une approbation préalable.',
+          'Les prestataires extérieurs sont autorisés avec coordination préalable.',
+          'La musique pour les événements peut continuer jusqu\'à 2h00 du matin.'
+        ]
+      },
+      {
+        heading: '8. Force Majeure',
+        content: `En cas de circonstances indépendantes de notre volonté, {villaName} peut reprogrammer le séjour ou offrir un crédit pour une utilisation future.`
+      }
+    ],
+    jurisdiction: 'Ces conditions sont régies par la loi locale.',
+    contact: { email: '{villaEmail}', note: 'ou contactez votre concierge dédié.' }
+  }
+};
+
+// =============================================================================
+// VILLA-SPECIFIC OVERRIDES - Only add here if owner has custom terms
+// If a villa is not listed here, it uses the default template above
+// =============================================================================
+
+const villaOverrides: Record<string, Record<string, Partial<TermsData>>> = {
+  // Example: Casa de la Muralla has island-specific conditions
+  'casa-de-la-muralla': {
+    en: {
+      intro: `These terms govern reservations, guest conduct, and operational policies for Casa de la Muralla, Tierrabomba Island, Cartagena, Colombia.`,
+      sections: [
+        {
+          heading: '1. Reservations & Payments',
+          content: [
+            '<strong>Booking Confirmation</strong> — All reservations must be confirmed in writing by our concierge team.',
+            '<strong>Deposit Requirement</strong> — A 50% deposit is required to secure the dates.',
+            '<strong>Balance Due</strong> — The remaining 50% balance is due 30 days prior to arrival.',
+            '<strong>Security Deposit</strong> — A refundable security deposit may be held to cover damages.'
+          ]
+        },
+        {
+          heading: '2. Cancellation Policy',
+          content: [
+            '<strong>More than 90 days before arrival</strong> — Eligible for a 75% refund.',
+            '<strong>Between 90 and 30 days before arrival</strong> — Payments are non-refundable.',
+            '<strong>Less than 30 days or No-Show</strong> — All payments are forfeited.',
+            '<strong>Travel Insurance</strong> — We strongly recommend guests obtain travel insurance.'
+          ]
+        },
+        {
+          heading: '3. Guest Responsibilities',
+          content: [
+            'Treat the villa, furnishings, equipment, and staff with respect.',
+            'Comply with local guidelines regarding music and nighttime noise.',
+            'No smoking inside any interior spaces.',
+            'Supervise children at all times, especially around the pool and pier.',
+            'Report damages or maintenance issues immediately.'
+          ]
+        },
+        {
+          heading: '4. Staff & Service Hours',
+          content: [
+            'The villa includes chef, butler, and housekeeping, with service hours from 7:00 AM to 9:00 PM.',
+            'Security personnel remain on the grounds 24/7.',
+            'Additional late-night service may incur extra fees.'
+          ]
+        },
+        {
+          heading: '5. Liability & Personal Property',
+          content: [
+            'Casa de la Muralla is not responsible for loss or damage to personal belongings.',
+            'Guests assume responsibility for their own safety when using facilities.',
+            'The villa is not liable for service interruptions beyond its control.'
+          ]
+        },
+        {
+          heading: '6. Weather & Island Conditions',
+          content: [
+            'Boat transfers may be delayed due to sea conditions.',
+            'Seasonal conditions may affect swimming.',
+            'Electricity is supported by generator; brief transitions may occur.'
+          ]
+        },
+        {
+          heading: '7. Events & Gatherings',
+          content: [
+            'Events with more than 16 guests require prior approval.',
+            'Outside vendors are permitted with advance coordination.',
+            'Music for events may continue until 2:00 AM.'
+          ]
+        },
+        {
+          heading: '8. Force Majeure',
+          content: `In the event of circumstances beyond reasonable control, Casa de la Muralla may reschedule the stay or offer a credit for future use.`
+        }
+      ],
+      jurisdiction: 'These terms are governed by the laws of Colombia.',
+      contact: { email: 'reservations@elitecartagena.com', note: 'or contact your dedicated VIP concierge.' }
+    },
+    es: {
+      intro: `Estos términos rigen las reservas, conducta de los huéspedes y políticas operativas para Casa de la Muralla, Isla Tierrabomba, Cartagena, Colombia.`,
+      sections: [
+        {
+          heading: '1. Reservas y Pagos',
+          content: [
+            '<strong>Confirmación de Reserva</strong> — Todas las reservas deben ser confirmadas por escrito por nuestro equipo de conserjería.',
+            '<strong>Requisito de Depósito</strong> — Se requiere un depósito del 50% para asegurar las fechas.',
+            '<strong>Saldo Pendiente</strong> — El 50% restante debe pagarse 30 días antes de la llegada.',
+            '<strong>Depósito de Seguridad</strong> — Se puede retener un depósito de seguridad reembolsable para cubrir daños.'
+          ]
+        },
+        {
+          heading: '2. Política de Cancelación',
+          content: [
+            '<strong>Más de 90 días antes de la llegada</strong> — Elegible para reembolso del 75%.',
+            '<strong>Entre 90 y 30 días antes de la llegada</strong> — Los pagos no son reembolsables.',
+            '<strong>Menos de 30 días o No presentación</strong> — Todos los pagos se pierden.',
+            '<strong>Seguro de Viaje</strong> — Recomendamos encarecidamente que los huéspedes obtengan seguro de viaje.'
+          ]
+        },
+        {
+          heading: '3. Responsabilidades del Huésped',
+          content: [
+            'Tratar la villa, muebles, equipos y personal con respeto.',
+            'Cumplir con las normas locales sobre música y ruido nocturno.',
+            'No fumar dentro de espacios interiores.',
+            'Supervisar a los niños en todo momento, especialmente cerca de la piscina y el muelle.',
+            'Reportar daños o problemas de mantenimiento inmediatamente.'
+          ]
+        },
+        {
+          heading: '4. Personal y Horarios de Servicio',
+          content: [
+            'La villa incluye chef, mayordomo y servicio de limpieza, con horario de 7:00 AM a 9:00 PM.',
+            'El personal de seguridad permanece en las instalaciones 24/7.',
+            'El servicio nocturno adicional puede incurrir en cargos extra.'
+          ]
+        },
+        {
+          heading: '5. Responsabilidad y Propiedad Personal',
+          content: [
+            'Casa de la Muralla no es responsable por pérdida o daño a pertenencias personales.',
+            'Los huéspedes asumen responsabilidad por su propia seguridad al usar las instalaciones.',
+            'La villa no es responsable por interrupciones de servicio fuera de su control.'
+          ]
+        },
+        {
+          heading: '6. Clima y Condiciones de la Isla',
+          content: [
+            'Los traslados en bote pueden retrasarse debido a las condiciones del mar.',
+            'Las condiciones estacionales pueden afectar la natación.',
+            'La electricidad está respaldada por generador; pueden ocurrir breves transiciones.'
+          ]
+        },
+        {
+          heading: '7. Eventos y Reuniones',
+          content: [
+            'Los eventos con más de 16 invitados requieren aprobación previa.',
+            'Se permiten proveedores externos con coordinación anticipada.',
+            'La música para eventos puede continuar hasta las 2:00 AM.'
+          ]
+        },
+        {
+          heading: '8. Fuerza Mayor',
+          content: `En caso de circunstancias fuera de control razonable, Casa de la Muralla puede reprogramar la estadía u ofrecer un crédito para uso futuro.`
+        }
+      ],
+      jurisdiction: 'Estos términos se rigen por las leyes de Colombia.',
+      contact: { email: 'reservations@elitecartagena.com', note: 'o contacte a su conserje VIP dedicado.' }
+    }
+  }
+  // Add more villa overrides here as owners customize their terms
+};
+
+// =============================================================================
+// TERMS RESOLUTION LOGIC
+// 1. Check for villa-specific override
+// 2. Fall back to default template with {villaName} replaced
+// =============================================================================
+
+// Get default email from villa data or use generic
+const villaEmail = villa.contact?.email || `reservations@${slug.replace(/-/g, '')}.com`;
+
+// Check if villa has custom override
+const hasOverride = villaOverrides[slug]?.[lang];
+
+// Get terms: use override if exists, otherwise use default template
+let terms: TermsData;
+if (hasOverride) {
+  // Use villa-specific override (merge with defaults for any missing fields)
+  const override = villaOverrides[slug][lang];
+  const defaultLang = defaultTerms[lang] || defaultTerms['en'];
+  terms = {
+    intro: override.intro || defaultLang.intro,
+    sections: override.sections || defaultLang.sections,
+    jurisdiction: override.jurisdiction || defaultLang.jurisdiction,
+    contact: override.contact || defaultLang.contact
+  };
+} else {
+  // Use default template
+  terms = defaultTerms[lang] || defaultTerms['en'];
+}
+
+// Replace placeholders with actual villa data
+const processTerms = (data: TermsData): TermsData => {
+  const replacePlaceholders = (str: string): string => {
+    return str
+      .replace(/{villaName}/g, villa.name)
+      .replace(/{villaEmail}/g, villaEmail);
+  };
+
+  return {
+    intro: replacePlaceholders(data.intro),
+    sections: data.sections.map(section => ({
+      heading: section.heading,
+      content: Array.isArray(section.content)
+        ? section.content.map(replacePlaceholders)
+        : replacePlaceholders(section.content)
+    })),
+    jurisdiction: replacePlaceholders(data.jurisdiction),
+    contact: {
+      email: replacePlaceholders(data.contact.email),
+      note: replacePlaceholders(data.contact.note)
+    }
+  };
+};
+
+const processedTerms = processTerms(terms);
+
+const title = `${termsUI.pageTitle} — ${villa.name}`;
+const description = processedTerms.intro;
+---
+<BaseLayout 
+  title={title} 
+  description={description} 
+  canonical={`https://example.com${langBasePath}/terms`}
+  villaName={villa.name}
+  homeUrl={langBasePath}
+  navLinks={navLinks}
+  navCtaLabel={navCtaLabel}
+  navCtaHref={`${langBasePath}/contact`}
+  footer={villaFooter}
+  lang={lang}
+>
+  <section class="container policy" id="terms">
+    <h1>{termsUI.pageTitle}</h1>
+    <p class="intro">{processedTerms.intro}</p>
+    
+    {processedTerms.sections.map((section) => (
+      <div class="section">
+        <h2>{section.heading}</h2>
+        {Array.isArray(section.content) ? (
+          <ul>
+            {section.content.map((item) => (
+              <li set:html={item} />
+            ))}
+          </ul>
+        ) : (
+          <p>{section.content}</p>
+        )}
+      </div>
+    ))}
+
+    <div class="section">
+      <h2>{termsUI.jurisdictionHeading}</h2>
+      <p>{processedTerms.jurisdiction}</p>
+    </div>
+
+    <div class="section">
+      <h2>{termsUI.contactHeading}</h2>
+      <p>
+        {termsUI.contactPrefix} <a href={`mailto:${processedTerms.contact.email}`}>{processedTerms.contact.email}</a>
+        {processedTerms.contact.note && <><br />{processedTerms.contact.note}</>}
+      </p>
+    </div>
+  </section>
+  
+  <style>
+    .policy {
+      max-width: 800px;
+      margin: 120px auto;
+      padding: 0 1.5rem;
+      box-sizing: border-box;
+      font-family: var(--font-sans, system-ui, sans-serif);
+      font-size: 1.05rem;
+      line-height: 1.8;
+      color: #333;
+    }
+    .policy h1 {
+      font-family: var(--font-serif, serif);
+      font-size: 2.8rem;
+      font-weight: 500;
+      color: var(--color-black, #111);
+      margin-bottom: 1rem;
+      line-height: 1.2;
+    }
+    .policy .intro {
+      font-size: 1.1rem;
+      color: #555;
+      margin-bottom: 2.5rem;
+      padding-bottom: 1.5rem;
+      border-bottom: 1px solid #eee;
+    }
+    .policy .section {
+      margin-bottom: 2rem;
+    }
+    .policy h2 {
+      font-family: var(--font-serif, serif);
+      font-size: 1.5rem;
+      font-weight: 500;
+      color: var(--color-black, #111);
+      margin-bottom: 1rem;
+    }
+    .policy p {
+      margin-bottom: 1rem;
+    }
+    .policy ul {
+      padding-left: 0;
+      list-style: none;
+      margin-bottom: 1rem;
+    }
+    .policy li {
+      margin-bottom: 0.75rem;
+      padding-left: 1.25rem;
+      position: relative;
+    }
+    .policy li::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 0.6em;
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--color-accent, #a58e76);
+    }
+    .policy a {
+      color: var(--color-accent, #a58e76);
+      text-decoration: none;
+      font-weight: 500;
+      transition: color 0.3s ease;
+    }
+    .policy a:hover {
+      color: var(--color-black, #111);
+      text-decoration: underline;
+      text-decoration-thickness: 1px;
+    }
+    .policy strong {
+      font-weight: 600;
+      color: var(--color-black, #222);
+    }
+    @media (max-width: 768px) {
+      .policy {
+        margin: 80px auto;
+        font-size: 1rem;
+      }
+      .policy h1 {
+        font-size: 2.2rem;
+      }
+      .policy h2 {
+        font-size: 1.3rem;
+      }
+    }
+  </style>
+</BaseLayout>
