@@ -200,7 +200,7 @@ async function handleApprove(
         },
         success_url: successUrl,
         cancel_url: cancelUrl,
-        expires_at: Math.floor(Date.now() / 1000) + (72 * 60 * 60), // 72 hours
+        expires_at: Math.floor(Date.now() / 1000) + (23 * 60 * 60), // 23 hours (Stripe max is 24)
       });
 
       checkoutUrl = session.url;
