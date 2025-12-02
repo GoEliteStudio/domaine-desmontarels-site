@@ -105,14 +105,15 @@ async function handleApprove(
     approvedAt: Timestamp.now(),
   });
 
-  // Get listing info for Stripe product name
+  // Get listing info for Stripe product name and email branding
   let listingName = 'Villa Booking';
   let listingSlug = 'villa';
+  let listing: any = null;
   
   if (inquiry.listingId) {
     const listingSnap = await db.collection('listings').doc(inquiry.listingId).get();
     if (listingSnap.exists) {
-      const listing = listingSnap.data()!;
+      listing = listingSnap.data()!;
       listingName = listing.name || listingName;
       listingSlug = listing.slug || listingSlug;
     }
@@ -176,15 +177,15 @@ async function handleApprove(
     }
   }
   
-  // Send email to guest with payment link
+  // Send email to guest with payment link (use villa name for branding)
   try {
     await sendGuestEmail({
-      listing: null, // We don't have listing object here, will use default branding
+      listing: listing, // Pass listing for villa-branded "From" name
       toEmail: inquiry.guestEmail,
       replyTo: GOELITE_INBOX,
-      subject: `Great News! Your Stay is Confirmed - Complete Your Booking`,
-      html: renderGuestApprovalEmail(inquiry, params, checkoutUrl),
-      text: renderGuestApprovalEmailText(inquiry, params, checkoutUrl),
+      subject: `${listingName} — Your Stay is Confirmed! Complete Your Booking`,
+      html: renderGuestApprovalEmail(inquiry, params, checkoutUrl, listingName),
+      text: renderGuestApprovalEmailText(inquiry, params, checkoutUrl, listingName),
     });
   } catch (emailError) {
     console.error('Failed to send guest approval email:', emailError);
@@ -257,14 +258,14 @@ async function handleDecline(
 
 // ============ Email Templates ============
 
-function renderGuestApprovalEmail(inquiry: any, params: ApproveParams, paymentUrl: string | null): string {
+function renderGuestApprovalEmail(inquiry: any, params: ApproveParams, paymentUrl: string | null, villaName: string = 'LoveThisPlace'): string {
   const symbol = getCurrencySymbol(params.currency);
   const paymentButton = paymentUrl ? `
       <div style="text-align: center; margin: 30px 0;">
         <a href="${paymentUrl}" style="display: inline-block; background: #2d7d46; color: #fff; text-decoration: none; padding: 16px 40px; border-radius: 8px; font-size: 18px; font-weight: 600;">
           Complete Payment →
         </a>
-        <p style="margin-top: 12px; font-size: 14px; color: #666;">Payment link expires in 72 hours</p>
+        <p style="margin-top: 12px; font-size: 14px; color: #666;">Payment link expires in 23 hours</p>
       </div>
   ` : `
       <p><strong>Next Step:</strong> We'll send you a secure payment link shortly to complete your booking.</p>
@@ -308,7 +309,7 @@ function renderGuestApprovalEmail(inquiry: any, params: ApproveParams, paymentUr
       <p>We look forward to hosting you!</p>
     </div>
     <div class="footer">
-      <p>Go Elite Studio • Luxury Villa Bookings</p>
+      <p>${villaName}</p>
     </div>
   </div>
 </body>
@@ -316,10 +317,10 @@ function renderGuestApprovalEmail(inquiry: any, params: ApproveParams, paymentUr
   `.trim();
 }
 
-function renderGuestApprovalEmailText(inquiry: any, params: ApproveParams, paymentUrl: string | null): string {
+function renderGuestApprovalEmailText(inquiry: any, params: ApproveParams, paymentUrl: string | null, villaName: string = 'LoveThisPlace'): string {
   const symbol = getCurrencySymbol(params.currency);
   const paymentSection = paymentUrl 
-    ? `COMPLETE YOUR BOOKING\n---------------------\nClick here to pay securely: ${paymentUrl}\n(Link expires in 72 hours)`
+    ? `COMPLETE YOUR BOOKING\n---------------------\nClick here to pay securely: ${paymentUrl}\n(Link expires in 23 hours)`
     : `NEXT STEP\n---------\nWe'll send you a secure payment link shortly to complete your booking.`;
   
   return `
@@ -343,8 +344,7 @@ If you have any questions, simply reply to this email.
 We look forward to hosting you!
 
 --
-Go Elite Studio
-Luxury Villa Bookings
+${villaName}
   `.trim();
 }
 

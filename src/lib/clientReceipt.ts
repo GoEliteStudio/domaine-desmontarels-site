@@ -41,7 +41,7 @@ const VILLA_BRANDING: Record<string, VillaBranding> = {
 };
 
 const DEFAULT_BRANDING: VillaBranding = {
-  name: 'Love This Place',
+  name: 'LoveThisPlace',
   heroImage: `${SITE_URL}/images/domaine-des-montarels/MONT_Pool_027.webp`,
   contactEmail: 'bookings@lovethisplace.co',
   whatsappNumber: '15164936070',

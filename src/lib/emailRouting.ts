@@ -17,7 +17,7 @@ import type { Listing } from './firestore/types';
 // Environment configuration
 const GOELITE_INBOX = process.env.GOELITE_INBOX || import.meta.env.GOELITE_INBOX || 'inquiries@goelite.studio';
 const FROM_EMAIL = process.env.FROM_EMAIL || import.meta.env.FROM_EMAIL || 'bookings@lovethisplace.co';
-const FROM_NAME = process.env.FROM_NAME || import.meta.env.FROM_NAME || 'Love This Place';
+const FROM_NAME = process.env.FROM_NAME || import.meta.env.FROM_NAME || 'LoveThisPlace';
 const OWNER_FALLBACK_EMAIL = process.env.OWNER_FALLBACK_EMAIL || import.meta.env.OWNER_FALLBACK_EMAIL || GOELITE_INBOX;
 
 export interface EmailResult {
