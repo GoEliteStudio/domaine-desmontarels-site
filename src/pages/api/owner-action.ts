@@ -178,12 +178,14 @@ async function handleApprove(
   }
   
   // Send email to guest with payment link (use villa name for branding)
+  const lang = getLang(inquiry);
+  const t = EMAIL_I18N[lang].approval;
   try {
     await sendGuestEmail({
       listing: listing, // Pass listing for villa-branded "From" name
       toEmail: inquiry.guestEmail,
       replyTo: PUBLIC_REPLY_TO,  // Professional public email, not internal inbox
-      subject: `${listingName} — Your Stay is Confirmed! Complete Your Booking`,
+      subject: t.subject(listingName),
       html: renderGuestApprovalEmail(inquiry, params, checkoutUrl, listingName),
       text: renderGuestApprovalEmailText(inquiry, params, checkoutUrl, listingName),
     });
@@ -241,12 +243,14 @@ async function handleDecline(
   }
   
   // Send polite decline email to guest
+  const lang = getLang(inquiry);
+  const t = EMAIL_I18N[lang].decline;
   try {
     await sendGuestEmail({
       listing,
       toEmail: inquiry.guestEmail,
       replyTo: PUBLIC_REPLY_TO,  // Professional public email, not internal inbox
-      subject: `Update on Your Inquiry — ${villaName}`,
+      subject: t.subject(villaName),
       html: renderGuestDeclineEmail(inquiry, villaName),
       text: renderGuestDeclineEmailText(inquiry, villaName),
     });
@@ -269,35 +273,157 @@ async function handleDecline(
   });
 }
 
+// ============ Email i18n ============
+
+type Lang = 'en' | 'es' | 'fr';
+
+const EMAIL_I18N: Record<Lang, {
+  approval: {
+    subject: (villa: string) => string;
+    badge: string;
+    title: string;
+    greeting: (name: string) => string;
+    checkIn: string;
+    checkOut: string;
+    guests: string;
+    total: string;
+    paymentButton: string;
+    paymentExpiry: string;
+    nextStep: string;
+    questions: string;
+  };
+  decline: {
+    subject: (villa: string) => string;
+    badge: string;
+    title: string;
+    greeting: (name: string) => string;
+    unavailable: string;
+    requestedDates: string;
+    alternative: string;
+    suggestButton: string;
+    hopeSoon: string;
+  };
+}> = {
+  en: {
+    approval: {
+      subject: (villa) => `${villa} — Your Stay is Confirmed! Complete Your Booking`,
+      badge: '✓ Confirmed',
+      title: 'Your Stay is Confirmed!',
+      greeting: (name) => `Dear ${name}, great news! The owner has confirmed your requested dates.`,
+      checkIn: 'Check-in',
+      checkOut: 'Check-out',
+      guests: 'Guests',
+      total: 'Total',
+      paymentButton: 'Complete Payment →',
+      paymentExpiry: 'Payment link expires in 23 hours',
+      nextStep: 'We\'ll send you a secure payment link shortly to complete your booking.',
+      questions: 'Questions? Simply reply to this email.',
+    },
+    decline: {
+      subject: (villa) => `Update on Your Inquiry — ${villa}`,
+      badge: 'Update',
+      title: 'Update on Your Inquiry',
+      greeting: (name) => `Dear ${name}, thank you for your interest in staying with us.`,
+      unavailable: 'Unfortunately, the property is not available for your requested dates:',
+      requestedDates: 'Requested dates',
+      alternative: 'We\'d love to help you find alternative dates that work. If you\'re flexible, please reply to this email with some options and we\'ll check availability.',
+      suggestButton: 'Suggest Other Dates',
+      hopeSoon: 'We hope to welcome you soon!',
+    },
+  },
+  es: {
+    approval: {
+      subject: (villa) => `${villa} — ¡Su Estancia está Confirmada! Complete su Reserva`,
+      badge: '✓ Confirmado',
+      title: '¡Su Estancia está Confirmada!',
+      greeting: (name) => `Estimado/a ${name}, ¡excelentes noticias! El propietario ha confirmado sus fechas solicitadas.`,
+      checkIn: 'Llegada',
+      checkOut: 'Salida',
+      guests: 'Huéspedes',
+      total: 'Total',
+      paymentButton: 'Completar Pago →',
+      paymentExpiry: 'El enlace de pago expira en 23 horas',
+      nextStep: 'Le enviaremos un enlace de pago seguro en breve para completar su reserva.',
+      questions: '¿Preguntas? Simplemente responda a este correo.',
+    },
+    decline: {
+      subject: (villa) => `Actualización sobre su Consulta — ${villa}`,
+      badge: 'Actualización',
+      title: 'Actualización sobre su Consulta',
+      greeting: (name) => `Estimado/a ${name}, gracias por su interés en hospedarse con nosotros.`,
+      unavailable: 'Lamentablemente, la propiedad no está disponible para las fechas solicitadas:',
+      requestedDates: 'Fechas solicitadas',
+      alternative: 'Nos encantaría ayudarle a encontrar fechas alternativas. Si tiene flexibilidad, responda a este correo con algunas opciones y verificaremos la disponibilidad.',
+      suggestButton: 'Sugerir Otras Fechas',
+      hopeSoon: '¡Esperamos darle la bienvenida pronto!',
+    },
+  },
+  fr: {
+    approval: {
+      subject: (villa) => `${villa} — Votre Séjour est Confirmé ! Finalisez Votre Réservation`,
+      badge: '✓ Confirmé',
+      title: 'Votre Séjour est Confirmé !',
+      greeting: (name) => `Cher/Chère ${name}, excellente nouvelle ! Le propriétaire a confirmé vos dates demandées.`,
+      checkIn: 'Arrivée',
+      checkOut: 'Départ',
+      guests: 'Invités',
+      total: 'Total',
+      paymentButton: 'Finaliser le Paiement →',
+      paymentExpiry: 'Le lien de paiement expire dans 23 heures',
+      nextStep: 'Nous vous enverrons bientôt un lien de paiement sécurisé pour finaliser votre réservation.',
+      questions: 'Des questions ? Répondez simplement à cet email.',
+    },
+    decline: {
+      subject: (villa) => `Mise à jour concernant votre Demande — ${villa}`,
+      badge: 'Mise à jour',
+      title: 'Mise à jour concernant votre Demande',
+      greeting: (name) => `Cher/Chère ${name}, merci pour votre intérêt à séjourner chez nous.`,
+      unavailable: 'Malheureusement, la propriété n\'est pas disponible pour les dates demandées :',
+      requestedDates: 'Dates demandées',
+      alternative: 'Nous serions ravis de vous aider à trouver des dates alternatives. Si vous êtes flexible, répondez à cet email avec quelques options et nous vérifierons la disponibilité.',
+      suggestButton: 'Suggérer d\'Autres Dates',
+      hopeSoon: 'Nous espérons vous accueillir bientôt !',
+    },
+  },
+};
+
+function getLang(inquiry: any): Lang {
+  const lang = inquiry?.lang?.toLowerCase();
+  if (lang === 'es' || lang === 'fr') return lang;
+  return 'en';
+}
+
 // ============ Email Templates ============
 
 function renderGuestApprovalEmail(inquiry: any, params: ApproveParams, paymentUrl: string | null, villaName: string = 'LoveThisPlace'): string {
+  const lang = getLang(inquiry);
+  const t = EMAIL_I18N[lang].approval;
   const symbol = getCurrencySymbol(params.currency);
   const paymentButton = paymentUrl ? `
               <!-- CTA Button -->
               <table role="presentation" cellpadding="0" cellspacing="0" border="0" width="100%" style="margin:28px 0">
                 <tr>
                   <td align="center">
-                    <a href="${paymentUrl}" style="display:inline-block;background-color:#2d7d46;color:#ffffff;text-decoration:none;padding:18px 48px;border-radius:8px;font-family:Inter,Arial,sans-serif;font-size:16px;font-weight:600;letter-spacing:0.5px">Complete Payment →</a>
+                    <a href="${paymentUrl}" style="display:inline-block;background-color:#2d7d46;color:#ffffff;text-decoration:none;padding:18px 48px;border-radius:8px;font-family:Inter,Arial,sans-serif;font-size:16px;font-weight:600;letter-spacing:0.5px">${t.paymentButton}</a>
                   </td>
                 </tr>
                 <tr>
                   <td align="center" style="padding-top:12px">
-                    <span style="font-family:Inter,Arial,sans-serif;font-size:13px;color:#9ca3af">Payment link expires in 23 hours</span>
+                    <span style="font-family:Inter,Arial,sans-serif;font-size:13px;color:#9ca3af">${t.paymentExpiry}</span>
                   </td>
                 </tr>
               </table>
   ` : `
-              <p style="font-family:Inter,Arial,sans-serif;font-size:15px;color:#1a1a1a;margin:24px 0"><strong>Next Step:</strong> We'll send you a secure payment link shortly to complete your booking.</p>
+              <p style="font-family:Inter,Arial,sans-serif;font-size:15px;color:#1a1a1a;margin:24px 0"><strong>${lang === 'es' ? 'Siguiente paso:' : lang === 'fr' ? 'Prochaine étape:' : 'Next Step:'}</strong> ${t.nextStep}</p>
   `;
   
   return `<!DOCTYPE html>
-<html lang="en">
+<html lang="${lang}">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>${villaName} — Your Stay is Confirmed</title>
+  <title>${villaName} — ${t.title}</title>
   <style>
     body,table,td,a{-webkit-text-size-adjust:100%;-ms-text-size-adjust:100%}
     body{margin:0!important;padding:0!important;width:100%!important;background-color:#f5f5f4}
@@ -326,7 +452,7 @@ function renderGuestApprovalEmail(inquiry: any, params: ApproveParams, paymentUr
           <!-- Success Badge -->
           <tr>
             <td align="center" style="padding:28px 24px 0">
-              <span style="display:inline-block;background-color:#2d7d46;color:#ffffff;padding:8px 20px;border-radius:20px;font-family:Inter,Arial,sans-serif;font-size:12px;font-weight:600;letter-spacing:1px;text-transform:uppercase">✓ Confirmed</span>
+              <span style="display:inline-block;background-color:#2d7d46;color:#ffffff;padding:8px 20px;border-radius:20px;font-family:Inter,Arial,sans-serif;font-size:12px;font-weight:600;letter-spacing:1px;text-transform:uppercase">${t.badge}</span>
             </td>
           </tr>
           
@@ -334,9 +460,9 @@ function renderGuestApprovalEmail(inquiry: any, params: ApproveParams, paymentUr
           <tr>
             <td class="mobile-padding" style="padding:24px 40px 32px">
               
-              <h2 style="font-family:'Cormorant Garamond',Georgia,serif;font-size:28px;font-weight:500;color:#1a1a1a;margin:0 0 12px;line-height:1.3;text-align:center">Your Stay is Confirmed!</h2>
+              <h2 style="font-family:'Cormorant Garamond',Georgia,serif;font-size:28px;font-weight:500;color:#1a1a1a;margin:0 0 12px;line-height:1.3;text-align:center">${t.title}</h2>
               
-              <p style="font-family:Inter,Arial,sans-serif;font-size:15px;color:#6b7280;line-height:1.6;margin:0 0 28px;text-align:center">Dear ${inquiry.guestName}, great news! The owner has confirmed your requested dates.</p>
+              <p style="font-family:Inter,Arial,sans-serif;font-size:15px;color:#6b7280;line-height:1.6;margin:0 0 28px;text-align:center">${t.greeting(inquiry.guestName)}</p>
               
               <!-- Booking Details -->
               <table role="presentation" cellpadding="0" cellspacing="0" border="0" width="100%" style="background-color:#f0fff4;border-radius:8px;margin-bottom:24px;border-left:4px solid #2d7d46">
@@ -345,25 +471,25 @@ function renderGuestApprovalEmail(inquiry: any, params: ApproveParams, paymentUr
                     <table role="presentation" cellpadding="0" cellspacing="0" border="0" width="100%">
                       <tr>
                         <td style="padding:8px 0">
-                          <span style="font-family:Inter,Arial,sans-serif;font-size:13px;color:#6b7280">Check-in</span><br>
+                          <span style="font-family:Inter,Arial,sans-serif;font-size:13px;color:#6b7280">${t.checkIn}</span><br>
                           <span style="font-family:Inter,Arial,sans-serif;font-size:16px;color:#1a1a1a;font-weight:500">${inquiry.checkIn}</span>
                         </td>
                       </tr>
                       <tr>
                         <td style="padding:8px 0">
-                          <span style="font-family:Inter,Arial,sans-serif;font-size:13px;color:#6b7280">Check-out</span><br>
+                          <span style="font-family:Inter,Arial,sans-serif;font-size:13px;color:#6b7280">${t.checkOut}</span><br>
                           <span style="font-family:Inter,Arial,sans-serif;font-size:16px;color:#1a1a1a;font-weight:500">${inquiry.checkOut}</span>
                         </td>
                       </tr>
                       <tr>
                         <td style="padding:8px 0">
-                          <span style="font-family:Inter,Arial,sans-serif;font-size:13px;color:#6b7280">Guests</span><br>
+                          <span style="font-family:Inter,Arial,sans-serif;font-size:13px;color:#6b7280">${t.guests}</span><br>
                           <span style="font-family:Inter,Arial,sans-serif;font-size:16px;color:#1a1a1a">${inquiry.partySize}</span>
                         </td>
                       </tr>
                       <tr>
                         <td style="padding:12px 0 0">
-                          <span style="font-family:'Cormorant Garamond',Georgia,serif;font-size:32px;color:#2d7d46;font-weight:600">Total: ${symbol}${params.price.toLocaleString()}</span>
+                          <span style="font-family:'Cormorant Garamond',Georgia,serif;font-size:32px;color:#2d7d46;font-weight:600">${t.total}: ${symbol}${params.price.toLocaleString()}</span>
                         </td>
                       </tr>
                     </table>
@@ -373,7 +499,7 @@ function renderGuestApprovalEmail(inquiry: any, params: ApproveParams, paymentUr
               
               ${paymentButton}
               
-              <p style="font-family:Inter,Arial,sans-serif;font-size:14px;color:#9ca3af;margin:24px 0 0;text-align:center">Questions? Simply reply to this email.</p>
+              <p style="font-family:Inter,Arial,sans-serif;font-size:14px;color:#9ca3af;margin:24px 0 0;text-align:center">${t.questions}</p>
               
             </td>
           </tr>
@@ -397,30 +523,36 @@ function renderGuestApprovalEmail(inquiry: any, params: ApproveParams, paymentUr
 }
 
 function renderGuestApprovalEmailText(inquiry: any, params: ApproveParams, paymentUrl: string | null, villaName: string = 'LoveThisPlace'): string {
+  const lang = getLang(inquiry);
+  const t = EMAIL_I18N[lang].approval;
   const symbol = getCurrencySymbol(params.currency);
   const paymentSection = paymentUrl 
-    ? `COMPLETE YOUR BOOKING\n---------------------\nClick here to pay securely: ${paymentUrl}\n(Link expires in 23 hours)`
+    ? lang === 'es' 
+      ? `COMPLETAR RESERVA\n------------------\nHaz clic aquí para pagar de forma segura: ${paymentUrl}\n(El enlace expira en 23 horas)`
+      : lang === 'fr'
+      ? `FINALISER VOTRE RÉSERVATION\n---------------------------\nCliquez ici pour payer en toute sécurité: ${paymentUrl}\n(Le lien expire dans 23 heures)`
+      : `COMPLETE YOUR BOOKING\n---------------------\nClick here to pay securely: ${paymentUrl}\n(Link expires in 23 hours)`
+    : lang === 'es'
+    ? `SIGUIENTE PASO\n--------------\nLe enviaremos un enlace de pago seguro en breve.`
+    : lang === 'fr'
+    ? `PROCHAINE ÉTAPE\n---------------\nNous vous enverrons bientôt un lien de paiement sécurisé.`
     : `NEXT STEP\n---------\nWe'll send you a secure payment link shortly to complete your booking.`;
   
   return `
-Your Stay is Confirmed!
+${t.title}
 
-Dear ${inquiry.guestName},
+${t.greeting(inquiry.guestName)}
 
-Great news! The owner has confirmed your requested dates and we're ready to proceed with your booking.
-
-BOOKING DETAILS
+${lang === 'es' ? 'DETALLES DE LA RESERVA' : lang === 'fr' ? 'DÉTAILS DE LA RÉSERVATION' : 'BOOKING DETAILS'}
 ---------------
-Check-in: ${inquiry.checkIn}
-Check-out: ${inquiry.checkOut}
-Guests: ${inquiry.partySize}
-Total: ${symbol}${params.price.toLocaleString()}
+${t.checkIn}: ${inquiry.checkIn}
+${t.checkOut}: ${inquiry.checkOut}
+${t.guests}: ${inquiry.partySize}
+${t.total}: ${symbol}${params.price.toLocaleString()}
 
 ${paymentSection}
 
-If you have any questions, simply reply to this email.
-
-We look forward to hosting you!
+${t.questions}
 
 --
 ${villaName}
@@ -428,13 +560,15 @@ ${villaName}
 }
 
 function renderGuestDeclineEmail(inquiry: any, villaName: string = 'LoveThisPlace'): string {
+  const lang = getLang(inquiry);
+  const t = EMAIL_I18N[lang].decline;
   return `<!DOCTYPE html>
-<html lang="en">
+<html lang="${lang}">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>${villaName} — Update on Your Inquiry</title>
+  <title>${villaName} — ${t.title}</title>
   <style>
     body,table,td,a{-webkit-text-size-adjust:100%;-ms-text-size-adjust:100%}
     body{margin:0!important;padding:0!important;width:100%!important;background-color:#f5f5f4}
@@ -463,7 +597,7 @@ function renderGuestDeclineEmail(inquiry: any, villaName: string = 'LoveThisPlac
           <!-- Status Badge -->
           <tr>
             <td align="center" style="padding:28px 24px 0">
-              <span style="display:inline-block;background-color:#a58e76;color:#ffffff;padding:8px 20px;border-radius:20px;font-family:Inter,Arial,sans-serif;font-size:12px;font-weight:600;letter-spacing:1px;text-transform:uppercase">Update</span>
+              <span style="display:inline-block;background-color:#a58e76;color:#ffffff;padding:8px 20px;border-radius:20px;font-family:Inter,Arial,sans-serif;font-size:12px;font-weight:600;letter-spacing:1px;text-transform:uppercase">${t.badge}</span>
             </td>
           </tr>
           
@@ -471,26 +605,26 @@ function renderGuestDeclineEmail(inquiry: any, villaName: string = 'LoveThisPlac
           <tr>
             <td class="mobile-padding" style="padding:24px 40px 32px">
               
-              <h2 style="font-family:'Cormorant Garamond',Georgia,serif;font-size:26px;font-weight:500;color:#1a1a1a;margin:0 0 12px;line-height:1.3;text-align:center">Update on Your Inquiry</h2>
+              <h2 style="font-family:'Cormorant Garamond',Georgia,serif;font-size:26px;font-weight:500;color:#1a1a1a;margin:0 0 12px;line-height:1.3;text-align:center">${t.title}</h2>
               
-              <p style="font-family:Inter,Arial,sans-serif;font-size:15px;color:#6b7280;line-height:1.6;margin:0 0 24px;text-align:center">Dear ${inquiry.guestName}, thank you for your interest in staying with us.</p>
+              <p style="font-family:Inter,Arial,sans-serif;font-size:15px;color:#6b7280;line-height:1.6;margin:0 0 24px;text-align:center">${t.greeting(inquiry.guestName)}</p>
               
               <!-- Message Card -->
               <table role="presentation" cellpadding="0" cellspacing="0" border="0" width="100%" style="background-color:#fafafa;border-radius:8px;margin-bottom:24px;border-left:4px solid #a58e76">
                 <tr>
                   <td style="padding:24px">
-                    <p style="font-family:Inter,Arial,sans-serif;font-size:15px;color:#1a1a1a;line-height:1.7;margin:0 0 16px">Unfortunately, the property is not available for your requested dates:</p>
+                    <p style="font-family:Inter,Arial,sans-serif;font-size:15px;color:#1a1a1a;line-height:1.7;margin:0 0 16px">${t.unavailable}</p>
                     
                     <table role="presentation" cellpadding="0" cellspacing="0" border="0" width="100%">
                       <tr>
                         <td style="padding:8px 0">
-                          <span style="font-family:Inter,Arial,sans-serif;font-size:13px;color:#6b7280">Requested dates</span><br>
+                          <span style="font-family:Inter,Arial,sans-serif;font-size:13px;color:#6b7280">${t.requestedDates}</span><br>
                           <span style="font-family:Inter,Arial,sans-serif;font-size:16px;color:#1a1a1a;font-weight:500">${inquiry.checkIn} → ${inquiry.checkOut}</span>
                         </td>
                       </tr>
                     </table>
                     
-                    <p style="font-family:Inter,Arial,sans-serif;font-size:15px;color:#1a1a1a;line-height:1.7;margin:20px 0 0">We'd love to help you find alternative dates that work. If you're flexible, please reply to this email with some options and we'll check availability.</p>
+                    <p style="font-family:Inter,Arial,sans-serif;font-size:15px;color:#1a1a1a;line-height:1.7;margin:20px 0 0">${t.alternative}</p>
                   </td>
                 </tr>
               </table>
@@ -499,12 +633,12 @@ function renderGuestDeclineEmail(inquiry: any, villaName: string = 'LoveThisPlac
               <table role="presentation" cellpadding="0" cellspacing="0" border="0" width="100%" style="margin:20px 0">
                 <tr>
                   <td align="center">
-                    <a href="mailto:bookings@lovethisplace.co?subject=Alternative Dates for ${villaName}" style="display:inline-block;background-color:#0a0a0a;color:#ffffff;text-decoration:none;padding:16px 40px;border-radius:8px;font-family:Inter,Arial,sans-serif;font-size:15px;font-weight:600;letter-spacing:0.5px">Suggest Other Dates</a>
+                    <a href="mailto:bookings@lovethisplace.co?subject=Alternative Dates for ${villaName}" style="display:inline-block;background-color:#0a0a0a;color:#ffffff;text-decoration:none;padding:16px 40px;border-radius:8px;font-family:Inter,Arial,sans-serif;font-size:15px;font-weight:600;letter-spacing:0.5px">${t.suggestButton}</a>
                   </td>
                 </tr>
               </table>
               
-              <p style="font-family:Inter,Arial,sans-serif;font-size:15px;color:#1a1a1a;margin:24px 0 0;text-align:center;line-height:1.6">We hope to welcome you soon!</p>
+              <p style="font-family:Inter,Arial,sans-serif;font-size:15px;color:#1a1a1a;margin:24px 0 0;text-align:center;line-height:1.6">${t.hopeSoon}</p>
               
             </td>
           </tr>
@@ -528,24 +662,24 @@ function renderGuestDeclineEmail(inquiry: any, villaName: string = 'LoveThisPlac
 }
 
 function renderGuestDeclineEmailText(inquiry: any, villaName: string = 'LoveThisPlace'): string {
+  const lang = getLang(inquiry);
+  const t = EMAIL_I18N[lang].decline;
   return `
 ${villaName.toUpperCase()}
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
-UPDATE ON YOUR INQUIRY
+${t.title.toUpperCase()}
 
-Dear ${inquiry.guestName},
+${t.greeting(inquiry.guestName)}
 
-Thank you for your interest in staying with us.
-
-Unfortunately, the property is not available for your requested dates:
+${t.unavailable}
 
   ${inquiry.checkIn} → ${inquiry.checkOut}
 
-We'd love to help you find alternative dates that work. If you're flexible, please reply to this email with some options and we'll check availability.
+${t.alternative}
 
-We hope to welcome you soon!
+${t.hopeSoon}
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
