@@ -563,7 +563,7 @@ function renderSuccessPage(title: string, subtitle: string, details: string): st
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>${title} - Go Elite Studio</title>
+  <title>${title} - LoveThisPlace</title>
   <style>
     * { margin: 0; padding: 0; box-sizing: border-box; }
     body { 
@@ -596,7 +596,8 @@ function renderSuccessPage(title: string, subtitle: string, details: string): st
     }
     .details p { margin: 8px 0; color: #333; }
     .note { color: #a58e76; font-size: 14px; margin-top: 20px; }
-    .logo { margin-top: 30px; color: #999; font-size: 12px; }
+    .logo { margin-top: 30px; color: #c9a96e; font-size: 14px; font-weight: 500; display: flex; align-items: center; justify-content: center; gap: 6px; }
+    .golden-heart { width: 16px; height: 16px; }
   </style>
 </head>
 <body>
@@ -605,7 +606,7 @@ function renderSuccessPage(title: string, subtitle: string, details: string): st
     <h1>${title}</h1>
     <p class="subtitle">${subtitle}</p>
     ${details}
-    <p class="logo">Go Elite Studio</p>
+    <p class="logo"><svg class="golden-heart" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><defs><linearGradient id="goldGrad" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:#d4af37"/><stop offset="50%" style="stop-color:#f4d03f"/><stop offset="100%" style="stop-color:#c9a96e"/></linearGradient></defs><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" fill="url(#goldGrad)"/></svg>LoveThisPlace</p>
   </div>
 </body>
 </html>
@@ -619,7 +620,7 @@ function renderErrorPage(title: string, message: string): string {
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>${title} - Go Elite Studio</title>
+  <title>${title} - LoveThisPlace</title>
   <style>
     * { margin: 0; padding: 0; box-sizing: border-box; }
     body { 
@@ -643,7 +644,8 @@ function renderErrorPage(title: string, message: string): string {
     .icon { font-size: 64px; margin-bottom: 20px; }
     h1 { color: #c0392b; font-size: 24px; margin-bottom: 10px; }
     .message { color: #666; line-height: 1.6; }
-    .logo { margin-top: 30px; color: #999; font-size: 12px; }
+    .logo { margin-top: 30px; color: #c9a96e; font-size: 14px; font-weight: 500; display: flex; align-items: center; justify-content: center; gap: 6px; }
+    .golden-heart { width: 16px; height: 16px; }
   </style>
 </head>
 <body>
@@ -651,7 +653,7 @@ function renderErrorPage(title: string, message: string): string {
     <div class="icon">⚠️</div>
     <h1>${title}</h1>
     <p class="message">${message}</p>
-    <p class="logo">Go Elite Studio</p>
+    <p class="logo"><svg class="golden-heart" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><defs><linearGradient id="goldGrad" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:#d4af37"/><stop offset="50%" style="stop-color:#f4d03f"/><stop offset="100%" style="stop-color:#c9a96e"/></linearGradient></defs><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" fill="url(#goldGrad)"/></svg>LoveThisPlace</p>
   </div>
 </body>
 </html>
@@ -665,7 +667,7 @@ function renderInfoPage(title: string, message: string): string {
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>${title} - Go Elite Studio</title>
+  <title>${title} - LoveThisPlace</title>
   <style>
     * { margin: 0; padding: 0; box-sizing: border-box; }
     body { 
@@ -689,7 +691,8 @@ function renderInfoPage(title: string, message: string): string {
     .icon { font-size: 64px; margin-bottom: 20px; }
     h1 { color: #1a1a1a; font-size: 24px; margin-bottom: 10px; }
     .message { color: #666; line-height: 1.6; }
-    .logo { margin-top: 30px; color: #999; font-size: 12px; }
+    .logo { margin-top: 30px; color: #c9a96e; font-size: 14px; font-weight: 500; display: flex; align-items: center; justify-content: center; gap: 6px; }
+    .golden-heart { width: 16px; height: 16px; }
   </style>
 </head>
 <body>
@@ -697,7 +700,7 @@ function renderInfoPage(title: string, message: string): string {
     <div class="icon">ℹ️</div>
     <h1>${title}</h1>
     <p class="message">${message}</p>
-    <p class="logo">Go Elite Studio</p>
+    <p class="logo"><svg class="golden-heart" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><defs><linearGradient id="goldGrad" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:#d4af37"/><stop offset="50%" style="stop-color:#f4d03f"/><stop offset="100%" style="stop-color:#c9a96e"/></linearGradient></defs><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" fill="url(#goldGrad)"/></svg>LoveThisPlace</p>
   </div>
 </body>
 </html>
