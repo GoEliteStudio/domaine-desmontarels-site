@@ -228,23 +228,21 @@ export const POST: APIRoute = async ({ request }) => {
 
     console.log('[inquire] Owner notification sent:', { id: sendResult.id, preview: sendResult.preview });
 
-    // Send branded client receipt (non-blocking)
-    // This is the ONLY guest email - no duplicate sendGuestEmail call
-    (async () => {
-      try {
-        await sendClientReceipt({
-          villaSlug: slug,
-          villaName: listing?.name,
-          replyTo: ownerEmail,
-          to: payload.email,
-          data: payload as any,
-          lang
-        });
-        console.log('[inquire] Client receipt sent:', { to: payload.email, villa: slug });
-      } catch (e) {
-        console.warn('[inquire] Client receipt failed:', (e as any)?.message || e);
-      }
-    })();
+    // Send branded client receipt (MUST await on serverless - non-blocking IIFE gets killed)
+    try {
+      const receiptResult = await sendClientReceipt({
+        villaSlug: slug,
+        villaName: listing?.name,
+        replyTo: ownerEmail,
+        to: payload.email,
+        data: payload as any,
+        lang
+      });
+      console.log('[inquire] Client receipt sent:', { to: payload.email, villa: slug, id: receiptResult.id });
+    } catch (e) {
+      console.warn('[inquire] Client receipt failed:', (e as any)?.message || e);
+      // Don't fail the request if client receipt fails - owner email is more important
+    }
 
     const accept = (request.headers.get('accept') || '').toLowerCase();
     if (accept.includes('text/html')) {

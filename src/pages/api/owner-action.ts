@@ -219,6 +219,7 @@ async function handleDecline(
   inquiry: FirebaseFirestore.DocumentData,
   _params: DeclineParams
 ): Promise<Response> {
+  const db = getDb();
   
   // Update inquiry status
   await inquiryRef.update({
@@ -227,15 +228,27 @@ async function handleDecline(
     declinedAt: Timestamp.now(),
   });
   
+  // Get listing info for email branding
+  let listing: any = null;
+  let villaName = 'LoveThisPlace';
+  
+  if (inquiry.listingId) {
+    const listingSnap = await db.collection('listings').doc(inquiry.listingId).get();
+    if (listingSnap.exists) {
+      listing = listingSnap.data()!;
+      villaName = listing.name || villaName;
+    }
+  }
+  
   // Send polite decline email to guest
   try {
     await sendGuestEmail({
-      listing: null, // We don't have listing object here, will use default branding
+      listing,
       toEmail: inquiry.guestEmail,
       replyTo: GOELITE_INBOX,
-      subject: `Update on Your Inquiry`,
-      html: renderGuestDeclineEmail(inquiry),
-      text: renderGuestDeclineEmailText(inquiry),
+      subject: `Update on Your Inquiry — ${villaName}`,
+      html: renderGuestDeclineEmail(inquiry, villaName),
+      text: renderGuestDeclineEmailText(inquiry, villaName),
     });
   } catch (emailError) {
     console.error('Failed to send guest decline email:', emailError);
@@ -261,60 +274,126 @@ async function handleDecline(
 function renderGuestApprovalEmail(inquiry: any, params: ApproveParams, paymentUrl: string | null, villaName: string = 'LoveThisPlace'): string {
   const symbol = getCurrencySymbol(params.currency);
   const paymentButton = paymentUrl ? `
-      <div style="text-align: center; margin: 30px 0;">
-        <a href="${paymentUrl}" style="display: inline-block; background: #2d7d46; color: #fff; text-decoration: none; padding: 16px 40px; border-radius: 8px; font-size: 18px; font-weight: 600;">
-          Complete Payment →
-        </a>
-        <p style="margin-top: 12px; font-size: 14px; color: #666;">Payment link expires in 23 hours</p>
-      </div>
+              <!-- CTA Button -->
+              <table role="presentation" cellpadding="0" cellspacing="0" border="0" width="100%" style="margin:28px 0">
+                <tr>
+                  <td align="center">
+                    <a href="${paymentUrl}" style="display:inline-block;background-color:#2d7d46;color:#ffffff;text-decoration:none;padding:18px 48px;border-radius:8px;font-family:Inter,Arial,sans-serif;font-size:16px;font-weight:600;letter-spacing:0.5px">Complete Payment →</a>
+                  </td>
+                </tr>
+                <tr>
+                  <td align="center" style="padding-top:12px">
+                    <span style="font-family:Inter,Arial,sans-serif;font-size:13px;color:#9ca3af">Payment link expires in 23 hours</span>
+                  </td>
+                </tr>
+              </table>
   ` : `
-      <p><strong>Next Step:</strong> We'll send you a secure payment link shortly to complete your booking.</p>
+              <p style="font-family:Inter,Arial,sans-serif;font-size:15px;color:#1a1a1a;margin:24px 0"><strong>Next Step:</strong> We'll send you a secure payment link shortly to complete your booking.</p>
   `;
   
-  return `
-<!DOCTYPE html>
-<html>
+  return `<!DOCTYPE html>
+<html lang="en">
 <head>
   <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>${villaName} — Your Stay is Confirmed</title>
   <style>
-    body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; line-height: 1.6; color: #333; }
-    .container { max-width: 600px; margin: 0 auto; padding: 20px; }
-    .header { text-align: center; padding: 20px 0; border-bottom: 2px solid #2d7d46; }
-    .content { padding: 30px 0; }
-    .highlight { background: #f0fff4; padding: 20px; border-radius: 8px; margin: 20px 0; border-left: 4px solid #2d7d46; }
-    .price { font-size: 28px; color: #2d7d46; font-weight: bold; }
-    .footer { text-align: center; padding: 20px 0; color: #666; font-size: 14px; border-top: 1px solid #eee; }
+    body,table,td,a{-webkit-text-size-adjust:100%;-ms-text-size-adjust:100%}
+    body{margin:0!important;padding:0!important;width:100%!important;background-color:#f5f5f4}
+    @media screen and (max-width:600px){
+      .mobile-full{width:100%!important;max-width:100%!important}
+      .mobile-padding{padding:20px 16px!important}
+    }
   </style>
 </head>
-<body>
-  <div class="container">
-    <div class="header">
-      <h1 style="color: #2d7d46; margin: 0;">✓ Your Stay is Confirmed!</h1>
-    </div>
-    <div class="content">
-      <p>Dear ${inquiry.guestName},</p>
-      <p>Great news! The owner has confirmed your requested dates and we're ready to proceed with your booking.</p>
-      
-      <div class="highlight">
-        <p><strong>Check-in:</strong> ${inquiry.checkIn}</p>
-        <p><strong>Check-out:</strong> ${inquiry.checkOut}</p>
-        <p><strong>Guests:</strong> ${inquiry.partySize}</p>
-        <p class="price">Total: ${symbol}${params.price.toLocaleString()}</p>
-      </div>
-      
-      ${paymentButton}
-      
-      <p>If you have any questions, simply reply to this email.</p>
-      
-      <p>We look forward to hosting you!</p>
-    </div>
-    <div class="footer">
-      <p>${villaName}</p>
-    </div>
-  </div>
+<body style="margin:0;padding:0;background-color:#f5f5f4">
+  
+  <table role="presentation" cellpadding="0" cellspacing="0" border="0" width="100%" style="background-color:#f5f5f4">
+    <tr>
+      <td align="center" style="padding:24px 16px">
+        
+        <!-- Email Container -->
+        <table role="presentation" cellpadding="0" cellspacing="0" border="0" width="600" class="mobile-full" style="max-width:600px;background-color:#ffffff;border-radius:12px;overflow:hidden;box-shadow:0 4px 24px rgba(0,0,0,0.08)">
+          
+          <!-- Elegant Black Header -->
+          <tr>
+            <td style="background-color:#0a0a0a;padding:32px 40px;text-align:center">
+              <h1 style="font-family:'Cormorant Garamond',Georgia,serif;font-size:24px;font-weight:500;letter-spacing:3px;color:#ffffff;margin:0;text-transform:uppercase">${villaName}</h1>
+            </td>
+          </tr>
+          
+          <!-- Success Badge -->
+          <tr>
+            <td align="center" style="padding:28px 24px 0">
+              <span style="display:inline-block;background-color:#2d7d46;color:#ffffff;padding:8px 20px;border-radius:20px;font-family:Inter,Arial,sans-serif;font-size:12px;font-weight:600;letter-spacing:1px;text-transform:uppercase">✓ Confirmed</span>
+            </td>
+          </tr>
+          
+          <!-- Main Content -->
+          <tr>
+            <td class="mobile-padding" style="padding:24px 40px 32px">
+              
+              <h2 style="font-family:'Cormorant Garamond',Georgia,serif;font-size:28px;font-weight:500;color:#1a1a1a;margin:0 0 12px;line-height:1.3;text-align:center">Your Stay is Confirmed!</h2>
+              
+              <p style="font-family:Inter,Arial,sans-serif;font-size:15px;color:#6b7280;line-height:1.6;margin:0 0 28px;text-align:center">Dear ${inquiry.guestName}, great news! The owner has confirmed your requested dates.</p>
+              
+              <!-- Booking Details -->
+              <table role="presentation" cellpadding="0" cellspacing="0" border="0" width="100%" style="background-color:#f0fff4;border-radius:8px;margin-bottom:24px;border-left:4px solid #2d7d46">
+                <tr>
+                  <td style="padding:24px">
+                    <table role="presentation" cellpadding="0" cellspacing="0" border="0" width="100%">
+                      <tr>
+                        <td style="padding:8px 0">
+                          <span style="font-family:Inter,Arial,sans-serif;font-size:13px;color:#6b7280">Check-in</span><br>
+                          <span style="font-family:Inter,Arial,sans-serif;font-size:16px;color:#1a1a1a;font-weight:500">${inquiry.checkIn}</span>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td style="padding:8px 0">
+                          <span style="font-family:Inter,Arial,sans-serif;font-size:13px;color:#6b7280">Check-out</span><br>
+                          <span style="font-family:Inter,Arial,sans-serif;font-size:16px;color:#1a1a1a;font-weight:500">${inquiry.checkOut}</span>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td style="padding:8px 0">
+                          <span style="font-family:Inter,Arial,sans-serif;font-size:13px;color:#6b7280">Guests</span><br>
+                          <span style="font-family:Inter,Arial,sans-serif;font-size:16px;color:#1a1a1a">${inquiry.partySize}</span>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td style="padding:12px 0 0">
+                          <span style="font-family:'Cormorant Garamond',Georgia,serif;font-size:32px;color:#2d7d46;font-weight:600">Total: ${symbol}${params.price.toLocaleString()}</span>
+                        </td>
+                      </tr>
+                    </table>
+                  </td>
+                </tr>
+              </table>
+              
+              ${paymentButton}
+              
+              <p style="font-family:Inter,Arial,sans-serif;font-size:14px;color:#9ca3af;margin:24px 0 0;text-align:center">Questions? Simply reply to this email.</p>
+              
+            </td>
+          </tr>
+          
+          <!-- Footer -->
+          <tr>
+            <td style="background-color:#0a0a0a;padding:24px 40px;text-align:center">
+              <p style="font-family:'Cormorant Garamond',Georgia,serif;font-size:16px;color:#ffffff;margin:0">${villaName}</p>
+              <p style="font-family:Inter,Arial,sans-serif;font-size:11px;color:#6b7280;margin:8px 0 0">© ${new Date().getFullYear()} All rights reserved.</p>
+            </td>
+          </tr>
+          
+        </table>
+        
+      </td>
+    </tr>
+  </table>
+  
 </body>
-</html>
-  `.trim();
+</html>`.trim();
 }
 
 function renderGuestApprovalEmailText(inquiry: any, params: ApproveParams, paymentUrl: string | null, villaName: string = 'LoveThisPlace'): string {
@@ -348,58 +427,130 @@ ${villaName}
   `.trim();
 }
 
-function renderGuestDeclineEmail(inquiry: any): string {
-  return `
-<!DOCTYPE html>
-<html>
+function renderGuestDeclineEmail(inquiry: any, villaName: string = 'LoveThisPlace'): string {
+  return `<!DOCTYPE html>
+<html lang="en">
 <head>
   <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>${villaName} — Update on Your Inquiry</title>
   <style>
-    body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; line-height: 1.6; color: #333; }
-    .container { max-width: 600px; margin: 0 auto; padding: 20px; }
-    .header { text-align: center; padding: 20px 0; border-bottom: 2px solid #a58e76; }
-    .content { padding: 30px 0; }
-    .footer { text-align: center; padding: 20px 0; color: #666; font-size: 14px; border-top: 1px solid #eee; }
+    body,table,td,a{-webkit-text-size-adjust:100%;-ms-text-size-adjust:100%}
+    body{margin:0!important;padding:0!important;width:100%!important;background-color:#f5f5f4}
+    @media screen and (max-width:600px){
+      .mobile-full{width:100%!important;max-width:100%!important}
+      .mobile-padding{padding:20px 16px!important}
+    }
   </style>
 </head>
-<body>
-  <div class="container">
-    <div class="header">
-      <h1 style="color: #1a1a1a; margin: 0;">Update on Your Inquiry</h1>
-    </div>
-    <div class="content">
-      <p>Dear ${inquiry.guestName},</p>
-      <p>Thank you for your interest in booking with us.</p>
-      <p>Unfortunately, the property is not available for your requested dates (${inquiry.checkIn} to ${inquiry.checkOut}).</p>
-      <p>We'd love to help you find alternative dates that work. If you're flexible, please reply to this email with some other options and we'll check availability.</p>
-      <p>We hope to welcome you soon!</p>
-    </div>
-    <div class="footer">
-      <p>Go Elite Studio • Luxury Villa Bookings</p>
-    </div>
-  </div>
+<body style="margin:0;padding:0;background-color:#f5f5f4">
+  
+  <table role="presentation" cellpadding="0" cellspacing="0" border="0" width="100%" style="background-color:#f5f5f4">
+    <tr>
+      <td align="center" style="padding:24px 16px">
+        
+        <!-- Email Container -->
+        <table role="presentation" cellpadding="0" cellspacing="0" border="0" width="600" class="mobile-full" style="max-width:600px;background-color:#ffffff;border-radius:12px;overflow:hidden;box-shadow:0 4px 24px rgba(0,0,0,0.08)">
+          
+          <!-- Elegant Black Header -->
+          <tr>
+            <td style="background-color:#0a0a0a;padding:32px 40px;text-align:center">
+              <h1 style="font-family:'Cormorant Garamond',Georgia,serif;font-size:24px;font-weight:500;letter-spacing:3px;color:#ffffff;margin:0;text-transform:uppercase">${villaName}</h1>
+            </td>
+          </tr>
+          
+          <!-- Status Badge -->
+          <tr>
+            <td align="center" style="padding:28px 24px 0">
+              <span style="display:inline-block;background-color:#a58e76;color:#ffffff;padding:8px 20px;border-radius:20px;font-family:Inter,Arial,sans-serif;font-size:12px;font-weight:600;letter-spacing:1px;text-transform:uppercase">Update</span>
+            </td>
+          </tr>
+          
+          <!-- Main Content -->
+          <tr>
+            <td class="mobile-padding" style="padding:24px 40px 32px">
+              
+              <h2 style="font-family:'Cormorant Garamond',Georgia,serif;font-size:26px;font-weight:500;color:#1a1a1a;margin:0 0 12px;line-height:1.3;text-align:center">Update on Your Inquiry</h2>
+              
+              <p style="font-family:Inter,Arial,sans-serif;font-size:15px;color:#6b7280;line-height:1.6;margin:0 0 24px;text-align:center">Dear ${inquiry.guestName}, thank you for your interest in staying with us.</p>
+              
+              <!-- Message Card -->
+              <table role="presentation" cellpadding="0" cellspacing="0" border="0" width="100%" style="background-color:#fafafa;border-radius:8px;margin-bottom:24px;border-left:4px solid #a58e76">
+                <tr>
+                  <td style="padding:24px">
+                    <p style="font-family:Inter,Arial,sans-serif;font-size:15px;color:#1a1a1a;line-height:1.7;margin:0 0 16px">Unfortunately, the property is not available for your requested dates:</p>
+                    
+                    <table role="presentation" cellpadding="0" cellspacing="0" border="0" width="100%">
+                      <tr>
+                        <td style="padding:8px 0">
+                          <span style="font-family:Inter,Arial,sans-serif;font-size:13px;color:#6b7280">Requested dates</span><br>
+                          <span style="font-family:Inter,Arial,sans-serif;font-size:16px;color:#1a1a1a;font-weight:500">${inquiry.checkIn} → ${inquiry.checkOut}</span>
+                        </td>
+                      </tr>
+                    </table>
+                    
+                    <p style="font-family:Inter,Arial,sans-serif;font-size:15px;color:#1a1a1a;line-height:1.7;margin:20px 0 0">We'd love to help you find alternative dates that work. If you're flexible, please reply to this email with some options and we'll check availability.</p>
+                  </td>
+                </tr>
+              </table>
+              
+              <!-- CTA Button -->
+              <table role="presentation" cellpadding="0" cellspacing="0" border="0" width="100%" style="margin:20px 0">
+                <tr>
+                  <td align="center">
+                    <a href="mailto:bookings@lovethisplace.co?subject=Alternative Dates for ${villaName}" style="display:inline-block;background-color:#0a0a0a;color:#ffffff;text-decoration:none;padding:16px 40px;border-radius:8px;font-family:Inter,Arial,sans-serif;font-size:15px;font-weight:600;letter-spacing:0.5px">Suggest Other Dates</a>
+                  </td>
+                </tr>
+              </table>
+              
+              <p style="font-family:Inter,Arial,sans-serif;font-size:15px;color:#1a1a1a;margin:24px 0 0;text-align:center;line-height:1.6">We hope to welcome you soon!</p>
+              
+            </td>
+          </tr>
+          
+          <!-- Footer -->
+          <tr>
+            <td style="background-color:#0a0a0a;padding:24px 40px;text-align:center">
+              <p style="font-family:'Cormorant Garamond',Georgia,serif;font-size:16px;color:#ffffff;margin:0">${villaName}</p>
+              <p style="font-family:Inter,Arial,sans-serif;font-size:11px;color:#6b7280;margin:8px 0 0">© ${new Date().getFullYear()} All rights reserved.</p>
+            </td>
+          </tr>
+          
+        </table>
+        
+      </td>
+    </tr>
+  </table>
+  
 </body>
-</html>
-  `.trim();
+</html>`.trim();
 }
 
-function renderGuestDeclineEmailText(inquiry: any): string {
+function renderGuestDeclineEmailText(inquiry: any, villaName: string = 'LoveThisPlace'): string {
   return `
-Update on Your Inquiry
+${villaName.toUpperCase()}
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+UPDATE ON YOUR INQUIRY
 
 Dear ${inquiry.guestName},
 
-Thank you for your interest in booking with us.
+Thank you for your interest in staying with us.
 
-Unfortunately, the property is not available for your requested dates (${inquiry.checkIn} to ${inquiry.checkOut}).
+Unfortunately, the property is not available for your requested dates:
 
-We'd love to help you find alternative dates that work. If you're flexible, please reply to this email with some other options and we'll check availability.
+  ${inquiry.checkIn} → ${inquiry.checkOut}
+
+We'd love to help you find alternative dates that work. If you're flexible, please reply to this email with some options and we'll check availability.
 
 We hope to welcome you soon!
 
---
-Go Elite Studio
-Luxury Villa Bookings
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+${villaName}
+© ${new Date().getFullYear()} All rights reserved.
   `.trim();
 }
 
