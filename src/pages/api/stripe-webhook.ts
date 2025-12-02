@@ -13,22 +13,17 @@ import type { APIRoute } from 'astro';
 import Stripe from 'stripe';
 import { getDb } from '../../lib/firebase';
 import { Timestamp } from 'firebase-admin/firestore';
-import { Resend } from 'resend';
+import { sendGuestEmail, sendOwnerNotification, GOELITE_INBOX } from '../../lib/emailRouting';
 
 export const prerender = false;
 
 const STRIPE_SECRET_KEY = import.meta.env.STRIPE_SECRET_KEY;
 const STRIPE_WEBHOOK_SECRET = import.meta.env.STRIPE_WEBHOOK_SECRET;
-const RESEND_API_KEY = import.meta.env.RESEND_API_KEY;
-const FROM_EMAIL = import.meta.env.FROM_EMAIL || 'bookings@goelite.studio';
-const OWNER_EMAIL = import.meta.env.OWNER_EMAIL || 'reservations@domaine-desmontarels.com';
 
 // Initialize Stripe
 const stripe = STRIPE_SECRET_KEY ? new Stripe(STRIPE_SECRET_KEY, {
   apiVersion: '2025-11-17.clover',
 }) : null;
-
-const resend = RESEND_API_KEY ? new Resend(RESEND_API_KEY) : null;
 
 export const POST: APIRoute = async ({ request }) => {
   if (!stripe) {
@@ -212,20 +207,16 @@ async function sendPaymentConfirmationEmails(
     currency: string;
   }
 ) {
-  if (!resend) {
-    console.warn('[webhook] Resend not configured - skipping confirmation emails');
-    return;
-  }
-
   const villaName = listing?.name || 'Your Villa';
   const currencySymbol = getCurrencySymbol(payment.currency);
   const dateRange = `${inquiry.checkIn} → ${inquiry.checkOut}`;
 
   // Email to guest
   try {
-    await resend.emails.send({
-      from: FROM_EMAIL,
-      to: inquiry.guestEmail,
+    await sendGuestEmail({
+      listing,
+      toEmail: inquiry.guestEmail,
+      replyTo: GOELITE_INBOX,
       subject: `Booking Confirmed! ${villaName} - ${dateRange}`,
       html: `
 <!DOCTYPE html>
@@ -271,17 +262,19 @@ async function sendPaymentConfirmationEmails(
 </body>
 </html>
       `.trim(),
+      text: `Booking Confirmed!\n\nDear ${inquiry.guestName},\n\nYour payment has been received and your booking is now confirmed!\n\n${villaName}\nCheck-in: ${inquiry.checkIn}\nCheck-out: ${inquiry.checkOut}\nGuests: ${inquiry.partySize}\nTotal Paid: ${currencySymbol}${payment.totalAmount.toLocaleString()}\nBooking Reference: ${payment.bookingId}\n\nWe'll send you detailed arrival instructions closer to your check-in date.\n\nWe can't wait to welcome you!`,
     });
     console.log('[webhook] Guest confirmation email sent');
   } catch (err) {
     console.error('[webhook] Failed to send guest email:', err);
   }
 
-  // Email to owner
+  // Email to owner (via Go Elite inbox with BCC to owner)
   try {
-    await resend.emails.send({
-      from: FROM_EMAIL,
-      to: OWNER_EMAIL,
+    await sendOwnerNotification({
+      listing,
+      ownerEmail: inquiry.ownerEmailSnapshot || null,
+      guestEmail: inquiry.guestEmail,
       subject: `💰 Payment Received! ${inquiry.guestName} - ${dateRange}`,
       html: `
 <!DOCTYPE html>
@@ -326,6 +319,7 @@ async function sendPaymentConfirmationEmails(
 </body>
 </html>
       `.trim(),
+      text: `Payment Received!\n\n${inquiry.guestName}\nVilla: ${villaName}\nDates: ${dateRange}\nGuests: ${inquiry.partySize}\n\nTotal Charged: ${currencySymbol}${payment.totalAmount.toLocaleString()}\nPlatform Fee (${listing?.commissionPercent || 10}%): ${currencySymbol}${payment.platformFeeAmount.toLocaleString()}\nYour Payout: ${currencySymbol}${payment.ownerAmount.toLocaleString()}\n\nGuest Email: ${inquiry.guestEmail}\nBooking Ref: ${payment.bookingId}\n\nPayout will be transferred to your connected Stripe account within 2-7 business days.`,
     });
     console.log('[webhook] Owner confirmation email sent');
   } catch (err) {

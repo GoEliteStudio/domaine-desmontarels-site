@@ -1,11 +1,11 @@
-import type { APIRoute } from 'astro';
-import { Resend } from 'resend';
+﻿import type { APIRoute } from 'astro';
 import { sendClientReceipt } from '../../lib/clientReceipt';
 import { ownerNoticeHtml, ownerNoticeText } from '../../lib/ownerNotice';
-import { createInquiry, getListingBySlug } from '../../lib/firestore/collections';
+import { createInquiry, getListingBySlug, getOwnerById } from '../../lib/firestore/collections';
 import type { InquiryOrigin, Listing } from '../../lib/firestore/types';
 import { generateApproveUrl, generateDeclineUrl } from '../../lib/signing';
 import { calculateQuote, getDefaultPricing } from '../../lib/pricing';
+import { sendOwnerNotification, resolveOwnerEmail } from '../../lib/emailRouting';
 
 type InquireBody = {
   fullName?: string;
@@ -72,25 +72,8 @@ export const POST: APIRoute = async ({ request }) => {
     if (!data.checkIn && data.checkInDate) data.checkIn = data.checkInDate;
     if (!data.checkOut && data.checkOutDate) data.checkOut = data.checkOutDate;
 
-    // DEBUG: Log received form data
-    console.log('=== FORM DATA RECEIVED ===');
-    console.log('fullName:', data.fullName);
-    console.log('email:', data.email);
-    console.log('checkIn:', data.checkIn);
-    console.log('checkOut:', data.checkOut);
-    console.log('__ts:', (data as any).__ts);
-    console.log('slug:', data.slug, 'villa:', data.villa);
-    console.log('Content-Type:', request.headers.get('content-type'));
-    console.log('Raw data keys:', Object.keys(data));
-    console.log('=========================');
-
     // Honeypot (bot) check — pretend success silently
-    // Using obscure field names to avoid browser autofill (xfield_a, xfield_b, xfield_c)
-    const hp_a = (data as any).xfield_a || data.company; // fallback for old forms
-    const hp_b = (data as any).xfield_b || data.website;
-    const hp_c = (data as any).xfield_c || data.hpt;
-    if (required(hp_a) || required(hp_b) || required(hp_c)) {
-      console.log('Honeypot triggered - silent success', { hp_a, hp_b, hp_c });
+    if (required(data.company) || required(data.website) || required(data.hpt)) {
       return new Response(JSON.stringify({ ok: true }), { status: 200 });
     }
 
@@ -98,10 +81,8 @@ export const POST: APIRoute = async ({ request }) => {
     const now = Date.now();
     const started = Number((data as any).__ts || 0);
     const dwellMs = Number.isFinite(started) ? now - started : 0;
-    console.log('Timing check - dwellMs:', dwellMs, 'started:', started, 'now:', now);
     if (!started || dwellMs < 3000) {
       // Silent success: do not send emails; return OK so bots don't probe
-      console.log('Timing gate blocked - dwellMs:', dwellMs);
       return new Response(JSON.stringify({ ok: true }), { status: 200 });
     }
 
@@ -112,15 +93,6 @@ export const POST: APIRoute = async ({ request }) => {
     if (!required(data.checkIn)) errors.checkIn = 'Required';
     if (!required(data.checkOut)) errors.checkOut = 'Required';
     if (Object.keys(errors).length) {
-      // For HTML form submissions, redirect back with error
-      const accept = (request.headers.get('accept') || '').toLowerCase();
-      if (accept.includes('text/html')) {
-        const formLang = data.lang || 'en';
-        const formSlug = data.slug || data.villa || 'domaine-des-montarels';
-        const errorUrl = new URL(`/villas/${formSlug}/${formLang}/`, request.url);
-        errorUrl.searchParams.set('error', 'validation');
-        return Response.redirect(errorUrl.toString(), 303);
-      }
       return new Response(JSON.stringify({ ok: false, errors }), { status: 400, headers: { 'Content-Type': 'application/json' } });
     }
 
@@ -139,26 +111,29 @@ export const POST: APIRoute = async ({ request }) => {
       ip: request.headers.get('x-forwarded-for') || undefined
     };
 
-    // Villa context
+    // Villa context + language detection (do this early so we can use lang in Firestore)
     const slug = data.slug || data.villa || 'domaine-des-montarels';
     const origin: InquiryOrigin = data.origin || 'villa_site';
+    const lang = data.lang ? (data.lang as 'en' | 'fr' | 'es') : detectLang(request);
 
-    // Try to persist inquiry to Firestore (non-blocking for email flow)
+    // Look up listing ONCE (avoid duplicate Firestore reads)
+    let listing: Listing | null = null;
+    try {
+      listing = await getListingBySlug(slug);
+    } catch (e) {
+      console.warn('[inquire] Listing lookup failed:', e);
+    }
+
+    // Resolve owner email from Firestore (or fallback)
+    const ownerEmail = await resolveOwnerEmail(listing, getOwnerById);
+
+    // Persist inquiry to Firestore
     let inquiryId: string | undefined;
-    let listingId: string | undefined;
-    
-    console.log('[inquire] Starting Firestore operations for slug:', slug);
     
     try {
-      // Look up listing by slug
-      const listing = await getListingBySlug(slug);
-      listingId = listing?.id;
-      console.log('[inquire] Listing lookup result:', { slug, found: !!listing, listingId });
-      
-      // Create inquiry in Firestore
-      // Note: Firestore doesn't accept undefined values, so we use conditional spreading
-      const inquiryData: Parameters<typeof createInquiry>[0] = {
-        listingId: listingId || slug,
+      // Build inquiry data - only include defined values (Firestore rejects undefined)
+      const inquiryData: Record<string, any> = {
+        listingId: listing?.id || slug,
         guestName: payload.fullName,
         guestEmail: payload.email,
         checkIn: payload.checkIn,
@@ -167,47 +142,34 @@ export const POST: APIRoute = async ({ request }) => {
         origin,
         status: 'pending_owner',
         currency: listing?.baseCurrency || 'EUR',
+        lang,
+        ownerEmailSnapshot: ownerEmail,
       };
-      
       // Only add optional fields if they have values
       if (payload.phone) inquiryData.guestPhone = payload.phone;
       if (payload.notes) inquiryData.message = payload.notes;
       if (payload.occasion) inquiryData.occasion = payload.occasion;
       
-      const inquiry = await createInquiry(inquiryData);
+      const inquiry = await createInquiry(inquiryData as any);
       inquiryId = inquiry.id;
-      console.log('[inquire] Firestore inquiry created:', { inquiryId, listingId, slug });
-    } catch (firestoreErr: any) {
-      // Log the actual error message so we can debug
-      const errMsg = firestoreErr?.message || String(firestoreErr);
-      console.error('[inquire] Firestore FAILED:', errMsg);
-      console.error('[inquire] Full error:', JSON.stringify(firestoreErr, Object.getOwnPropertyNames(firestoreErr)));
+      console.log('[inquire] Firestore inquiry created:', { inquiryId, slug, lang });
+    } catch (firestoreErr) {
+      // Log but don't fail - email flow should still work
+      console.warn('[inquire] Firestore write failed (continuing with email):', firestoreErr);
     }
 
-    // Env
-    const RESEND_API_KEY = import.meta.env.RESEND_API_KEY || process.env.RESEND_API_KEY;
-    const OWNER_EMAIL = import.meta.env.OWNER_EMAIL || process.env.OWNER_EMAIL || 'reservations@domaine-desmontarels.com';
-    // Use verified domain sender to maximize deliverability
-    const FROM_EMAIL = import.meta.env.FROM_EMAIL || process.env.FROM_EMAIL || 'contact@visaiq.co';
     // Base URL for action links
     const SITE_URL = import.meta.env.SITE_URL || import.meta.env.PUBLIC_SITE_URL || 'https://domaine-desmontarels-site.vercel.app';
-
-    const lang = detectLang(request);
     const tag = lang === 'fr' ? '[FR]' : lang === 'es' ? '[ES]' : '[EN]';
     const subject = `${tag} New Inquiry — ${payload.fullName} (${payload.checkIn} → ${payload.checkOut})`;
 
-    // Calculate proposed quote (owner will confirm/adjust)
+    // Calculate proposed quote (using listing we already fetched)
     let quoteAmount: number | undefined;
-    let currency: string = 'EUR';
-    let listing: Listing | null = null;
+    let currency: string = listing?.baseCurrency || 'EUR';
     
-    try {
-      listing = await getListingBySlug(slug);
-      console.log('[inquire] Listing lookup:', { slug, found: !!listing, listingId: listing?.id });
-      
-      if (listing) {
-        currency = listing.baseCurrency;
-        const pricing = getDefaultPricing(listing);
+    if (listing) {
+      try {
+        const pricing = getDefaultPricing(listing); // TODO: Load from Firestore pricing collection
         const quote = calculateQuote(
           pricing,
           payload.checkIn,
@@ -215,40 +177,19 @@ export const POST: APIRoute = async ({ request }) => {
           payload.adults + payload.children
         );
         quoteAmount = quote.total;
-        console.log('[inquire] Quote calculated:', { quoteAmount, currency, nights: quote.nights });
-      } else {
-        // Fallback: use default pricing if listing not found
-        // This ensures owner emails always have action buttons
-        console.warn('[inquire] Listing not found, using fallback pricing for slug:', slug);
-        const fallbackPricing = getDefaultPricing(null);
-        const quote = calculateQuote(
-          fallbackPricing,
-          payload.checkIn,
-          payload.checkOut,
-          payload.adults + payload.children
-        );
-        quoteAmount = quote.total;
-        console.log('[inquire] Fallback quote:', { quoteAmount, currency });
+      } catch (pricingErr) {
+        console.warn('[inquire] Quote calculation failed:', pricingErr);
       }
-    } catch (pricingErr) {
-      console.warn('[inquire] Quote calculation failed:', pricingErr);
-      // Last resort: provide a placeholder quote so buttons still appear
-      // Owner will adjust the actual price
-      quoteAmount = 0;
     }
 
-    // Generate signed action URLs (if we have an inquiry ID)
+    // Generate signed action URLs (always if we have an inquiry ID - owner can set price)
     let approveUrl: string | undefined;
     let declineUrl: string | undefined;
     
     if (inquiryId) {
-      // Always generate URLs if we have an inquiry ID
-      // quoteAmount can be 0 (owner will set final price)
+      // Use quote amount if available, otherwise 0 (owner will set final price)
       approveUrl = generateApproveUrl(SITE_URL, inquiryId, quoteAmount || 0, currency);
       declineUrl = generateDeclineUrl(SITE_URL, inquiryId);
-      console.log('[inquire] Action URLs generated:', { approveUrl: !!approveUrl, declineUrl: !!declineUrl, SITE_URL });
-    } else {
-      console.warn('[inquire] No inquiry ID - action URLs not generated');
     }
 
     const html = ownerNoticeHtml({
@@ -270,42 +211,36 @@ export const POST: APIRoute = async ({ request }) => {
       villaName: listing?.name,
     });
 
-    if (!RESEND_API_KEY) {
-      console.log('[inquire] (NOOP) Would send email:', { to: OWNER_EMAIL, from: FROM_EMAIL, subject, payload });
-      return new Response(JSON.stringify({ ok: true, preview: true }), { status: 200, headers: { 'Content-Type': 'application/json' } });
-    }
-
-    const resend = new Resend(RESEND_API_KEY);
-    // Internal notification (owner only)
-    const sendResult = await resend.emails.send({
-      from: `Domaine des Montarels <${FROM_EMAIL}>`,
-      to: OWNER_EMAIL,
+    // Send owner notification (to Go Elite inbox, BCC owner)
+    const sendResult = await sendOwnerNotification({
+      listing,
+      ownerEmail,
+      guestEmail: payload.email,
       subject,
       html,
       text,
-      reply_to: payload.email
     });
 
-    if ((sendResult as any).error) {
-      console.error('[inquire] Resend error:', (sendResult as any).error);
+    if (!sendResult.ok && !sendResult.preview) {
+      console.error('[inquire] Owner notification failed:', sendResult.error);
       return new Response(JSON.stringify({ ok: false, error: 'Email send failed' }), { status: 500, headers: { 'Content-Type': 'application/json' } });
     }
 
-    const id = (sendResult as any)?.data?.id || (sendResult as any)?.id || undefined;
-    console.log('[inquire] Owner email sent', { id, to: OWNER_EMAIL });
+    console.log('[inquire] Owner notification sent:', { id: sendResult.id, preview: sendResult.preview });
 
     // Send branded client receipt (non-blocking)
+    // This is the ONLY guest email - no duplicate sendGuestEmail call
     (async () => {
       try {
         await sendClientReceipt({
-          apiKey: RESEND_API_KEY!,
-          from: 'Domaine des Montarels <contact@visaiq.co>', // verified sender domain
-          replyTo: OWNER_EMAIL,
+          villaSlug: slug,
+          villaName: listing?.name,
+          replyTo: ownerEmail,
           to: payload.email,
           data: payload as any,
           lang
         });
-        console.log('[inquire] Client receipt sent', { to: payload.email });
+        console.log('[inquire] Client receipt sent:', { to: payload.email, villa: slug });
       } catch (e) {
         console.warn('[inquire] Client receipt failed:', (e as any)?.message || e);
       }
@@ -322,7 +257,7 @@ export const POST: APIRoute = async ({ request }) => {
       return Response.redirect(ty.toString(), 303);
     }
 
-    return new Response(JSON.stringify({ ok: true, id, inquiryId }), { status: 200, headers: { 'Content-Type': 'application/json' } });
+    return new Response(JSON.stringify({ ok: true, emailId: sendResult.id, inquiryId }), { status: 200, headers: { 'Content-Type': 'application/json' } });
   } catch (err) {
     console.error('[inquire] Fatal error:', err);
     return new Response(JSON.stringify({ ok: false, error: 'Internal error' }), { status: 500, headers: { 'Content-Type': 'application/json' } });

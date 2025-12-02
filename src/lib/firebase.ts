@@ -9,33 +9,14 @@ export function getDb(): Firestore {
 
   const projectId = import.meta.env.FIREBASE_PROJECT_ID;
   const clientEmail = import.meta.env.FIREBASE_CLIENT_EMAIL;
-  let rawPrivateKey = import.meta.env.FIREBASE_PRIVATE_KEY;
+  const rawPrivateKey = import.meta.env.FIREBASE_PRIVATE_KEY;
 
   if (!projectId || !clientEmail || !rawPrivateKey) {
-    console.error('[firebase] Missing env vars:', { 
-      hasProjectId: !!projectId, 
-      hasClientEmail: !!clientEmail, 
-      hasPrivateKey: !!rawPrivateKey 
-    });
     throw new Error('Missing Firebase environment variables');
   }
 
-  // Handle various formats of the private key:
-  // 1. Escaped \n from .env file
-  // 2. Real newlines from Vercel env vars
-  // 3. Wrapped in quotes
-  let privateKey = rawPrivateKey
-    .replace(/\\n/g, '\n')  // Convert escaped \n to real newlines
-    .replace(/^["']|["']$/g, '')  // Remove wrapping quotes if present
-    .trim();
-
-  // Validate key format
-  if (!privateKey.includes('-----BEGIN PRIVATE KEY-----')) {
-    console.error('[firebase] Invalid private key format - missing BEGIN marker');
-    throw new Error('Invalid Firebase private key format');
-  }
-
-  console.log('[firebase] Initializing with project:', projectId);
+  // Convert escaped \n in the .env value back to real newlines
+  const privateKey = rawPrivateKey.replace(/\\n/g, '\n');
 
   const app = getApps().length
     ? getApp()
@@ -48,6 +29,5 @@ export function getDb(): Firestore {
       });
 
   dbInstance = getFirestore(app);
-  console.log('[firebase] Firestore initialized successfully');
   return dbInstance;
 }

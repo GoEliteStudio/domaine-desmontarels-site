@@ -231,10 +231,10 @@ export function getCurrencySymbol(currency: string): string {
  * Default pricing for villas without specific config
  * Used as fallback - owner should always review
  */
-export function getDefaultPricing(listing: Listing | null): ListingPricing {
+export function getDefaultPricing(listing: Listing): ListingPricing {
   return {
-    listingId: listing?.id || 'unknown',
-    currency: listing?.baseCurrency || 'EUR',
+    listingId: listing.id,
+    currency: listing.baseCurrency,
     lowSeasonRate: 500,
     highSeasonRate: 800,
     peakSeasonRate: 1200,

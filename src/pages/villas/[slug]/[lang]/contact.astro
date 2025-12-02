@@ -143,11 +143,11 @@ const trust = trustItems[lang] || trustItems.en;
           data-lang={lang}
           data-load-time={formLoadTime}
         >
-          <!-- Honeypot fields (hidden from humans, use obscure names to prevent autofill) -->
+          <!-- Honeypot fields (hidden from humans) -->
           <div class="hp-field" aria-hidden="true">
-            <input type="text" name="xfield_a" tabindex="-1" autocomplete="new-password" />
-            <input type="text" name="xfield_b" tabindex="-1" autocomplete="new-password" />
-            <input type="text" name="xfield_c" tabindex="-1" autocomplete="new-password" />
+            <input type="text" name="company" tabindex="-1" autocomplete="off" />
+            <input type="text" name="website" tabindex="-1" autocomplete="off" />
+            <input type="text" name="hpt" tabindex="-1" autocomplete="off" />
           </div>
           <input type="hidden" name="dwellStart" value={formLoadTime} />
           <input type="hidden" name="villa" value={slug} />

@@ -14,7 +14,7 @@ import Stripe from 'stripe';
 import { parseAndVerifyAction, type ApproveParams, type DeclineParams } from '../../lib/signing';
 import { getDb } from '../../lib/firebase';
 import { Timestamp } from 'firebase-admin/firestore';
-import { Resend } from 'resend';
+import { sendGuestEmail, GOELITE_INBOX } from '../../lib/emailRouting';
 
 export const prerender = false;
 
@@ -24,12 +24,6 @@ const SITE_URL = import.meta.env.SITE_URL || 'https://domaine-desmontarels-site.
 const stripe = STRIPE_SECRET_KEY ? new Stripe(STRIPE_SECRET_KEY, {
   apiVersion: '2025-11-17.clover',
 }) : null;
-
-const resend = import.meta.env.RESEND_API_KEY 
-  ? new Resend(import.meta.env.RESEND_API_KEY)
-  : null;
-
-const FROM_EMAIL = import.meta.env.FROM_EMAIL || 'bookings@goelite.studio';
 
 export const GET: APIRoute = async ({ request }) => {
   const url = new URL(request.url);
@@ -113,21 +107,16 @@ async function handleApprove(
 
   // Get listing info for Stripe product name
   let listingName = 'Villa Booking';
-  let listingSlug = 'casa-de-la-muralla'; // Default fallback
+  let listingSlug = 'villa';
   
-  // Try to get slug from listingId first (it should be the slug)
   if (inquiry.listingId) {
-    listingSlug = inquiry.listingId;
     const listingSnap = await db.collection('listings').doc(inquiry.listingId).get();
     if (listingSnap.exists) {
       const listing = listingSnap.data()!;
       listingName = listing.name || listingName;
-      if (listing.slug) listingSlug = listing.slug;
+      listingSlug = listing.slug || listingSlug;
     }
   }
-  
-  // Ensure slug is URL-safe (no special chars)
-  listingSlug = listingSlug.replace(/[^a-zA-Z0-9-]/g, '-').toLowerCase();
 
   // Calculate nights for description
   const checkIn = new Date(inquiry.checkIn);
@@ -138,38 +127,6 @@ async function handleApprove(
   // Create Stripe Checkout Session
   let checkoutUrl: string | null = null;
   
-  // Log raw SITE_URL for debugging
-  console.log('[owner-action] Raw SITE_URL from env:', JSON.stringify(SITE_URL));
-  
-  // Ensure SITE_URL is valid - must be a proper https URL
-  let siteUrl = (SITE_URL || '').trim().replace(/\/$/, ''); // Remove trailing slash if any
-  
-  // Validate it's a proper URL
-  if (!siteUrl.startsWith('https://')) {
-    console.error('[owner-action] Invalid SITE_URL, using fallback:', siteUrl);
-    siteUrl = 'https://domaine-desmontarels-site-git-feature-mu-99df38-go-elite-studio.vercel.app';
-  }
-  
-  // Build URLs and validate them
-  const successUrl = `${siteUrl}/villas/${listingSlug}/en/thank-you?payment=success&ref=${inquiryId}`;
-  const cancelUrl = `${siteUrl}/villas/${listingSlug}/en/contact?payment=cancelled&ref=${inquiryId}`;
-  
-  // Validate URLs are properly formed
-  try {
-    new URL(successUrl);
-    new URL(cancelUrl);
-  } catch (urlError) {
-    console.error('[owner-action] URL validation failed:', { successUrl, cancelUrl, error: urlError });
-  }
-  
-  console.log('[owner-action] Stripe URLs:', { 
-    siteUrl,
-    listingSlug,
-    successUrl,
-    cancelUrl,
-    SITE_URL_raw: SITE_URL
-  });
-
   if (stripe) {
     try {
       const session = await stripe.checkout.sessions.create({
@@ -198,9 +155,9 @@ async function handleApprove(
           checkOut: inquiry.checkOut,
           partySize: String(inquiry.partySize),
         },
-        success_url: successUrl,
-        cancel_url: cancelUrl,
-        expires_at: Math.floor(Date.now() / 1000) + (23 * 60 * 60), // 23 hours (Stripe max is 24)
+        success_url: `${SITE_URL}/villas/${listingSlug}/en/thank-you?payment=success&ref=${inquiryId}`,
+        cancel_url: `${SITE_URL}/villas/${listingSlug}/en/contact?payment=cancelled&ref=${inquiryId}`,
+        expires_at: Math.floor(Date.now() / 1000) + (72 * 60 * 60), // 72 hours
       });
 
       checkoutUrl = session.url;
@@ -220,18 +177,17 @@ async function handleApprove(
   }
   
   // Send email to guest with payment link
-  if (resend) {
-    try {
-      await resend.emails.send({
-        from: FROM_EMAIL,
-        to: inquiry.guestEmail,
-        subject: `Great News! Your Stay is Confirmed - Complete Your Booking`,
-        html: renderGuestApprovalEmail(inquiry, params, checkoutUrl),
-        text: renderGuestApprovalEmailText(inquiry, params, checkoutUrl),
-      });
-    } catch (emailError) {
-      console.error('Failed to send guest approval email:', emailError);
-    }
+  try {
+    await sendGuestEmail({
+      listing: null, // We don't have listing object here, will use default branding
+      toEmail: inquiry.guestEmail,
+      replyTo: GOELITE_INBOX,
+      subject: `Great News! Your Stay is Confirmed - Complete Your Booking`,
+      html: renderGuestApprovalEmail(inquiry, params, checkoutUrl),
+      text: renderGuestApprovalEmailText(inquiry, params, checkoutUrl),
+    });
+  } catch (emailError) {
+    console.error('Failed to send guest approval email:', emailError);
   }
   
   const paymentNote = checkoutUrl 
@@ -271,18 +227,17 @@ async function handleDecline(
   });
   
   // Send polite decline email to guest
-  if (resend) {
-    try {
-      await resend.emails.send({
-        from: FROM_EMAIL,
-        to: inquiry.guestEmail,
-        subject: `Update on Your Inquiry`,
-        html: renderGuestDeclineEmail(inquiry),
-        text: renderGuestDeclineEmailText(inquiry),
-      });
-    } catch (emailError) {
-      console.error('Failed to send guest decline email:', emailError);
-    }
+  try {
+    await sendGuestEmail({
+      listing: null, // We don't have listing object here, will use default branding
+      toEmail: inquiry.guestEmail,
+      replyTo: GOELITE_INBOX,
+      subject: `Update on Your Inquiry`,
+      html: renderGuestDeclineEmail(inquiry),
+      text: renderGuestDeclineEmailText(inquiry),
+    });
+  } catch (emailError) {
+    console.error('Failed to send guest decline email:', emailError);
   }
   
   return new Response(renderSuccessPage('Inquiry Declined',
@@ -309,7 +264,7 @@ function renderGuestApprovalEmail(inquiry: any, params: ApproveParams, paymentUr
         <a href="${paymentUrl}" style="display: inline-block; background: #2d7d46; color: #fff; text-decoration: none; padding: 16px 40px; border-radius: 8px; font-size: 18px; font-weight: 600;">
           Complete Payment →
         </a>
-        <p style="margin-top: 12px; font-size: 14px; color: #666;">Payment link expires in 24 hours</p>
+        <p style="margin-top: 12px; font-size: 14px; color: #666;">Payment link expires in 72 hours</p>
       </div>
   ` : `
       <p><strong>Next Step:</strong> We'll send you a secure payment link shortly to complete your booking.</p>
@@ -364,7 +319,7 @@ function renderGuestApprovalEmail(inquiry: any, params: ApproveParams, paymentUr
 function renderGuestApprovalEmailText(inquiry: any, params: ApproveParams, paymentUrl: string | null): string {
   const symbol = getCurrencySymbol(params.currency);
   const paymentSection = paymentUrl 
-    ? `COMPLETE YOUR BOOKING\n---------------------\nClick here to pay securely: ${paymentUrl}\n(Link expires in 24 hours)`
+    ? `COMPLETE YOUR BOOKING\n---------------------\nClick here to pay securely: ${paymentUrl}\n(Link expires in 72 hours)`
     : `NEXT STEP\n---------\nWe'll send you a secure payment link shortly to complete your booking.`;
   
   return `

@@ -86,6 +86,10 @@ export interface Inquiry {
   status: InquiryStatus;
   currency: string;       // "USD", "EUR", "GBP", etc.
   quoteAmount?: number;   // owner-specified price (set during approval)
+  lang?: string;          // requested language for comms (en|es|fr)
+  ownerEmailSnapshot?: string;  // owner email at time of inquiry (for audit trail)
+  approvedAt?: Timestamp;       // when owner approved
+  declinedAt?: Timestamp;       // when owner declined
   createdAt: Timestamp;
   updatedAt: Timestamp;
 }
