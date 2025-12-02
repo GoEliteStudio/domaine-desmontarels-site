@@ -157,7 +157,7 @@ async function handleApprove(
         },
         success_url: `${SITE_URL}/villas/${listingSlug}/en/thank-you?payment=success&ref=${inquiryId}`,
         cancel_url: `${SITE_URL}/villas/${listingSlug}/en/contact?payment=cancelled&ref=${inquiryId}`,
-        expires_at: Math.floor(Date.now() / 1000) + (72 * 60 * 60), // 72 hours
+        expires_at: Math.floor(Date.now() / 1000) + (23 * 60 * 60), // 23 hours (Stripe max is 24h)
       });
 
       checkoutUrl = session.url;
