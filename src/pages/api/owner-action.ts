@@ -109,6 +109,7 @@ async function handleApprove(
   let listingName = 'Villa Booking';
   let listingSlug = 'villa';
   let listing: any = null;
+  let ownerEmail: string | null = null;
   
   if (inquiry.listingId) {
     const listingSnap = await db.collection('listings').doc(inquiry.listingId).get();
@@ -116,6 +117,14 @@ async function handleApprove(
       listing = listingSnap.data()!;
       listingName = listing.name || listingName;
       listingSlug = listing.slug || listingSlug;
+      
+      // Fetch owner email for reply-to
+      if (listing.ownerId) {
+        const ownerSnap = await db.collection('owners').doc(listing.ownerId).get();
+        if (ownerSnap.exists) {
+          ownerEmail = ownerSnap.data()?.email || null;
+        }
+      }
     }
   }
 
@@ -184,7 +193,7 @@ async function handleApprove(
     await sendGuestEmail({
       listing: listing, // Pass listing for villa-branded "From" name
       toEmail: inquiry.guestEmail,
-      replyTo: PUBLIC_REPLY_TO,  // Professional public email, not internal inbox
+      replyTo: ownerEmail || undefined,  // Guest replies go to owner (you're BCC'd via sendGuestEmail)
       subject: t.subject(listingName),
       html: renderGuestApprovalEmail(inquiry, params, checkoutUrl, listingName),
       text: renderGuestApprovalEmailText(inquiry, params, checkoutUrl, listingName),
@@ -233,12 +242,21 @@ async function handleDecline(
   // Get listing info for email branding
   let listing: any = null;
   let villaName = 'LoveThisPlace';
+  let ownerEmail: string | null = null;
   
   if (inquiry.listingId) {
     const listingSnap = await db.collection('listings').doc(inquiry.listingId).get();
     if (listingSnap.exists) {
       listing = listingSnap.data()!;
       villaName = listing.name || villaName;
+      
+      // Fetch owner email for reply-to
+      if (listing.ownerId) {
+        const ownerSnap = await db.collection('owners').doc(listing.ownerId).get();
+        if (ownerSnap.exists) {
+          ownerEmail = ownerSnap.data()?.email || null;
+        }
+      }
     }
   }
   
@@ -249,7 +267,7 @@ async function handleDecline(
     await sendGuestEmail({
       listing,
       toEmail: inquiry.guestEmail,
-      replyTo: PUBLIC_REPLY_TO,  // Professional public email, not internal inbox
+      replyTo: ownerEmail || undefined,  // Guest replies go to owner (you're BCC'd via sendGuestEmail)
       subject: t.subject(villaName),
       html: renderGuestDeclineEmail(inquiry, villaName),
       text: renderGuestDeclineEmailText(inquiry, villaName),
