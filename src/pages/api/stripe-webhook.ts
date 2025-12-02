@@ -13,7 +13,7 @@ import type { APIRoute } from 'astro';
 import Stripe from 'stripe';
 import { getDb } from '../../lib/firebase';
 import { Timestamp } from 'firebase-admin/firestore';
-import { sendGuestEmail, sendOwnerNotification, GOELITE_INBOX } from '../../lib/emailRouting';
+import { sendGuestEmail, sendOwnerNotification, PUBLIC_REPLY_TO } from '../../lib/emailRouting';
 
 export const prerender = false;
 
@@ -216,7 +216,7 @@ async function sendPaymentConfirmationEmails(
     await sendGuestEmail({
       listing,
       toEmail: inquiry.guestEmail,
-      replyTo: GOELITE_INBOX,
+      replyTo: PUBLIC_REPLY_TO,  // Professional public email, not internal inbox
       subject: `Booking Confirmed! ${villaName} — ${dateRange}`,
       html: `<!DOCTYPE html>
 <html lang="en">

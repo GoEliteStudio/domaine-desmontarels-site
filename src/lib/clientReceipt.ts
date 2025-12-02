@@ -1,5 +1,5 @@
 import { sendEmail } from './emailService';
-import { GOELITE_INBOX } from './emailRouting';
+import { GOELITE_INBOX, PUBLIC_REPLY_TO } from './emailRouting';
 
 /**
  * Villa-specific branding configuration

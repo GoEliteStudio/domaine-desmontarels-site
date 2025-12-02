@@ -2,23 +2,32 @@
  * Centralized Email Routing for Go Elite Villa Engine
  * 
  * Architecture:
- * - All inquiry emails go to GOELITE_INBOX (primary)
+ * - All inquiry emails go to GOELITE_INBOX (primary) - INTERNAL ONLY
  * - Owner is BCC'd (so they get notified but can't reply-all to guest)
- * - Guest emails BCC Go Elite (so we see what went out)
+ * - Guest emails show professional reply-to (bookings@lovethisplace.co)
  * - Firestore Inquiry is the source of truth, email is notification only
  * 
  * IMPORTANT: Uses Brevo/nodemailer via emailService.ts ONLY.
  * No Resend usage anywhere in this project.
+ * 
+ * CRITICAL: GOELITE_INBOX should NEVER be visible to guests or owners.
+ * Use PUBLIC_REPLY_TO for any customer-facing reply-to headers.
  */
 
 import { sendEmail } from './emailService';
 import type { Listing } from './firestore/types';
 
 // Environment configuration
+// GOELITE_INBOX is INTERNAL ONLY - never expose to customers
 const GOELITE_INBOX = process.env.GOELITE_INBOX || import.meta.env.GOELITE_INBOX || 'inquiries@goelite.studio';
 const FROM_EMAIL = process.env.FROM_EMAIL || import.meta.env.FROM_EMAIL || 'bookings@lovethisplace.co';
 const FROM_NAME = process.env.FROM_NAME || import.meta.env.FROM_NAME || 'LoveThisPlace';
 const OWNER_FALLBACK_EMAIL = process.env.OWNER_FALLBACK_EMAIL || import.meta.env.OWNER_FALLBACK_EMAIL || GOELITE_INBOX;
+
+// PUBLIC reply-to for guest-facing emails - this is what customers see
+const PUBLIC_REPLY_TO = process.env.PUBLIC_REPLY_TO || import.meta.env.PUBLIC_REPLY_TO || 'bookings@lovethisplace.co';
+
+export { GOELITE_INBOX, PUBLIC_REPLY_TO };
 
 export interface EmailResult {
   ok: boolean;
@@ -107,14 +116,13 @@ export async function sendOwnerNotification(opts: {
  * 
  * Routing:
  * - TO: Guest
- * - BCC: Go Elite inbox (so we see what went out)
- * - REPLY-TO: Owner or central inbox
+ * - BCC: Go Elite inbox (so we see what went out) - INTERNAL ONLY
+ * - REPLY-TO: Public booking email (NEVER internal inbox)
  * 
  * @example
  * await sendGuestEmail({
  *   listing,
  *   toEmail: 'guest@example.com',
- *   replyTo: 'owner@villa.com',
  *   subject: 'Your booking is confirmed!',
  *   html: '...',
  *   text: '...',
@@ -123,7 +131,7 @@ export async function sendOwnerNotification(opts: {
 export async function sendGuestEmail(opts: {
   listing: Listing | null;
   toEmail: string;
-  replyTo?: string;
+  replyTo?: string;  // Optional override, defaults to PUBLIC_REPLY_TO
   subject: string;
   html: string;
   text: string;
@@ -133,11 +141,11 @@ export async function sendGuestEmail(opts: {
   try {
     const result = await sendEmail({
       to: opts.toEmail,
-      bcc: GOELITE_INBOX,  // We always see what guest received
+      bcc: GOELITE_INBOX,  // We always see what guest received - INTERNAL
       subject: opts.subject,
       html: opts.html,
       text: opts.text,
-      replyTo: opts.replyTo || GOELITE_INBOX,
+      replyTo: opts.replyTo || PUBLIC_REPLY_TO,  // NEVER show internal email to guests
       fromEmail: FROM_EMAIL,
       fromName: brandName,
     });
@@ -155,5 +163,5 @@ export async function sendGuestEmail(opts: {
   }
 }
 
-// Export constants for use in other modules
-export { GOELITE_INBOX, FROM_EMAIL, FROM_NAME, OWNER_FALLBACK_EMAIL };
+// Export remaining constants for use in other modules
+export { FROM_EMAIL, FROM_NAME, OWNER_FALLBACK_EMAIL };

@@ -14,7 +14,7 @@ import Stripe from 'stripe';
 import { parseAndVerifyAction, type ApproveParams, type DeclineParams } from '../../lib/signing';
 import { getDb } from '../../lib/firebase';
 import { Timestamp } from 'firebase-admin/firestore';
-import { sendGuestEmail, GOELITE_INBOX } from '../../lib/emailRouting';
+import { sendGuestEmail, PUBLIC_REPLY_TO } from '../../lib/emailRouting';
 
 export const prerender = false;
 
@@ -182,7 +182,7 @@ async function handleApprove(
     await sendGuestEmail({
       listing: listing, // Pass listing for villa-branded "From" name
       toEmail: inquiry.guestEmail,
-      replyTo: GOELITE_INBOX,
+      replyTo: PUBLIC_REPLY_TO,  // Professional public email, not internal inbox
       subject: `${listingName} — Your Stay is Confirmed! Complete Your Booking`,
       html: renderGuestApprovalEmail(inquiry, params, checkoutUrl, listingName),
       text: renderGuestApprovalEmailText(inquiry, params, checkoutUrl, listingName),
@@ -245,7 +245,7 @@ async function handleDecline(
     await sendGuestEmail({
       listing,
       toEmail: inquiry.guestEmail,
-      replyTo: GOELITE_INBOX,
+      replyTo: PUBLIC_REPLY_TO,  // Professional public email, not internal inbox
       subject: `Update on Your Inquiry — ${villaName}`,
       html: renderGuestDeclineEmail(inquiry, villaName),
       text: renderGuestDeclineEmailText(inquiry, villaName),
