@@ -1,0 +1,909 @@
+---
+/**
+ * Customer-facing "About Your Website" page
+ * 
+ * This page is designed to be linked in emails to villa owners
+ * to explain what they're getting with their LoveThisPlace website.
+ * 
+ * Route: /villas/{slug}/{lang}/about
+ * Example: /villas/domaine-des-montarels/en/about
+ */
+import BaseLayout from '../../../../layouts/BaseLayout.astro';
+import { getUIStrings } from '../../../../config/uiStrings';
+import { VILLA_LANGUAGES, DEFAULT_LANG, getVillaBySlug } from '../../../../config/i18n';
+import { buildAuxPageSchema } from '../../../../lib/schema';
+
+export const prerender = true;
+
+export async function getStaticPaths() {
+  const paths = [];
+  for (const [slug, languages] of Object.entries(VILLA_LANGUAGES)) {
+    for (const lang of languages) {
+      paths.push({ params: { slug, lang } });
+    }
+  }
+  return paths;
+}
+
+// Get route params
+const { slug, lang } = Astro.params;
+
+// Validate villa exists (this is now mostly for safety, getStaticPaths handles valid combos)
+const validSlugs = Object.keys(VILLA_LANGUAGES);
+if (!slug || !validSlugs.includes(slug)) {
+  return Astro.redirect('/');
+}
+
+// Validate language
+const villaLangs = VILLA_LANGUAGES[slug] || ['en'];
+const validLang = villaLangs.includes(lang || '') ? lang : DEFAULT_LANG;
+
+// Load villa data
+let villa: any;
+try {
+  const villaModule = await import(`../../../../content/villas/${slug}.${validLang}.json`);
+  villa = villaModule.default;
+} catch {
+  try {
+    const fallbackModule = await import(`../../../../content/villas/${slug}.en.json`);
+    villa = fallbackModule.default;
+  } catch {
+    return Astro.redirect('/');
+  }
+}
+
+const ui = getUIStrings(validLang || 'en');
+const langBasePath = `/villas/${slug}/${validLang}`;
+const villaName = villa.name || 'Your Villa';
+const currentYear = new Date().getFullYear();
+
+// Page metadata
+const pageTitle = `About Your Website — ${villaName}`;
+const pageDescription = `Discover what's included in your ${villaName} website: world-class design, SEO optimization, direct booking system, and more.`;
+
+// Build schema for SEO
+const villaConfig = getVillaBySlug(slug);
+const siteBase = villaConfig?.domain ? `https://${villaConfig.domain}` : Astro.url.origin;
+const canonical = `${siteBase}/villas/${slug}/${validLang}/about`;
+const localeMap: Record<string, string> = { en: 'en-US', es: 'es-ES', fr: 'fr-FR' };
+
+const jsonLd = buildAuxPageSchema({
+  pageType: 'about',
+  pageTitle,
+  pageDescription,
+  canonical,
+  siteBase,
+  villaName,
+  slug: slug || '',
+  lang: validLang || 'en',
+  locale: localeMap[validLang || 'en'] || 'en-US'
+});
+
+
+// Footer links mapping for policy pages
+const villaFooter = {
+  ...ui.footer,
+  brandDescription: villa.summary || '',
+  exploreLinks: ui.footer.exploreLinks.map((link: { label: string; href: string }) => {
+    if (link.href.startsWith('#')) {
+      return { ...link, href: `${langBasePath}/${link.href}` };
+    }
+    return link;
+  }),
+  infoLinks: ui.footer.infoLinks.map((link: { label: string; href: string }) => {
+    if (link.href === '/rates') {
+      return { ...link, href: `${langBasePath}/rates` };
+    }
+    if (link.href === '/terms') {
+      return { ...link, href: `${langBasePath}/terms` };
+    }
+    if (link.href === '/privacy') {
+      return { ...link, href: `${langBasePath}/privacy` };
+    }
+    if (link.href === '/contact') {
+      return { ...link, href: `${langBasePath}/contact` };
+    }
+    return link;
+  }),
+  contactLinks: [
+    { label: villa.contact?.phone || '+33 4 00 00 00 00', href: `tel:${(villa.contact?.phone || '+33400000000').replace(/\s/g, '')}` },
+    { label: villa.contact?.email || `reservations@${slug?.replace(/-/g, '')}.com`, href: `mailto:${villa.contact?.email || `reservations@${slug?.replace(/-/g, '')}.com`}` },
+    { label: ui.footer.contactLinks?.[2]?.label || 'Contact Us', href: `${langBasePath}/contact` }
+  ]
+};
+
+// Content translations
+const content = {
+  en: {
+    heroTitle: 'Your Digital Presence,',
+    heroTitleAccent: 'Elevated',
+    heroSubtitle: `Everything you need to know about your ${villaName} website`,
+    
+    section1Title: "What's Included",
+    section1Subtitle: 'A complete luxury villa website, ready to convert guests',
+    
+    features: [
+      {
+        icon: '🎨',
+        title: 'World-Class Design',
+        description: 'Custom luxury aesthetic with elegant typography, hero slideshow, and gallery modal. Indistinguishable from a €10,000+ custom build.',
+      },
+      {
+        icon: '📱',
+        title: 'Mobile-First',
+        description: 'Perfectly responsive on all devices. Owners demo sites on iPhones to guests—mobile performance is the first impression.',
+      },
+      {
+        icon: '🔍',
+        title: 'SEO Optimized',
+        description: '8+ JSON-LD schemas (LodgingBusiness, FAQPage, Review, ImageObject), meta tags, Open Graph, and structured data for Google rich results.',
+      },
+      {
+        icon: '📧',
+        title: 'Direct Booking Form',
+        description: 'Anti-spam protected inquiry form. Leads go directly to you—no platform commissions, no middlemen.',
+      },
+      {
+        icon: '💳',
+        title: 'Stripe Payments',
+        description: 'Secure payment processing with 23-hour checkout sessions. Guests pay directly, funds go to your account.',
+      },
+      {
+        icon: '🌍',
+        title: 'Multi-Language Support',
+        description: 'Full English, Spanish, and French translations. Reach international guests in their native language.',
+      },
+      {
+        icon: '⚡',
+        title: 'Lightning Fast',
+        description: 'Sub-2.5 second load times on mobile. Lighthouse score 90+ across all categories. No bloated plugins.',
+      },
+      {
+        icon: '🔒',
+        title: 'Secure & Reliable',
+        description: 'HTTPS, SPF/DKIM verified emails, honeypot spam protection, and enterprise-grade Vercel hosting.',
+      },
+    ],
+    
+    section2Title: 'How It Works',
+    section2Subtitle: 'From inquiry to booking in 4 simple steps',
+    
+    steps: [
+      {
+        number: '1',
+        title: 'Guest Submits Inquiry',
+        description: 'Guests fill out the inquiry form on your website with their dates and details.',
+      },
+      {
+        number: '2',
+        title: 'You Receive Notification',
+        description: 'You get an email with all guest details and one-click Approve/Decline buttons.',
+      },
+      {
+        number: '3',
+        title: 'Guest Gets Approval',
+        description: 'When you approve, the guest receives a beautiful branded email with a payment link.',
+      },
+      {
+        number: '4',
+        title: 'Secure Payment',
+        description: 'Guest pays via Stripe. You receive confirmation. Booking complete.',
+      },
+    ],
+    
+    section3Title: 'Technology',
+    section3Subtitle: 'Enterprise-grade infrastructure, boutique attention',
+    
+    techItems: [
+      { label: 'Framework', value: 'Astro 4 (static + serverless)' },
+      { label: 'Hosting', value: 'Vercel Edge Network (global CDN)' },
+      { label: 'Email', value: 'Brevo SMTP (99.9% deliverability)' },
+      { label: 'Payments', value: 'Stripe Checkout (PCI compliant)' },
+      { label: 'Database', value: 'Firebase Firestore' },
+      { label: 'Performance', value: 'Lighthouse 90+ all categories' },
+    ],
+    
+    section4Title: 'Comparison',
+    section4Subtitle: 'Why this beats generic templates',
+    
+    comparisonHeaders: ['Feature', 'WordPress/Themes', 'Your LoveThisPlace Site'],
+    comparisonRows: [
+      ['Page Speed', '❌ 5-10 seconds (plugin bloat)', '✅ Under 2.5 seconds'],
+      ['SEO Schema', '❌ Basic or missing', '✅ 8+ interconnected schemas'],
+      ['Mobile UX', '❌ Often broken', '✅ Mobile-first design'],
+      ['Spam Protection', '❌ CAPTCHA annoys guests', '✅ Invisible honeypots'],
+      ['Updates', '❌ Plugin conflicts & drift', '✅ Zero dependencies'],
+      ['Direct Bookings', '❌ Third-party plugins', '✅ Native Stripe integration'],
+      ['Multi-Language', '❌ Plugin with gaps', '✅ Built-in full i18n'],
+    ],
+    
+    section5Title: 'Your Investment',
+    section5Subtitle: 'Transparent pricing, no surprises',
+    
+    pricingNote: 'Contact us to discuss pricing options tailored to your needs.',
+    
+    ctaTitle: 'Questions?',
+    ctaDescription: 'Reply to any email from us, or reach out directly.',
+    ctaButton: 'Contact Us',
+  },
+  es: {
+    heroTitle: 'Tu Presencia Digital,',
+    heroTitleAccent: 'Elevada',
+    heroSubtitle: `Todo lo que necesitas saber sobre tu sitio web de ${villaName}`,
+    
+    section1Title: 'Qué Incluye',
+    section1Subtitle: 'Un sitio web completo de villa de lujo, listo para convertir huéspedes',
+    
+    features: [
+      {
+        icon: '🎨',
+        title: 'Diseño de Clase Mundial',
+        description: 'Estética de lujo personalizada con tipografía elegante, presentación de imágenes y galería modal.',
+      },
+      {
+        icon: '📱',
+        title: 'Mobile-First',
+        description: 'Perfectamente responsive en todos los dispositivos. El rendimiento móvil es la primera impresión.',
+      },
+      {
+        icon: '🔍',
+        title: 'Optimizado para SEO',
+        description: '8+ esquemas JSON-LD, meta tags, Open Graph y datos estructurados para resultados enriquecidos de Google.',
+      },
+      {
+        icon: '📧',
+        title: 'Formulario de Reserva Directa',
+        description: 'Formulario protegido contra spam. Los leads van directamente a ti—sin comisiones de plataforma.',
+      },
+      {
+        icon: '💳',
+        title: 'Pagos con Stripe',
+        description: 'Procesamiento de pagos seguro con sesiones de 23 horas. Los huéspedes pagan directamente.',
+      },
+      {
+        icon: '🌍',
+        title: 'Soporte Multiidioma',
+        description: 'Traducciones completas en inglés, español y francés. Llega a huéspedes internacionales.',
+      },
+      {
+        icon: '⚡',
+        title: 'Ultra Rápido',
+        description: 'Tiempos de carga menores a 2.5 segundos. Puntuación Lighthouse 90+ en todas las categorías.',
+      },
+      {
+        icon: '🔒',
+        title: 'Seguro y Confiable',
+        description: 'HTTPS, emails verificados SPF/DKIM, protección anti-spam y hosting Vercel empresarial.',
+      },
+    ],
+    
+    section2Title: 'Cómo Funciona',
+    section2Subtitle: 'De consulta a reserva en 4 simples pasos',
+    
+    steps: [
+      {
+        number: '1',
+        title: 'El Huésped Envía Consulta',
+        description: 'Los huéspedes completan el formulario con sus fechas y detalles.',
+      },
+      {
+        number: '2',
+        title: 'Recibes Notificación',
+        description: 'Recibes un email con todos los detalles y botones de Aprobar/Rechazar.',
+      },
+      {
+        number: '3',
+        title: 'El Huésped Recibe Aprobación',
+        description: 'Cuando apruebas, el huésped recibe un email elegante con enlace de pago.',
+      },
+      {
+        number: '4',
+        title: 'Pago Seguro',
+        description: 'El huésped paga vía Stripe. Recibes confirmación. Reserva completada.',
+      },
+    ],
+    
+    section3Title: 'Tecnología',
+    section3Subtitle: 'Infraestructura empresarial, atención boutique',
+    
+    techItems: [
+      { label: 'Framework', value: 'Astro 4 (estático + serverless)' },
+      { label: 'Hosting', value: 'Vercel Edge Network (CDN global)' },
+      { label: 'Email', value: 'Brevo SMTP (99.9% entregabilidad)' },
+      { label: 'Pagos', value: 'Stripe Checkout (cumple PCI)' },
+      { label: 'Base de Datos', value: 'Firebase Firestore' },
+      { label: 'Rendimiento', value: 'Lighthouse 90+ todas las categorías' },
+    ],
+    
+    section4Title: 'Comparación',
+    section4Subtitle: 'Por qué esto supera a las plantillas genéricas',
+    
+    comparisonHeaders: ['Característica', 'WordPress/Temas', 'Tu Sitio LoveThisPlace'],
+    comparisonRows: [
+      ['Velocidad', '❌ 5-10 segundos', '✅ Menos de 2.5 segundos'],
+      ['Schema SEO', '❌ Básico o ausente', '✅ 8+ esquemas interconectados'],
+      ['UX Móvil', '❌ Frecuentemente roto', '✅ Diseño mobile-first'],
+      ['Anti-Spam', '❌ CAPTCHA molesta huéspedes', '✅ Honeypots invisibles'],
+      ['Actualizaciones', '❌ Conflictos de plugins', '✅ Cero dependencias'],
+      ['Reservas Directas', '❌ Plugins de terceros', '✅ Integración Stripe nativa'],
+      ['Multiidioma', '❌ Plugin con lagunas', '✅ i18n completo incluido'],
+    ],
+    
+    section5Title: 'Tu Inversión',
+    section5Subtitle: 'Precios transparentes, sin sorpresas',
+    
+    pricingNote: 'Contáctanos para discutir opciones de precios adaptadas a tus necesidades.',
+    
+    ctaTitle: '¿Preguntas?',
+    ctaDescription: 'Responde a cualquier email nuestro, o contáctanos directamente.',
+    ctaButton: 'Contáctanos',
+  },
+  fr: {
+    heroTitle: 'Votre Présence Digitale,',
+    heroTitleAccent: 'Sublimée',
+    heroSubtitle: `Tout ce que vous devez savoir sur votre site web ${villaName}`,
+    
+    section1Title: 'Ce Qui Est Inclus',
+    section1Subtitle: 'Un site web de villa de luxe complet, prêt à convertir les clients',
+    
+    features: [
+      {
+        icon: '🎨',
+        title: 'Design Haut de Gamme',
+        description: 'Esthétique de luxe sur mesure avec typographie élégante, diaporama héro et galerie modale.',
+      },
+      {
+        icon: '📱',
+        title: 'Mobile-First',
+        description: 'Parfaitement responsive sur tous les appareils. La performance mobile est la première impression.',
+      },
+      {
+        icon: '🔍',
+        title: 'Optimisé SEO',
+        description: '8+ schémas JSON-LD, meta tags, Open Graph et données structurées pour les résultats enrichis Google.',
+      },
+      {
+        icon: '📧',
+        title: 'Formulaire de Réservation Directe',
+        description: 'Formulaire protégé anti-spam. Les leads vont directement à vous—pas de commissions de plateforme.',
+      },
+      {
+        icon: '💳',
+        title: 'Paiements Stripe',
+        description: 'Traitement des paiements sécurisé avec sessions de 23 heures. Les clients paient directement.',
+      },
+      {
+        icon: '🌍',
+        title: 'Support Multilingue',
+        description: 'Traductions complètes en anglais, espagnol et français. Atteignez les clients internationaux.',
+      },
+      {
+        icon: '⚡',
+        title: 'Ultra Rapide',
+        description: 'Temps de chargement sous 2.5 secondes. Score Lighthouse 90+ dans toutes les catégories.',
+      },
+      {
+        icon: '🔒',
+        title: 'Sécurisé et Fiable',
+        description: 'HTTPS, emails vérifiés SPF/DKIM, protection anti-spam et hébergement Vercel entreprise.',
+      },
+    ],
+    
+    section2Title: 'Comment Ça Marche',
+    section2Subtitle: 'De la demande à la réservation en 4 étapes simples',
+    
+    steps: [
+      {
+        number: '1',
+        title: 'Le Client Envoie une Demande',
+        description: 'Les clients remplissent le formulaire avec leurs dates et détails.',
+      },
+      {
+        number: '2',
+        title: 'Vous Recevez une Notification',
+        description: 'Vous recevez un email avec tous les détails et boutons Approuver/Refuser.',
+      },
+      {
+        number: '3',
+        title: 'Le Client Reçoit l\'Approbation',
+        description: 'Quand vous approuvez, le client reçoit un email élégant avec lien de paiement.',
+      },
+      {
+        number: '4',
+        title: 'Paiement Sécurisé',
+        description: 'Le client paie via Stripe. Vous recevez la confirmation. Réservation terminée.',
+      },
+    ],
+    
+    section3Title: 'Technologie',
+    section3Subtitle: 'Infrastructure entreprise, attention boutique',
+    
+    techItems: [
+      { label: 'Framework', value: 'Astro 4 (statique + serverless)' },
+      { label: 'Hébergement', value: 'Vercel Edge Network (CDN mondial)' },
+      { label: 'Email', value: 'Brevo SMTP (99.9% délivrabilité)' },
+      { label: 'Paiements', value: 'Stripe Checkout (conforme PCI)' },
+      { label: 'Base de Données', value: 'Firebase Firestore' },
+      { label: 'Performance', value: 'Lighthouse 90+ toutes catégories' },
+    ],
+    
+    section4Title: 'Comparaison',
+    section4Subtitle: 'Pourquoi ceci surpasse les templates génériques',
+    
+    comparisonHeaders: ['Fonctionnalité', 'WordPress/Thèmes', 'Votre Site LoveThisPlace'],
+    comparisonRows: [
+      ['Vitesse', '❌ 5-10 secondes', '✅ Moins de 2.5 secondes'],
+      ['Schema SEO', '❌ Basique ou absent', '✅ 8+ schémas interconnectés'],
+      ['UX Mobile', '❌ Souvent cassé', '✅ Design mobile-first'],
+      ['Anti-Spam', '❌ CAPTCHA dérange clients', '✅ Honeypots invisibles'],
+      ['Mises à Jour', '❌ Conflits de plugins', '✅ Zéro dépendances'],
+      ['Réservations Directes', '❌ Plugins tiers', '✅ Intégration Stripe native'],
+      ['Multilingue', '❌ Plugin avec lacunes', '✅ i18n complet inclus'],
+    ],
+    
+    section5Title: 'Votre Investissement',
+    section5Subtitle: 'Tarification transparente, sans surprises',
+    
+    pricingNote: 'Contactez-nous pour discuter des options de tarification adaptées à vos besoins.',
+    
+    ctaTitle: 'Questions ?',
+    ctaDescription: 'Répondez à n\'importe quel email de notre part, ou contactez-nous directement.',
+    ctaButton: 'Nous Contacter',
+  },
+};
+
+const t = content[validLang as keyof typeof content] || content.en;
+---
+
+<BaseLayout
+  title={pageTitle}
+  description={pageDescription}
+  lang={validLang}
+  villaName={villaName}
+  homeUrl={langBasePath}
+  footer={villaFooter}
+  navCtaHref={`${langBasePath}/contact`}
+  jsonLd={jsonLd}
+>
+  <!-- Hero Section -->
+  <section class="about-hero">
+    <div class="container">
+      <h1 class="hero-title">
+        {t.heroTitle}<br>
+        <span class="accent">{t.heroTitleAccent}</span>
+      </h1>
+      <p class="hero-subtitle">{t.heroSubtitle}</p>
+    </div>
+  </section>
+
+  <!-- Features Section -->
+  <section class="about-section">
+    <div class="container">
+      <div class="section-header">
+        <h2>{t.section1Title}</h2>
+        <p class="section-subtitle">{t.section1Subtitle}</p>
+      </div>
+      
+      <div class="features-grid">
+        {t.features.map((feature) => (
+          <div class="feature-card">
+            <span class="feature-icon">{feature.icon}</span>
+            <h3>{feature.title}</h3>
+            <p>{feature.description}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- How It Works Section -->
+  <section class="about-section alt-bg">
+    <div class="container">
+      <div class="section-header">
+        <h2>{t.section2Title}</h2>
+        <p class="section-subtitle">{t.section2Subtitle}</p>
+      </div>
+      
+      <div class="steps-grid">
+        {t.steps.map((step) => (
+          <div class="step-card">
+            <span class="step-number">{step.number}</span>
+            <h3>{step.title}</h3>
+            <p>{step.description}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Technology Section -->
+  <section class="about-section">
+    <div class="container">
+      <div class="section-header">
+        <h2>{t.section3Title}</h2>
+        <p class="section-subtitle">{t.section3Subtitle}</p>
+      </div>
+      
+      <div class="tech-grid">
+        {t.techItems.map((item) => (
+          <div class="tech-item">
+            <span class="tech-label">{item.label}</span>
+            <span class="tech-value">{item.value}</span>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Comparison Section -->
+  <section class="about-section alt-bg">
+    <div class="container">
+      <div class="section-header">
+        <h2>{t.section4Title}</h2>
+        <p class="section-subtitle">{t.section4Subtitle}</p>
+      </div>
+      
+      <div class="comparison-table-wrapper">
+        <table class="comparison-table">
+          <thead>
+            <tr>
+              {t.comparisonHeaders.map((header) => (
+                <th>{header}</th>
+              ))}
+            </tr>
+          </thead>
+          <tbody>
+            {t.comparisonRows.map((row) => (
+              <tr>
+                {row.map((cell, i) => (
+                  <td class={i === 0 ? 'feature-name' : i === 2 ? 'highlight' : ''}>{cell}</td>
+                ))}
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section class="about-cta">
+    <div class="container">
+      <h2>{t.ctaTitle}</h2>
+      <p>{t.ctaDescription}</p>
+      <a href={`${langBasePath}/contact`} class="cta-button">{t.ctaButton}</a>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  /* Hero */
+  .about-hero {
+    background: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 100%);
+    padding: 120px 24px 80px;
+    text-align: center;
+  }
+  
+  .hero-title {
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-size: clamp(2.4rem, 5vw, 4rem);
+    font-weight: 400;
+    color: #fff;
+    line-height: 1.2;
+    margin: 0 0 16px;
+    letter-spacing: 1px;
+  }
+  
+  .hero-title .accent {
+    color: var(--color-accent, #a58e76);
+  }
+  
+  .hero-subtitle {
+    font-family: 'Inter', sans-serif;
+    font-size: 1.1rem;
+    color: rgba(255,255,255,0.7);
+    max-width: 600px;
+    margin: 0 auto;
+  }
+  
+  /* Container */
+  .container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 24px;
+  }
+  
+  /* Sections */
+  .about-section {
+    padding: 80px 24px;
+  }
+  
+  .about-section.alt-bg {
+    background: #fafafa;
+  }
+  
+  .section-header {
+    text-align: center;
+    margin-bottom: 48px;
+  }
+  
+  .section-header h2 {
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-size: 2.2rem;
+    font-weight: 500;
+    color: #1a1a1a;
+    margin: 0 0 12px;
+  }
+  
+  .section-subtitle {
+    font-family: 'Inter', sans-serif;
+    font-size: 1rem;
+    color: #666;
+    margin: 0;
+  }
+  
+  /* Features Grid - 4 columns desktop, 2 tablet, 1 mobile */
+  .features-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 24px;
+  }
+  
+  @media (max-width: 1024px) {
+    .features-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+  
+  @media (max-width: 600px) {
+    .features-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+  
+  .feature-card {
+    background: #fff;
+    border: 1px solid #eee;
+    border-radius: 12px;
+    padding: 28px;
+    transition: box-shadow 0.3s ease, transform 0.3s ease;
+  }
+  
+  .feature-card:hover {
+    box-shadow: 0 8px 32px rgba(0,0,0,0.08);
+    transform: translateY(-4px);
+  }
+  
+  .feature-icon {
+    font-size: 2rem;
+    display: block;
+    margin-bottom: 12px;
+  }
+  
+  .feature-card h3 {
+    font-family: 'Inter', sans-serif;
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: #1a1a1a;
+    margin: 0 0 8px;
+  }
+  
+  .feature-card p {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.95rem;
+    color: #555;
+    line-height: 1.6;
+    margin: 0;
+  }
+  
+  /* Steps Grid */
+  .steps-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 32px;
+  }
+  
+  .step-card {
+    text-align: center;
+    padding: 24px;
+  }
+  
+  .step-number {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 56px;
+    height: 56px;
+    background: var(--color-accent, #a58e76);
+    color: #fff;
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-size: 1.5rem;
+    font-weight: 600;
+    border-radius: 50%;
+    margin-bottom: 16px;
+  }
+  
+  .step-card h3 {
+    font-family: 'Inter', sans-serif;
+    font-size: 1rem;
+    font-weight: 600;
+    color: #1a1a1a;
+    margin: 0 0 8px;
+  }
+  
+  .step-card p {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.9rem;
+    color: #666;
+    line-height: 1.5;
+    margin: 0;
+  }
+  
+  /* Tech Grid - 3 columns desktop (6 items = 2 rows) */
+  .tech-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+    max-width: 900px;
+    margin: 0 auto;
+  }
+  
+  @media (max-width: 768px) {
+    .tech-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .tech-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+  
+  .tech-item {
+    background: #f5f5f5;
+    border-radius: 8px;
+    padding: 16px 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
+  
+  .tech-label {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: var(--color-accent, #a58e76);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+  }
+  
+  .tech-value {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.9rem;
+    color: #1a1a1a;
+  }
+  
+  /* Comparison Table */
+  .comparison-table-wrapper {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+  
+  .comparison-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-family: 'Inter', sans-serif;
+    font-size: 0.9rem;
+  }
+  
+  .comparison-table th {
+    background: #1a1a1a;
+    color: #fff;
+    font-weight: 600;
+    padding: 14px 16px;
+    text-align: left;
+  }
+  
+  .comparison-table th:first-child {
+    border-radius: 8px 0 0 0;
+  }
+  
+  .comparison-table th:last-child {
+    border-radius: 0 8px 0 0;
+  }
+  
+  .comparison-table td {
+    padding: 12px 16px;
+    border-bottom: 1px solid #eee;
+    background: #fff;
+  }
+  
+  .comparison-table tr:last-child td:first-child {
+    border-radius: 0 0 0 8px;
+  }
+  
+  .comparison-table tr:last-child td:last-child {
+    border-radius: 0 0 8px 0;
+  }
+  
+  .comparison-table .feature-name {
+    font-weight: 500;
+    color: #1a1a1a;
+  }
+  
+  .comparison-table .highlight {
+    background: rgba(165, 142, 118, 0.1);
+    color: #1a1a1a;
+  }
+  
+  /* CTA Section */
+  .about-cta {
+    background: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 100%);
+    padding: 80px 24px;
+    text-align: center;
+  }
+  
+  .about-cta h2 {
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-size: 2rem;
+    font-weight: 500;
+    color: #fff;
+    margin: 0 0 12px;
+  }
+  
+  .about-cta p {
+    font-family: 'Inter', sans-serif;
+    font-size: 1rem;
+    color: rgba(255,255,255,0.7);
+    margin: 0 0 24px;
+  }
+  
+  .cta-button {
+    display: inline-block;
+    background: var(--color-accent, #a58e76);
+    color: #fff;
+    font-family: 'Inter', sans-serif;
+    font-size: 0.95rem;
+    font-weight: 600;
+    padding: 14px 32px;
+    border-radius: 8px;
+    text-decoration: none;
+    transition: background 0.3s ease, transform 0.3s ease;
+  }
+  
+  .cta-button:hover {
+    background: #8a7562;
+    transform: translateY(-2px);
+  }
+  
+  /* Responsive */
+  @media (max-width: 768px) {
+    .about-hero {
+      padding: 100px 16px 60px;
+    }
+    
+    .about-section {
+      padding: 60px 16px;
+    }
+    
+    .steps-grid {
+      grid-template-columns: 1fr 1fr;
+    }
+    
+    .comparison-table {
+      font-size: 0.8rem;
+    }
+    
+    .comparison-table th,
+    .comparison-table td {
+      padding: 10px 12px;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .steps-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

@@ -1,7 +1,8 @@
 ---
 import BaseLayout from '../../../../layouts/BaseLayout.astro';
-import { VILLA_LANGUAGES } from '../../../../config/i18n';
+import { VILLA_LANGUAGES, getVillaBySlug } from '../../../../config/i18n';
 import { getUIStrings } from '../../../../config/uiStrings';
+import { buildAuxPageSchema } from '../../../../lib/schema';
 
 export const prerender = true;
 
@@ -65,11 +66,29 @@ const villaFooter = {
 
 const title = `${ratesUI.pageTitle} — ${villa.name}`;
 const description = ratesUI.intro.replace('{villaName}', villa.name);
+
+// Build schema for SEO
+const villaConfig = getVillaBySlug(slug);
+const siteBase = villaConfig?.domain ? `https://${villaConfig.domain}` : Astro.url.origin;
+const canonical = `${siteBase}/villas/${slug}/${lang}/rates`;
+const localeMap: Record<string, string> = { en: 'en-US', es: 'es-ES', fr: 'fr-FR' };
+
+const jsonLd = buildAuxPageSchema({
+  pageType: 'rates',
+  pageTitle: title,
+  pageDescription: description,
+  canonical,
+  siteBase,
+  villaName: villa.name,
+  slug,
+  lang,
+  locale: localeMap[lang] || 'en-US'
+});
 ---
 <BaseLayout 
   title={title} 
   description={description} 
-  canonical={`https://example.com${langBasePath}/rates`}
+  canonical={canonical}
   villaName={villa.name}
   homeUrl={langBasePath}
   navLinks={navLinks}
@@ -77,6 +96,7 @@ const description = ratesUI.intro.replace('{villaName}', villa.name);
   navCtaHref={`${langBasePath}/contact`}
   footer={villaFooter}
   lang={lang}
+  jsonLd={jsonLd}
 >
   <section class="container policy" id="rates">
     <h1>{ratesUI.pageTitle}</h1>

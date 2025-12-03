@@ -8,6 +8,8 @@
     "build": "npm run validate && astro build",
     "preview": "astro preview",
     "villa:create": "node scripts/create-villa.mjs",
+    "villa:onboard": "node scripts/onboard-villa.mjs",
+    "villa:seed": "node scripts/seed-firestore.mjs",
     "validate": "node scripts/validate-i18n.mjs"
   },
   "dependencies": {

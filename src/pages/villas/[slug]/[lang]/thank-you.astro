@@ -1,7 +1,8 @@
 ---
 import BaseLayout from '../../../../layouts/BaseLayout.astro';
-import { VILLA_LANGUAGES, DEFAULT_LANG } from '../../../../config/i18n';
+import { VILLA_LANGUAGES, DEFAULT_LANG, getVillaBySlug } from '../../../../config/i18n';
 import { getUIStrings } from '../../../../config/uiStrings';
+import { buildAuxPageSchema } from '../../../../lib/schema';
 
 export const prerender = true;
 
@@ -66,19 +67,37 @@ const villaFooter = {
 
 // Villa-specific contact email
 const contactEmails: Record<string, string> = {
-  'casa-de-la-muralla': 'reservations@elitecartagena.com',
-  'domaine-des-montarels': 'reservations@domaine-desmontarels.com'
+  'casa-de-la-muralla': 'reservations@casadelamuralla.com',
+  'domaine-des-montarels': 'jc@elitecartagena.com'
 };
 const contactEmail = contactEmails[slug] || contactEmails['domaine-des-montarels'];
 
 // Page metadata
 const title = `${thankYouUI.pageTitle} — ${villa.name}`;
 const description = thankYouUI.subtitle;
+
+// Build schema for SEO (even though excluded from sitemap, good for consistency)
+const villaConfig = getVillaBySlug(slug);
+const siteBase = villaConfig?.domain ? `https://${villaConfig.domain}` : Astro.url.origin;
+const canonical = `${siteBase}/villas/${slug}/${lang}/thank-you`;
+const localeMap: Record<string, string> = { en: 'en-US', es: 'es-ES', fr: 'fr-FR' };
+
+const jsonLd = buildAuxPageSchema({
+  pageType: 'thank-you',
+  pageTitle: title,
+  pageDescription: description,
+  canonical,
+  siteBase,
+  villaName: villa.name,
+  slug,
+  lang,
+  locale: localeMap[lang] || 'en-US'
+});
 ---
 <BaseLayout 
   title={title} 
   description={description} 
-  canonical={`https://example.com${langBasePath}/thank-you`}
+  canonical={canonical}
   villaName={villa.name}
   homeUrl={langBasePath}
   navLinks={navLinks}
@@ -86,6 +105,7 @@ const description = thankYouUI.subtitle;
   navCtaHref={`${langBasePath}/contact`}
   footer={villaFooter}
   lang={lang}
+  jsonLd={jsonLd}
 >
   <section class="thank-you-page">
     <div class="thank-you-container">

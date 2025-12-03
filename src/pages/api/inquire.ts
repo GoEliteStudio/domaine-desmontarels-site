@@ -5,7 +5,8 @@ import { createInquiry, getListingBySlug, getOwnerById } from '../../lib/firesto
 import type { InquiryOrigin, Listing } from '../../lib/firestore/types';
 import { generateApproveUrl, generateDeclineUrl } from '../../lib/signing';
 import { calculateQuote, getDefaultPricing } from '../../lib/pricing';
-import { sendOwnerNotification, resolveOwnerEmail } from '../../lib/emailRouting';
+import { sendOwnerNotification } from '../../lib/emailRouting';
+import { getVillaCurrency, getVillaOwnerEmail } from '../../config/i18n';
 
 type InquireBody = {
   fullName?: string;
@@ -124,11 +125,29 @@ export const POST: APIRoute = async ({ request }) => {
       console.warn('[inquire] Listing lookup failed:', e);
     }
 
-    // Resolve owner email from Firestore (or fallback)
-    const ownerEmail = await resolveOwnerEmail(listing, getOwnerById);
+    // Resolve owner email: Firestore owner > Villa config fallback
+    // Priority: Firestore owner document (live data) > i18n.ts config (code fallback)
+    let ownerEmail: string = getVillaOwnerEmail(slug); // Fallback from i18n config
+    if (listing?.ownerId) {
+      try {
+        const owner = await getOwnerById(listing.ownerId);
+        if (owner?.email) {
+          ownerEmail = owner.email;
+          console.log('[inquire] Owner email from Firestore:', { slug, ownerEmail, ownerId: listing.ownerId });
+        }
+      } catch (e) {
+        console.warn('[inquire] Firestore owner lookup failed, using i18n fallback:', e);
+      }
+    } else {
+      console.log('[inquire] No ownerId on listing, using i18n fallback:', { slug, ownerEmail });
+    }
 
     // Persist inquiry to Firestore
     let inquiryId: string | undefined;
+    
+    // Determine currency BEFORE Firestore write (reuse for both Firestore and email)
+    // Currency priority: Listing baseCurrency > Villa config > EUR fallback
+    const currency: string = listing?.baseCurrency || getVillaCurrency(slug);
     
     try {
       // Build inquiry data - only include defined values (Firestore rejects undefined)
@@ -141,7 +160,7 @@ export const POST: APIRoute = async ({ request }) => {
         partySize: payload.adults + payload.children,
         origin,
         status: 'pending_owner',
-        currency: listing?.baseCurrency || 'EUR',
+        currency, // EUR for Europe, USD for Americas
         lang,
         ownerEmailSnapshot: ownerEmail,
       };
@@ -164,8 +183,8 @@ export const POST: APIRoute = async ({ request }) => {
     const subject = `${tag} New Inquiry — ${payload.fullName} (${payload.checkIn} → ${payload.checkOut})`;
 
     // Calculate proposed quote (using listing we already fetched)
+    // Note: currency was already determined above before Firestore write
     let quoteAmount: number | undefined;
-    let currency: string = listing?.baseCurrency || 'EUR';
     
     if (listing) {
       try {

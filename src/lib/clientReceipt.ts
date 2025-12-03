@@ -22,7 +22,7 @@ const VILLA_BRANDING: Record<string, VillaBranding> = {
   },
   'domaine-des-montarels': {
     name: 'Domaine des Montarels',
-    contactEmail: 'reservations@domaine-desmontarels.com',
+    contactEmail: 'jc@elitecartagena.com',
     whatsappNumber: '447768987879',
     location: 'Alignan-du-Vent, Languedoc, France',
     accentColor: '#a58e76',

@@ -136,7 +136,7 @@ const resolvedNavCtaLabel = navCtaLabel ?? 'Inquire';
     </noscript>
     
     <script>{`if (matchMedia('(prefers-reduced-motion: reduce)').matches) { document.documentElement.classList.add('prm'); }`}</script>
-    {jsonLd.map((obj) => <script type="application/ld+json">{JSON.stringify(obj)}</script>)}
+    {jsonLd.map((obj) => <script type="application/ld+json" set:html={JSON.stringify(obj)} />)}
 
     <!-- Enhanced CSS Variables & Global Styles -->
     <style>

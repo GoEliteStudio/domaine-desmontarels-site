@@ -1,7 +1,8 @@
 ---
 import BaseLayout from '../../../../layouts/BaseLayout.astro';
-import { VILLA_LANGUAGES, DEFAULT_LANG } from '../../../../config/i18n';
+import { VILLA_LANGUAGES, DEFAULT_LANG, getVillaBySlug } from '../../../../config/i18n';
 import { getUIStrings } from '../../../../config/uiStrings';
+import { buildAuxPageSchema } from '../../../../lib/schema';
 
 export const prerender = true;
 
@@ -68,12 +69,12 @@ const villaFooter = {
 const contactInfo: Record<string, { phone: string; email: string; whatsapp?: string }> = {
   'casa-de-la-muralla': {
     phone: '+57 300 123 4567',
-    email: 'reservations@elitecartagena.com',
+    email: 'reservations@casadelamuralla.com',
     whatsapp: '+573001234567'
   },
   'domaine-des-montarels': {
     phone: '+33 4 90 00 00 00',
-    email: 'reservations@domaine-desmontarels.com'
+    email: 'jc@elitecartagena.com'
   }
 };
 
@@ -114,14 +115,33 @@ const trustItems: Record<string, Array<{ icon: string; label: string }>> = {
   ]
 };
 const trust = trustItems[lang] || trustItems.en;
+
+// Build schema for SEO
+const villaConfig = getVillaBySlug(slug);
+const siteBase = villaConfig?.domain ? `https://${villaConfig.domain}` : Astro.url.origin;
+const canonical = `${siteBase}/villas/${slug}/${lang}/contact`;
+const localeMap: Record<string, string> = { en: 'en-US', es: 'es-ES', fr: 'fr-FR' };
+
+const jsonLd = buildAuxPageSchema({
+  pageType: 'contact',
+  pageTitle: title,
+  pageDescription: description,
+  canonical,
+  siteBase,
+  villaName: villa.name,
+  slug,
+  lang,
+  locale: localeMap[lang] || 'en-US'
+});
 ---
 <BaseLayout 
   title={title} 
   description={description} 
-  canonical={`https://example.com${langBasePath}/contact`}
+  canonical={canonical}
   villaName={villa.name}
   homeUrl={langBasePath}
   navLinks={navLinks}
+  jsonLd={jsonLd}
   navCtaLabel={navCtaLabel}
   navCtaHref={`${langBasePath}/contact`}
   footer={villaFooter}

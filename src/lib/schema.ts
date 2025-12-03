@@ -232,3 +232,111 @@ export function buildSchemaGraph(input: BuildSchemaInput) {
 
   return jsonLd;
 }
+
+// ============================================================================
+// Auxiliary Page Schema (for contact, rates, terms, privacy, about pages)
+// ============================================================================
+
+type AuxPageType = 'contact' | 'rates' | 'terms' | 'privacy' | 'about' | 'thank-you';
+
+type BuildAuxPageSchemaInput = {
+  pageType: AuxPageType;
+  pageTitle: string;
+  pageDescription: string;
+  canonical: string;
+  siteBase: string;
+  villaName: string;
+  slug: string;
+  lang: string;
+  locale: string;
+};
+
+/**
+ * Builds a minimal schema graph for auxiliary pages.
+ * Includes: Organization, WebSite, WebPage, BreadcrumbList
+ * Contact page additionally includes ContactPage schema type.
+ */
+export function buildAuxPageSchema(input: BuildAuxPageSchemaInput) {
+  const {
+    pageType,
+    pageTitle,
+    pageDescription,
+    canonical,
+    siteBase,
+    villaName,
+    slug,
+    lang,
+    locale
+  } = input;
+
+  const base = ensureTrailingSlash(siteBase);
+  const villaPageUrl = `${base}villas/${slug}/${lang}/`;
+
+  // Organization (reference to main brand)
+  const org = {
+    '@context': 'https://schema.org',
+    '@type': 'Organization',
+    '@id': `${base}#organization`,
+    name: villaName,
+    url: villaPageUrl,
+    logo: toAbsolute(base, `/images/villas/${slug}/logo.webp`)
+  };
+
+  // WebSite (reference)
+  const websiteSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'WebSite',
+    '@id': `${base}#website`,
+    url: base,
+    name: villaName,
+    publisher: { '@id': `${base}#organization` }
+  };
+
+  // Page type label mapping
+  const pageLabels: Record<AuxPageType, Record<string, string>> = {
+    contact: { en: 'Contact', es: 'Contacto', fr: 'Contact' },
+    rates: { en: 'Rates & Availability', es: 'Tarifas y Disponibilidad', fr: 'Tarifs et Disponibilité' },
+    terms: { en: 'Terms & Conditions', es: 'Términos y Condiciones', fr: 'Conditions Générales' },
+    privacy: { en: 'Privacy Policy', es: 'Política de Privacidad', fr: 'Politique de Confidentialité' },
+    about: { en: 'About', es: 'Acerca de', fr: 'À propos' },
+    'thank-you': { en: 'Thank You', es: 'Gracias', fr: 'Merci' }
+  };
+
+  const pageLabel = pageLabels[pageType]?.[lang] || pageLabels[pageType]?.en || pageType;
+
+  // WebPage (with ContactPage for contact page)
+  const webPageType = pageType === 'contact' ? ['WebPage', 'ContactPage'] : 'WebPage';
+  const webPage = {
+    '@context': 'https://schema.org',
+    '@type': webPageType,
+    '@id': `${canonical}#webpage`,
+    url: canonical,
+    name: pageTitle,
+    description: pageDescription,
+    inLanguage: locale,
+    isPartOf: { '@id': `${base}#website` },
+    about: { '@id': `${base}#organization` }
+  };
+
+  // BreadcrumbList
+  const breadcrumbs = {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    '@id': `${canonical}#breadcrumbs`,
+    itemListElement: [
+      {
+        '@type': 'ListItem',
+        position: 1,
+        name: villaName,
+        item: villaPageUrl
+      },
+      {
+        '@type': 'ListItem',
+        position: 2,
+        name: pageLabel
+      }
+    ]
+  };
+
+  return [org, websiteSchema, webPage, breadcrumbs];
+}

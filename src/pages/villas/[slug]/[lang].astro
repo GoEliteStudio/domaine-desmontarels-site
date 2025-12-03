@@ -309,7 +309,7 @@ const villaFooter = {
   }),
   contactLinks: [
     { label: villa.contact?.phone || '+57 300 123 4567', href: `tel:${(villa.contact?.phone || '+573001234567').replace(/\s/g, '')}` },
-    { label: villa.contact?.email || 'reservations@elitecartagena.com', href: `mailto:${villa.contact?.email || 'reservations@elitecartagena.com'}` },
+    { label: villa.contact?.email || `reservations@${slug?.replace(/-/g, '')}.com`, href: `mailto:${villa.contact?.email || `reservations@${slug?.replace(/-/g, '')}.com`}` },
     { label: ui.footer.contactLinks?.[2]?.label || 'Contact Us', href: `${langBasePath}/contact` }
   ]
 };

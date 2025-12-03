@@ -1,7 +1,8 @@
 ---
 import BaseLayout from '../../../../layouts/BaseLayout.astro';
-import { VILLA_LANGUAGES } from '../../../../config/i18n';
+import { VILLA_LANGUAGES, getVillaBySlug } from '../../../../config/i18n';
 import { getUIStrings } from '../../../../config/uiStrings';
+import { buildAuxPageSchema } from '../../../../lib/schema';
 
 export const prerender = true;
 
@@ -371,7 +372,7 @@ const villaOverrides: Record<string, Record<string, Partial<TermsData>>> = {
         }
       ],
       jurisdiction: 'These terms are governed by the laws of Colombia.',
-      contact: { email: 'reservations@elitecartagena.com', note: 'or contact your dedicated VIP concierge.' }
+      contact: { email: 'reservations@casadelamuralla.com', note: 'or contact your dedicated VIP concierge.' }
     },
     es: {
       intro: `Estos términos rigen las reservas, conducta de los huéspedes y políticas operativas para Casa de la Muralla, Isla Tierrabomba, Cartagena, Colombia.`,
@@ -442,7 +443,7 @@ const villaOverrides: Record<string, Record<string, Partial<TermsData>>> = {
         }
       ],
       jurisdiction: 'Estos términos se rigen por las leyes de Colombia.',
-      contact: { email: 'reservations@elitecartagena.com', note: 'o contacte a su conserje VIP dedicado.' }
+      contact: { email: 'reservations@casadelamuralla.com', note: 'o contacte a su conserje VIP dedicado.' }
     }
   }
   // Add more villa overrides here as owners customize their terms
@@ -505,11 +506,29 @@ const processedTerms = processTerms(terms);
 
 const title = `${termsUI.pageTitle} — ${villa.name}`;
 const description = processedTerms.intro;
+
+// Build schema for SEO
+const villaConfig = getVillaBySlug(slug);
+const siteBase = villaConfig?.domain ? `https://${villaConfig.domain}` : Astro.url.origin;
+const canonical = `${siteBase}/villas/${slug}/${lang}/terms`;
+const localeMap: Record<string, string> = { en: 'en-US', es: 'es-ES', fr: 'fr-FR' };
+
+const jsonLd = buildAuxPageSchema({
+  pageType: 'terms',
+  pageTitle: title,
+  pageDescription: description,
+  canonical,
+  siteBase,
+  villaName: villa.name,
+  slug,
+  lang,
+  locale: localeMap[lang] || 'en-US'
+});
 ---
 <BaseLayout 
   title={title} 
   description={description} 
-  canonical={`https://example.com${langBasePath}/terms`}
+  canonical={canonical}
   villaName={villa.name}
   homeUrl={langBasePath}
   navLinks={navLinks}
@@ -517,6 +536,7 @@ const description = processedTerms.intro;
   navCtaHref={`${langBasePath}/contact`}
   footer={villaFooter}
   lang={lang}
+  jsonLd={jsonLd}
 >
   <section class="container policy" id="terms">
     <h1>{termsUI.pageTitle}</h1>

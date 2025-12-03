@@ -1,8 +1,11 @@
 #!/usr/bin/env node
 /**
- * Seed script for Firestore - Run this once to add initial owner and listings
+ * Seed script for Firestore - Run this once to add initial owners and listings
  * 
  * Usage: node scripts/seed-firestore.mjs
+ * 
+ * NOTE: This is for initial setup only. For adding new villas, use:
+ *   npm run villa:onboard -- --slug=villa-name --name="Villa Name" --owner-email=owner@example.com
  * 
  * Requires: FIREBASE_PROJECT_ID, FIREBASE_CLIENT_EMAIL, FIREBASE_PRIVATE_KEY in .env
  */
@@ -42,48 +45,59 @@ const app = getApps().length
 const db = getFirestore(app);
 
 // ============================================================
-// SEED DATA - Customize this for your villas
+// SEED DATA - Each villa has its own owner
 // ============================================================
 
-const OWNER_DATA = {
-  name: 'Ian & Katie',
-  email: 'reservations@domaine-desmontarels.com',
-  tier: 'asset-partner',
-  stripeAccountId: '', // Will be set after Stripe Connect onboarding
-  currency: 'EUR',
-  contractStart: Timestamp.now(),
-  contractMonths: 12,
-  commissionPercent: 10,
-};
-
-const LISTINGS_DATA = [
+const VILLAS_DATA = [
   {
-    slug: 'domaine-des-montarels',
-    type: 'villa',
-    name: 'Domaine des Montarels',
-    location: {
-      country: 'France',
-      region: 'Occitanie',
-      city: 'Alignan-du-Vent',
+    owner: {
+      name: 'Ian & Katie',
+      email: 'jc@elitecartagena.com',
+      tier: 'asset-partner',
+      stripeAccountId: '',
+      currency: 'EUR',
+      contractMonths: 12,
+      commissionPercent: 10,
     },
-    maxGuests: 12,
-    commissionPercent: 10,
-    baseCurrency: 'EUR',
-    status: 'active',
+    listing: {
+      slug: 'domaine-des-montarels',
+      type: 'villa',
+      name: 'Domaine des Montarels',
+      location: {
+        country: 'France',
+        region: 'Occitanie',
+        city: 'Alignan-du-Vent',
+      },
+      maxGuests: 12,
+      commissionPercent: 10,
+      baseCurrency: 'EUR',
+      status: 'active',
+    },
   },
   {
-    slug: 'casa-de-la-muralla',
-    type: 'villa',
-    name: 'Casa de la Muralla',
-    location: {
-      country: 'Spain',
-      region: 'Andalusia',
-      city: 'TBD',
+    owner: {
+      name: 'JC Morales',
+      email: 'reservations@casadelamuralla.com',
+      tier: 'asset-partner',
+      stripeAccountId: '',
+      currency: 'USD',
+      contractMonths: 12,
+      commissionPercent: 10,
     },
-    maxGuests: 8,
-    commissionPercent: 10,
-    baseCurrency: 'EUR',
-    status: 'active',
+    listing: {
+      slug: 'casa-de-la-muralla',
+      type: 'villa',
+      name: 'Casa de la Muralla',
+      location: {
+        country: 'Colombia',
+        region: 'Cartagena de Indias',
+        city: 'Tierrabomba',
+      },
+      maxGuests: 8,
+      commissionPercent: 10,
+      baseCurrency: 'USD',
+      status: 'active',
+    },
   },
 ];
 
@@ -95,48 +109,54 @@ async function seed() {
   console.log('🌱 Seeding Firestore...\n');
 
   try {
-    // Check if owner already exists
-    const ownersSnapshot = await db.collection('owners')
-      .where('email', '==', OWNER_DATA.email)
-      .limit(1)
-      .get();
-
-    let ownerId;
-
-    if (!ownersSnapshot.empty) {
-      ownerId = ownersSnapshot.docs[0].id;
-      console.log(`✓ Owner already exists: ${ownerId}`);
-    } else {
-      // Create owner
-      const ownerRef = await db.collection('owners').add(OWNER_DATA);
-      ownerId = ownerRef.id;
-      console.log(`✓ Created owner: ${ownerId}`);
-    }
-
-    // Create/update listings
-    for (const listing of LISTINGS_DATA) {
-      const existingSnapshot = await db.collection('listings')
-        .where('slug', '==', listing.slug)
+    for (const villa of VILLAS_DATA) {
+      // Check if owner already exists by email
+      const ownersSnapshot = await db.collection('owners')
+        .where('email', '==', villa.owner.email)
         .limit(1)
         .get();
 
-      if (!existingSnapshot.empty) {
-        const docId = existingSnapshot.docs[0].id;
-        console.log(`✓ Listing already exists: ${listing.slug} (${docId})`);
+      let ownerId;
+
+      if (!ownersSnapshot.empty) {
+        ownerId = ownersSnapshot.docs[0].id;
+        console.log(`✓ Owner exists: ${villa.owner.email} (${ownerId})`);
+      } else {
+        // Create owner with contractStart timestamp
+        const ownerRef = await db.collection('owners').add({
+          ...villa.owner,
+          contractStart: Timestamp.now(),
+        });
+        ownerId = ownerRef.id;
+        console.log(`✓ Created owner: ${villa.owner.email} (${ownerId})`);
+      }
+
+      // Check if listing already exists by slug
+      const listingSnapshot = await db.collection('listings')
+        .where('slug', '==', villa.listing.slug)
+        .limit(1)
+        .get();
+
+      if (!listingSnapshot.empty) {
+        const docId = listingSnapshot.docs[0].id;
+        // Update ownerId if it changed
+        const existingListing = listingSnapshot.docs[0].data();
+        if (existingListing.ownerId !== ownerId) {
+          await db.collection('listings').doc(docId).update({ ownerId });
+          console.log(`✓ Updated listing ownerId: ${villa.listing.slug} → ${ownerId}`);
+        } else {
+          console.log(`✓ Listing exists: ${villa.listing.slug} (${docId})`);
+        }
       } else {
         const listingRef = await db.collection('listings').add({
-          ...listing,
+          ...villa.listing,
           ownerId,
         });
-        console.log(`✓ Created listing: ${listing.slug} (${listingRef.id})`);
+        console.log(`✓ Created listing: ${villa.listing.slug} (${listingRef.id})`);
       }
     }
 
     console.log('\n✅ Seed complete!');
-    console.log('\nNext steps:');
-    console.log('1. Go to Firebase Console → Firestore to view your data');
-    console.log('2. Set up Stripe Connect for the owner');
-    console.log('3. Add iCal URLs in calendarSources collection');
 
   } catch (err) {
     console.error('❌ Seed failed:', err);
