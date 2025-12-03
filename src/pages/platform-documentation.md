@@ -3,7 +3,7 @@ layout: ../layouts/BaseLayout.astro
 lang: en
 title: "Villa Engine — Technical Platform Documentation"
 description: "Complete technical, architectural, and operational documentation for the LoveThisPlace Villa Engine multi-property platform."
-canonical: "https://domaine-desmontarels-site.vercel.app/platform-documentation"
+canonical: "https://lovethisplace-sites.vercel.app/platform-documentation"
 ---
 
 <section class="container md-doc">

@@ -19,7 +19,7 @@ import { sendGuestEmail, PUBLIC_REPLY_TO } from '../../lib/emailRouting';
 export const prerender = false;
 
 const STRIPE_SECRET_KEY = import.meta.env.STRIPE_SECRET_KEY;
-const SITE_URL = import.meta.env.SITE_URL || 'https://domaine-desmontarels-site.vercel.app';
+const SITE_URL = import.meta.env.SITE_URL || 'https://lovethisplace-sites.vercel.app';
 
 const stripe = STRIPE_SECRET_KEY ? new Stripe(STRIPE_SECRET_KEY, {
   apiVersion: '2025-11-17.clover',

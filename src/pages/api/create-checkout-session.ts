@@ -18,7 +18,7 @@ import { getCurrencySymbol } from '../../lib/pricing';
 export const prerender = false;
 
 const STRIPE_SECRET_KEY = import.meta.env.STRIPE_SECRET_KEY;
-const SITE_URL = import.meta.env.SITE_URL || 'https://domaine-desmontarels-site.vercel.app';
+const SITE_URL = import.meta.env.SITE_URL || 'https://lovethisplace-sites.vercel.app';
 
 // Initialize Stripe
 const stripe = STRIPE_SECRET_KEY ? new Stripe(STRIPE_SECRET_KEY, {

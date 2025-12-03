@@ -60,7 +60,7 @@ export const VILLAS: VillaConfig[] = [
     domain: 'www.domaine-desmontarels.com',
     altDomains: [
       'domaine-desmontarels.com',
-      'domaine-desmontarels-site.vercel.app'
+      'lovethisplace-sites.vercel.app'
     ],
     updatedAt: '2025-12-03',
     auxPages: ['contact', 'rates', 'terms', 'privacy', 'about', 'thank-you'],

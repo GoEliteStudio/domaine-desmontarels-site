@@ -178,7 +178,7 @@ export const POST: APIRoute = async ({ request }) => {
     }
 
     // Base URL for action links
-    const SITE_URL = import.meta.env.SITE_URL || import.meta.env.PUBLIC_SITE_URL || 'https://domaine-desmontarels-site.vercel.app';
+    const SITE_URL = import.meta.env.SITE_URL || import.meta.env.PUBLIC_SITE_URL || 'https://lovethisplace-sites.vercel.app';
     const tag = lang === 'fr' ? '[FR]' : lang === 'es' ? '[ES]' : '[EN]';
     const subject = `${tag} New Inquiry — ${payload.fullName} (${payload.checkIn} → ${payload.checkOut})`;
 
