@@ -6,7 +6,7 @@
 
 This is a **speculative building system** designed to mass-produce **world-class luxury villa websites** on spec, then convert owners into paying clients.
 
-**Quality Standard**: Every site must match or exceed the **production Astro site** at `https://domaine-desmontarels-site.vercel.app/` — NOT the HTML prototype. The live site represents the current quality bar.
+**Quality Standard**: Every site must match or exceed the **production Astro site** at `https://lovethisplace-sites.vercel.app/` — NOT the HTML prototype. The live site represents the current quality bar.
 
 ### What Villa Engine Actually Does
 
@@ -28,10 +28,10 @@ This is a **speculative building system** designed to mass-produce **world-class
 5. Negotiate payment
 
 **Quality Standard**: Every site must match or exceed the **production Astro site** at:
-- **Live URL**: `https://domaine-desmontarels-site.vercel.app/`
+- **Live URL**: `https://lovethisplace-sites.vercel.app/`
 - **Local dev**: `npm run dev` from `astro/` directory (port 4321)
 - **Repository**: `GoEliteStudio/domaine-desmontarels-site`
-- **Branch**: `deploy/vercel-hybrid`
+- **Branch**: `main`
 
 **Current Status**: Multi-villa production system with **2 villas** and **full 3-language i18n support** implemented. CLI tooling, validation scripts, and localized auxiliary pages all complete.
 
@@ -258,7 +258,7 @@ Go Elite Studio
   - Gallery: Masonry grid + full-screen modal with captions
   - Animations: Subtle, sophisticated (fade-ins, smooth transitions)
 - **Reference site** (quality bar):
-  - **Production Astro**: `https://domaine-desmontarels-site.vercel.app/`
+  - **Production Astro**: `https://lovethisplace-sites.vercel.app/`
   - **Local dev**: `cd astro; npm run dev` → http://localhost:4321
   - **Never ship anything that looks worse than the live production site**
   - **Note**: `villa-engine-v2.html` is an outdated HTML prototype — ignore it
@@ -430,6 +430,11 @@ npm install                    # Install dependencies
 npm run dev                    # Start dev server (http://localhost:4321)
 npm run build                  # Build production artifacts to dist/
 npm run preview                # Preview built site locally
+
+# Villa Management CLI
+npm run villa:onboard -- --slug=villa-name --name="Villa Display Name" --owner-email=owner@email.com [--langs=en,es,fr] [--region=europe|latam|asia] [--currency=EUR|USD|GBP]
+npm run villa:seed             # Seed/refresh Firestore owner & listing data
+npm run validate               # Validate i18n content completeness
 ```
 
 ### Environment Variables (Required)
@@ -1077,7 +1082,7 @@ Each villa deployment needs its own `OWNER_EMAIL`. Use Vercel's per-project env 
 - `PROJECT_ANALYSIS.md` — Technical deep-dive, component inventory
 - `GLOBAL_SCALING_PLAN.md` — Strategic roadmap, multi-villa architecture
 - `astro/PRODUCTION_SCALING_PLAN.md` — Launch checklist, ops runbook
-- **Production site**: https://domaine-desmontarels-site.vercel.app/ (**actual quality standard**)
+- **Production site**: https://lovethisplace-sites.vercel.app/ (**actual quality standard**)
 - `villa-engine-v2.html` — Outdated HTML prototype (ignore, use Astro production instead)
 
 ### Code Entry Points
