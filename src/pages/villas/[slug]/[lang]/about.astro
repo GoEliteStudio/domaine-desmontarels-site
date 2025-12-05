@@ -119,6 +119,37 @@ const content = {
     heroTitleAccent: 'Elevated',
     heroSubtitle: `Everything you need to know about your ${villaName} website`,
     
+    // NEW: Value proposition section
+    valueTitle: 'Why This Matters',
+    valueSubtitle: 'The real value behind your villa website',
+    
+    valueProps: [
+      {
+        icon: '💰',
+        title: 'Zero Platform Commissions',
+        description: 'Airbnb charges 15-20% per booking. VRBO takes their cut too. Every direct booking through your site means you keep 100% of your rental income.',
+        highlight: 'Save €1,500-3,000+ per booking on a luxury villa',
+      },
+      {
+        icon: '👑',
+        title: 'Own Your Brand & Guest Data',
+        description: 'On OTAs, guests belong to the platform—not you. With your own site, you build a direct relationship, capture emails, and create repeat guests.',
+        highlight: 'Build a guest list that\'s yours forever',
+      },
+      {
+        icon: '🤖',
+        title: 'AI Search Optimized',
+        description: 'Your site is configured to appear in AI Overviews (ChatGPT, Perplexity, Google AI). As travelers increasingly ask AI for recommendations, your villa shows up.',
+        highlight: 'Ready for the future of search',
+      },
+      {
+        icon: '🎯',
+        title: 'Google Rich Results',
+        description: 'FAQ answers, star ratings, and image carousels appear directly in Google search. Your property stands out before guests even click.',
+        highlight: 'Dominate search results with rich snippets',
+      },
+    ],
+    
     section1Title: "What's Included",
     section1Subtitle: 'A complete luxury villa website, ready to convert guests',
     
@@ -131,37 +162,76 @@ const content = {
       {
         icon: '📱',
         title: 'Mobile-First',
-        description: 'Perfectly responsive on all devices. Owners demo sites on iPhones to guests—mobile performance is the first impression.',
+        description: 'Perfectly responsive on all devices. 70%+ of luxury travel research happens on mobile—your site is optimized for that.',
       },
       {
         icon: '🔍',
-        title: 'SEO Optimized',
-        description: '8+ JSON-LD schemas (LodgingBusiness, FAQPage, Review, ImageObject), meta tags, Open Graph, and structured data for Google rich results.',
+        title: 'Deep SEO Architecture',
+        description: '10+ interconnected JSON-LD schemas: LodgingBusiness, FAQPage, Review, ImageObject, OfferCatalog, Service, and more. This is enterprise-level SEO.',
+      },
+      {
+        icon: '🗣️',
+        title: 'Voice Search Ready',
+        description: 'FAQ structured data means Alexa, Siri, and Google Assistant can answer questions about your villa directly.',
       },
       {
         icon: '📧',
-        title: 'Direct Booking Form',
-        description: 'Anti-spam protected inquiry form. Leads go directly to you—no platform commissions, no middlemen.',
+        title: 'Direct Booking System',
+        description: 'Anti-spam protected inquiry form with real-time quote calculator. Leads go directly to you—no OTA middlemen.',
       },
       {
         icon: '💳',
-        title: 'Stripe Payments',
-        description: 'Secure payment processing with 23-hour checkout sessions. Guests pay directly, funds go to your account.',
+        title: 'Secure Stripe Payments',
+        description: 'PCI-compliant checkout with 23-hour sessions. Guest pays, you get notified, funds go to your account. Simple.',
       },
       {
         icon: '🌍',
         title: 'Multi-Language Support',
-        description: 'Full English, Spanish, and French translations. Reach international guests in their native language.',
+        description: 'Full translations in English, Spanish, French (and more). Reach international guests in their native language.',
       },
       {
         icon: '⚡',
-        title: 'Lightning Fast',
-        description: 'Sub-2.5 second load times on mobile. Lighthouse score 90+ across all categories. No bloated plugins.',
+        title: 'Lightning Performance',
+        description: 'Sub-2.5 second load times. Lighthouse 90+ in all categories. 3x faster than typical WordPress sites.',
+      },
+      {
+        icon: '🖼️',
+        title: 'Pro Image Optimization',
+        description: 'WebP/AVIF formats, responsive srcsets, lazy loading. Your beautiful photos load fast on any connection.',
       },
       {
         icon: '🔒',
-        title: 'Secure & Reliable',
-        description: 'HTTPS, SPF/DKIM verified emails, honeypot spam protection, and enterprise-grade Vercel hosting.',
+        title: 'Enterprise Security',
+        description: 'HTTPS everywhere, SPF/DKIM verified emails (99.9% inbox delivery), invisible honeypot spam protection.',
+      },
+      {
+        icon: '✉️',
+        title: 'One-Click Approval',
+        description: 'Receive inquiries by email with Approve/Decline buttons. No login required—manage bookings from your inbox.',
+      },
+      {
+        icon: '🌐',
+        title: 'Global Edge Network',
+        description: 'Content served from 70+ locations worldwide. Fast for guests whether they\'re in New York, London, or Sydney.',
+      },
+    ],
+    
+    // NEW: AI & Future section
+    aiTitle: 'Built for AI Search',
+    aiSubtitle: 'Optimized for how people will search tomorrow',
+    
+    aiFeatures: [
+      {
+        title: 'AI Crawler Access',
+        description: 'GPTBot, ClaudeBot, PerplexityBot, and Google AI are explicitly allowed to index your site. Many competitors block these—you welcome them.',
+      },
+      {
+        title: 'Structured Q&A Content',
+        description: 'Your FAQ section uses schema markup that AI systems understand. When someone asks "best villas near [your area]," your answers are ready.',
+      },
+      {
+        title: 'Rich Context for AI',
+        description: 'Detailed location, amenity, and experience content gives AI systems the context they need to recommend your property accurately.',
       },
     ],
     
@@ -172,64 +242,108 @@ const content = {
       {
         number: '1',
         title: 'Guest Submits Inquiry',
-        description: 'Guests fill out the inquiry form on your website with their dates and details.',
+        description: 'Guests fill out the form with their dates. Instant quote calculated. Spam filtered automatically.',
       },
       {
         number: '2',
         title: 'You Receive Notification',
-        description: 'You get an email with all guest details and one-click Approve/Decline buttons.',
+        description: 'Beautiful email with guest details, dates, quote, and one-click Approve/Decline buttons.',
       },
       {
         number: '3',
         title: 'Guest Gets Approval',
-        description: 'When you approve, the guest receives a beautiful branded email with a payment link.',
+        description: 'When you approve, guest receives a branded email with payment link. Your branding, your message.',
       },
       {
         number: '4',
         title: 'Secure Payment',
-        description: 'Guest pays via Stripe. You receive confirmation. Booking complete.',
+        description: 'Guest pays via Stripe. You get confirmation. No invoicing headaches. Done.',
       },
     ],
     
-    section3Title: 'Technology',
-    section3Subtitle: 'Enterprise-grade infrastructure, boutique attention',
+    section3Title: 'Technology Stack',
+    section3Subtitle: 'Enterprise infrastructure, boutique attention',
     
     techItems: [
-      { label: 'Framework', value: 'Astro 4 (static + serverless)' },
-      { label: 'Hosting', value: 'Vercel Edge Network (global CDN)' },
-      { label: 'Email', value: 'Brevo SMTP (99.9% deliverability)' },
-      { label: 'Payments', value: 'Stripe Checkout (PCI compliant)' },
-      { label: 'Database', value: 'Firebase Firestore' },
+      { label: 'Framework', value: 'Astro 4 (static + serverless hybrid)' },
+      { label: 'Hosting', value: 'Vercel Edge Network (70+ global locations)' },
+      { label: 'Email', value: 'Brevo SMTP (99.9% inbox delivery)' },
+      { label: 'Payments', value: 'Stripe Checkout (PCI DSS Level 1)' },
+      { label: 'Database', value: 'Firebase Firestore (auto-scaling)' },
       { label: 'Performance', value: 'Lighthouse 90+ all categories' },
+      { label: 'Images', value: 'WebP/AVIF with responsive srcsets' },
+      { label: 'Security', value: 'SPF/DKIM/DMARC email authentication' },
     ],
     
-    section4Title: 'Comparison',
-    section4Subtitle: 'Why this beats generic templates',
+    section4Title: 'vs. The Alternatives',
+    section4Subtitle: 'Why this beats what you could build yourself',
     
-    comparisonHeaders: ['Feature', 'WordPress/Themes', 'Your LoveThisPlace Site'],
+    comparisonHeaders: ['Capability', 'DIY WordPress', 'OTA Listing', 'Your LTP Site'],
     comparisonRows: [
-      ['Page Speed', '❌ 5-10 seconds (plugin bloat)', '✅ Under 2.5 seconds'],
-      ['SEO Schema', '❌ Basic or missing', '✅ 8+ interconnected schemas'],
-      ['Mobile UX', '❌ Often broken', '✅ Mobile-first design'],
-      ['Spam Protection', '❌ CAPTCHA annoys guests', '✅ Invisible honeypots'],
-      ['Updates', '❌ Plugin conflicts & drift', '✅ Zero dependencies'],
-      ['Direct Bookings', '❌ Third-party plugins', '✅ Native Stripe integration'],
-      ['Multi-Language', '❌ Plugin with gaps', '✅ Built-in full i18n'],
+      ['Page Speed', '❌ 5-10 seconds', '⚠️ Platform-dependent', '✅ Under 2.5 seconds'],
+      ['SEO Schemas', '❌ Basic/none', '❌ OTA controls this', '✅ 10+ rich schemas'],
+      ['AI Search Ready', '❌ Usually blocked', '❌ Not your content', '✅ Fully optimized'],
+      ['Commission Fees', '✅ None', '❌ 15-20% per booking', '✅ None'],
+      ['Guest Data Ownership', '✅ Yours', '❌ Platform owns it', '✅ Yours'],
+      ['Brand Control', '⚠️ Theme-limited', '❌ OTA branding', '✅ 100% your brand'],
+      ['Spam Protection', '❌ CAPTCHA annoys', '⚠️ Hidden behind login', '✅ Invisible honeypots'],
+      ['Multi-Language', '❌ Plugin chaos', '⚠️ Limited options', '✅ Native multi-lang'],
+      ['Maintenance', '❌ Plugin updates', '✅ OTA handles it', '✅ Zero dependencies'],
+      ['Direct Payments', '❌ Third-party plugins', '❌ OTA processes', '✅ Native Stripe'],
     ],
     
     section5Title: 'Your Investment',
-    section5Subtitle: 'Transparent pricing, no surprises',
+    section5Subtitle: 'Transparent pricing, exceptional value',
     
-    pricingNote: 'Contact us to discuss pricing options tailored to your needs.',
+    pricingNote: 'One successful direct booking typically covers your entire website investment. Contact us to discuss options.',
+    
+    roiTitle: 'The Math',
+    roiItems: [
+      { label: 'Average luxury villa booking', value: '$5,000-15,000' },
+      { label: 'OTA commission (15-20%)', value: '$750-3,000+ lost per booking' },
+      { label: 'Direct bookings per year', value: '2-10+ (depends on marketing)' },
+      { label: 'Potential annual savings', value: '$1,500-30,000+' },
+    ],
     
     ctaTitle: 'Questions?',
-    ctaDescription: 'Reply to any email from us, or reach out directly.',
+    ctaDescription: 'Reply to any email from us, or reach out directly. We\'re real people who care about your success.',
     ctaButton: 'Contact Us',
   },
   es: {
     heroTitle: 'Tu Presencia Digital,',
     heroTitleAccent: 'Elevada',
     heroSubtitle: `Todo lo que necesitas saber sobre tu sitio web de ${villaName}`,
+    
+    // Sección de propuesta de valor
+    valueTitle: 'Por Qué Esto Importa',
+    valueSubtitle: 'El valor real detrás de tu sitio web de villa',
+    
+    valueProps: [
+      {
+        icon: '💰',
+        title: 'Cero Comisiones de Plataforma',
+        description: 'Airbnb cobra 15-20% por reserva. VRBO también se lleva su parte. Cada reserva directa significa que te quedas con el 100% de tus ingresos.',
+        highlight: 'Ahorra €1,500-3,000+ por reserva en una villa de lujo',
+      },
+      {
+        icon: '👑',
+        title: 'Tu Marca y Datos de Huéspedes',
+        description: 'En las OTAs, los huéspedes pertenecen a la plataforma—no a ti. Con tu propio sitio, construyes una relación directa y creas huéspedes recurrentes.',
+        highlight: 'Construye una lista de huéspedes que es tuya para siempre',
+      },
+      {
+        icon: '🤖',
+        title: 'Optimizado para IA',
+        description: 'Tu sitio está configurado para aparecer en AI Overviews (ChatGPT, Perplexity, Google AI). A medida que los viajeros preguntan a la IA, tu villa aparece.',
+        highlight: 'Listo para el futuro de las búsquedas',
+      },
+      {
+        icon: '🎯',
+        title: 'Resultados Enriquecidos de Google',
+        description: 'Respuestas FAQ, estrellas de valoración y carruseles de imágenes aparecen directamente en Google. Tu propiedad destaca antes de que hagan clic.',
+        highlight: 'Domina los resultados de búsqueda con rich snippets',
+      },
+    ],
     
     section1Title: 'Qué Incluye',
     section1Subtitle: 'Un sitio web completo de villa de lujo, listo para convertir huéspedes',
@@ -238,42 +352,81 @@ const content = {
       {
         icon: '🎨',
         title: 'Diseño de Clase Mundial',
-        description: 'Estética de lujo personalizada con tipografía elegante, presentación de imágenes y galería modal.',
+        description: 'Estética de lujo con tipografía elegante, slideshow hero y galería modal. Indistinguible de un desarrollo de €10,000+.',
       },
       {
         icon: '📱',
         title: 'Mobile-First',
-        description: 'Perfectamente responsive en todos los dispositivos. El rendimiento móvil es la primera impresión.',
+        description: 'Perfectamente responsive en todos los dispositivos. 70%+ de la investigación de viajes de lujo sucede en móvil.',
       },
       {
         icon: '🔍',
-        title: 'Optimizado para SEO',
-        description: '8+ esquemas JSON-LD, meta tags, Open Graph y datos estructurados para resultados enriquecidos de Google.',
+        title: 'Arquitectura SEO Profunda',
+        description: '10+ esquemas JSON-LD interconectados: LodgingBusiness, FAQPage, Review, ImageObject, OfferCatalog, Service y más.',
+      },
+      {
+        icon: '🗣️',
+        title: 'Listo para Búsqueda por Voz',
+        description: 'Datos estructurados FAQ significan que Alexa, Siri y Google Assistant pueden responder preguntas sobre tu villa.',
       },
       {
         icon: '📧',
-        title: 'Formulario de Reserva Directa',
-        description: 'Formulario protegido contra spam. Los leads van directamente a ti—sin comisiones de plataforma.',
+        title: 'Sistema de Reserva Directa',
+        description: 'Formulario anti-spam con calculadora de cotización en tiempo real. Los leads van directamente a ti.',
       },
       {
         icon: '💳',
-        title: 'Pagos con Stripe',
-        description: 'Procesamiento de pagos seguro con sesiones de 23 horas. Los huéspedes pagan directamente.',
+        title: 'Pagos Seguros con Stripe',
+        description: 'Checkout compatible PCI con sesiones de 23 horas. El huésped paga, recibes notificación, fondos a tu cuenta.',
       },
       {
         icon: '🌍',
         title: 'Soporte Multiidioma',
-        description: 'Traducciones completas en inglés, español y francés. Llega a huéspedes internacionales.',
+        description: 'Traducciones completas en inglés, español, francés y más. Llega a huéspedes internacionales en su idioma.',
       },
       {
         icon: '⚡',
-        title: 'Ultra Rápido',
-        description: 'Tiempos de carga menores a 2.5 segundos. Puntuación Lighthouse 90+ en todas las categorías.',
+        title: 'Rendimiento Ultra Rápido',
+        description: 'Tiempos de carga menores a 2.5 segundos. Lighthouse 90+ en todas las categorías. 3x más rápido que WordPress.',
+      },
+      {
+        icon: '🖼️',
+        title: 'Optimización Pro de Imágenes',
+        description: 'Formatos WebP/AVIF, srcsets responsive, lazy loading. Tus fotos cargan rápido en cualquier conexión.',
       },
       {
         icon: '🔒',
-        title: 'Seguro y Confiable',
-        description: 'HTTPS, emails verificados SPF/DKIM, protección anti-spam y hosting Vercel empresarial.',
+        title: 'Seguridad Empresarial',
+        description: 'HTTPS, emails verificados SPF/DKIM (99.9% entrega), protección honeypot invisible contra spam.',
+      },
+      {
+        icon: '✉️',
+        title: 'Aprobación con Un Clic',
+        description: 'Recibe consultas por email con botones Aprobar/Rechazar. Sin login—gestiona reservas desde tu inbox.',
+      },
+      {
+        icon: '🌐',
+        title: 'Red Edge Global',
+        description: 'Contenido servido desde 70+ ubicaciones mundiales. Rápido para huéspedes en Nueva York, Londres o Sydney.',
+      },
+    ],
+    
+    // Sección IA
+    aiTitle: 'Construido para Búsqueda IA',
+    aiSubtitle: 'Optimizado para cómo la gente buscará mañana',
+    
+    aiFeatures: [
+      {
+        title: 'Acceso a Crawlers de IA',
+        description: 'GPTBot, ClaudeBot, PerplexityBot y Google AI tienen permiso explícito para indexar tu sitio. Muchos competidores los bloquean—tú los recibes.',
+      },
+      {
+        title: 'Contenido Q&A Estructurado',
+        description: 'Tu sección FAQ usa marcado schema que los sistemas de IA entienden. Cuando alguien pregunta "mejores villas cerca de [tu área]," tus respuestas están listas.',
+      },
+      {
+        title: 'Contexto Rico para IA',
+        description: 'Contenido detallado de ubicación, amenidades y experiencias da a los sistemas IA el contexto para recomendar tu propiedad con precisión.',
       },
     ],
     
@@ -284,58 +437,71 @@ const content = {
       {
         number: '1',
         title: 'El Huésped Envía Consulta',
-        description: 'Los huéspedes completan el formulario con sus fechas y detalles.',
+        description: 'Los huéspedes completan el formulario con sus fechas. Cotización instantánea calculada. Spam filtrado automáticamente.',
       },
       {
         number: '2',
         title: 'Recibes Notificación',
-        description: 'Recibes un email con todos los detalles y botones de Aprobar/Rechazar.',
+        description: 'Email con detalles del huésped, fechas, cotización y botones de Aprobar/Rechazar con un clic.',
       },
       {
         number: '3',
         title: 'El Huésped Recibe Aprobación',
-        description: 'Cuando apruebas, el huésped recibe un email elegante con enlace de pago.',
+        description: 'Cuando apruebas, el huésped recibe un email con tu marca y enlace de pago. Tu branding, tu mensaje.',
       },
       {
         number: '4',
         title: 'Pago Seguro',
-        description: 'El huésped paga vía Stripe. Recibes confirmación. Reserva completada.',
+        description: 'El huésped paga vía Stripe. Recibes confirmación. Sin dolores de cabeza de facturación. Listo.',
       },
     ],
     
-    section3Title: 'Tecnología',
+    section3Title: 'Stack Tecnológico',
     section3Subtitle: 'Infraestructura empresarial, atención boutique',
     
     techItems: [
-      { label: 'Framework', value: 'Astro 4 (estático + serverless)' },
-      { label: 'Hosting', value: 'Vercel Edge Network (CDN global)' },
-      { label: 'Email', value: 'Brevo SMTP (99.9% entregabilidad)' },
-      { label: 'Pagos', value: 'Stripe Checkout (cumple PCI)' },
-      { label: 'Base de Datos', value: 'Firebase Firestore' },
+      { label: 'Framework', value: 'Astro 4 (híbrido estático + serverless)' },
+      { label: 'Hosting', value: 'Vercel Edge Network (70+ ubicaciones globales)' },
+      { label: 'Email', value: 'Brevo SMTP (99.9% entrega a inbox)' },
+      { label: 'Pagos', value: 'Stripe Checkout (PCI DSS Nivel 1)' },
+      { label: 'Base de Datos', value: 'Firebase Firestore (auto-escalable)' },
       { label: 'Rendimiento', value: 'Lighthouse 90+ todas las categorías' },
+      { label: 'Imágenes', value: 'WebP/AVIF con srcsets responsive' },
+      { label: 'Seguridad', value: 'Autenticación email SPF/DKIM/DMARC' },
     ],
     
-    section4Title: 'Comparación',
-    section4Subtitle: 'Por qué esto supera a las plantillas genéricas',
+    section4Title: 'vs. Las Alternativas',
+    section4Subtitle: 'Por qué esto supera lo que podrías construir tú mismo',
     
-    comparisonHeaders: ['Característica', 'WordPress/Temas', 'Tu Sitio LoveThisPlace'],
+    comparisonHeaders: ['Capacidad', 'WordPress DIY', 'Listing OTA', 'Tu Sitio LTP'],
     comparisonRows: [
-      ['Velocidad', '❌ 5-10 segundos', '✅ Menos de 2.5 segundos'],
-      ['Schema SEO', '❌ Básico o ausente', '✅ 8+ esquemas interconectados'],
-      ['UX Móvil', '❌ Frecuentemente roto', '✅ Diseño mobile-first'],
-      ['Anti-Spam', '❌ CAPTCHA molesta huéspedes', '✅ Honeypots invisibles'],
-      ['Actualizaciones', '❌ Conflictos de plugins', '✅ Cero dependencias'],
-      ['Reservas Directas', '❌ Plugins de terceros', '✅ Integración Stripe nativa'],
-      ['Multiidioma', '❌ Plugin con lagunas', '✅ i18n completo incluido'],
+      ['Velocidad', '❌ 5-10 segundos', '⚠️ Depende de plataforma', '✅ Menos de 2.5 seg'],
+      ['Schemas SEO', '❌ Básico/ninguno', '❌ OTA lo controla', '✅ 10+ schemas ricos'],
+      ['Listo para IA', '❌ Usualmente bloqueado', '❌ No es tu contenido', '✅ Totalmente optimizado'],
+      ['Comisiones', '✅ Ninguna', '❌ 15-20% por reserva', '✅ Ninguna'],
+      ['Datos de Huéspedes', '✅ Tuyos', '❌ La plataforma los posee', '✅ Tuyos'],
+      ['Control de Marca', '⚠️ Limitado por tema', '❌ Branding OTA', '✅ 100% tu marca'],
+      ['Anti-Spam', '❌ CAPTCHA molesta', '⚠️ Oculto tras login', '✅ Honeypots invisibles'],
+      ['Multiidioma', '❌ Caos de plugins', '⚠️ Opciones limitadas', '✅ Multi-lang nativo'],
+      ['Mantenimiento', '❌ Actualizar plugins', '✅ OTA lo maneja', '✅ Cero dependencias'],
+      ['Pagos Directos', '❌ Plugins terceros', '❌ OTA procesa', '✅ Stripe nativo'],
     ],
     
     section5Title: 'Tu Inversión',
-    section5Subtitle: 'Precios transparentes, sin sorpresas',
+    section5Subtitle: 'Precios transparentes, valor excepcional',
     
-    pricingNote: 'Contáctanos para discutir opciones de precios adaptadas a tus necesidades.',
+    pricingNote: 'Una reserva directa exitosa típicamente cubre toda tu inversión del sitio web. Contáctanos para discutir opciones.',
+    
+    roiTitle: 'Las Matemáticas',
+    roiItems: [
+      { label: 'Reserva promedio villa de lujo', value: '$5,000-15,000' },
+      { label: 'Comisión OTA (15-20%)', value: '$750-3,000+ perdidos por reserva' },
+      { label: 'Reservas directas por año', value: '2-10+ (depende del marketing)' },
+      { label: 'Ahorro anual potencial', value: '$1,500-30,000+' },
+    ],
     
     ctaTitle: '¿Preguntas?',
-    ctaDescription: 'Responde a cualquier email nuestro, o contáctanos directamente.',
+    ctaDescription: 'Responde a cualquier email nuestro o contáctanos directamente. Somos personas reales que nos importa tu éxito.',
     ctaButton: 'Contáctanos',
   },
   fr: {
@@ -343,111 +509,194 @@ const content = {
     heroTitleAccent: 'Sublimée',
     heroSubtitle: `Tout ce que vous devez savoir sur votre site web ${villaName}`,
     
+    // Section proposition de valeur
+    valueTitle: 'Pourquoi C\'est Important',
+    valueSubtitle: 'La vraie valeur derrière votre site web de villa',
+    
+    valueProps: [
+      {
+        icon: '💰',
+        title: 'Zéro Commission de Plateforme',
+        description: 'Airbnb prend 15-20% par réservation. VRBO aussi. Chaque réservation directe signifie que vous gardez 100% de vos revenus.',
+        highlight: 'Économisez €1,500-3,000+ par réservation sur une villa de luxe',
+      },
+      {
+        icon: '👑',
+        title: 'Votre Marque et Données Clients',
+        description: 'Sur les OTAs, les clients appartiennent à la plateforme—pas à vous. Avec votre propre site, vous construisez une relation directe.',
+        highlight: 'Construisez une liste de clients qui vous appartient',
+      },
+      {
+        icon: '🤖',
+        title: 'Optimisé pour l\'IA',
+        description: 'Votre site est configuré pour apparaître dans les AI Overviews (ChatGPT, Perplexity, Google AI). Votre villa apparaît quand les voyageurs interrogent l\'IA.',
+        highlight: 'Prêt pour le futur de la recherche',
+      },
+      {
+        icon: '🎯',
+        title: 'Résultats Enrichis Google',
+        description: 'Réponses FAQ, étoiles, carrousels d\'images apparaissent directement dans Google. Votre propriété se démarque avant même le clic.',
+        highlight: 'Dominez les résultats avec les rich snippets',
+      },
+    ],
+    
     section1Title: 'Ce Qui Est Inclus',
-    section1Subtitle: 'Un site web de villa de luxe complet, prêt à convertir les clients',
+    section1Subtitle: 'Un site web de villa de luxe complet, prêt à convertir',
     
     features: [
       {
         icon: '🎨',
         title: 'Design Haut de Gamme',
-        description: 'Esthétique de luxe sur mesure avec typographie élégante, diaporama héro et galerie modale.',
+        description: 'Esthétique luxe avec typographie élégante, diaporama héro et galerie modale. Impossible à distinguer d\'un développement à €10,000+.',
       },
       {
         icon: '📱',
         title: 'Mobile-First',
-        description: 'Parfaitement responsive sur tous les appareils. La performance mobile est la première impression.',
+        description: 'Parfaitement responsive sur tous les appareils. 70%+ de la recherche voyage luxe se fait sur mobile.',
       },
       {
         icon: '🔍',
-        title: 'Optimisé SEO',
-        description: '8+ schémas JSON-LD, meta tags, Open Graph et données structurées pour les résultats enrichis Google.',
+        title: 'Architecture SEO Profonde',
+        description: '10+ schémas JSON-LD interconnectés : LodgingBusiness, FAQPage, Review, ImageObject, OfferCatalog, Service et plus.',
+      },
+      {
+        icon: '🗣️',
+        title: 'Prêt pour la Recherche Vocale',
+        description: 'Les données FAQ structurées permettent à Alexa, Siri et Google Assistant de répondre aux questions sur votre villa.',
       },
       {
         icon: '📧',
-        title: 'Formulaire de Réservation Directe',
-        description: 'Formulaire protégé anti-spam. Les leads vont directement à vous—pas de commissions de plateforme.',
+        title: 'Système de Réservation Directe',
+        description: 'Formulaire anti-spam avec calculateur de devis en temps réel. Les leads vont directement à vous.',
       },
       {
         icon: '💳',
-        title: 'Paiements Stripe',
-        description: 'Traitement des paiements sécurisé avec sessions de 23 heures. Les clients paient directement.',
+        title: 'Paiements Stripe Sécurisés',
+        description: 'Checkout conforme PCI avec sessions de 23h. Le client paie, vous êtes notifié, fonds sur votre compte.',
       },
       {
         icon: '🌍',
         title: 'Support Multilingue',
-        description: 'Traductions complètes en anglais, espagnol et français. Atteignez les clients internationaux.',
+        description: 'Traductions complètes en anglais, espagnol, français et plus. Atteignez les clients internationaux dans leur langue.',
       },
       {
         icon: '⚡',
-        title: 'Ultra Rapide',
-        description: 'Temps de chargement sous 2.5 secondes. Score Lighthouse 90+ dans toutes les catégories.',
+        title: 'Performance Ultra Rapide',
+        description: 'Temps de chargement sous 2.5 secondes. Lighthouse 90+ dans toutes les catégories. 3x plus rapide que WordPress.',
+      },
+      {
+        icon: '🖼️',
+        title: 'Optimisation Pro des Images',
+        description: 'Formats WebP/AVIF, srcsets responsive, lazy loading. Vos photos chargent vite sur toute connexion.',
       },
       {
         icon: '🔒',
-        title: 'Sécurisé et Fiable',
-        description: 'HTTPS, emails vérifiés SPF/DKIM, protection anti-spam et hébergement Vercel entreprise.',
+        title: 'Sécurité Entreprise',
+        description: 'HTTPS partout, emails vérifiés SPF/DKIM (99.9% délivrabilité), protection honeypot invisible anti-spam.',
+      },
+      {
+        icon: '✉️',
+        title: 'Approbation en Un Clic',
+        description: 'Recevez les demandes par email avec boutons Approuver/Refuser. Pas de login—gérez les réservations depuis votre boîte mail.',
+      },
+      {
+        icon: '🌐',
+        title: 'Réseau Edge Global',
+        description: 'Contenu servi depuis 70+ emplacements mondiaux. Rapide pour les clients à New York, Londres ou Sydney.',
+      },
+    ],
+    
+    // Section IA
+    aiTitle: 'Conçu pour la Recherche IA',
+    aiSubtitle: 'Optimisé pour la façon dont les gens chercheront demain',
+    
+    aiFeatures: [
+      {
+        title: 'Accès aux Crawlers IA',
+        description: 'GPTBot, ClaudeBot, PerplexityBot et Google AI sont explicitement autorisés à indexer votre site. Beaucoup de concurrents les bloquent—vous les accueillez.',
+      },
+      {
+        title: 'Contenu Q&R Structuré',
+        description: 'Votre section FAQ utilise le balisage schema que les systèmes IA comprennent. Quand quelqu\'un demande "meilleures villas près de [votre région]," vos réponses sont prêtes.',
+      },
+      {
+        title: 'Contexte Riche pour l\'IA',
+        description: 'Contenu détaillé sur l\'emplacement, les équipements et les expériences donne aux systèmes IA le contexte pour recommander votre propriété avec précision.',
       },
     ],
     
     section2Title: 'Comment Ça Marche',
-    section2Subtitle: 'De la demande à la réservation en 4 étapes simples',
+    section2Subtitle: 'De la demande à la réservation en 4 étapes',
     
     steps: [
       {
         number: '1',
         title: 'Le Client Envoie une Demande',
-        description: 'Les clients remplissent le formulaire avec leurs dates et détails.',
+        description: 'Les clients remplissent le formulaire avec leurs dates. Devis instantané calculé. Spam filtré automatiquement.',
       },
       {
         number: '2',
         title: 'Vous Recevez une Notification',
-        description: 'Vous recevez un email avec tous les détails et boutons Approuver/Refuser.',
+        description: 'Email avec détails client, dates, devis et boutons Approuver/Refuser en un clic.',
       },
       {
         number: '3',
         title: 'Le Client Reçoit l\'Approbation',
-        description: 'Quand vous approuvez, le client reçoit un email élégant avec lien de paiement.',
+        description: 'Quand vous approuvez, le client reçoit un email à votre image avec lien de paiement. Votre marque, votre message.',
       },
       {
         number: '4',
         title: 'Paiement Sécurisé',
-        description: 'Le client paie via Stripe. Vous recevez la confirmation. Réservation terminée.',
+        description: 'Le client paie via Stripe. Vous recevez confirmation. Pas de maux de tête de facturation. Terminé.',
       },
     ],
     
-    section3Title: 'Technologie',
+    section3Title: 'Stack Technologique',
     section3Subtitle: 'Infrastructure entreprise, attention boutique',
     
     techItems: [
-      { label: 'Framework', value: 'Astro 4 (statique + serverless)' },
-      { label: 'Hébergement', value: 'Vercel Edge Network (CDN mondial)' },
-      { label: 'Email', value: 'Brevo SMTP (99.9% délivrabilité)' },
-      { label: 'Paiements', value: 'Stripe Checkout (conforme PCI)' },
-      { label: 'Base de Données', value: 'Firebase Firestore' },
+      { label: 'Framework', value: 'Astro 4 (hybride statique + serverless)' },
+      { label: 'Hébergement', value: 'Vercel Edge Network (70+ emplacements)' },
+      { label: 'Email', value: 'Brevo SMTP (99.9% délivrabilité inbox)' },
+      { label: 'Paiements', value: 'Stripe Checkout (PCI DSS Niveau 1)' },
+      { label: 'Base de Données', value: 'Firebase Firestore (auto-scalable)' },
       { label: 'Performance', value: 'Lighthouse 90+ toutes catégories' },
+      { label: 'Images', value: 'WebP/AVIF avec srcsets responsive' },
+      { label: 'Sécurité', value: 'Authentification email SPF/DKIM/DMARC' },
     ],
     
-    section4Title: 'Comparaison',
-    section4Subtitle: 'Pourquoi ceci surpasse les templates génériques',
+    section4Title: 'vs. Les Alternatives',
+    section4Subtitle: 'Pourquoi ceci surpasse ce que vous pourriez construire',
     
-    comparisonHeaders: ['Fonctionnalité', 'WordPress/Thèmes', 'Votre Site LoveThisPlace'],
+    comparisonHeaders: ['Capacité', 'WordPress DIY', 'Annonce OTA', 'Votre Site LTP'],
     comparisonRows: [
-      ['Vitesse', '❌ 5-10 secondes', '✅ Moins de 2.5 secondes'],
-      ['Schema SEO', '❌ Basique ou absent', '✅ 8+ schémas interconnectés'],
-      ['UX Mobile', '❌ Souvent cassé', '✅ Design mobile-first'],
-      ['Anti-Spam', '❌ CAPTCHA dérange clients', '✅ Honeypots invisibles'],
-      ['Mises à Jour', '❌ Conflits de plugins', '✅ Zéro dépendances'],
-      ['Réservations Directes', '❌ Plugins tiers', '✅ Intégration Stripe native'],
-      ['Multilingue', '❌ Plugin avec lacunes', '✅ i18n complet inclus'],
+      ['Vitesse', '❌ 5-10 secondes', '⚠️ Dépend de la plateforme', '✅ Moins de 2.5 sec'],
+      ['Schémas SEO', '❌ Basique/aucun', '❌ L\'OTA contrôle', '✅ 10+ schémas riches'],
+      ['Prêt pour l\'IA', '❌ Souvent bloqué', '❌ Pas votre contenu', '✅ Entièrement optimisé'],
+      ['Commissions', '✅ Aucune', '❌ 15-20% par réservation', '✅ Aucune'],
+      ['Données Clients', '✅ À vous', '❌ La plateforme possède', '✅ À vous'],
+      ['Contrôle Marque', '⚠️ Limité par thème', '❌ Branding OTA', '✅ 100% votre marque'],
+      ['Anti-Spam', '❌ CAPTCHA agace', '⚠️ Caché derrière login', '✅ Honeypots invisibles'],
+      ['Multilingue', '❌ Chaos de plugins', '⚠️ Options limitées', '✅ Multi-langue natif'],
+      ['Maintenance', '❌ Mises à jour plugins', '✅ L\'OTA gère', '✅ Zéro dépendances'],
+      ['Paiements Directs', '❌ Plugins tiers', '❌ L\'OTA traite', '✅ Stripe natif'],
     ],
     
     section5Title: 'Votre Investissement',
-    section5Subtitle: 'Tarification transparente, sans surprises',
+    section5Subtitle: 'Tarification transparente, valeur exceptionnelle',
     
-    pricingNote: 'Contactez-nous pour discuter des options de tarification adaptées à vos besoins.',
+    pricingNote: 'Une réservation directe réussie couvre généralement tout votre investissement. Contactez-nous pour discuter des options.',
+    
+    roiTitle: 'Le Calcul',
+    roiItems: [
+      { label: 'Réservation moyenne villa de luxe', value: '€5,000-15,000' },
+      { label: 'Commission OTA (15-20%)', value: '€750-3,000 perdus par réservation' },
+      { label: 'Réservations directes par an', value: '2-10+ (selon le marketing)' },
+      { label: 'Économies annuelles potentielles', value: '€1,500-30,000+' },
+    ],
     
     ctaTitle: 'Questions ?',
-    ctaDescription: 'Répondez à n\'importe quel email de notre part, ou contactez-nous directement.',
+    ctaDescription: 'Répondez à n\'importe quel email de notre part ou contactez-nous directement. Nous sommes de vraies personnes qui se soucient de votre succès.',
     ctaButton: 'Nous Contacter',
   },
 };
@@ -477,8 +726,31 @@ const t = content[validLang as keyof typeof content] || content.en;
     </div>
   </section>
 
+  <!-- Value Proposition Section (NEW) -->
+  {'valueProps' in t && (
+    <section class="about-section value-section">
+      <div class="container">
+        <div class="section-header">
+          <h2>{t.valueTitle}</h2>
+          <p class="section-subtitle">{t.valueSubtitle}</p>
+        </div>
+        
+        <div class="value-grid">
+          {t.valueProps.map((prop: any) => (
+            <div class="value-card">
+              <span class="value-icon">{prop.icon}</span>
+              <h3>{prop.title}</h3>
+              <p>{prop.description}</p>
+              <span class="value-highlight">{prop.highlight}</span>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  )}
+
   <!-- Features Section -->
-  <section class="about-section">
+  <section class="about-section alt-bg">
     <div class="container">
       <div class="section-header">
         <h2>{t.section1Title}</h2>
@@ -496,6 +768,27 @@ const t = content[validLang as keyof typeof content] || content.en;
       </div>
     </div>
   </section>
+
+  <!-- AI Search Section (NEW) -->
+  {'aiFeatures' in t && (
+    <section class="about-section ai-section">
+      <div class="container">
+        <div class="section-header">
+          <h2>{t.aiTitle}</h2>
+          <p class="section-subtitle">{t.aiSubtitle}</p>
+        </div>
+        
+        <div class="ai-grid">
+          {t.aiFeatures.map((feature: any) => (
+            <div class="ai-card">
+              <h3>{feature.title}</h3>
+              <p>{feature.description}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  )}
 
   <!-- How It Works Section -->
   <section class="about-section alt-bg">
@@ -557,7 +850,7 @@ const t = content[validLang as keyof typeof content] || content.en;
             {t.comparisonRows.map((row) => (
               <tr>
                 {row.map((cell, i) => (
-                  <td class={i === 0 ? 'feature-name' : i === 2 ? 'highlight' : ''}>{cell}</td>
+                  <td class={i === 0 ? 'feature-name' : i === 3 ? 'highlight' : ''}>{cell}</td>
                 ))}
               </tr>
             ))}
@@ -566,6 +859,27 @@ const t = content[validLang as keyof typeof content] || content.en;
       </div>
     </div>
   </section>
+
+  <!-- ROI Section (NEW) -->
+  {'roiItems' in t && (
+    <section class="about-section roi-section">
+      <div class="container">
+        <div class="section-header">
+          <h2>{t.roiTitle}</h2>
+          <p class="section-subtitle">{t.pricingNote}</p>
+        </div>
+        
+        <div class="roi-grid">
+          {t.roiItems.map((item: any) => (
+            <div class="roi-item">
+              <span class="roi-label">{item.label}</span>
+              <span class="roi-value">{item.value}</span>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  )}
 
   <!-- CTA Section -->
   <section class="about-cta">
@@ -578,47 +892,57 @@ const t = content[validLang as keyof typeof content] || content.en;
 </BaseLayout>
 
 <style>
-  /* Hero */
+  /* ═══════════════════════════════════════════════════════════════
+     World-Class About Page Styles
+     Clean, elegant, minimal - luxury villa aesthetic
+  ═══════════════════════════════════════════════════════════════ */
+
+  /* Hero - Compact and purposeful */
   .about-hero {
-    background: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 100%);
-    padding: 120px 24px 80px;
+    background: #0f0f0f;
+    padding: 100px 24px 60px;
     text-align: center;
+    border-bottom: 1px solid rgba(255,255,255,0.08);
   }
   
   .hero-title {
     font-family: 'Cormorant Garamond', Georgia, serif;
-    font-size: clamp(2.4rem, 5vw, 4rem);
+    font-size: clamp(2.4rem, 4.5vw, 3.6rem);
     font-weight: 400;
     color: #fff;
-    line-height: 1.2;
+    line-height: 1.15;
     margin: 0 0 16px;
-    letter-spacing: 1px;
+    letter-spacing: 0.5px;
   }
   
   .hero-title .accent {
     color: var(--color-accent, #a58e76);
+    font-style: italic;
   }
   
   .hero-subtitle {
     font-family: 'Inter', sans-serif;
     font-size: 1.1rem;
-    color: rgba(255,255,255,0.7);
-    max-width: 600px;
+    color: rgba(255,255,255,0.55);
+    max-width: 500px;
     margin: 0 auto;
+    font-weight: 300;
   }
   
   /* Container */
   .container {
-    max-width: 1100px;
+    max-width: 1140px;
     margin: 0 auto;
     padding: 0 24px;
   }
   
-  /* Sections */
+  /* Base Section Styling - Clean white, no aggressive backgrounds */
   .about-section {
     padding: 80px 24px;
+    background: #fff;
   }
   
+  /* Remove aggressive alternating backgrounds - use subtle dividers instead */
   .about-section.alt-bg {
     background: #fafafa;
   }
@@ -630,33 +954,130 @@ const t = content[validLang as keyof typeof content] || content.en;
   
   .section-header h2 {
     font-family: 'Cormorant Garamond', Georgia, serif;
-    font-size: 2.2rem;
-    font-weight: 500;
+    font-size: clamp(1.9rem, 3.5vw, 2.4rem);
+    font-weight: 400;
     color: #1a1a1a;
     margin: 0 0 12px;
+    letter-spacing: 0.3px;
   }
   
   .section-subtitle {
     font-family: 'Inter', sans-serif;
     font-size: 1rem;
-    color: #666;
+    color: #777;
     margin: 0;
+    font-weight: 300;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  /* ═══════════════════════════════════════════════════════════════
+     Value Proposition Section - Flows from hero
+  ═══════════════════════════════════════════════════════════════ */
+  .value-section {
+    background: #0f0f0f;
+    padding: 70px 24px 80px;
   }
   
-  /* Features Grid - 4 columns desktop, 2 tablet, 1 mobile */
-  .features-grid {
+  .value-section .section-header {
+    margin-bottom: 40px;
+  }
+  
+  .value-section .section-header h2 {
+    color: #fff;
+    font-size: clamp(1.8rem, 3vw, 2.2rem);
+  }
+  
+  .value-section .section-subtitle {
+    color: rgba(255,255,255,0.5);
+  }
+  
+  .value-grid {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    gap: 24px;
+    gap: 16px;
   }
   
   @media (max-width: 1024px) {
-    .features-grid {
+    .value-grid {
       grid-template-columns: repeat(2, 1fr);
     }
   }
   
   @media (max-width: 600px) {
+    .value-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+  
+  .value-card {
+    background: rgba(255,255,255,0.03);
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 10px;
+    padding: 24px 20px;
+    transition: all 0.3s ease;
+  }
+  
+  .value-card:hover {
+    background: rgba(255,255,255,0.05);
+    border-color: rgba(165, 142, 118, 0.25);
+  }
+  
+  .value-icon {
+    font-size: 1.8rem;
+    display: block;
+    margin-bottom: 12px;
+  }
+  
+  .value-card h3 {
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-size: 1.15rem;
+    font-weight: 500;
+    color: #fff;
+    margin: 0 0 8px;
+  }
+  
+  .value-card p {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.85rem;
+    color: rgba(255,255,255,0.55);
+    line-height: 1.6;
+    margin: 0 0 12px;
+  }
+  
+  .value-highlight {
+    display: inline-block;
+    font-family: 'Inter', sans-serif;
+    font-size: 0.7rem;
+    font-weight: 500;
+    color: var(--color-accent, #a58e76);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+
+  /* ═══════════════════════════════════════════════════════════════
+     Features Grid - Clean, minimal cards
+  ═══════════════════════════════════════════════════════════════ */
+  .features-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+  }
+  
+  @media (max-width: 1024px) {
+    .features-grid {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+  
+  @media (max-width: 768px) {
+    .features-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+  
+  @media (max-width: 500px) {
     .features-grid {
       grid-template-columns: 1fr;
     }
@@ -665,25 +1086,25 @@ const t = content[validLang as keyof typeof content] || content.en;
   .feature-card {
     background: #fff;
     border: 1px solid #eee;
-    border-radius: 12px;
-    padding: 28px;
-    transition: box-shadow 0.3s ease, transform 0.3s ease;
+    border-radius: 10px;
+    padding: 24px 20px;
+    transition: all 0.35s ease;
   }
   
   .feature-card:hover {
-    box-shadow: 0 8px 32px rgba(0,0,0,0.08);
-    transform: translateY(-4px);
+    border-color: var(--color-accent, #a58e76);
+    box-shadow: 0 8px 40px rgba(0,0,0,0.06);
   }
   
   .feature-icon {
-    font-size: 2rem;
+    font-size: 1.6rem;
     display: block;
     margin-bottom: 12px;
   }
   
   .feature-card h3 {
     font-family: 'Inter', sans-serif;
-    font-size: 1.1rem;
+    font-size: 0.95rem;
     font-weight: 600;
     color: #1a1a1a;
     margin: 0 0 8px;
@@ -691,34 +1112,109 @@ const t = content[validLang as keyof typeof content] || content.en;
   
   .feature-card p {
     font-family: 'Inter', sans-serif;
-    font-size: 0.95rem;
-    color: #555;
+    font-size: 0.85rem;
+    color: #666;
+    line-height: 1.55;
+    margin: 0;
+  }
+
+  /* ═══════════════════════════════════════════════════════════════
+     AI Section - Subtle highlight
+  ═══════════════════════════════════════════════════════════════ */
+  .ai-section {
+    background: #fff;
+    padding: 70px 24px;
+    border-top: 1px solid #eee;
+    border-bottom: 1px solid #eee;
+  }
+  
+  .ai-section .section-header {
+    margin-bottom: 36px;
+  }
+  
+  .ai-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    max-width: 960px;
+    margin: 0 auto;
+  }
+  
+  @media (max-width: 768px) {
+    .ai-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+  
+  .ai-card {
+    background: #fafaf9;
+    border: 1px solid #e8e5e2;
+    border-radius: 8px;
+    padding: 24px 20px;
+    position: relative;
+  }
+  
+  .ai-card h3 {
+    font-family: 'Inter', sans-serif;
+    font-size: 1rem;
+    font-weight: 600;
+    color: #1a1a1a;
+    margin: 0 0 10px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  
+  .ai-card h3::before {
+    content: '🤖';
+    font-size: 1.1rem;
+  }
+  
+  .ai-card p {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.88rem;
+    color: #666;
     line-height: 1.6;
     margin: 0;
   }
-  
-  /* Steps Grid */
+
+  /* ═══════════════════════════════════════════════════════════════
+     Steps Grid - Elegant horizontal flow
+  ═══════════════════════════════════════════════════════════════ */
   .steps-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    grid-template-columns: repeat(4, 1fr);
     gap: 32px;
+  }
+  
+  @media (max-width: 900px) {
+    .steps-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+  
+  @media (max-width: 500px) {
+    .steps-grid {
+      grid-template-columns: 1fr;
+    }
   }
   
   .step-card {
     text-align: center;
-    padding: 24px;
+    padding: 16px;
   }
   
   .step-number {
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    width: 56px;
-    height: 56px;
-    background: var(--color-accent, #a58e76);
-    color: #fff;
+    width: 48px;
+    height: 48px;
+    background: transparent;
+    border: 2px solid var(--color-accent, #a58e76);
+    color: var(--color-accent, #a58e76);
     font-family: 'Cormorant Garamond', Georgia, serif;
-    font-size: 1.5rem;
+    font-size: 1.3rem;
     font-weight: 600;
     border-radius: 50%;
     margin-bottom: 16px;
@@ -726,7 +1222,7 @@ const t = content[validLang as keyof typeof content] || content.en;
   
   .step-card h3 {
     font-family: 'Inter', sans-serif;
-    font-size: 1rem;
+    font-size: 0.95rem;
     font-weight: 600;
     color: #1a1a1a;
     margin: 0 0 8px;
@@ -734,37 +1230,39 @@ const t = content[validLang as keyof typeof content] || content.en;
   
   .step-card p {
     font-family: 'Inter', sans-serif;
-    font-size: 0.9rem;
-    color: #666;
-    line-height: 1.5;
+    font-size: 0.85rem;
+    color: #777;
+    line-height: 1.55;
     margin: 0;
   }
-  
-  /* Tech Grid - 3 columns desktop (6 items = 2 rows) */
+
+  /* ═══════════════════════════════════════════════════════════════
+     Tech Grid - Clean info display
+  ═══════════════════════════════════════════════════════════════ */
   .tech-grid {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(4, 1fr);
     gap: 16px;
-    max-width: 900px;
+    max-width: 1000px;
     margin: 0 auto;
   }
   
-  @media (max-width: 768px) {
+  @media (max-width: 900px) {
     .tech-grid {
       grid-template-columns: repeat(2, 1fr);
     }
   }
   
-  @media (max-width: 480px) {
+  @media (max-width: 500px) {
     .tech-grid {
       grid-template-columns: 1fr;
     }
   }
   
   .tech-item {
-    background: #f5f5f5;
+    background: #fafaf9;
     border-radius: 8px;
-    padding: 16px 20px;
+    padding: 18px 20px;
     display: flex;
     flex-direction: column;
     gap: 4px;
@@ -772,38 +1270,43 @@ const t = content[validLang as keyof typeof content] || content.en;
   
   .tech-label {
     font-family: 'Inter', sans-serif;
-    font-size: 0.75rem;
+    font-size: 0.7rem;
     font-weight: 600;
     color: var(--color-accent, #a58e76);
     text-transform: uppercase;
-    letter-spacing: 1px;
+    letter-spacing: 0.8px;
   }
   
   .tech-value {
     font-family: 'Inter', sans-serif;
-    font-size: 0.9rem;
-    color: #1a1a1a;
+    font-size: 0.85rem;
+    color: #333;
   }
-  
-  /* Comparison Table */
+
+  /* ═══════════════════════════════════════════════════════════════
+     Comparison Table - Refined styling
+  ═══════════════════════════════════════════════════════════════ */
   .comparison-table-wrapper {
     overflow-x: auto;
     -webkit-overflow-scrolling: touch;
+    max-width: 1000px;
+    margin: 0 auto;
   }
   
   .comparison-table {
     width: 100%;
     border-collapse: collapse;
     font-family: 'Inter', sans-serif;
-    font-size: 0.9rem;
+    font-size: 0.85rem;
   }
   
   .comparison-table th {
     background: #1a1a1a;
     color: #fff;
-    font-weight: 600;
-    padding: 14px 16px;
+    font-weight: 500;
+    padding: 14px 18px;
     text-align: left;
+    font-size: 0.8rem;
   }
   
   .comparison-table th:first-child {
@@ -812,11 +1315,12 @@ const t = content[validLang as keyof typeof content] || content.en;
   
   .comparison-table th:last-child {
     border-radius: 0 8px 0 0;
+    background: var(--color-accent, #a58e76);
   }
   
   .comparison-table td {
-    padding: 12px 16px;
-    border-bottom: 1px solid #eee;
+    padding: 13px 18px;
+    border-bottom: 1px solid #f0f0f0;
     background: #fff;
   }
   
@@ -834,13 +1338,90 @@ const t = content[validLang as keyof typeof content] || content.en;
   }
   
   .comparison-table .highlight {
-    background: rgba(165, 142, 118, 0.1);
+    background: rgba(165, 142, 118, 0.08);
     color: #1a1a1a;
+    font-weight: 500;
+  }
+
+  /* ═══════════════════════════════════════════════════════════════
+     ROI Section - Elegant accent bar
+  ═══════════════════════════════════════════════════════════════ */
+  .roi-section {
+    background: linear-gradient(135deg, #1a1a1a 0%, #252525 100%);
+    padding: 80px 24px;
   }
   
-  /* CTA Section */
+  .roi-section .section-header h2 {
+    color: #fff;
+    font-size: clamp(1.8rem, 3vw, 2.2rem);
+  }
+  
+  .roi-section .section-subtitle {
+    color: rgba(255,255,255,0.6);
+    max-width: 580px;
+    margin: 0 auto;
+    font-size: 0.95rem;
+  }
+  
+  .roi-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 16px;
+    max-width: 1000px;
+    margin: 0 auto;
+  }
+  
+  @media (max-width: 900px) {
+    .roi-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+  
+  @media (max-width: 500px) {
+    .roi-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+  
+  .roi-item {
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 10px;
+    padding: 24px 20px;
+    text-align: center;
+    transition: all 0.3s ease;
+  }
+  
+  .roi-item:hover {
+    background: rgba(255,255,255,0.07);
+    border-color: rgba(165, 142, 118, 0.4);
+  }
+  
+  .roi-label {
+    display: block;
+    font-family: 'Inter', sans-serif;
+    font-size: 0.72rem;
+    font-weight: 500;
+    color: rgba(255,255,255,0.6);
+    margin-bottom: 8px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+  
+  .roi-value {
+    display: block;
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-size: 1.35rem;
+    font-weight: 500;
+    color: var(--color-accent, #a58e76);
+  }
+
+  /* ═══════════════════════════════════════════════════════════════
+     CTA Section - Clean finish
+  ═══════════════════════════════════════════════════════════════ */
   .about-cta {
-    background: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 100%);
+    background: #fff;
+    border-top: 1px solid rgba(0,0,0,0.06);
     padding: 80px 24px;
     text-align: center;
   }
@@ -848,63 +1429,68 @@ const t = content[validLang as keyof typeof content] || content.en;
   .about-cta h2 {
     font-family: 'Cormorant Garamond', Georgia, serif;
     font-size: 2rem;
-    font-weight: 500;
-    color: #fff;
+    font-weight: 400;
+    color: #1a1a1a;
     margin: 0 0 12px;
   }
   
   .about-cta p {
     font-family: 'Inter', sans-serif;
     font-size: 1rem;
-    color: rgba(255,255,255,0.7);
-    margin: 0 0 24px;
+    color: #777;
+    margin: 0 0 28px;
+    max-width: 500px;
+    margin-left: auto;
+    margin-right: auto;
   }
   
   .cta-button {
     display: inline-block;
-    background: var(--color-accent, #a58e76);
+    background: #1a1a1a;
     color: #fff;
     font-family: 'Inter', sans-serif;
-    font-size: 0.95rem;
-    font-weight: 600;
-    padding: 14px 32px;
-    border-radius: 8px;
+    font-size: 0.9rem;
+    font-weight: 500;
+    padding: 14px 36px;
+    border-radius: 6px;
     text-decoration: none;
-    transition: background 0.3s ease, transform 0.3s ease;
+    transition: all 0.3s ease;
+    letter-spacing: 0.3px;
   }
   
   .cta-button:hover {
-    background: #8a7562;
+    background: var(--color-accent, #a58e76);
     transform: translateY(-2px);
   }
-  
-  /* Responsive */
+
+  /* ═══════════════════════════════════════════════════════════════
+     Responsive Adjustments
+  ═══════════════════════════════════════════════════════════════ */
   @media (max-width: 768px) {
     .about-hero {
-      padding: 100px 16px 60px;
+      padding: 120px 20px 80px;
     }
     
     .about-section {
-      padding: 60px 16px;
+      padding: 70px 20px;
     }
     
-    .steps-grid {
-      grid-template-columns: 1fr 1fr;
+    .value-section,
+    .roi-section {
+      padding: 70px 20px;
+    }
+    
+    .section-header {
+      margin-bottom: 40px;
     }
     
     .comparison-table {
-      font-size: 0.8rem;
+      font-size: 0.78rem;
     }
     
     .comparison-table th,
     .comparison-table td {
-      padding: 10px 12px;
-    }
-  }
-  
-  @media (max-width: 480px) {
-    .steps-grid {
-      grid-template-columns: 1fr;
+      padding: 11px 14px;
     }
   }
 </style>
