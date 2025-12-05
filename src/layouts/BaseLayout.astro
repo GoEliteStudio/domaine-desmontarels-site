@@ -14,6 +14,7 @@ export interface Props {
   themeColor?: string;  // e.g., "#0f0f0f"
   villaName?: string;   // Dynamic villa name for branding
   homeUrl?: string;     // Villa home URL (e.g., /villas/casa-de-la-muralla/en)
+  whatsappNumber?: string; // WhatsApp number for floating button (digits only, e.g., "19179633133")
   hreflangs?: Array<{ lang: string; locale: string; url: string }>; // Multi-language alternates
   footer?: {
     exploreHeading: string;
@@ -43,6 +44,7 @@ const {
   themeColor = '#0f0f0f',
   villaName = 'Luxury Villa',
   homeUrl = '/',
+  whatsappNumber,
   hreflangs = [],
   footer,
   navLinks,
@@ -497,9 +499,11 @@ const resolvedNavCtaLabel = navCtaLabel ?? 'Inquire';
       )}
       
       <!-- Floating Concierge Button -->
-      <a href="https://wa.me/15551234567" target="_blank" class="concierge-button" title="Chat with Concierge on WhatsApp">
-        <i class="fab fa-whatsapp"></i>
-      </a>
+      {whatsappNumber && (
+        <a href={`https://wa.me/${whatsappNumber}`} target="_blank" rel="noopener" class="concierge-button" title="Chat with Concierge on WhatsApp">
+          <i class="fab fa-whatsapp"></i>
+        </a>
+      )}
     </main>
 
     <slot name="footer">

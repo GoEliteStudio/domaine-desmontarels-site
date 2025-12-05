@@ -718,6 +718,11 @@
   "specs": { "bedrooms": 5, "baths": 4, "guests": 12, "poolSize": "12.5m" },
   "seasons": [
     { "id": "request", "label": "Rate on Request", "price": null, "currency": null, "priceDisplay": "Rate on Request" }
-  ]
+  ],
+  "contact": {
+    "phone": "+44 7768 987879",
+    "email": "jc@elitecartagena.com",
+    "whatsapp": "447768987879"
+  }
 }
 
