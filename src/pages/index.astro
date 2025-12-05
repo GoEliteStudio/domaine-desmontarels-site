@@ -62,34 +62,67 @@ if (!matchedSlug) {
     * { margin: 0; padding: 0; box-sizing: border-box; }
     body {
       font-family: 'Cormorant Garamond', Georgia, serif;
-      background: #fdf8f6;
+      background: linear-gradient(145deg, #1a1612 0%, #2d2520 30%, #1a1612 70%, #0f0d0b 100%);
       min-height: 100vh;
       display: flex;
       align-items: center;
       justify-content: center;
-      color: #3d3530;
+      color: #f5f0eb;
+      position: relative;
+      overflow: hidden;
+    }
+    body::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: 
+        radial-gradient(ellipse at 30% 20%, rgba(212, 175, 55, 0.08) 0%, transparent 50%),
+        radial-gradient(ellipse at 70% 80%, rgba(212, 175, 55, 0.05) 0%, transparent 50%);
+      pointer-events: none;
     }
     .container {
       text-align: center;
       padding: 2rem;
       max-width: 500px;
+      position: relative;
+      z-index: 1;
     }
     .logo {
-      width: 80px;
-      height: 80px;
-      margin-bottom: 1.5rem;
+      width: 140px;
+      height: auto;
+      margin-bottom: 2rem;
+      filter: drop-shadow(0 8px 24px rgba(212, 175, 55, 0.4));
+      animation: float 6s ease-in-out infinite;
+    }
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-8px); }
     }
     h1 {
-      font-size: 2.5rem;
+      font-size: 2.8rem;
       font-weight: 400;
-      letter-spacing: 0.02em;
-      color: #3d3530;
+      letter-spacing: 0.05em;
+      background: linear-gradient(135deg, #d4af37 0%, #f4e4a6 50%, #d4af37 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      margin-bottom: 0.5rem;
     }
     p {
       font-size: 1.2rem;
       margin-top: 1rem;
       font-weight: 300;
-      opacity: 0.8;
+      color: rgba(245, 240, 235, 0.7);
+      letter-spacing: 0.02em;
+    }
+    .divider {
+      width: 60px;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, rgba(212, 175, 55, 0.5), transparent);
+      margin: 1.5rem auto;
     }
   </style>
 </head>
@@ -97,6 +130,7 @@ if (!matchedSlug) {
   <div class="container">
     <img src="/ltp-favicon.png" alt="Love This Place" class="logo">
     <h1>LoveThisPlace</h1>
+    <div class="divider"></div>
     <p>Premium websites for exceptional vacation properties.</p>
   </div>
 </body>
