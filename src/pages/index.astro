@@ -16,36 +16,92 @@
 // Must be server-side rendered to read headers
 export const prerender = false;
 
-import { VILLA_LANGUAGES, DEFAULT_LANG, HOSTNAME_SLUG_MAP, DEFAULT_VILLA_SLUG } from '../config/i18n';
+import { VILLA_LANGUAGES, DEFAULT_LANG, HOSTNAME_SLUG_MAP } from '../config/i18n';
 
 // Step 1: Identify which villa site this is
-// Priority: hostname mapping → env var → default
 const hostname = Astro.request.headers.get('host') || '';
 const envSlug = import.meta.env.VILLA_SLUG as string | undefined;
-const currentSlug = HOSTNAME_SLUG_MAP[hostname] || envSlug || DEFAULT_VILLA_SLUG;
 
-// Step 2: Get supported languages for this villa
-const supportedLangs = VILLA_LANGUAGES[currentSlug] || [DEFAULT_LANG];
+// Check if hostname matches a known villa
+const matchedSlug = HOSTNAME_SLUG_MAP[hostname] || envSlug;
 
-// Step 3: Detect browser's preferred language
-// Header format: "es-ES,es;q=0.9,en-US;q=0.8,en;q=0.7"
-// Extract first language code (es-ES → es)
-const acceptHeader = Astro.request.headers.get('accept-language') || '';
-const preferredLang = acceptHeader.split(',')[0]?.split('-')[0]?.toLowerCase() || DEFAULT_LANG;
+// If no villa match found (shared Vercel URL), show branded landing page
+// This prevents cross-villa exposure between owners
+if (!matchedSlug) {
+  // Don't redirect - render the landing page below
+} else {
+  // Step 2: Get supported languages for this villa
+  const supportedLangs = VILLA_LANGUAGES[matchedSlug] || [DEFAULT_LANG];
 
-// Step 4: Choose target language
-// If user's preferred language is supported → use it
-// Otherwise → fallback to default language
-let targetLang = DEFAULT_LANG;
+  // Step 3: Detect browser's preferred language
+  const acceptHeader = Astro.request.headers.get('accept-language') || '';
+  const preferredLang = acceptHeader.split(',')[0]?.split('-')[0]?.toLowerCase() || DEFAULT_LANG;
 
-if (supportedLangs.includes(preferredLang)) {
-  targetLang = preferredLang;
+  // Step 4: Choose target language
+  let targetLang = DEFAULT_LANG;
+  if (supportedLangs.includes(preferredLang)) {
+    targetLang = preferredLang;
+  }
+
+  // Step 5: Execute permanent redirect (301)
+  const targetUrl = `/villas/${matchedSlug}/${targetLang}/`;
+  return Astro.redirect(targetUrl, 301);
 }
-
-// Step 5: Execute permanent redirect (301)
-// SEO-friendly: tells Google this is the canonical location
-// Preserves PageRank from root to language-specific page
-const targetUrl = `/villas/${currentSlug}/${targetLang}/`;
-
-return Astro.redirect(targetUrl, 301);
 ---
+
+<!-- Neutral Landing Page - Shown when no villa is matched -->
+<!-- This prevents one villa owner from accidentally seeing another's property -->
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Love This Place | Premium Villa Websites</title>
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #fff;
+    }
+    .container {
+      text-align: center;
+      padding: 2rem;
+      max-width: 500px;
+    }
+    .heart {
+      font-size: 4rem;
+      margin-bottom: 1.5rem;
+      filter: drop-shadow(0 0 20px rgba(212, 175, 55, 0.5));
+    }
+    h1 {
+      font-size: 2rem;
+      font-weight: 300;
+      margin-bottom: 1rem;
+      color: #d4af37;
+    }
+    p {
+      font-size: 1.1rem;
+      opacity: 0.8;
+      line-height: 1.6;
+    }
+    .tagline {
+      margin-top: 2rem;
+      font-size: 0.9rem;
+      opacity: 0.6;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="heart">💛</div>
+    <h1>Love This Place</h1>
+    <p>Premium websites for exceptional vacation properties.</p>
+    <p class="tagline">Each property has its own dedicated domain.</p>
+  </div>
+</body>
+</html>
