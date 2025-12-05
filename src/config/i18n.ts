@@ -59,8 +59,7 @@ export const VILLAS: VillaConfig[] = [
     defaultLang: 'en',
     domain: 'www.domaine-desmontarels.com',
     altDomains: [
-      'domaine-desmontarels.com',
-      'lovethisplace-sites.vercel.app'
+      'domaine-desmontarels.com'
     ],
     updatedAt: '2025-12-03',
     auxPages: ['contact', 'rates', 'terms', 'privacy', 'about', 'thank-you'],
