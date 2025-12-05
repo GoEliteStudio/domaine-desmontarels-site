@@ -33,7 +33,7 @@ This is a **speculative building system** designed to mass-produce **world-class
 - **Repository**: `GoEliteStudio/domaine-desmontarels-site`
 - **Branch**: `main`
 
-**Current Status**: Multi-villa production system with **2 villas** and **full 3-language i18n support** implemented. CLI tooling, validation scripts, and localized auxiliary pages all complete.
+**Current Status**: Multi-villa production system with **3 villas** and **full 3-language i18n support** implemented. CLI tooling, validation scripts, localized auxiliary pages, villa-specific pricing, minimum nights validation, and dynamic footer contact info all complete.
 
 **Critical**: `villa-engine-v2.html` is an **outdated prototype**. Always reference the **live Astro production site** for current standards.
 
@@ -45,7 +45,8 @@ This is a **speculative building system** designed to mass-produce **world-class
 ```typescript
 VILLA_LANGUAGES = {
   'domaine-des-montarels': ['en', 'es', 'fr'],  // 80 images, 108 FAQs
-  'casa-de-la-muralla': ['en', 'es']             // 27 images
+  'casa-de-la-muralla': ['en', 'es'],            // 27 images
+  'mount-zurich': ['en', 'es']                   // 109 images, $875/night
 }
 ```
 
@@ -649,7 +650,7 @@ interface Props {
 
 **Problem**: Footer Explore links (`#overview`, `#amenities`, etc.) don't work on policy pages.
 
-**Solution**: Map anchor links to include full villa page path:
+**Solution**: Map anchor links to include full villa page path, and use villa-specific contact info:
 
 ```typescript
 // In rates.astro, terms.astro, privacy.astro, contact.astro, thank-you.astro
@@ -666,11 +667,16 @@ const villaFooter = {
     }
     return link;
   }),
-  contactLinks: ui.footer.contactLinks,
+  // Villa-specific contact info from JSON (not hardcoded)
+  contactLinks: [
+    { label: villa.contact?.phone || '+1 555 123 4567', href: `tel:${...}` },
+    { label: villa.contact?.email || `reservations@${slug}.com`, href: `mailto:${...}` },
+    { label: ui.footer.contactLinks?.[2]?.label || 'Contact Us', href: `${langBasePath}/contact` }
+  ]
 };
 ```
 
-**Result**: Footer links work from any page, navigating to main villa page sections.
+**Result**: Footer links work from any page, with villa-specific phone/email from JSON.
 
 ---
 
@@ -842,18 +848,78 @@ The current setup uses **one shared `OWNER_EMAIL`** for all villas. This works w
 ### Step-by-Step: Add a New Villa
 
 1. **Create villa JSON** (`src/content/villas/{slug}.{lang}.json`)
-2. **Add to VILLA_LANGUAGES** in `src/config/i18n.ts`:
+   - Include `contact` section for footer phone/email:
+   ```json
+   "contact": {
+     "phone": "+1 555 123 4567",
+     "email": "reservations@newvilla.com"
+   }
+   ```
+2. **Add to configuration registries** in `src/config/i18n.ts`:
    ```typescript
-   export const VILLA_LANGUAGES: Record<string, string[]> = {
-     'domaine-des-montarels': ['en', 'es', 'fr'],
-     'casa-de-la-muralla': ['en', 'es'],
-     'new-villa-slug': ['en', 'es'],  // Add new villa
-   };
+   // In VILLAS array
+   { slug: 'new-villa-slug', languages: ['en', 'es'], defaultLanguage: 'en', ... },
+   
+   // In VILLA_NIGHTLY_RATES (for auto-quote calculation)
+   'new-villa-slug': 500,  // $500/night, or 0 for "rate on request"
+   
+   // In VILLA_MINIMUM_NIGHTS
+   'new-villa-slug': 3,    // 3-night minimum
    ```
 3. **Add images** to `public/images/villas/{slug}/`
-4. **Build & deploy** — Forms automatically work with the new villa
+4. **Build & deploy** — Forms automatically work with villa-specific pricing, minimum nights, and contact info
 
-### Future: Per-Villa Owner Emails
+### Villa-Specific Pricing & Minimum Nights (Implemented)
+
+Each villa can have its own nightly rate and minimum stay requirement, configured in `src/config/i18n.ts`:
+
+```typescript
+// Villa nightly rates - for auto-quote calculation
+const VILLA_NIGHTLY_RATES: Record<string, number> = {
+  'domaine-des-montarels': 0,      // Rate on request (no auto-quote)
+  'casa-de-la-muralla': 0,          // Rate on request
+  'mount-zurich': 875,              // $875 USD per night
+};
+
+// Villa minimum nights requirements
+const VILLA_MINIMUM_NIGHTS: Record<string, number> = {
+  'domaine-des-montarels': 5,
+  'casa-de-la-muralla': 3,
+  'mount-zurich': 2,
+};
+
+// Export helper functions
+export function getVillaNightlyRate(slug: string): number;
+export function getVillaMinimumNights(slug: string): number;
+```
+
+**Pricing behavior**:
+- If rate > 0: Quote auto-calculated (nightly × nights + fees)
+- If rate = 0: Shows "Rate on request" in emails
+- Cleaning fee defaults to $0 (configurable in `pricing.ts`)
+
+**Minimum nights validation**:
+- Forms validate client-side with localized error messages
+- Server-side validation in `inquire.ts`
+- Error messages in EN/ES/FR
+
+### Villa-Specific Contact Info (Implemented)
+
+Footer phone/email is read from villa JSON `contact` section:
+
+```json
+// src/content/villas/mount-zurich.en.json
+{
+  "contact": {
+    "phone": "+1 917 963 3133",
+    "email": "reservations@mountzurich.com"
+  }
+}
+```
+
+All pages read `villa.contact?.phone` and `villa.contact?.email` for footer display.
+
+### Per-Villa Owner Emails (Implemented)
 
 To route inquiries to different owners per villa, implement one of these patterns:
 

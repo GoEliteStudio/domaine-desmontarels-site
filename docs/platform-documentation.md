@@ -10,9 +10,9 @@ canonical: "https://lovethisplace-sites.vercel.app/platform-documentation"
 
 # Villa Engine — Technical Platform Documentation
 
-> **Version:** 2025-12-03  
-> **Branch:** `feature/multi-villa-engine`  
-> **Status:** Production multi-villa system with 2 villas, full i18n (EN/ES/FR), Stripe payments, Firestore database, and Brevo email delivery.
+> **Version:** 2025-12-05  
+> **Branch:** `main`  
+> **Status:** Production multi-villa system with 3 villas, full i18n (EN/ES/FR), Stripe payments, Firestore database, Brevo email delivery, villa-specific pricing, and minimum nights validation.
 
 ---
 
@@ -31,9 +31,9 @@ The **LoveThisPlace Villa Engine** is a production-grade, multi-villa website pl
 
 | Metric | Value |
 |--------|-------|
-| **Villas Live** | 2 (Domaine des Montarels, Casa de la Muralla) |
+| **Villas Live** | 3 (Domaine des Montarels, Casa de la Muralla, Mount Zurich) |
 | **Languages** | EN, ES, FR |
-| **Total Images** | 107 curated |
+| **Total Images** | 216 curated |
 | **Email Provider** | Brevo SMTP (99.9% deliverability) |
 | **Payment Provider** | Stripe Checkout |
 | **Database** | Firebase Firestore |
@@ -125,7 +125,7 @@ astro/
 │   ├── layouts/                           # BaseLayout.astro
 │   ├── content/villas/                    # JSON per villa/language
 │   ├── config/
-│   │   ├── i18n.ts                        # Villa languages config
+│   │   ├── i18n.ts                        # Villa config, pricing, min nights
 │   │   ├── uiStrings.ts                   # UI translations
 │   │   └── services.ts                    # Service offerings per villa
 │   └── lib/
@@ -133,6 +133,7 @@ astro/
 │       ├── emailService.ts                # Brevo SMTP transport
 │       ├── clientReceipt.ts               # Guest email templates
 │       ├── ownerNotice.ts                 # Owner email templates
+│       ├── pricing.ts                     # Quote calculation logic
 │       ├── schema.ts                      # JSON-LD generator
 │       └── firestore/                     # Database types & helpers
 ├── public/images/villas/                  # Villa images
@@ -277,10 +278,10 @@ All guest-facing emails are sent in the language of the original form submission
 | `GalleryGrid.astro` | Photo grid + modal | Keyboard nav (ESC/arrows), lazy loading |
 | `Tabs.astro` | Content sections | ARIA roles, hash-based activation |
 | `FixedFactsPanel.astro` | Sticky sidebar | Specs, pricing, inquiry toggle |
-| `InquiryForm.astro` | Lead capture | Honeypots, 3s timing gate, native validation |
+| `InquiryForm.astro` | Lead capture | Honeypots, 3s timing gate, min nights validation |
 | `FaqAccordion.astro` | Collapsible FAQs | Category grouping, show/hide toggle |
 | `TrustBar.astro` | Credibility badges | Static, reusable across villas |
-| `Footer.astro` | Navigation | Localized links, social icons |
+| `Footer.astro` | Navigation | Villa-specific contact info, localized links |
 | `BaseLayout.astro` | Global shell | Meta, JSON-LD, header, sticky panel logic |
 
 ### Zero-Code Villa Addition
@@ -288,8 +289,12 @@ All guest-facing emails are sent in the language of the original form submission
 All components accept props from villa JSON — **no code changes required** per villa:
 
 1. Add JSON file: `src/content/villas/{slug}.{lang}.json`
+   - Include `contact` section for footer phone/email
 2. Add images: `public/images/villas/{slug}/`
 3. Update i18n config: `src/config/i18n.ts`
+   - Add to `VILLAS` array
+   - Add to `VILLA_NIGHTLY_RATES` (or 0 for "rate on request")
+   - Add to `VILLA_MINIMUM_NIGHTS`
 4. Deploy — routing is automatic
 
 ---
@@ -397,15 +402,27 @@ npm run validate  # Runs scripts/validate-i18n.mjs
    ```bash
    cp src/content/villas/domaine-des-montarels.en.json src/content/villas/{slug}.en.json
    ```
+   
+   Include contact section in JSON:
+   ```json
+   "contact": {
+     "phone": "+1 555 123 4567",
+     "email": "reservations@newvilla.com"
+   }
+   ```
 
 4. **Update i18n config:**
    ```typescript
    // src/config/i18n.ts
-   export const VILLA_LANGUAGES = {
-     'domaine-des-montarels': ['en', 'es', 'fr'],
-     'casa-de-la-muralla': ['en', 'es'],
-     '{new-slug}': ['en', 'es'],  // Add new villa
-   };
+   
+   // Add to VILLAS array
+   { slug: '{new-slug}', languages: ['en', 'es'], defaultLanguage: 'en', ... },
+   
+   // Add to VILLA_NIGHTLY_RATES
+   '{new-slug}': 500,  // $500/night, or 0 for "rate on request"
+   
+   // Add to VILLA_MINIMUM_NIGHTS
+   '{new-slug}': 3,    // 3-night minimum
    ```
 
 5. **Add images:**

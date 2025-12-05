@@ -81,6 +81,19 @@ export const VILLAS: VillaConfig[] = [
     region: 'latam',
     currency: 'USD',
     ownerEmail: 'reservations@casadelamuralla.com'
+  },
+  {
+    slug: 'mount-zurich',
+    langs: ['en', 'es'],
+    defaultLang: 'en',
+    domain: 'mount-zurich.vercel.app',
+    altDomains: [],
+    updatedAt: '2025-12-05',
+    auxPages: ['contact', 'rates', 'terms', 'privacy', 'about', 'thank-you'],
+    active: true,
+    region: 'usa',
+    currency: 'USD',
+    ownerEmail: 'reservations@mountzurich.com'
   }
 ];
 
@@ -154,6 +167,41 @@ export function getVillaRegion(slug: string): VillaRegion {
  */
 export function getVillaOwnerEmail(slug: string): string {
   return getVillaBySlug(slug)?.ownerEmail || 'bookings@lovethisplace.co';
+}
+
+/**
+ * Villa nightly rates - loaded from villa JSON files
+ * Used for quote calculations in inquiry API
+ */
+const VILLA_NIGHTLY_RATES: Record<string, number> = {
+  'domaine-des-montarels': 0,      // Rate on request (no auto-quote)
+  'casa-de-la-muralla': 0,          // Rate on request
+  'mount-zurich': 875,              // $875 USD per night
+};
+
+/**
+ * Get nightly rate for a specific villa
+ * Returns 0 if rate is "on request" (no auto-quote)
+ */
+export function getVillaNightlyRate(slug: string): number {
+  return VILLA_NIGHTLY_RATES[slug] || 0;
+}
+
+/**
+ * Villa minimum nights requirements
+ */
+const VILLA_MINIMUM_NIGHTS: Record<string, number> = {
+  'domaine-des-montarels': 5,
+  'casa-de-la-muralla': 3,
+  'mount-zurich': 2,
+};
+
+/**
+ * Get minimum nights for a specific villa
+ * Returns 2 as default if not specified
+ */
+export function getVillaMinimumNights(slug: string): number {
+  return VILLA_MINIMUM_NIGHTS[slug] || 2;
 }
 
 // =============================================================================

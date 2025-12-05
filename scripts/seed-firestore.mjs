@@ -99,6 +99,31 @@ const VILLAS_DATA = [
       status: 'active',
     },
   },
+  {
+    owner: {
+      name: 'Mount Zurich Owner',
+      email: 'reservations@mountzurich.com',
+      tier: 'asset-partner',
+      stripeAccountId: '',
+      currency: 'USD',
+      contractMonths: 12,
+      commissionPercent: 10,
+    },
+    listing: {
+      slug: 'mount-zurich',
+      type: 'cabin',
+      name: 'Mount Zurich',
+      location: {
+        country: 'USA',
+        region: 'Pennsylvania',
+        city: 'Poconos',
+      },
+      maxGuests: 14,
+      commissionPercent: 10,
+      baseCurrency: 'USD',
+      status: 'active',
+    },
+  },
 ];
 
 // ============================================================

@@ -6,7 +6,7 @@ import type { InquiryOrigin, Listing } from '../../lib/firestore/types';
 import { generateApproveUrl, generateDeclineUrl } from '../../lib/signing';
 import { calculateQuote, getDefaultPricing } from '../../lib/pricing';
 import { sendOwnerNotification } from '../../lib/emailRouting';
-import { getVillaCurrency, getVillaOwnerEmail } from '../../config/i18n';
+import { getVillaCurrency, getVillaOwnerEmail, getVillaNightlyRate, getVillaMinimumNights } from '../../config/i18n';
 
 type InquireBody = {
   fullName?: string;
@@ -188,14 +188,20 @@ export const POST: APIRoute = async ({ request }) => {
     
     if (listing) {
       try {
-        const pricing = getDefaultPricing(listing); // TODO: Load from Firestore pricing collection
-        const quote = calculateQuote(
-          pricing,
-          payload.checkIn,
-          payload.checkOut,
-          payload.adults + payload.children
-        );
-        quoteAmount = quote.total;
+        // Get villa-specific nightly rate (0 = rate on request, no auto-quote)
+        const villaRate = getVillaNightlyRate(slug);
+        const villaMinNights = getVillaMinimumNights(slug);
+        if (villaRate > 0) {
+          const pricing = getDefaultPricing(listing, villaRate, villaMinNights);
+          const quote = calculateQuote(
+            pricing,
+            payload.checkIn,
+            payload.checkOut,
+            payload.adults + payload.children
+          );
+          quoteAmount = quote.total;
+        }
+        // If villaRate is 0, quoteAmount stays undefined (rate on request)
       } catch (pricingErr) {
         console.warn('[inquire] Quote calculation failed:', pricingErr);
       }

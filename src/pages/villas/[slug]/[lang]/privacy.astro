@@ -65,10 +65,11 @@ const villaFooter = {
     if (link.href === '/privacy') return { ...link, href: `${langBasePath}/privacy` };
     return link;
   }),
-  contactLinks: ui.footer.contactLinks.map((link: { label: string; href: string }) => {
-    if (link.href === '/contact') return { ...link, href: `${langBasePath}/contact` };
-    return link;
-  })
+  contactLinks: [
+    { label: villa.contact?.phone || '+1 555 123 4567', href: `tel:${(villa.contact?.phone || '+15551234567').replace(/\s/g, '')}` },
+    { label: villa.contact?.email || `reservations@${slug?.replace(/-/g, '')}.com`, href: `mailto:${villa.contact?.email || `reservations@${slug?.replace(/-/g, '')}.com`}` },
+    { label: ui.footer.contactLinks?.[2]?.label || 'Contact Us', href: `${langBasePath}/contact` }
+  ]
 };
 
 const title = `${privacyUI.pageTitle} — ${villa.name}`;

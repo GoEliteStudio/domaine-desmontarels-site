@@ -161,7 +161,7 @@ const specsArray = [
   { icon: 'fas fa-users', label: ui.specs.guests, value: String(villa.specs.guests) },
   { icon: 'fas fa-ruler-combined', label: ui.specs.size, value: villa.specs.size || '' },
   { icon: 'fas fa-map-marker-alt', label: villa.headlines.location || ui.specs.locationFallback, value: '' },
-  { icon: 'fas fa-temperature-high', label: ui.specs.pool, value: villa.specs.poolSize || ui.specs.poolFallback },
+  { icon: 'fas fa-temperature-high', label: villa.specs.poolLabel || ui.specs.pool, value: villa.specs.poolSize || ui.specs.poolFallback },
 ];
 
 // Tabs (mirroring live Domaine structure, but data-driven)
@@ -381,17 +381,23 @@ const villaFooter = {
     </section>
   )}
 
-  {villa.content?.testimonials?.length > 0 && (
+  {(villa.content?.testimonials?.length > 0 || genericGoogleReviews.length > 0) && (
     <section class="container testimonials" id="testimonials">
       <h2>{ui.testimonials.heading}</h2>
       <ul class="quotes">
-        {villa.content.testimonials.map((t: any) => <li><blockquote>“{t.quote}”</blockquote><cite>— {t.attribution}</cite></li>)}
-        {genericGoogleReviews.map((r) => (
-          <li>
-            <blockquote>“{r.quote}”</blockquote>
-            <cite>— {r.attribution}</cite>
-          </li>
-        ))}
+        {villa.content?.testimonials?.length >= 3 ? (
+          villa.content.testimonials.map((t: any) => <li><blockquote>"{t.quote}"</blockquote><cite>— {t.attribution}</cite></li>)
+        ) : (
+          <>
+            {villa.content?.testimonials?.map((t: any) => <li><blockquote>"{t.quote}"</blockquote><cite>— {t.attribution}</cite></li>)}
+            {genericGoogleReviews.map((r) => (
+              <li>
+                <blockquote>"{r.quote}"</blockquote>
+                <cite>— {r.attribution}</cite>
+              </li>
+            ))}
+          </>
+        )}
       </ul>
     </section>
   )}

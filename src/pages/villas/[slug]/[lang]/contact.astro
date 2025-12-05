@@ -1,6 +1,6 @@
 ---
 import BaseLayout from '../../../../layouts/BaseLayout.astro';
-import { VILLA_LANGUAGES, DEFAULT_LANG, getVillaBySlug } from '../../../../config/i18n';
+import { VILLA_LANGUAGES, DEFAULT_LANG, getVillaBySlug, getVillaMinimumNights } from '../../../../config/i18n';
 import { getUIStrings } from '../../../../config/uiStrings';
 import { buildAuxPageSchema } from '../../../../lib/schema';
 
@@ -59,10 +59,11 @@ const villaFooter = {
     if (link.href === '/privacy') return { ...link, href: `${langBasePath}/privacy` };
     return link;
   }),
-  contactLinks: ui.footer.contactLinks.map((link: { label: string; href: string }) => {
-    if (link.href === '/contact') return { ...link, href: `${langBasePath}/contact` };
-    return link;
-  })
+  contactLinks: [
+    { label: villa.contact?.phone || '+1 555 123 4567', href: `tel:${(villa.contact?.phone || '+15551234567').replace(/\s/g, '')}` },
+    { label: villa.contact?.email || `reservations@${slug?.replace(/-/g, '')}.com`, href: `mailto:${villa.contact?.email || `reservations@${slug?.replace(/-/g, '')}.com`}` },
+    { label: ui.footer.contactLinks?.[2]?.label || 'Contact Us', href: `${langBasePath}/contact` }
+  ]
 };
 
 // Villa-specific contact info
@@ -75,18 +76,22 @@ const contactInfo: Record<string, { phone: string; email: string; whatsapp?: str
   'domaine-des-montarels': {
     phone: '+33 4 90 00 00 00',
     email: 'jc@elitecartagena.com'
+  },
+  'mount-zurich': {
+    phone: '+1 917 963 3133',
+    email: 'reservations@mountzurich.com'
   }
 };
 
 const contact = contactInfo[slug] || contactInfo['domaine-des-montarels'];
 
+// Get villa minimum nights requirement
+const minNights = getVillaMinimumNights(slug);
+
 // Generate page metadata
 const title = `${contactUI.pageTitle} — ${villa.name}`;
 const subtitle = contactUI.subtitle.replace('{villaName}', villa.name);
 const description = subtitle;
-
-// Generate timestamp for honeypot
-const formLoadTime = Date.now();
 
 // Quick facts labels by language
 const quickFactsLabels: Record<string, { guests: string; bedrooms: string; location: string }> = {
@@ -161,7 +166,7 @@ const jsonLd = buildAuxPageSchema({
           method="POST"
           data-villa={slug}
           data-lang={lang}
-          data-load-time={formLoadTime}
+          data-min-nights={minNights}
         >
           <!-- Honeypot fields (hidden from humans) -->
           <div class="hp-field" aria-hidden="true">
@@ -169,7 +174,8 @@ const jsonLd = buildAuxPageSchema({
             <input type="text" name="website" tabindex="-1" autocomplete="off" />
             <input type="text" name="hpt" tabindex="-1" autocomplete="off" />
           </div>
-          <input type="hidden" name="dwellStart" value={formLoadTime} />
+          <!-- Timing token: set via JS at load-time; server checks human-ish dwell time -->
+          <input type="hidden" name="__ts" id="__ts" value="" />
           <input type="hidden" name="villa" value={slug} />
           <input type="hidden" name="lang" value={lang} />
 
@@ -203,7 +209,7 @@ const jsonLd = buildAuxPageSchema({
                 type="tel" 
                 id="phone" 
                 name="phone" 
-                placeholder="+1 555 123 4567"
+                placeholder={contact.phone}
               />
             </div>
             <div class="form-group">
@@ -638,8 +644,53 @@ const jsonLd = buildAuxPageSchema({
 
   <script is:inline define:vars={{ lang, slug }}>
     (function() {
+      // Set timing token immediately on page load
+      var tsEl = document.getElementById('__ts');
+      if (tsEl) tsEl.setAttribute('value', String(Date.now()));
+
       const form = document.querySelector('.inquiry-form');
       if (!form) return;
+
+      // Minimum nights validation
+      const minNights = parseInt(form.dataset.minNights || '2', 10);
+      const checkIn = form.querySelector('#checkIn');
+      const checkOut = form.querySelector('#checkOut');
+      
+      const minNightsMessages = {
+        en: `Minimum stay is ${minNights} nights`,
+        es: `Estancia mínima de ${minNights} noches`,
+        fr: `Séjour minimum de ${minNights} nuits`
+      };
+      const minNightsMsg = minNightsMessages[lang] || minNightsMessages.en;
+      
+      function validateDates() {
+        if (!checkIn.value || !checkOut.value) return true;
+        
+        const inDate = new Date(checkIn.value);
+        const outDate = new Date(checkOut.value);
+        const nights = Math.round((outDate - inDate) / (1000 * 60 * 60 * 24));
+        
+        if (nights < minNights) {
+          checkOut.setCustomValidity(minNightsMsg);
+          return false;
+        } else {
+          checkOut.setCustomValidity('');
+          return true;
+        }
+      }
+      
+      // Set minimum checkout date when check-in changes
+      if (checkIn && checkOut) {
+        checkIn.addEventListener('change', function() {
+          if (checkIn.value) {
+            const minDate = new Date(checkIn.value);
+            minDate.setDate(minDate.getDate() + minNights);
+            checkOut.min = minDate.toISOString().split('T')[0];
+            validateDates();
+          }
+        });
+        checkOut.addEventListener('change', validateDates);
+      }
 
       // Localized messages
       const messages = {
@@ -651,6 +702,12 @@ const jsonLd = buildAuxPageSchema({
 
       form.addEventListener('submit', async function(e) {
         e.preventDefault();
+        
+        // Validate minimum nights before submitting
+        if (!validateDates()) {
+          checkOut.reportValidity();
+          return;
+        }
         
         const submitBtn = form.querySelector('.submit-button');
         const originalText = submitBtn.textContent;

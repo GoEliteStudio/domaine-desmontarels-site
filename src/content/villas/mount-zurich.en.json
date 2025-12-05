@@ -1,0 +1,930 @@
+{
+  "slug": "mount-zurich",
+  "language": "en",
+  "name": "Mount Zurich",
+  "summary": "Escape to this luxurious cabin nestled in the heart of the Pocono Mountains, ideal for family gatherings, corporate retreats, or a getaway with friends. This spacious cabin accommodates up to 14 guests.",
+  "hero": {
+    "title": "Welcome to Mount Zurich",
+    "subtitle": "Escape to this luxurious cabin nestled in the heart of the Pocono Mountains, ideal for family gatherings, corporate retreats, or a getaway with friends.",
+    "ctaText": "Discover",
+    "priorityImages": [
+      "/images/villas/mount-zurich/zurich-026.webp",
+      "/images/villas/mount-zurich/zurich-075.webp",
+      "/images/villas/mount-zurich/zurich-015.webp"
+    ]
+  },
+  "images": [
+   {
+      "src": "/images/villas/mount-zurich/zurich-001.webp",
+      "alt": "Bright living room with large windows overlooking the forest",
+      "caption": "Cozy main living area with wraparound windows and peaceful forest views."
+    },
+    {
+      "src": "/images/villas/mount-zurich/zurich-002.webp",
+      "alt": "Open concept living and dining room with modern rustic décor",
+      "caption": "Open living and dining space flooded with natural light."
+    },
+    {
+      "src": "/images/villas/mount-zurich/zurich-003.webp",
+      "alt": "Aerial view of a cabin nestled among colorful autumn trees",
+      "caption": "Mount Zurich surrounded by vibrant fall foliage in the Pocono woods."
+    },
+    {
+      "src": "/images/villas/mount-zurich/zurich-004.webp",
+      "alt": "Bedroom with large windows and crisp white linens",
+      "caption": "Wake up to soft morning light in this serene bedroom retreat."
+    },
+    {
+      "src": "/images/villas/mount-zurich/zurich-005.webp",
+      "alt": "Blue cabin exterior with front porch and warm lighting",
+      "caption": "Charming cabin façade welcoming you home to the mountains."
+    },
+    {
+      "src": "/images/villas/mount-zurich/zurich-006.webp",
+      "alt": "Woman relaxing in hammock with blue pillows, cabin deck and string lights visible in background.",
+      "caption": "Unwind in the hammock with views of the cozy cabin deck behind you."
+    },
+    {
+      "src": "/images/villas/mount-zurich/zurich-007.webp",
+      "alt": "Cozy bedroom with warm wood ceiling and forest views",
+      "caption": "Rustic yet refined bedroom ideal for restful nights."
+    },
+    {
+      "src": "/images/villas/mount-zurich/zurich-008.webp",
+      "alt": "Aerial view of dense orange forest in autumn",
+      "caption": "Golden treetops stretch in every direction around the property."
+    },
+    {
+      "src": "/images/villas/mount-zurich/zurich-009.webp",
+      "alt": "Warm kitchen with farmhouse sink and large window",
+      "caption": "Well-equipped kitchen with a picture-perfect view over the woods."
+    },
+    {
+      "src": "/images/villas/mount-zurich/zurich-010.webp",
+      "alt": "High-ceiling living room with sofas and dining table",
+      "caption": "Main gathering space with soaring ceilings and comfortable seating."
+    },
+    {
+      "src": "/images/villas/mount-zurich/zurich-011.webp",
+      "alt": "Drone view of cabin tucked into a forested hillside in autumn",
+      "caption": "Exclusive mountaintop hideaway framed by autumn color."
+    },
+    {
+      "src": "/images/villas/mount-zurich/zurich-012.webp",
+      "alt": "Grand living room with vaulted wood ceiling, circular chandelier, Netflix on large TV, wood stove, and loft ladder.",
+      "caption": "Impressive great room with soaring ceilings, cozy seating, and entertainment for all."
+    },
+    {
+      "src": "/images/villas/mount-zurich/zurich-013.webp",
+      "alt": "Bathroom vanity with round mirror and wood details",
+      "caption": "Stylish bathroom with warm wood accents and soft lighting."
+    },
+    {
+      "src": "/images/villas/mount-zurich/zurich-014.webp",
+      "alt": "Covered porch with string lights, fire table, wicker peacock chair, and wooden seating overlooking the forest.",
+      "caption": "Relax on the covered porch with a fire table and stunning forest views."
+    },
+    {
+      "src": "/images/villas/mount-zurich/zurich-015.webp",
+      "alt": "Aerial view of the cabin surrounded by forest and winding driveway",
+      "caption": "The full estate revealed from above, nestled among the trees."
+    },
+    {
+      "src": "/images/villas/mount-zurich/zurich-016.webp",
+      "alt": "Front exterior of blue cabin with illuminated windows at dusk",
+      "caption": "Warm cabin glow welcoming you back after a day of adventure."
+    },
+    {
+      "src": "/images/villas/mount-zurich/zurich-017.webp",
+      "alt": "Cozy outdoor deck at dusk with warm string lights and the Mount Zurich sign on a wooden wall.",
+      "caption": "Evening on the deck under string lights, with the Mount Zurich sign setting the mood."
+    },
+    {
+      "src": "/images/villas/mount-zurich/zurich-018.webp",
+      "alt": "Decorative metal wall art with organic pattern and Zurich sign",
+      "caption": "Custom metal artwork adding personality to the interior."
+    },
+    {
+      "src": "/images/villas/mount-zurich/zurich-019.webp",
+      "alt": "Cabin exterior with fenced yard and surrounding woods",
+      "caption": "Spacious yard offering room to play, relax, and explore."
+    },
+    {
+      "src": "/images/villas/mount-zurich/zurich-020.webp",
+      "alt": "Snow-covered cabin and hot tub area viewed from above",
+      "caption": "A magical winter scene with the cabin blanketed in snow."
+    },
+    {
+      "src": "/images/villas/mount-zurich/zurich-021.webp",
+      "alt": "Bright kitchen and dining space with wood beams",
+      "caption": "Open kitchen and dining area designed for group meals."
+    },
+    {
+      "src": "/images/villas/mount-zurich/zurich-022.webp",
+      "alt": "Bedroom with upholstered headboard and warm lighting",
+      "caption": "Cozy bedroom sanctuary after a full day in the mountains."
+    },
+    {
+      "src": "/images/villas/mount-zurich/zurich-024.webp",
+      "alt": "Pumpkins and lanterns decorating the cabin porch in autumn",
+      "caption": "Seasonal touches on the porch create a festive mountain welcome."
+    },
+    {
+      "src": "/images/villas/mount-zurich/zurich-025.webp",
+      "alt": "Dining table with chairs and bench near large windows",
+      "caption": "Gather around the dining table with forest views all around."
+    },
+    {
+      "src": "/images/villas/mount-zurich/zurich-026.webp",
+      "alt": "Kitchen with island and barstools in a wood cabin interior",
+      "caption": "Functional kitchen layout ideal for cooking and entertaining together."
+    },
+    {
+      "src": "/images/villas/mount-zurich/zurich-027.webp",
+      "alt": "Screened-in porch dining area with wooded backdrop",
+      "caption": "Covered porch dining for enjoying the outdoors in any weather."
+    },
+    {
+      "src": "/images/villas/mount-zurich/zurich-028.webp",
+      "alt": "Compact bedroom with wood walls and natural light",
+      "caption": "Charming guest bedroom with warm cabin character."
+    },
+    {
+      "src": "/images/villas/mount-zurich/zurich-029.webp",
+      "alt": "Elegant bathroom vanity with gold-framed mirror, geometric wall art, brass sconces, and antique copper vessel sink.",
+      "caption": "Stylish powder room featuring designer details and warm metallic accents."
+    },
+    {
+      "src": "/images/villas/mount-zurich/zurich-030.webp",
+      "alt": "Game room with pool table, wood-paneled walls, Mount Zurich sign, and wall sconces.",
+      "caption": "Challenge friends to pool beneath the signature Mount Zurich sign."
+    },
+    {
+      "src": "/images/villas/mount-zurich/zurich-031.webp",
+      "alt": "Covered porch with fire table, wicker peacock chair, wooden benches, and vibrant fall foliage views.",
+      "caption": "Gather on the covered porch surrounded by stunning autumn colors."
+    },
+    {
+      "src": "/images/villas/mount-zurich/zurich-032.webp",
+      "alt": "Cozy living room with dartboard, Netflix on TV, sectional sofa with tree pillows, and wood stove.",
+      "caption": "Kick back with darts, movies, and cozy seating by the wood stove."
+    },
+    {
+      "src": "/images/villas/mount-zurich/zurich-033.webp",
+      "alt": "Beautiful kitchen with geometric pendant lights, large island with leather stools, wood hood, and Homemade sign.",
+      "caption": "Gather around the stunning kitchen island under designer pendant lights."
+    },
+    {
+      "src": "/images/villas/mount-zurich/zurich-034.webp",
+      "alt": "Entry hallway with bench and wood finishes",
+      "caption": "Entry area where guests can hang coats and settle in."
+    },
+    {
+      "src": "/images/villas/mount-zurich/zurich-035.webp",
+      "alt": "Exterior of blue cabin at dusk with porch lights on",
+      "caption": "Twilight settles over Mount Zurich as the porch lights glow."
+    },
+    {
+      "src": "/images/villas/mount-zurich/zurich-036.webp",
+      "alt": "Loft bedroom with twin beds under sloped ceiling",
+      "caption": "Cozy loft-style bedroom perfect for kids or extra guests."
+    },
+    {
+      "src": "/images/villas/mount-zurich/zurich-037.webp",
+      "alt": "Outdoor trampoline set up in wooded backyard",
+      "caption": "Kids will love bouncing on the trampoline between adventures."
+    },
+    {
+      "src": "/images/villas/mount-zurich/zurich-038.webp",
+      "alt": "Bathroom with freestanding bathtub and large window",
+      "caption": "Spa-like bathroom featuring a soaking tub with a view."
+    },
+    {
+      "src": "/images/villas/mount-zurich/zurich-039.webp",
+      "alt": "Exterior of blue cabin in a snowy landscape",
+      "caption": "The cabin transforms into a cozy winter lodge when it snows."
+    },
+    {
+      "src": "/images/villas/mount-zurich/zurich-040.webp",
+      "alt": "Bedroom with wood bedframe and neutral bedding",
+      "caption": "Comfortable bedroom styled in calming neutral tones."
+    },
+    {
+      "src": "/images/villas/mount-zurich/zurich-041.webp",
+      "alt": "Kitchen detail showing wood range hood, stone backsplash, and En Esta Cocina Bailamos sign.",
+      "caption": "Charming kitchen details including the playful 'In This Kitchen We Dance' sign."
+    },
+    {
+      "src": "/images/villas/mount-zurich/zurich-042.webp",
+      "alt": "Woman relaxing in hot tub at sunset with 'It Was All A Dream' neon sign and decorative privacy screen.",
+      "caption": "Soak in the hot tub under the dreamy neon glow as the sun sets."
+    },
+    {
+      "src": "/images/villas/mount-zurich/zurich-043.webp",
+      "alt": "Game room with long table and Zurich wall art",
+      "caption": "Game and activity room anchored by custom Zurich décor."
+    },
+    {
+      "src": "/images/villas/mount-zurich/zurich-044.webp",
+      "alt": "Kids bedroom with wooden bunk bed, separate twin bed, mountain artwork, and vaulted wood ceiling.",
+      "caption": "Fun kids room with bunk bed, extra twin, and mountain-themed décor."
+    },
+    {
+      "src": "/images/villas/mount-zurich/zurich-045.webp",
+      "alt": "Deck with Blackstone griddle, prep table, and stunning fall foliage views.",
+      "caption": "Cook outdoors on the Blackstone griddle surrounded by autumn colors."
+    },
+    {
+      "src": "/images/villas/mount-zurich/zurich-046.webp",
+      "alt": "Outdoor fire pit area with Adirondack-style chairs surrounded by trees.",
+      "caption": "End the day around the fire pit, sharing stories under the stars."
+    },
+    {
+      "src": "/images/villas/mount-zurich/zurich-047.webp",
+      "alt": "Bright kitchen with farmhouse sink, pendant light, fox artwork, plants, and autumn forest views through windows.",
+      "caption": "Cheerful kitchen with farmhouse sink and beautiful fall views through every window."
+    },
+    {
+      "src": "/images/villas/mount-zurich/zurich-048.webp",
+      "alt": "Bedroom with bed, nightstands, and framed artwork",
+      "caption": "Thoughtfully decorated bedroom offering comfort and style."
+    },
+    {
+      "src": "/images/villas/mount-zurich/zurich-049.webp",
+      "alt": "Open living room with sofas, wood beams, and large windows looking into the forest.",
+      "caption": "Relax in the central living room with woodland views in every direction."
+    },
+    {
+      "src": "/images/villas/mount-zurich/zurich-051.webp",
+      "alt": "Bathroom with wood accents, vanity, and shower, styled with warm lighting.",
+      "caption": "Thoughtfully designed livigspace with warm finishes and modern comforts."
+    },
+    {
+      "src": "/images/villas/mount-zurich/zurich-052.webp",
+      "alt": "Bathroom with tiled tub and shower combination",
+      "caption": "Family-friendly bathroom with combined bath and shower."
+    },
+    {
+      "src": "/images/villas/mount-zurich/zurich-053.webp",
+      "alt": "Round dining table beside large windowed wall",
+      "caption": "Large open layout with wraparound windows onto the forest."
+    },
+    {
+      "src": "/images/villas/mount-zurich/zurich-054.webp",
+      "alt": "Deck with high-top table and stools overlooking trees",
+      "caption": "Outdoor bar-height table perfect for coffee or sunset drinks."
+    },
+    {
+      "src": "/images/villas/mount-zurich/zurich-055.webp",
+      "alt": "Cozy reading corner with bookshelves and chair",
+      "caption": "Reading nook where you can unwind with a good book."
+    },
+    {
+      "src": "/images/villas/mount-zurich/zurich-056.webp",
+      "alt": "Dining nook with wooden table and chairs next to a large window and indoor plants.",
+      "caption": "Intimate dining corner perfect for breakfast with a view of the trees."
+    },
+    {
+      "src": "/images/villas/mount-zurich/zurich-057.webp",
+      "alt": "Two carved pumpkins on the porch rail",
+      "caption": "Halloween decorations add playful charm in the fall season."
+    },
+    {
+      "src": "/images/villas/mount-zurich/zurich-058.webp",
+      "alt": "Kitchen with wood cabinets, island, and stainless appliances",
+      "caption": "Beautifully styled bathroom with warm wood accents and modern fixtures."
+    },
+    {
+      "src": "/images/villas/mount-zurich/zurich-059.webp",
+      "alt": "Exterior of cabin at night with blue siding and warm interior lights",
+      "caption": "Evening view of the cabin glowing against the trees."
+    },
+    {
+      "src": "/images/villas/mount-zurich/zurich-060.webp",
+      "alt": "Breakfast bar set with pastries and drinks",
+      "caption": "Start the day with breakfast laid out on the kitchen bar."
+    },
+    {
+      "src": "/images/villas/mount-zurich/zurich-061.webp",
+      "alt": "Bedroom with large windows and tree views",
+      "caption": "Wake up immersed in the forest canopy from this airy bedroom."
+    },
+    {
+      "src": "/images/villas/mount-zurich/zurich-062.webp",
+      "alt": "Rustic dining table with bench seating",
+      "caption": "Pool table built for big family fun."
+    },
+    {
+      "src": "/images/villas/mount-zurich/zurich-063.webp",
+      "alt": "Front porch of cabin with overhang and stone steps",
+      "caption": "Sheltered front entry providing a warm welcome in any weather."
+    },
+    {
+      "src": "/images/villas/mount-zurich/zurich-064.webp",
+      "alt": "Cozy seating nook with window overlooking the trees",
+      "caption": "Quiet corner for reading, journaling, or morning coffee."
+    },
+    {
+      "src": "/images/villas/mount-zurich/zurich-065.webp",
+      "alt": "Cabin exterior with covered porch and surrounding woods",
+      "caption": "Classic cabin architecture framed by towering trees."
+    },
+    {
+      "src": "/images/villas/mount-zurich/zurich-066.webp",
+      "alt": "Cabin deck and yard seen from above in late autumn",
+      "caption": "Multi-level deck spilling out into the wooded backyard."
+    },
+    {
+      "src": "/images/villas/mount-zurich/zurich-067.webp",
+      "alt": "Snowy aerial view of house and forest",
+      "caption": "Winter aerial showing the secluded setting in fresh snow."
+    },
+    {
+      "src": "/images/villas/mount-zurich/zurich-068.webp",
+      "alt": "Outdoor seating area with Adirondack chairs around a firepit",
+      "caption": "Gather around the firepit for starry nights and hot cocoa."
+    },
+    {
+      "src": "/images/villas/mount-zurich/zurich-069.webp",
+      "alt": "Pool table and bar stools in game room",
+      "caption": "Dedicated game room featuring a full-size pool table."
+    },
+    {
+      "src": "/images/villas/mount-zurich/zurich-070.webp",
+      "alt": "Cozy lounge area with sofas and large windows in a wood-paneled great room.",
+      "caption": "A comfortable gathering space in the great room, ideal for long conversations."
+    },
+    {
+      "src": "/images/villas/mount-zurich/zurich-071.webp",
+      "alt": "Wooded yard with tall trees and natural ground cover",
+      "caption": "Mature trees create a private natural playground."
+    },
+    {
+      "src": "/images/villas/mount-zurich/zurich-072.webp",
+      "alt": "Bedroom with bed positioned under warm wood ceiling",
+      "caption": "Cozy space to unwind with the feel of a mountain chalet."
+    },
+    {
+      "src": "/images/villas/mount-zurich/zurich-073.webp",
+      "alt": "Kitchen with range hood, island, and window view",
+      "caption": "Chef-friendly kitchen outfitted for serious cooking."
+    },
+    {
+      "src": "/images/villas/mount-zurich/zurich-074.webp",
+      "alt": "Close-up of two mugs of hot drinks topped with cream or foam, held over a wooden table.",
+      "caption": "Hot drinks in hand, ready for a slow morning or a cozy evening by the fire."
+    },
+    {
+      "src": "/images/villas/mount-zurich/zurich-075.webp",
+      "alt": "Living room with sectional sofa and forest views",
+      "caption": "Spacious living room ideal for lounging with the whole group."
+    },
+    {
+      "src": "/images/villas/mount-zurich/zurich-076.webp",
+      "alt": "Leaf-covered forest floor with golden trees in autumn",
+      "caption": "Walk out into a carpet of autumn leaves just beyond the cabin."
+    },
+    {
+      "src": "/images/villas/mount-zurich/zurich-077.webp",
+      "alt": "Music corner with guitar, amplifier, and décor",
+      "caption": "A creative corner outfitted for musicians and music lovers."
+    },
+    {
+      "src": "/images/villas/mount-zurich/zurich-078.webp",
+      "alt": "Cabin exterior in winter with snow on the ground",
+      "caption": "Snow-dusted cabin ready for your cozy winter escape."
+    },
+    {
+      "src": "/images/villas/mount-zurich/zurich-079.webp",
+      "alt": "Close-up of rustic outdoor water feature and wooden railing",
+      "caption": "Thoughtful indoor details that add to the cabin’s character."
+    },
+    {
+      "src": "/images/villas/mount-zurich/zurich-080.webp",
+      "alt": "Dining room set for a meal with view of trees",
+      "caption": "Indoor dining area that feels surrounded by nature."
+    },
+    {
+      "src": "/images/villas/mount-zurich/zurich-081.webp",
+      "alt": "Backyard with trampoline and wooded surroundings",
+      "caption": "Carefully created outdoor space to enjoy with loved ones."
+    },
+    {
+      "src": "/images/villas/mount-zurich/zurich-082.webp",
+      "alt": "Front door and entry porch with warm wood siding",
+      "caption": "Inviting entry porch setting the tone for your stay."
+    },
+    {
+      "src": "/images/villas/mount-zurich/zurich-083.webp",
+      "alt": "Close-up of the pool table. Artistic photography.",
+      "caption": "Beauiful photo of Mount Zurich logo by the pool table."
+    },
+    {
+      "src": "/images/villas/mount-zurich/zurich-084.webp",
+      "alt": "Charcuterie board with champagne glasses on wood counter",
+      "caption": "Celebrate your stay with a shared board and a toast."
+    },
+    {
+      "src": "/images/villas/mount-zurich/zurich-085.webp",
+      "alt": "Backyard slide and play area among trees",
+      "caption": "Outdoor area keeps all guests entertained."
+    },
+    {
+      "src": "/images/villas/mount-zurich/zurich-086.webp",
+      "alt": "Living room with sofa facing large television",
+      "caption": "Media area perfect for movie marathons or the big game."
+    },
+    {
+      "src": "/images/villas/mount-zurich/zurich-087.webp",
+      "alt": "Exterior of the blue Mount Zurich cabin framed by trees and a gravel driveway.",
+      "caption": "First glimpse of Mount Zurich as you arrive at your forest hideaway."
+    },
+    {
+      "src": "/images/villas/mount-zurich/zurich-088.webp",
+      "alt": "Pumpkins and lantern on wooden porch steps",
+      "caption": "Seasonal porch styling adds charm to your arrival."
+    },
+    {
+      "src": "/images/villas/mount-zurich/zurich-089.webp",
+      "alt": "Bedroom with striped bedding and accent pillows",
+      "caption": "Bright, cheerful living space with cozy pillows."
+    },
+    {
+      "src": "/images/villas/mount-zurich/zurich-090.webp",
+      "alt": "Front entryway of the cabin with double wooden doors and a small porch.",
+      "caption": "The inviting front entrance welcomes you into your mountain retreat."
+    },
+    {
+      "src": "/images/villas/mount-zurich/zurich-091.webp",
+      "alt": "Spa-like bathroom with a freestanding soaking tub in front of a large window.",
+      "caption": "Indulge in a long soak in the freestanding tub with a view of the trees."
+    },
+    {
+      "src": "/images/villas/mount-zurich/zurich-092.webp",
+      "alt": "Coffee station with multiple coffee makers, stacked cups, plants, and stone backsplash by a sunny window.",
+      "caption": "Well-stocked coffee bar to fuel your mountain mornings."
+    },
+    {
+      "src": "/images/villas/mount-zurich/zurich-093.webp",
+      "alt": "Stream running through snowy forest landscape",
+      "caption": "Mount Zurich is the perfect place to enjoy and unwind in winter."
+    },
+    {
+      "src": "/images/villas/mount-zurich/zurich-094.webp",
+      "alt": "Bathroom vanity with twin mirrors and rustic décor",
+      "caption": "Double-sink vanity that makes getting ready easy for groups."
+    },
+    {
+      "src": "/images/villas/mount-zurich/zurich-095.webp",
+      "alt": "Grand living room with vaulted wood ceiling, circular chandelier, sectional sofa, wood stove, and UNWIND sign.",
+      "caption": "Stunning great room with soaring ceilings, cozy seating, and a wood stove for chilly evenings."
+    },
+    {
+      "src": "/images/villas/mount-zurich/zurich-096.webp",
+      "alt": "Bathroom with tub, shower curtain, and bright lighting",
+      "caption": "Practical full bathroom suited for families and friends."
+    },
+    {
+      "src": "/images/villas/mount-zurich/zurich-097.webp",
+      "alt": "Beautiful kitchen with wood range hood, stone backsplash, Homemade sign, and forest views through windows.",
+      "caption": "Chef's kitchen with custom wood hood, stone details, and views of the autumn woods."
+    },
+    {
+      "src": "/images/villas/mount-zurich/zurich-098.webp",
+      "alt": "Bathroom vanity with vessel sink and decorative mirror",
+      "caption": "Chic bathroom with stylish sink and curated décor."
+    },
+    {
+      "src": "/images/villas/mount-zurich/zurich-099.webp",
+      "alt": "Elegant bathroom vanity with gold-framed mirror, geometric wall art, brass sconces, and copper vessel sink.",
+      "caption": "Stylish powder room with designer details and warm metallic accents."
+    },
+    {
+      "src": "/images/villas/mount-zurich/zurich-100.webp",
+      "alt": "Family portrait of smiling hosts inside the cabin",
+      "caption": "The owners’ family enjoying time together at Mount Zurich."
+    },
+    {
+      "src": "/images/villas/mount-zurich/zurich-102.webp",
+      "alt": "Dining room with long wooden table and pendant lights",
+      "caption": "Formal dining table ideal for celebratory dinners and retreats."
+    },
+    {
+      "src": "/images/villas/mount-zurich/zurich-103.webp",
+      "alt": "Autumn forest scene with tall slender trees",
+      "caption": "Outdoor playground to keep the kids entertained."
+    },
+    {
+      "src": "/images/villas/mount-zurich/zurich-104.webp",
+      "alt": "Bedroom with twin bunk beds and warm wood walls",
+      "caption": "Bunk room that kids and groups will love sharing."
+    },
+    {
+      "src": "/images/villas/mount-zurich/zurich-105.webp",
+      "alt": "Cozy living area with wood-burning stove, large windows, highland cow artwork, and indoor plants.",
+      "caption": "Warm up by the wood-burning stove in this sunlit corner with forest views."
+    },
+    {
+      "src": "/images/villas/mount-zurich/zurich-106.webp",
+      "alt": "Evening fire pit scene with Adirondack chairs draped in cozy blankets, cabin deck with string lights glowing in the background.",
+      "caption": "Gather around the fire pit wrapped in blankets as the cabin glows behind you."
+    },
+    {
+      "src": "/images/villas/mount-zurich/zurich-107.webp",
+      "alt": "Kitchen island with stools and open shelving",
+      "caption": "Casual kitchen island perfect for snacks and conversation."
+    },
+    {
+      "src": "/images/villas/mount-zurich/zurich-108.webp",
+      "alt": "Fire pit with flames and surrounding Adirondack chairs at night",
+      "caption": "Glowing fire pit drawing everyone together outdoors."
+    },
+    {
+      "src": "/images/villas/mount-zurich/zurich-109.webp",
+      "alt": "Wooden swing bench on deck facing the forest",
+      "caption": "Deck swing where you can sway gently and listen to the woods."
+    }
+  ],
+  "aboutUsImage": "/images/villas/mount-zurich/zurich-076.webp",
+  "headlines": {
+    "overview": "Mount Zurich",
+    "location": "Poconos, Pennsylvania, USA"
+  },
+  "specs": {
+    "guests": 14,
+    "bedrooms": 5,
+    "beds": 10,
+    "baths": 2.0,
+    "poolSize": "Hot Tub",
+    "poolLabel": "Outdoor"
+  },
+  "location": {
+    "label": "Poconos, Pennsylvania, USA",
+    "city": "Poconos",
+    "country": "USA"
+  },
+  "amenities": [
+     "Hot Tub",
+    "Wifi",
+    "Kitchen",
+    "Fireplace",
+    "TV",
+    "Washer",
+    "Dryer",
+    "Mountain Views",
+    "Game Room",
+    "BBQ",
+    "Fire Pit",
+    "Pool Table",
+    "Outdoor Playground",
+    "Dedicated Workspace",
+    "Air Conditioning",
+    "Central Heating",
+    "Self Check-in (Keypad)",
+    "Free Parking on Premises"
+  ],
+  "seasons": [
+    {
+      "id": "standard",
+      "label": "Standard Season",
+      "priceDisplay": "$875 / night",
+      "price": 875,
+      "currency": "USD"
+    }
+  ],
+  "content": {
+    "overview": "Nestled in the Pocono Mountains, Mount Zurich sleeps 14 guests across five bedrooms plus a sleeping loft. The open-concept great room features soaring ceilings, a cozy fireplace, and floor-to-ceiling windows framing the forest. A fully equipped gourmet kitchen with granite countertops makes group cooking a breeze.\n\nOutdoors, the expansive deck hosts an XL 8-person hot tub, BBQ grill, and fire pit—perfect for stargazing. The game room keeps everyone entertained with pool, darts, and board games.\n\nMinutes from Camelback, Kalahari Waterpark, Lake Wallenpaupack, and Delaware Water Gap, Mount Zurich is your year-round base for adventure and relaxation.",
+    "location": "Located in the Pocono Mountains of Pennsylvania, USA. Near Camelback Mountain Resort, Kalahari Resorts & Conventions, Lake Wallenpaupack, Delaware Water Gap National Recreation Area, Tobyhanna State Park, and Mount Airy Casino. Approximately 90 minutes from New York City, 2 hours from Philadelphia, and 30 minutes from Scranton.",
+    "practicalDetails": [
+      "Check-in: 4:00 PM",
+      "Check-out: 11:00 AM",
+      "No smoking indoors",
+      "Pets allowed (assistance animals always allowed)"
+    ],
+    "rooms": [
+      {
+        "name": "Bedroom 1",
+        "description": "1 king bed with en-suite bathroom and premium linens."
+      },
+      {
+        "name": "Bedroom 2",
+        "description": "1 queen bed with cozy mountain-inspired décor."
+      },
+      {
+        "name": "Bedroom 3",
+        "description": "2 double beds and 1 single bed, ideal for families or groups."
+      },
+      {
+        "name": "Bedroom 4",
+        "description": "1 double bed and 3 single beds, perfect for larger groups or kids."
+      },
+      {
+        "name": "Bedroom 5",
+        "description": "1 double bed in a quiet corner of the cabin."
+      },
+      {
+        "name": "Sleeping Loft",
+        "description": "Additional sleeping space with a cozy loft atmosphere."
+      }
+    ],
+    "familyRecreation": [
+      "Hot Tub",
+      "Game Room",
+      "Fire Pit",
+      "Hiking Trails"
+    ],
+    "travel": {
+      "air": [
+        "Wilkes‑Barre/Scranton International Airport (AVP) – approximately 45 minutes away",
+        "Lehigh Valley International Airport (ABE) – approximately 47 minutes away",
+        "Newark Liberty International Airport (EWR) – approximately 90 minutes away"
+      ],
+      "rail": [
+        "Amtrak service to Scranton or New York City with car rental"
+      ],
+      "drive": [
+        "90 minutes from New York City",
+        "2 hours from Philadelphia",
+        "30 minutes from Scranton"
+      ]
+    },
+    "hosts": {
+      "image": "/images/villas/mount-zurich/zurich-100.webp",
+      "names": "Your Concierge Team",
+      "bio": "Dedicated team available 24/7 to ensure your perfect mountain getaway."
+    },
+
+    "testimonials": [
+      {
+        "quote": "This was one of the best Airbnbs I've stayed at — kitchen was well stocked, bathrooms felt luxurious, beds were comfortable, and everything was extremely clean!",
+        "attribution": "Marcella, Philadelphia — October 2025"
+      },
+      {
+        "quote": "The level of dedication and detail in the space is outstanding, easily the most beautiful Airbnb I have ever stayed at. Absolutely 10/10 experience! A must stay!!",
+        "attribution": "Sandra — June 2025"
+      },
+      {
+        "quote": "Mount Zurich was such a beautiful place to stay! The hosts have thought of everything a group could need. The house is immaculately clean and so well decorated. It was truly such a fantastic weekend!",
+        "attribution": "Tonianne, New York — August 2025"
+      },
+      {
+        "quote": "The cabin itself was a charming blend of rustic charm and modern comfort. If you're looking for a flawless escape where location, comfort, and charm align perfectly—this cabin is it. Five stars all around!",
+        "attribution": "Alexander — February 2025"
+      },
+      {
+        "quote": "From the moment you pull into the driveway you're in awe. The heated bathroom floors, the hot tub, everything was beautifully done. I'd come back here in a heartbeat!",
+        "attribution": "Kayshlee, Connecticut — December 2024"
+      },
+      {
+        "quote": "We've stayed in Poconos homes every year and this has been by far our favorite. We were skeptical at first at how gorgeous it looked in pictures, but this was the real deal!",
+        "attribution": "Stef, New Jersey — November 2024"
+      }
+    ],
+    "faq": [
+        {
+    "category": "VIP Arrival & Logistics",
+    "q": "Can you arrange private transfers?",
+    "a": "Yes. We offer private transfers from nearby airports and train stations. Rates are available upon request."
+  },
+  {
+    "category": "VIP Arrival & Logistics",
+    "q": "What is the transfer time from major airports?",
+    "a": "Approximately 90 minutes from NYC airports, 2 hours from Philadelphia, and 30–45 minutes from Scranton (AVP), depending on traffic and weather."
+  },
+  {
+    "category": "Location & Attractions",
+    "q": "Where exactly is Mount Zurich located?",
+    "a": "Mount Zurich is located in the Pocono Mountains of Pennsylvania, near Camelback Mountain, Kalahari Indoor Waterpark, Lake Wallenpaupack, Delaware Water Gap, Tobyhanna State Park, and Mount Airy Casino."
+  },
+  {
+    "category": "Location & Attractions",
+    "q": "What attractions are nearby?",
+    "a": "Guests enjoy easy access to Camelback Mountain for skiing and snowboarding, Kalahari Indoor Waterpark, Lake Wallenpaupack for water sports, Delaware Water Gap and Tobyhanna State Park for hiking, Mount Airy Casino, Skirmish Paintball, Lost Trails ATV, Sunset Hill Shooting Range, and more."
+  },
+  {
+    "category": "Location & Attractions",
+    "q": "Is the location private and secluded?",
+    "a": "Yes, the cabin is nestled in the woods offering excellent privacy, while still being a short drive to major attractions, restaurants, and shops."
+  },
+  {
+    "category": "Location & Attractions",
+    "q": "How far is Tobyhanna State Park?",
+    "a": "Tobyhanna State Park is only about 7 minutes away by car. It offers a beautiful lake, beach area with bathrooms and showers, hiking trails, and seasonal boat rentals for kayaking and more."
+  },
+  {
+    "category": "Location & Attractions",
+    "q": "What can we do at Lake Wallenpaupack?",
+    "a": "At Lake Wallenpaupack, you can rent boats, go kayaking, fishing, or simply enjoy the lake views and lakeside restaurants. Pine Crest Marina, for example, offers boat rentals for guests who want to explore the lake."
+  },
+  {
+    "category": "Food & Dining",
+    "q": "What restaurant options are nearby?",
+    "a": "There are many local options, from casual to upscale. Popular spots include Desaki Restaurant, Spanky's Breakfast & Lunch, John’s Italian Restaurant, Cakes & Scones Bakery, The Dock on Wallenpaupack, and The Water’s Edge Restaurant."
+  },
+  {
+    "category": "Food & Dining",
+    "q": "Where can we go for a fun dinner with great vibes?",
+    "a": "The Dock on Wallenpaupack is a guest favorite for good food and great vibes by the lake. Desaki Restaurant is also highly recommended for a fun night out."
+  },
+  {
+    "category": "Food & Dining",
+    "q": "Is there a good breakfast place close by?",
+    "a": "Yes. Spanky's Breakfast & Lunch is a nearby option for a quick, tasty breakfast. Cakes & Scones Bakery is also great if you’re in the mood for fresh baked goods and coffee."
+  },
+  {
+    "category": "Food & Dining",
+    "q": "Can we order pizza, wine, and beer to the cabin?",
+    "a": "Yes. John’s Italian Restaurant offers pizza and also delivers wine and beer, making it a convenient option for a cozy night in."
+  },
+  {
+    "category": "Activities & Recreation",
+    "q": "What winter activities are nearby?",
+    "a": "Camelback Mountain offers skiing, snowboarding, and snow tubing during the winter season. Kalahari Indoor Waterpark is also open year-round for water fun regardless of the weather."
+  },
+  {
+    "category": "Activities & Recreation",
+    "q": "What summer activities are available?",
+    "a": "In summer you can enjoy kayaking, boating, and fishing on nearby lakes, hiking at Tobyhanna State Park and Delaware Water Gap, ATV riding at Lost Trails, horseback riding at Mountain Creek Riding Stables, and waterparks like Kalahari or Camelback."
+  },
+  {
+    "category": "Activities & Recreation",
+    "q": "Are there hiking trails nearby?",
+    "a": "Yes. Tobyhanna State Park, Delaware Water Gap, and various local trails offer great hiking options for different levels."
+  },
+  {
+    "category": "Activities & Recreation",
+    "q": "Is there paintball nearby?",
+    "a": "Yes. Skirmish Paintball Fields offer acres of paintball courses and is a popular all-season activity for groups."
+  },
+  {
+    "category": "Activities & Recreation",
+    "q": "Can we go horseback riding?",
+    "a": "Yes. Mountain Creek Riding Stables offers guided horseback rides through the mountains and is a favorite for families and couples."
+  },
+  {
+    "category": "Activities & Recreation",
+    "q": "Is there an indoor waterpark close by?",
+    "a": "Kalahari Indoor Waterpark is one of the best indoor waterparks in the area and is just a short drive from the cabin."
+  },
+  {
+    "category": "Activities & Recreation",
+    "q": "Are there ATV or off-road trails?",
+    "a": "Yes. Lost Trails offers miles of ATV mountain trails for guests who want an off-road adventure. Rentals and guided rides are available through local outfitters."
+  },
+  {
+    "category": "Activities & Recreation",
+    "q": "Can we rent a boat nearby?",
+    "a": "Yes. Pine Crest Marina and other local marinas at Lake Wallenpaupack offer boat rentals so you can enjoy the lake during your stay."
+  },
+  {
+    "category": "Activities & Recreation",
+    "q": "Is there a shooting range in the area?",
+    "a": "Yes. Sunset Hill Shooting Range is nearby and offers firearm experiences for beginners and experienced shooters alike, with professional supervision."
+  },
+  {
+    "category": "Amenities & Features",
+    "q": "How many guests can the hot tub accommodate?",
+    "a": "The XL hot tub comfortably fits up to 8 guests."
+  },
+  {
+    "category": "Amenities & Features",
+    "q": "What is the bed configuration?",
+    "a": "The cabin has 5 bedrooms plus a sleeping loft with a mix of king, queen, full, and twin beds, comfortably accommodating up to 14 guests."
+  },
+  {
+    "category": "Amenities & Features",
+    "q": "What entertainment is available?",
+    "a": "The game room features a pool table, darts, and board games, and the cabin includes Smart TVs with streaming services for movies and shows."
+  },
+  {
+    "category": "Amenities & Features",
+    "q": "Is there outdoor dining space?",
+    "a": "Yes. The expansive deck includes a BBQ grill, outdoor dining area, and multiple seating areas for lounging and meals outside."
+  },
+  {
+    "category": "Amenities & Features",
+    "q": "Is there a fire pit?",
+    "a": "Yes. There is an outdoor fire pit where you can gather for s’mores and stargazing in the evenings, subject to local fire regulations."
+  },
+  {
+    "category": "Tech & Connectivity",
+    "q": "How reliable is the internet?",
+    "a": "High-speed Wi-Fi is available throughout the property and is suitable for remote work, streaming, and video calls."
+  },
+  {
+    "category": "Tech & Connectivity",
+    "q": "What TV/streaming services are available?",
+    "a": "The cabin features Smart TVs that support popular streaming apps such as Netflix, Amazon Prime Video, and others (use your own accounts to log in)."
+  },
+  {
+    "category": "Safety & Medical",
+    "q": "Is there a hospital nearby?",
+    "a": "Yes. Lehigh Valley Hospital–Pocono is approximately 15–20 minutes away by car, and urgent care options are also available in the area."
+  },
+  {
+    "category": "Safety & Medical",
+    "q": "Do you have first aid on site?",
+    "a": "Yes. A basic first aid kit is available in the cabin for minor issues."
+  },
+  {
+    "category": "Families & Kids",
+    "q": "Is the cabin suitable for children?",
+    "a": "Yes. The cabin is family-friendly with games, entertainment, and nearby activities suitable for kids and teens. Parents should supervise children at all times, especially around the hot tub, deck, and fire pit."
+  },
+  {
+    "category": "Families & Kids",
+    "q": "Do you have a crib or high chair?",
+    "a": "Yes. A Pack ’n Play-style travel crib and a high chair are available for infants upon request."
+  },
+  {
+    "category": "Families & Kids",
+    "q": "Is the hot tub safe for kids?",
+    "a": "Children must be supervised by an adult at all times in and around the hot tub. We also recommend limiting time and adjusting the temperature for younger guests."
+  },
+  {
+    "category": "Rates & Payments",
+    "q": "What is the cancellation policy?",
+    "a": "We offer a full refund if you cancel at least 60 days prior to arrival. Inside 60 days, payments are non-refundable unless we’re able to re-book the dates. We strongly recommend travel insurance for extra protection."
+  },
+  {
+    "category": "Rates & Payments",
+    "q": "Do you accept credit cards?",
+    "a": "Yes. We accept major credit cards such as Visa, MasterCard, and American Express via a secure payment link or booking platform."
+  },
+  {
+    "category": "Rates & Payments",
+    "q": "Is there a security deposit?",
+    "a": "Yes. A refundable security deposit is required. It is typically released within 48 hours of checkout after the property has been inspected for damages."
+  },
+  {
+    "category": "Accessibility",
+    "q": "Is the cabin wheelchair accessible?",
+    "a": "The main level is generally accessible and includes key living spaces, but some areas have steps or changes in level. Please contact us with your specific needs so we can confirm suitability."
+  },
+  {
+    "category": "Pets",
+    "q": "Is the cabin pet-friendly?",
+    "a": "Pets may be allowed on a case-by-case basis with prior approval and an additional cleaning fee. Please inquire before booking if you wish to bring a pet."
+  },
+  {
+    "category": "Climate & Weather",
+    "q": "What is the best time to visit?",
+    "a": "The Pocono Mountains are a year-round destination: winter for skiing and snow fun, summer for lakes and outdoor activities, fall for foliage, and spring for quieter stays and mild weather."
+  },
+  {
+    "category": "Climate & Weather",
+    "q": "Is there air conditioning and heating?",
+    "a": "Yes. All bedrooms and main living areas are fully air-conditioned and heated, making the cabin comfortable in every season."
+  },
+  {
+    "category": "Booking & Reservations",
+    "q": "What is the minimum stay?",
+    "a": "The standard minimum stay is typically 2–3 nights, with longer minimums during peak holiday periods and special weekends."
+  },
+  {
+    "category": "Booking & Reservations",
+    "q": "How far in advance should we book for high season?",
+    "a": "For peak seasons (ski season, summer, and fall foliage), we recommend booking 3–6 months in advance. For regular dates, 1–2 months ahead is usually sufficient, subject to availability."
+  },
+  {
+    "category": "House Rules",
+    "q": "What are the smoking rules?",
+    "a": "Smoking is strictly prohibited inside the cabin. Guests may smoke outdoors in designated areas only and must safely dispose of cigarette butts."
+  },
+  {
+    "category": "House Rules",
+    "q": "Are there quiet hours?",
+    "a": "Yes. Quiet hours are strictly enforced during the nighttime. Please keep music and outdoor noise low in the evenings and at night out of respect for neighbors and community rules. Parties or loud disturbances are not permitted."
+  },
+  {
+    "category": "House Rules",
+    "q": "What are the check-in and check-out times?",
+    "a": "Standard check-in is at 3:00 PM and check-out is at 11:00 AM. Early check-in or late check-out may be possible depending on cleaning schedules and availability; please ask in advance."
+  },
+  {
+    "category": "Corporate Retreats",
+    "q": "Is the cabin suitable for corporate retreats?",
+    "a": "Yes. Mount Zurich is ideal for executive retreats and team offsites, with multiple gathering areas, fast Wi-Fi, and nearby activities for team-building."
+  },
+  {
+    "category": "Corporate Retreats",
+    "q": "Is the Wi-Fi strong enough for video conferences?",
+    "a": "Yes. The internet connection is strong enough for multiple guests to participate in video conferences and work remotely at the same time."
+  }
+    ],
+    "seoLong": [
+      "Mount Zurich is one of the most sought-after luxury cabin rentals in the Pocono Mountains of Pennsylvania, offering a private, secluded setting surrounded by breathtaking natural beauty. This exceptional property combines rustic charm with modern luxury for an unforgettable mountain getaway.",
+      "Perfect for family gatherings, corporate retreats, and friend getaways, the cabin features 5 beautifully appointed bedrooms plus a sleeping loft, accommodating up to 14 guests. Highlights include an XL hot tub, game room with pool table, cozy fireplace, and expansive deck with BBQ.",
+      "Mount Zurich represents the pinnacle of luxury cabin rentals in the Poconos. Its secluded forest location and thoughtful design create a peaceful sanctuary ideal for relaxation, celebration, and creating lasting memories with loved ones.",
+      "Located near Camelback Mountain, Kalahari Waterpark, Lake Wallenpaupack, and the Delaware Water Gap, Mount Zurich offers year-round adventure. Whether you're seeking winter skiing, summer water sports, or fall foliage, this cabin is the perfect base for your Pocono adventure."
+    ]
+  },
+  "seo": {
+    "title": "Mount Zurich | Luxury Cabin in the Poconos | Private Mountain Retreat",
+    "description": "Escape to this luxurious 5-bedroom cabin in the Pocono Mountains. Hot tub, game room, fireplace, and stunning views. Perfect for families, groups, and corporate retreats. Sleeps 14 guests."
+  },
+  "contact": {
+    "phone": "+1 917 963 3133",
+    "email": "reservations@mountzurich.com"
+  }
+}

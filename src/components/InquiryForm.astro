@@ -1,11 +1,14 @@
 ---
+import { getVillaMinimumNights } from '../config/i18n';
+
 interface Props {
   slug?: string;
   lang?: string;
 }
 const { slug = 'domaine-des-montarels', lang = 'en' } = Astro.props;
+const minNights = getVillaMinimumNights(slug);
 ---
-<form method="POST" action="/api/inquire" id="inquire-form" class="inquiry-form" novalidate>
+<form method="POST" action="/api/inquire" id="inquire-form" class="inquiry-form" novalidate data-min-nights={minNights}>
   <!-- Villa context for proper redirect -->
   <input type="hidden" name="slug" value={slug} />
   <input type="hidden" name="lang" value={lang} />
@@ -64,7 +67,52 @@ const { slug = 'domaine-des-montarels', lang = 'en' } = Astro.props;
   </div>
   <!-- Status element removed; redirect pattern supersedes inline messaging -->
 </form>
-<!-- JS removed: native form post will receive 303 redirect to /thank-you -->
+<script is:inline>
+  // Minimum nights validation
+  (function() {
+    var form = document.getElementById('inquire-form');
+    if (!form) return;
+    
+    var minNights = parseInt(form.dataset.minNights || '2', 10);
+    var checkIn = document.getElementById('checkIn');
+    var checkOut = document.getElementById('checkOut');
+    if (!checkIn || !checkOut) return;
+    
+    function validateDates() {
+      if (!checkIn.value || !checkOut.value) return true;
+      
+      var inDate = new Date(checkIn.value);
+      var outDate = new Date(checkOut.value);
+      var nights = Math.round((outDate.getTime() - inDate.getTime()) / (1000 * 60 * 60 * 24));
+      
+      if (nights < minNights) {
+        checkOut.setCustomValidity('Minimum stay is ' + minNights + ' nights');
+        return false;
+      } else {
+        checkOut.setCustomValidity('');
+        return true;
+      }
+    }
+    
+    // Set minimum checkout date when check-in changes
+    checkIn.addEventListener('change', function() {
+      if (checkIn.value) {
+        var minDate = new Date(checkIn.value);
+        minDate.setDate(minDate.getDate() + minNights);
+        checkOut.min = minDate.toISOString().split('T')[0];
+        validateDates();
+      }
+    });
+    
+    checkOut.addEventListener('change', validateDates);
+    form.addEventListener('submit', function(e) {
+      if (!validateDates()) {
+        e.preventDefault();
+        checkOut.reportValidity();
+      }
+    });
+  })();
+</script>
 <style>
 /* === Inquiry form – modern, consistent fields === */
 .inquiry-form { --field-bg:#fff; --field-bd:rgba(0,0,0,.14); --field-bd-hover:rgba(0,0,0,.28); --field-ring:var(--color-accent,#a58e76); --field-text:#1a1a1a; --field-muted:#6b7280; --radius:10px; display:grid; gap:18px; width:100%; }

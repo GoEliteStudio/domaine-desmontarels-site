@@ -231,20 +231,26 @@ export function getCurrencySymbol(currency: string): string {
  * Default pricing for villas without specific config
  * Used as fallback - owner should always review
  */
-export function getDefaultPricing(listing: Listing): ListingPricing {
+export function getDefaultPricing(listing: Listing, overrideRate?: number, minimumNights?: number): ListingPricing {
+  // Use override rate if provided, otherwise use defaults
+  const baseRate = overrideRate || 500;
+  const highRate = overrideRate ? Math.round(overrideRate * 1.3) : 800;  // ~30% higher for high season
+  const peakRate = overrideRate ? Math.round(overrideRate * 1.6) : 1200; // ~60% higher for peak
+  const minNights = minimumNights ?? 2;
+  
   return {
     listingId: listing.id,
     currency: listing.baseCurrency,
-    lowSeasonRate: 500,
-    highSeasonRate: 800,
-    peakSeasonRate: 1200,
+    lowSeasonRate: baseRate,
+    highSeasonRate: highRate,
+    peakSeasonRate: peakRate,
     highSeasonStart: '06-01',
     highSeasonEnd: '09-30',
     peakDates: [
       '12-20', '12-21', '12-22', '12-23', '12-24', '12-25', '12-26', '12-27',
       '12-28', '12-29', '12-30', '12-31', '01-01', '01-02', '01-03', '01-04', '01-05',
     ],
-    cleaningFee: 250,
-    minimumNights: 3,
+    cleaningFee: 0,
+    minimumNights: minNights,
   };
 }
