@@ -180,6 +180,21 @@ declare module 'astro:content' {
   collection: "villas";
   data: any
 };
+"villa-kassandra.el": {
+	id: "villa-kassandra.el";
+  collection: "villas";
+  data: any
+};
+"villa-kassandra.en": {
+	id: "villa-kassandra.en";
+  collection: "villas";
+  data: any
+};
+"villa-kassandra.ru": {
+	id: "villa-kassandra.ru";
+  collection: "villas";
+  data: any
+};
 };
 
 	};

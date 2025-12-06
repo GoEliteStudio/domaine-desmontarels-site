@@ -93,6 +93,19 @@ export const VILLAS: VillaConfig[] = [
     region: 'usa',
     currency: 'USD',
     ownerEmail: 'reservations@mountzurich.com'
+  },
+  {
+    slug: 'villa-kassandra',
+    langs: ['en', 'el', 'ru'],
+    defaultLang: 'en',
+    domain: 'villa-kassandra.vercel.app',
+    altDomains: [],
+    updatedAt: '2025-12-06',
+    auxPages: ['contact', 'rates', 'terms', 'privacy', 'about', 'thank-you'],
+    active: true,
+    region: 'europe',
+    currency: 'EUR',
+    ownerEmail: 'jc@elitecartagena.com'
   }
 ];
 
@@ -176,6 +189,7 @@ const VILLA_NIGHTLY_RATES: Record<string, number> = {
   'domaine-des-montarels': 0,      // Rate on request (no auto-quote)
   'casa-de-la-muralla': 0,          // Rate on request
   'mount-zurich': 875,              // $875 USD per night
+  'villa-kassandra': 0,             // Rate on request
 };
 
 /**
@@ -193,6 +207,7 @@ const VILLA_MINIMUM_NIGHTS: Record<string, number> = {
   'domaine-des-montarels': 5,
   'casa-de-la-muralla': 3,
   'mount-zurich': 2,
+  'villa-kassandra': 3,
 };
 
 /**
@@ -228,6 +243,7 @@ export const LANG_META: Record<string, { name: string; locale: string; dir: stri
   'es': { name: 'Español', locale: 'es-ES', dir: 'ltr' },
   'fr': { name: 'Français', locale: 'fr-FR', dir: 'ltr' },
   'el': { name: 'Ελληνικά', locale: 'el-GR', dir: 'ltr' },
+  'ru': { name: 'Русский', locale: 'ru-RU', dir: 'ltr' },
   'it': { name: 'Italiano', locale: 'it-IT', dir: 'ltr' },
   'de': { name: 'Deutsch', locale: 'de-DE', dir: 'ltr' },
   'pt': { name: 'Português', locale: 'pt-PT', dir: 'ltr' }

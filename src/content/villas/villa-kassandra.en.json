@@ -1,0 +1,1138 @@
+{
+  "slug": "villa-kassandra",
+  "language": "en",
+  "name": "Villa Kassandra",
+  "summary": "A stunning 750 m² luxury beachfront villa on the Kassandra Peninsula in Halkidiki, northern Greece. With panoramic views of the Aegean Sea and the holy Mount Athos, this completely renovated property offers 5 ensuite bedrooms, two swimming pool sections, and direct beach access—just 90 km from Thessaloniki Airport.",
+  "hero": {
+    "title": "Aegean elegance meets Greek hospitality",
+    "subtitle": "A beachfront sanctuary on Kassandra Peninsula with views of Mount Athos, where luxury, privacy, and the Mediterranean lifestyle converge.",
+    "ctaText": "Discover",
+    "priorityImages": [
+       "/images/villas/villa-kassandra/kassandra-043.webp",
+      "/images/villas/villa-kassandra/kassandra-032.webp",
+      "/images/villas/villa-kassandra/kassandra-030.webp"
+    ]
+  },
+  "images": [
+     {
+      "src": "/images/villas/villa-kassandra/kassandra-001.webp",
+      "alt": "Sandy beachfront with gentle waves and clear blue water below the villa",
+      "caption": "Private sandy beach just steps from the villa, offering crystal-clear Aegean waters."
+    },
+    {
+      "src": "/images/villas/villa-kassandra/kassandra-002.webp",
+      "alt": "Tranquil beach shoreline with calm sea and soft evening light",
+      "caption": "Peaceful shoreline facing Mount Athos, perfect for morning walks and sunset views."
+    },
+    {
+      "src": "/images/villas/villa-kassandra/kassandra-003.webp",
+      "alt": "Aerial view of the coastline with turquoise water and lush greenery",
+      "caption": "Aerial coastal perspective showcasing the villa’s privileged seafront setting on Kassandra peninsula."
+    },
+    {
+      "src": "/images/villas/villa-kassandra/kassandra-004.webp",
+      "alt": "Dining room with wooden furniture and large window",
+      "caption": "Warm dining room with natural light and classic wooden finishes."
+    },
+    {
+      "src": "/images/villas/villa-kassandra/kassandra-005.webp",
+      "alt": "Modern kitchen with marble countertops and custom cabinetry",
+      "caption": "Renovated kitchen featuring marble surfaces and premium appliances."
+    },
+    {
+      "src": "/images/villas/villa-kassandra/kassandra-006.webp",
+      "alt": "Full kitchen with bright cabinetry and built-in oven",
+      "caption": "Fully equipped main kitchen designed for gourmet cooking and family meals."
+    },
+    {
+      "src": "/images/villas/villa-kassandra/kassandra-007.webp",
+      "alt": "Secondary kitchen area with stove and overhead cabinets",
+      "caption": "Additional kitchen ideal for large groups, meal prep, and extended stays."
+    },
+    {
+      "src": "/images/villas/villa-kassandra/kassandra-008.webp",
+      "alt": "Bathroom with marble walls and modern fixtures",
+      "caption": "Luxurious marble-clad bathroom with high-end finishes."
+    },
+    {
+      "src": "/images/villas/villa-kassandra/kassandra-009.webp",
+      "alt": "Covered terrace with arches overlooking the garden",
+      "caption": "Shaded terrace with arched design, perfect for outdoor dining with sea breezes."
+    },
+    {
+      "src": "/images/villas/villa-kassandra/kassandra-010.webp",
+      "alt": "Night-lit outdoor lounge with warm ambient lighting",
+      "caption": "Elegant outdoor lounge beautifully illuminated for nighttime entertaining."
+    },
+    {
+      "src": "/images/villas/villa-kassandra/kassandra-011.webp",
+      "alt": "Garden pathway framed by tall trees at night",
+      "caption": "Serene garden walkway leading toward the villa’s outdoor living areas."
+    },
+    {
+      "src": "/images/villas/villa-kassandra/kassandra-012.webp",
+      "alt": "Grand veranda entrance with columns and evening lighting",
+      "caption": "Majestic column-lined veranda welcoming guests into the luxury villa."
+    },
+
+    {
+      "src": "/images/villas/villa-kassandra/kassandra-013.webp",
+      "alt": "Luxurious sitting area with circular armchairs and marble flooring",
+      "caption": "Opulent salon with premium furnishings and polished stone finishes."
+    },
+    {
+      "src": "/images/villas/villa-kassandra/kassandra-014.webp",
+      "alt": "Bedroom with wooden bed frame and warm natural light",
+      "caption": "Cozy double bedroom featuring soft lighting and elegant décor."
+    },
+    {
+      "src": "/images/villas/villa-kassandra/kassandra-015.webp",
+      "alt": "Palm-lined driveway leading to the villa entrance",
+      "caption": "Palm-framed approach to the villa, creating a grand Mediterranean arrival."
+    },
+    {
+      "src": "/images/villas/villa-kassandra/kassandra-016.webp",
+      "alt": "Villa exterior with palm trees and upper-level balconies",
+      "caption": "Front façade showcasing large balconies and lush landscaped gardens."
+    },
+    {
+      "src": "/images/villas/villa-kassandra/kassandra-017.webp",
+      "alt": "Sunlit villa surrounded by palm trees and decorative fountain",
+      "caption": "Luxurious villa exterior bathed in sunlight, framed by palm trees and ornate fountain."
+    },
+    {
+      "src": "/images/villas/villa-kassandra/kassandra-018.webp",
+      "alt": "Villa exterior with dual-level terraces and tropical landscaping",
+      "caption": "Architectural view of the villa’s balconies and vibrant Mediterranean vegetation."
+    },
+    {
+      "src": "/images/villas/villa-kassandra/kassandra-019.webp",
+      "alt": "Elegant villa façade with symmetrical columns and garden view",
+      "caption": "Statuesque front façade with classical columns and manicured green spaces."
+    },
+    {
+      "src": "/images/villas/villa-kassandra/kassandra-020.webp",
+      "alt": "Swimming pool area with sun loungers and palm trees",
+      "caption": "Resort-style swimming pool surrounded by tropical palms and relaxation areas."
+    },
+    {
+      "src": "/images/villas/villa-kassandra/kassandra-021.webp",
+      "alt": "Poolside pergola with sea views and luxury seating",
+      "caption": "Shaded pergola overlooking the pool and gardens—ideal for daytime lounging."
+    },
+    {
+      "src": "/images/villas/villa-kassandra/kassandra-022.webp",
+      "alt": "Outdoor dining pergola structure with wooden beams",
+      "caption": "Spacious outdoor dining pergola designed for al fresco meals."
+    },
+    {
+      "src": "/images/villas/villa-kassandra/kassandra-023.webp",
+      "alt": "Tree-lined garden path with sea view",
+      "caption": "Peaceful garden walk leading directly toward the beach."
+    },
+    {
+      "src": "/images/villas/villa-kassandra/kassandra-024.webp",
+      "alt": "Villa and fountain captured at sunset with glowing façade",
+      "caption": "Sunset view of the villa with golden lighting and landscaped greenery."
+    },
+
+    {
+      "src": "/images/villas/villa-kassandra/kassandra-025.webp",
+      "alt": "Green landscaped garden with trimmed hedges and tall pine trees",
+      "caption": "Expansive private garden offering privacy, shade, and beautiful natural scenery."
+    },
+    {
+      "src": "/images/villas/villa-kassandra/kassandra-026.webp",
+      "alt": "Pool area with turquoise water and surrounding palm trees",
+      "caption": "Inviting turquoise pool framed by tropical garden elements."
+    },
+    {
+      "src": "/images/villas/villa-kassandra/kassandra-027.webp",
+      "alt": "Bright bedroom with double bed and built-in storage",
+      "caption": "Elegant en-suite bedroom with warm tones and comfortable bedding."
+    },
+    {
+      "src": "/images/villas/villa-kassandra/kassandra-028.webp",
+      "alt": "Villa side view with palm trees and upper terrace",
+      "caption": "Side elevation showing private balconies and lush Mediterranean plants."
+    },
+    {
+      "src": "/images/villas/villa-kassandra/kassandra-029.webp",
+      "alt": "Bathroom with marble surfaces and spacious shower",
+      "caption": "Designer bathroom featuring marble, glass, and modern fittings."
+    },
+    {
+      "src": "/images/villas/villa-kassandra/kassandra-030.webp",
+      "alt": "Villa exterior overlooking large swimming pool and blue sky",
+      "caption": "Panoramic view of villa and pool, highlighting resort-like outdoor living."
+    },
+    {
+      "src": "/images/villas/villa-kassandra/kassandra-031.webp",
+      "alt": "Front view of the villa with fountain centerpiece and palm landscaping",
+      "caption": "Grand exterior highlighted by a multi-tier central fountain."
+    },
+    {
+      "src": "/images/villas/villa-kassandra/kassandra-032.webp",
+      "alt": "Poolside view with deep blue water and Mediterranean house beyond",
+      "caption": "Refreshing pool view framed by bright blue skies and elegant architecture."
+    },
+    {
+      "src": "/images/villas/villa-kassandra/kassandra-033.webp",
+      "alt": "Cozy bedroom with soft lighting and wood accents",
+      "caption": "Warm bedroom ambiance designed for comfort and privacy."
+    },
+    {
+      "src": "/images/villas/villa-kassandra/kassandra-034.webp",
+      "alt": "Outdoor seating area with landscaped greenery",
+      "caption": "Garden relaxation zone ideal for morning coffee or evening gatherings."
+    },
+    {
+      "src": "/images/villas/villa-kassandra/kassandra-035.webp",
+      "alt": "Night view of the villa illuminated with warm exterior lighting",
+      "caption": "Atmospheric nighttime villa view showcasing architectural lighting design."
+    },
+    {
+      "src": "/images/villas/villa-kassandra/kassandra-036.webp",
+      "alt": "Three-tier illuminated fountain glowing purple at night",
+      "caption": "Signature three-cascade fountain with color-changing night illumination."
+    },
+
+    {
+      "src": "/images/villas/villa-kassandra/kassandra-037.webp",
+      "alt": "Bedroom with large window and classic furnishing",
+      "caption": "Bright bedroom featuring natural light and refined interior décor."
+    },
+    {
+      "src": "/images/villas/villa-kassandra/kassandra-038.webp",
+      "alt": "Night garden with small illuminated fountain",
+      "caption": "Intimate garden fountain scene with warm night lighting."
+    },
+    {
+      "src": "/images/villas/villa-kassandra/kassandra-039.webp",
+      "alt": "Marble staircase hallway with recessed lighting",
+      "caption": "Elegant interior corridor showcasing premium marble and soft lighting."
+    },
+    {
+      "src": "/images/villas/villa-kassandra/kassandra-040.webp",
+      "alt": "Decorative fountain with columns illuminated at night",
+      "caption": "Majestic columned fountain area designed for nighttime ambience."
+    },
+    {
+      "src": "/images/villas/villa-kassandra/kassandra-041.webp",
+      "alt": "Three-tier fountain glowing purple against night sky",
+      "caption": "Villa's signature illuminated fountain offering a dramatic nighttime display."
+    },
+    {
+      "src": "/images/villas/villa-kassandra/kassandra-042.webp",
+      "alt": "Outdoor pavilion at night with warm lighting under palm trees",
+      "caption": "Cozy outdoor pavilion perfect for evening gatherings under the palms."
+    },
+    {
+      "src": "/images/villas/villa-kassandra/kassandra-043.webp",
+      "alt": "Daylight view of villa façade with tall palm trees",
+      "caption": "Sunny exterior view showcasing the villa’s Mediterranean architecture."
+    },
+    {
+      "src": "/images/villas/villa-kassandra/kassandra-044.webp",
+      "alt": "Columned terrace with decorative fountain at night",
+      "caption": "Elegant terrace with illuminated fountain and classical architecture."
+    },
+    {
+      "src": "/images/villas/villa-kassandra/kassandra-045.webp",
+      "alt": "Outdoor lounge area at night with cozy lighting",
+      "caption": "Tranquil nighttime lounge space ideal for social evenings."
+    },
+    {
+      "src": "/images/villas/villa-kassandra/kassandra-046.webp",
+      "alt": "Swimming pool illuminated with turquoise lighting at night",
+      "caption": "Night pool view offering serene illumination and peaceful atmosphere."
+    },
+    {
+      "src": "/images/villas/villa-kassandra/kassandra-047.webp",
+      "alt": "Garden steps and palm trees with warm evening lighting",
+      "caption": "Grand garden staircase highlighted by elegant exterior lighting."
+    },
+    {
+      "src": "/images/villas/villa-kassandra/kassandra-048.webp",
+      "alt": "Nighttime fountain glowing vibrant purple",
+      "caption": "Striking purple-lit fountain adding drama to evening garden views."
+    },
+
+    {
+      "src": "/images/villas/villa-kassandra/kassandra-049.webp",
+      "alt": "Marble bathroom with twin sinks and glass shower",
+      "caption": "Spacious marble bathroom designed with premium fixtures."
+    },
+    {
+      "src": "/images/villas/villa-kassandra/kassandra-050.webp",
+      "alt": "Night view of villa set among lush greenery",
+      "caption": "Charming nighttime garden scene with villa softly illuminated."
+    },
+    {
+      "src": "/images/villas/villa-kassandra/kassandra-051.webp",
+      "alt": "Illuminated fountain beside villa garden at night",
+      "caption": "Night garden featuring glowing multi-level fountain."
+    },
+    {
+      "src": "/images/villas/villa-kassandra/kassandra-052.webp",
+      "alt": "Garden lounge area lit with subtle ambient lighting",
+      "caption": "Relaxing nighttime seating area with garden views."
+    },
+    {
+      "src": "/images/villas/villa-kassandra/kassandra-053.webp",
+      "alt": "Columned fountain terrace glowing in purple lighting",
+      "caption": "Architectural fountain terrace with color-lit water display."
+    },
+    {
+      "src": "/images/villas/villa-kassandra/kassandra-054.webp",
+      "alt": "Bathroom with shower and wooden accents",
+      "caption": "Warm and inviting bathroom featuring natural wood details."
+    },
+    {
+      "src": "/images/villas/villa-kassandra/kassandra-055.webp",
+      "alt": "Living room with wooden floor and classic furniture",
+      "caption": "Comfortable living room with elegant interior styling."
+    },
+    {
+      "src": "/images/villas/villa-kassandra/kassandra-056.webp",
+      "alt": "Traditional sofa arrangement inside a cozy salon",
+      "caption": "Classic salon featuring plush seating and warm textures."
+    },
+    {
+      "src": "/images/villas/villa-kassandra/kassandra-057.webp",
+      "alt": "Dining room with polished wood furniture and warm lighting",
+      "caption": "Formal dining room with handcrafted wooden furniture."
+    },
+    {
+      "src": "/images/villas/villa-kassandra/kassandra-061.webp",
+      "alt": "Villa façade with balcony and Mediterranean landscaping",
+      "caption": "Elegant exterior façade with panoramic balconies facing the sea."
+    },
+    {
+      "src": "/images/villas/villa-kassandra/kassandra-062.webp",
+      "alt": "Children’s play area or small water feature in garden",
+      "caption": "Charming outdoor garden space with decorative water feature."
+    },
+    {
+      "src": "/images/villas/villa-kassandra/kassandra-063.webp",
+      "alt": "Three-tier purple-lit fountain surrounded by columns",
+      "caption": "Signature architectural fountain framed by classical columns."
+    },
+    {
+      "src": "/images/villas/villa-kassandra/kassandra-064.webp",
+      "alt": "Night pool area with palm trees and golden lighting",
+      "caption": "Atmospheric nighttime pool setting perfect for evening relaxation."
+    }
+  ],
+  "aboutUsImage": "/images/villas/villa-kassandra/kassandra-001.webp",
+  "headlines": {
+    "overview": "Villa Kassandra",
+    "location": "Kassandra, Halkidiki, Greece"
+  },
+  "specs": {
+    "guests": 14,
+    "bedrooms": 5,
+    "beds": 7,
+    "baths": 8,
+    "size": "750 m²"
+  },
+  "location": {
+    "label": "Kassandra Peninsula, Halkidiki",
+    "city": "Chanioti",
+    "country": "Greece"
+  },
+  "amenities": [
+    "Pool",
+    "Beach Access",
+    "Sea Views",
+    "Mount Athos Views",
+    "Wifi",
+    "Kitchen",
+    "AC",
+    "Smart TV",
+    "BBQ",
+    "Gazebo",
+    "Two Fireplaces",
+    "Garage",
+    "Security System",
+    "Solar Panels",
+    "Disabled Access",
+    "Two Fountains"
+  ],
+  "seasons": [
+    {
+      "id": "standard",
+      "label": "Standard Season",
+      "priceDisplay": "Rate on request",
+      "price": null,
+      "currency": null
+    }
+  ],
+  "content": {
+    "overview": "Villa Kassandra is a magnificent 750 m² luxury residence on the Kassandra Peninsula, nestled between the charming resort towns of Chanioti and Polychrono. Completely renovated to the highest modern standards, this three-level masterpiece features interiors crafted from marble, onyx, and natural stones, with five ensuite bedrooms, two elegant salons with fireplaces, and two fully equipped kitchens. The 2,500 m² plot includes a stunning two-section swimming pool (for children and adults), two three-cascade fountains with 16 color lamps each, and a 40 m² gazebo with barbecue area. Just 60 meters from the shore with direct beach access, guests enjoy uninterrupted views of the Aegean Sea and the sacred Mount Athos.",
+    "location": "Located on the Kassandra Peninsula, Halkidiki, between Chanioti and Polychrono. 90 km from Thessaloniki 'Macedonia' Airport.",
+    "practicalDetails": [
+      "Check-in: 3:00 PM",
+      "Check-out: 11:00 AM",
+      "No smoking indoors",
+      "Pets considered on request",
+      "Wheelchair accessible facilities available"
+    ],
+    "rooms": [
+      { "name": "Master Suite", "description": "Luxurious suite with king bed, en-suite bathroom with marble finishes, sea views, AC." },
+      { "name": "Bedroom 2", "description": "Elegant room with queen bed, en-suite shower, AC, garden views." },
+      { "name": "Bedroom 3", "description": "Comfortable room with queen bed, en-suite bathroom, AC." },
+      { "name": "Bedroom 4", "description": "Twin or king configuration, en-suite bathroom, AC." },
+      { "name": "Bedroom 5", "description": "Cozy suite with queen bed, en-suite bathroom, AC, terrace access." }
+    ],
+    "familyRecreation": [
+      "Two-Section Pool (Adults & Children)",
+      "Direct Beach Access",
+      "BBQ Gazebo",
+      "Illuminated Fountains",
+      "Landscaped Gardens"
+    ],
+    "travel": {
+      "air": [
+        "Fly into Thessaloniki International Airport 'Macedonia' (SKG) - 90 km, approximately 60-75 minutes drive"
+      ],
+      "rail": [],
+      "drive": [
+        "Private airport transfers available",
+        "Rental car delivery to villa possible"
+      ]
+    },
+    "hosts": {
+      "image": "/images/villas/villa-kassandra/kassandra-001.webp",
+      "names": "Your Concierge Team",
+      "bio": "Dedicated villa manager and concierge available throughout your stay."
+    },
+    "testimonials": [
+      {
+        "quote": "An extraordinary property with stunning views and impeccable service. The perfect Greek escape.",
+        "attribution": "Recent Guest, 2024"
+      }
+    ],
+    "faq": [
+      {
+        "category": "Overview & General Info",
+        "q": "What is Villa Kassandra and where is it located?",
+        "a": "Villa Kassandra is a 7-bedroom luxury beachfront villa at the entrance of the Kassandra Peninsula in Halkidiki, northern Greece. It sits near the village of Nea Potidea and offers direct access to a secluded sandy beach with panoramic Aegean Sea views toward Mount Olympus."
+      },
+      {
+        "category": "Overview & General Info",
+        "q": "How big is Villa Kassandra and how many guests can it host?",
+        "a": "The villa spans about 350 m² over three levels and comfortably hosts up to 14 guests in 7 ensuite bedrooms. Indoor-outdoor living areas, terraces, and gardens provide plenty of space for larger families or groups to spread out."
+      },
+      {
+        "category": "Overview & General Info",
+        "q": "What makes the Kassandra Peninsula special as a destination?",
+        "a": "Kassandra is the westernmost of Halkidiki's three peninsulas, known for long sandy beaches, clear turquoise water, pine-covered hills, and lively resort towns. It combines relaxed coastal villages, upscale marinas, and a vibrant summer nightlife scene."
+      },
+      {
+        "category": "Overview & General Info",
+        "q": "Is Villa Kassandra suitable as a base to explore Halkidiki?",
+        "a": "Yes, the villa's location near the Potidea Canal makes it an ideal starting point for exploring all of Kassandra and the wider Halkidiki region. Key villages, beach clubs, nature areas, and even day trips to Thessaloniki are within easy driving distance."
+      },
+      {
+        "category": "Overview & General Info",
+        "q": "Does the villa offer direct beach access?",
+        "a": "Yes. A private path leads from the garden straight onto a semi-private sandy cove shared only with a few neighbors. Guests can move between pool, terrace, and beach in just a few steps without needing to drive anywhere."
+      },
+      {
+        "category": "Overview & General Info",
+        "q": "What kind of views does the villa offer?",
+        "a": "The villa faces the Aegean Sea with unobstructed, west-southwest views across Toroneos Gulf toward Mount Olympus. Sunsets over the sea and mountains are a signature part of the experience."
+      },
+      {
+        "category": "VIP Arrival & Logistics",
+        "q": "How far is Villa Kassandra from Thessaloniki International Airport (SKG)?",
+        "a": "Villa Kassandra is approximately 55–60 km from Thessaloniki International Airport, usually a 50–60 minute drive depending on traffic. The route follows main highways and coastal roads into Halkidiki."
+      },
+      {
+        "category": "VIP Arrival & Logistics",
+        "q": "Can you arrange private airport transfers to the villa?",
+        "a": "Yes. We can organize private transfers in luxury sedans, SUVs, or VIP minibuses that meet you at arrivals and drive you directly to the villa. Drivers can also assist with luggage and coordinate arrival times with your flights."
+      },
+      {
+        "category": "VIP Arrival & Logistics",
+        "q": "Are helicopter transfers to Halkidiki possible?",
+        "a": "Helicopter transfers can be arranged from Thessaloniki to Halkidiki for guests who prefer to arrive in style. While Villa Kassandra does not have its own helipad, helicopters can land at nearby helipads such as those within the Sani Resort area, followed by a short car transfer to the villa."
+      },
+      {
+        "category": "VIP Arrival & Logistics",
+        "q": "Is there secure parking available at Villa Kassandra?",
+        "a": "Yes. The property has ample secure, on-site parking inside the gated grounds. Several cars or a combination of cars and a minivan can be parked comfortably at no extra cost."
+      },
+      {
+        "category": "VIP Arrival & Logistics",
+        "q": "Do I need to rent a car during my stay?",
+        "a": "While you can enjoy the villa and beach without a car, having a vehicle is highly recommended to explore villages, beach clubs, and attractions across the peninsula. Distances between key spots are best covered by car or with a private driver."
+      },
+      {
+        "category": "VIP Arrival & Logistics",
+        "q": "Can you arrange a private driver or chauffeur?",
+        "a": "We can arrange English-speaking drivers or full chauffeur service for day trips, shopping, dinners, or nightlife outings. Options range from luxury SUVs to minibuses, and drivers can remain on standby for flexible schedules."
+      },
+      {
+        "category": "VIP Arrival & Logistics",
+        "q": "Are taxis available in the area?",
+        "a": "Yes. Local taxis operate around Nea Potidea, Nea Moudania, and the main resort towns. Our concierge or villa manager can call taxis for short trips or late-night returns."
+      },
+      {
+        "category": "VIP Arrival & Logistics",
+        "q": "Can car rentals be delivered directly to the villa?",
+        "a": "Car rentals can be delivered to the villa and collected at the end of your stay. This allows you to avoid queues at the airport and start your holiday immediately on arrival."
+      },
+      {
+        "category": "Location & Neighborhoods",
+        "q": "Where exactly is Villa Kassandra situated on the Kassandra Peninsula?",
+        "a": "The villa is located near the seaside village of Nea Potidea at the narrow isthmus that marks the entrance to the Kassandra Peninsula. It sits on the east side of the isthmus facing Toroneos Gulf, with easy access to both northern Halkidiki and the length of Kassandra."
+      },
+      {
+        "category": "Location & Neighborhoods",
+        "q": "What is Nea Potidea like?",
+        "a": "Nea Potidea is a small coastal town about 3 km from the villa with supermarkets, bakeries, cafes, and tavernas along the historic Potidea Canal. It has a relaxed local atmosphere and serves as your closest hub for everyday shopping and casual dining."
+      },
+      {
+        "category": "Location & Neighborhoods",
+        "q": "How far is Nea Moudania from the villa and what does it offer?",
+        "a": "Nea Moudania is roughly 10 km north of the villa and functions as a small city with larger supermarkets, a marina, banks, and a weekly farmers' market. It is useful for big grocery runs or more urban services."
+      },
+      {
+        "category": "Location & Neighborhoods",
+        "q": "What villages south of the villa are worth visiting?",
+        "a": "Driving south you reach Nea Fokea (~10 km) with its Byzantine watchtower and harbor, and Afytos (~15 km), a preserved stone village on a cliff with charming alleys and sea-view tavernas. Further along are lively resort towns such as Kallithea, Hanioti, and Pefkochori."
+      },
+      {
+        "category": "Location & Neighborhoods",
+        "q": "How far is Sani Resort from Villa Kassandra?",
+        "a": "Sani Resort is about 20 km from the villa on Kassandra's northwest coast. It offers an upscale marina, designer boutiques, high-end restaurants, and hosts the Sani Festival with open-air concerts in summer."
+      },
+      {
+        "category": "Location & Neighborhoods",
+        "q": "What is Possidi Cape and is it worth a visit?",
+        "a": "Possidi Cape lies roughly 50 km southwest of the villa and features a photogenic sand spit projecting into the sea and a lighthouse at its tip. It is especially beautiful at sunset, though the sea there can be rough and weedy on windy days."
+      },
+      {
+        "category": "Location & Neighborhoods",
+        "q": "Where is the administrative center of Kassandra located?",
+        "a": "The town of Kassandreia, about 25 km from the villa, is the peninsula's administrative center. It has everyday services and an open-air market every Tuesday where you can shop for fresh local produce and experience village life."
+      },
+      {
+        "category": "Location & Neighborhoods",
+        "q": "Is Villa Kassandra's immediate neighborhood quiet or busy?",
+        "a": "The villa sits in a peaceful coastal residential area with only a few neighboring villas along the shore. You enjoy tranquility and privacy at the property while being a short drive from busier resort towns when you want more buzz."
+      },
+      {
+        "category": "Beaches & Nature",
+        "q": "What is the beach directly in front of Villa Kassandra like?",
+        "a": "The villa fronts a sandy cove with golden sand and a gentle, shallow entry into the sea. Access is via a private path from the garden, and loungers and a parasol are set up exclusively for villa guests."
+      },
+      {
+        "category": "Beaches & Nature",
+        "q": "Which is the closest organized public beach?",
+        "a": "Nea Potidea Beach, about 2–3 km away, is the nearest organized beach with sunbeds, beach bars, and shallow waters suitable for families. It faces Toroneos Gulf with views across to the Sithonia Peninsula."
+      },
+      {
+        "category": "Beaches & Nature",
+        "q": "What are some of the best beaches near the villa?",
+        "a": "Highlights include Sani's long Blue Flag beaches with white sand and turquoise water; Afytos Beach below the clifftop village; lively Kalithea Beach with beach bars and water sports; and the dramatic sandbar at Possidi Cape."
+      },
+      {
+        "category": "Beaches & Nature",
+        "q": "Are there any famous beaches further south worth the drive?",
+        "a": "Yes. Paliouri/Xenia Beach on Kassandra's southeast tip is considered one of the peninsula's finest, with powdery sand and well-known beach clubs such as Cabana and Navagos. It is about 50 km from the villa."
+      },
+      {
+        "category": "Beaches & Nature",
+        "q": "Are there protected nature areas near Villa Kassandra?",
+        "a": "Just north of Nea Potidea lies the Agios Mamas wetland, a lagoon system that is an important bird habitat. In spring and autumn you can see flamingos, herons, and other migratory birds along simple walking paths."
+      },
+      {
+        "category": "Beaches & Nature",
+        "q": "Are there forests or mountains suitable for hiking?",
+        "a": "Central Kassandra features pine forests and gentle hills around villages like Kassandrino, offering pleasant hiking and mountain-biking trails. Further afield, Mount Holomontas inland from Halkidiki provides cooler woodland walks and picnic spots."
+      },
+      {
+        "category": "Beaches & Nature",
+        "q": "Is snorkeling good in this part of Halkidiki?",
+        "a": "Yes. Rocky coves near Afytos, Kalithea, and parts of Sani offer clear water and fish life ideal for snorkeling. We provide basic snorkel gear at the villa, and dedicated snorkeling or diving trips can be arranged with local operators."
+      },
+      {
+        "category": "Beaches & Nature",
+        "q": "Can guests enjoy sunsets from the villa or nearby viewpoints?",
+        "a": "Sunsets from the villa's terraces, pool, and beachfront are spectacular as the sun sets over Toroneos Gulf and Mount Olympus. For dramatic viewpoints, the lighthouse at Possidi Cape is a favorite sunset spot."
+      },
+      {
+        "category": "Staff & Butler Service",
+        "q": "Does Villa Kassandra include daily housekeeping?",
+        "a": "Yes. Daily housekeeping is included to keep bedrooms, bathrooms, and common areas clean. The housekeeper typically visits for a few hours each day, with schedules adapted to your preferences."
+      },
+      {
+        "category": "Staff & Butler Service",
+        "q": "Is there a villa manager or concierge on call?",
+        "a": "A dedicated villa manager or concierge is available to assist throughout your stay, reachable by phone or WhatsApp. They help with restaurant reservations, activity bookings, transport arrangements, and special requests."
+      },
+      {
+        "category": "Staff & Butler Service",
+        "q": "Can I arrange a private butler at Villa Kassandra?",
+        "a": "Butler service can be added for guests seeking elevated hospitality. A butler can be present for set hours each day to serve drinks and meals, coordinate activities, and act as your single point of contact for any in-villa needs."
+      },
+      {
+        "category": "Staff & Butler Service",
+        "q": "What languages do staff typically speak?",
+        "a": "Most staff members speak English, and we can often arrange staff with additional languages such as Russian or German when requested in advance. Communication about schedules and preferences is handled smoothly through the villa manager."
+      },
+      {
+        "category": "Staff & Butler Service",
+        "q": "Are linens and towels changed during the stay?",
+        "a": "Yes. Bed linens are typically changed every 3–4 days, while towels are refreshed more frequently or whenever requested. Pool and beach towels are also provided."
+      },
+      {
+        "category": "Staff & Butler Service",
+        "q": "Can staff help with laundry and ironing?",
+        "a": "Housekeeping can assist with personal laundry and ironing on request using the villa's washing machine and dryer. For large loads or delicate items, we can also arrange professional laundry service at extra cost."
+      },
+      {
+        "category": "Staff & Butler Service",
+        "q": "Is staff presence discreet or hotel-style?",
+        "a": "Service is designed to be discreet and flexible. Staff usually work in the background and visit at agreed times so you retain privacy, but they can also provide more hotel-like support with extended hours if desired."
+      },
+      {
+        "category": "Staff & Butler Service",
+        "q": "Can the villa operate with minimal staff presence if we want privacy?",
+        "a": "Yes. If you prefer a more private, self-sufficient stay, we can limit staff visits to essential cleaning at specific times of day. Simply discuss your preferences with the villa manager on arrival."
+      },
+      {
+        "category": "Food & Dining",
+        "q": "Can a private chef be arranged at Villa Kassandra?",
+        "a": "Yes. We can organize a private chef for anything from a single celebratory dinner to full-time catering. Menus can focus on Greek cuisine, seafood feasts, BBQs, or international dishes tailored to your group."
+      },
+      {
+        "category": "Food & Dining",
+        "q": "Are special diets such as vegetarian, vegan, or gluten-free accommodated?",
+        "a": "Absolutely. Chefs and partner restaurants can cater to vegetarian, vegan, gluten-free, and allergy-sensitive diets. Let us know in advance and we will adapt menus and communicate requirements to any venue you visit."
+      },
+      {
+        "category": "Food & Dining",
+        "q": "Is there an outdoor dining area at the villa?",
+        "a": "The villa features a covered outdoor dining pavilion overlooking the pool and sea, ideal for al fresco meals. There is also a built-in barbecue grill for BBQ nights with either the chef or guests themselves cooking."
+      },
+      {
+        "category": "Food & Dining",
+        "q": "Is the kitchen fully equipped for self-catering?",
+        "a": "Yes. The gourmet kitchen includes a refrigerator-freezer, oven and stovetop, microwave, dishwasher, coffee and espresso machines, blender, toaster, and extensive cookware, tableware, and utensils. Basic pantry staples such as olive oil, salt, pepper, and spices are stocked."
+      },
+      {
+        "category": "Food & Dining",
+        "q": "Can you pre-stock the villa with groceries before arrival?",
+        "a": "We can arrange grocery pre-stocking so that essentials, drinks, and requested items are waiting when you arrive. During your stay, staff can also do additional shopping runs on your behalf."
+      },
+      {
+        "category": "Food & Dining",
+        "q": "What notable restaurants are near Villa Kassandra?",
+        "a": "Nearby recommendations include Marina Seafood and Taverna Argonautes in Nea Potidea for fresh fish, Massalia in Nea Fokea for award-winning meat dishes, and Thea Thalassa in Afytos for excellent seafood with sunset views over the bay."
+      },
+      {
+        "category": "Food & Dining",
+        "q": "Are there upscale dining options in the wider area?",
+        "a": "Sani Resort's marina, about 20 km away, hosts several gourmet restaurants and wine bars offering sushi, fine Greek cuisine, and international menus in an upscale yacht-harbor setting. Advance reservations are recommended in peak season."
+      },
+      {
+        "category": "Food & Dining",
+        "q": "Can meals be delivered to the villa without using a chef?",
+        "a": "Local bakeries, tavernas, and catering partners can deliver breakfasts, prepared dishes, or full meals to the villa. This is a convenient option if you prefer not to cook but don't require a full private chef service."
+      },
+      {
+        "category": "Weddings & Events",
+        "q": "Can Villa Kassandra host weddings and private events?",
+        "a": "Yes. The villa regularly hosts intimate weddings, celebrations, and corporate gatherings, subject to owner approval and event guidelines. Its beachfront gardens and terraces provide a scenic backdrop for ceremonies and receptions."
+      },
+      {
+        "category": "Weddings & Events",
+        "q": "What is the recommended maximum guest capacity for events?",
+        "a": "For comfort and flow we recommend events of around 50 guests or fewer, with overnight accommodation for up to 14 people in the villa. Slightly larger events may be possible with additional infrastructure, subject to discussion."
+      },
+      {
+        "category": "Weddings & Events",
+        "q": "Where on the property are ceremonies and receptions typically held?",
+        "a": "Ceremonies often take place on the upper lawn terrace overlooking the sea, while seated dinners and parties are commonly arranged on the lower pool terrace. Both levels can be configured with tents, tables, and dance floors."
+      },
+      {
+        "category": "Weddings & Events",
+        "q": "Is there a minimum stay requirement for hosting an event at the villa?",
+        "a": "Yes. Events usually require a minimum booking of several nights—often 3 or more—so there is sufficient time for setup, the event itself, and teardown without disrupting your stay."
+      },
+      {
+        "category": "Weddings & Events",
+        "q": "Can you recommend local wedding planners and vendors?",
+        "a": "We work with experienced local planners familiar with the property who can coordinate catering, decor, florists, photographers, DJs or live bands, tents, and equipment rentals. Our concierge can put you directly in touch with them."
+      },
+      {
+        "category": "Weddings & Events",
+        "q": "What are the noise and music rules for events?",
+        "a": "Because the villa is in a quiet seaside neighborhood, outdoor music should typically be reduced after around 23:00 and fully stopped by about midnight to respect local quiet-hour regulations. Indoor after-parties or transfers to clubs can extend the night for those who wish."
+      },
+      {
+        "category": "Weddings & Events",
+        "q": "Are fireworks or sky lanterns allowed at Villa Kassandra events?",
+        "a": "No. Due to fire risk and local regulations, fireworks and sky lanterns are not allowed on the property. We encourage alternatives such as candlelit decor, cold-spark machines managed by professionals, or creative lighting."
+      },
+      {
+        "category": "Weddings & Events",
+        "q": "Is the kitchen suitable for external caterers during events?",
+        "a": "Yes. The villa's spacious, professional-grade kitchen can be used by outside catering teams for event service. Additional cleaning fees may apply after large events to return the villa to pristine condition."
+      },
+      {
+        "category": "Amenities & Hardware",
+        "q": "How many bedrooms and bathrooms does Villa Kassandra have?",
+        "a": "The villa offers 7 spacious bedrooms, each with its own en-suite bathroom, providing 7 bathrooms in total. This layout ensures privacy and comfort for multi-family or multi-couple groups."
+      },
+      {
+        "category": "Amenities & Hardware",
+        "q": "What bathroom amenities are provided?",
+        "a": "Bathrooms are stocked with hotel-quality toiletries including shampoo, conditioner, shower gel, and soap, along with plush bath and pool towels, hair dryers, magnifying mirrors, bathrobes, and slippers."
+      },
+      {
+        "category": "Amenities & Hardware",
+        "q": "What kitchen appliances and equipment are available?",
+        "a": "The kitchen includes a full-size fridge-freezer, oven and stove, microwave, dishwasher, coffee and espresso machines, kettle, toaster, blender, and a wide range of pots, pans, knives, and serving pieces suitable for serious cooking."
+      },
+      {
+        "category": "Amenities & Hardware",
+        "q": "Does the villa have indoor and outdoor dining spaces?",
+        "a": "Yes. Inside there is a large dining table seating up to 14 guests, and outside a covered dining pavilion with another generous table overlooks the pool and sea. Both are suitable for formal dinners or casual meals."
+      },
+      {
+        "category": "Amenities & Hardware",
+        "q": "What kind of living areas does the villa have?",
+        "a": "There are two main living rooms—one on the upper level and one on the lower level—furnished with comfortable sofas, armchairs, coffee tables, and decor in a modern Mediterranean style. Large windows frame sea views and bring in natural light."
+      },
+      {
+        "category": "Amenities & Hardware",
+        "q": "Is there air-conditioning and heating throughout the property?",
+        "a": "The villa has central climate control with individual AC and heating units in most rooms, allowing guests to adjust temperature to their comfort. Windows are fitted with mosquito screens and blackout curtains."
+      },
+      {
+        "category": "Amenities & Hardware",
+        "q": "What outdoor amenities are provided around the pool and garden?",
+        "a": "A 70 m² infinity pool is surrounded by a furnished sun terrace with loungers, deckchairs, umbrellas, and an outdoor shower. Terraced gardens with lawns, trees, and shaded lounge areas provide additional relaxation spots leading down to the beach."
+      },
+      {
+        "category": "Amenities & Hardware",
+        "q": "Does the villa provide laundry facilities?",
+        "a": "Yes. A utility room houses a washing machine and dryer (or washer-dryer combo), plus an iron and ironing board. Detergent is supplied, and housekeeping can assist with laundry upon request."
+      },
+      {
+        "category": "Tech & Connectivity",
+        "q": "Does Villa Kassandra have reliable Wi-Fi?",
+        "a": "The villa is equipped with high-speed fiber or 4G/LTE internet providing typical speeds of around 50–100 Mbps. Wi-Fi covers all indoor spaces as well as the pool terrace and garden, suitable for streaming and video calls."
+      },
+      {
+        "category": "Tech & Connectivity",
+        "q": "Are Smart TVs and streaming services available?",
+        "a": "Each main living room has a large Smart TV with satellite channels and built-in apps such as Netflix and YouTube. Guests can log into their own accounts and also connect external devices via HDMI."
+      },
+      {
+        "category": "Tech & Connectivity",
+        "q": "Is there a sound system for playing music?",
+        "a": "Yes. Bluetooth-enabled speakers or a Hi-Fi sound system allow you to stream music from your phone or laptop both indoors and by the pool. Volume can be adjusted to respect the quiet neighborhood."
+      },
+      {
+        "category": "Tech & Connectivity",
+        "q": "Is Villa Kassandra suitable for remote work?",
+        "a": "With fast Wi-Fi, a quiet setting, and the option to provide a desk, monitor, printer, or office chair, the villa works well for remote workers or \"workation\" stays. Mobile phone reception is generally strong for all major networks."
+      },
+      {
+        "category": "Tech & Connectivity",
+        "q": "What type of electrical outlets and voltage does the villa use?",
+        "a": "Greece uses 230V power with standard European Type C/E two-pin sockets. Most modern electronics are dual-voltage, but guests from countries with different plug types will need adapters."
+      },
+      {
+        "category": "Tech & Connectivity",
+        "q": "Are plug adapters or voltage converters provided?",
+        "a": "We keep a few universal plug adapters at the villa for guest use, but recommend bringing your own as well. If you have 120V-only appliances, you should bring an appropriate voltage converter."
+      },
+      {
+        "category": "Tech & Connectivity",
+        "q": "Is there backup power in case of an outage?",
+        "a": "Yes. The villa has a robust electrical system plus emergency lighting and a backup generator to keep essentials—such as lighting, refrigeration, and Wi-Fi—running during rare local power interruptions."
+      },
+      {
+        "category": "Tech & Connectivity",
+        "q": "Does the property have security systems or cameras?",
+        "a": "For safety, the villa is equipped with an alarm system and discrete exterior CCTV cameras. There are no cameras inside the living spaces, and security measures are designed to protect privacy while deterring intrusions."
+      },
+      {
+        "category": "Excursions & Activities",
+        "q": "What kinds of beach clubs can we visit on the Kassandra Peninsula?",
+        "a": "Kassandra offers everything from laid-back to glamorous beach clubs. Top options include Cabana and Navagos at Paliouri's Xenia Beach, Anemos at Sani, and more relaxed spots like Lime in Polichrono or White Beach Bar in Posidi."
+      },
+      {
+        "category": "Excursions & Activities",
+        "q": "Are there family-friendly beach clubs near Villa Kassandra?",
+        "a": "Yes. Many organized beaches such as Sani and parts of Kalithea provide shallow, calm water, lifeguards in season, and comfortable sunbeds, making them ideal for families with children."
+      },
+      {
+        "category": "Excursions & Activities",
+        "q": "What water sports are available nearby?",
+        "a": "At popular beaches like Kalithea, Sani, Hanioti, and Pefkochori you'll find centers offering jet-skiing, parasailing, banana boat rides, water-skiing, wakeboarding, paddle boats, kayaks, and stand-up paddleboards."
+      },
+      {
+        "category": "Excursions & Activities",
+        "q": "Can we go scuba diving or snorkeling on Kassandra?",
+        "a": "Yes. Dive centers in Pefkochori and surrounding areas organize introductory dives and excursions to reefs and wrecks. Snorkeling is excellent in rocky coves near Afytos and Kalithea, and basic snorkel gear is provided at the villa."
+      },
+      {
+        "category": "Excursions & Activities",
+        "q": "Are there organized boat excursions such as Blue Lagoon cruises?",
+        "a": "Several operators run full-day \"Blue Lagoon\" and Toroneos Gulf cruises from ports like Pefkochori and Nea Moudania. These trips typically include swimming stops in turquoise bays, onboard BBQ lunch, and music, often on traditional or themed boats."
+      },
+      {
+        "category": "Excursions & Activities",
+        "q": "Is it possible to charter a private boat or yacht?",
+        "a": "We can arrange private motor yacht or sailing charters with captain and crew. Itineraries can include circumnavigating Kassandra, crossing to Sithonia's hidden coves, or sunset cruises with swimming stops."
+      },
+      {
+        "category": "Excursions & Activities",
+        "q": "What cultural day trips are recommended from the villa?",
+        "a": "Popular cultural excursions include Petralona Cave with its prehistoric finds, the ancient city of Olynthos with mosaic floors, and a day trip to Thessaloniki for museums, shopping, and excellent food."
+      },
+      {
+        "category": "Excursions & Activities",
+        "q": "Are there wine or food tours in the region?",
+        "a": "Yes. We can organize visits to local wineries such as Tzikas Winery for tastings, as well as foodie tours to olive oil estates, honey farms, and traditional tavernas showcasing regional products."
+      },
+      {
+        "category": "Nightlife & City Life",
+        "q": "How is the nightlife on the Kassandra Peninsula in summer?",
+        "a": "Kassandra is one of Greece's liveliest summer nightlife destinations, especially in July and August. You'll find big clubs, beach parties, cocktail bars, and traditional music venues that stay open until late."
+      },
+      {
+        "category": "Nightlife & City Life",
+        "q": "Where are the main nightclubs located?",
+        "a": "The biggest cluster of clubs is in and around Kallithea, about 20 km from the villa. Venues like Pearl Club host well-known DJs and performers, with dancing often going on until sunrise."
+      },
+      {
+        "category": "Nightlife & City Life",
+        "q": "Do beach bars turn into nightlife spots after dark?",
+        "a": "Many beach bars such as Ahoy, Cabana, Babewatch, and Liosi host evening parties, DJ sets, or full-moon events. You can sip cocktails with your feet in the sand while enjoying music by the sea."
+      },
+      {
+        "category": "Nightlife & City Life",
+        "q": "Are there relaxed bars or lounges for quieter evenings?",
+        "a": "Afytos has atmospheric cliff-top cocktail bars like Notos, while Nea Potidea and Nea Moudania offer seaside cafes and bars with a more laid-back local vibe. Sani Marina features sophisticated wine bars and lounges among the yachts."
+      },
+      {
+        "category": "Nightlife & City Life",
+        "q": "What cultural evening activities are available besides clubs?",
+        "a": "The Sani Festival hosts open-air concerts in July and August by the historic Sani Tower, featuring jazz, classical, and international artists. Many villages also hold traditional panigyri festivals with folk music and dancing on their saint days."
+      },
+      {
+        "category": "Nightlife & City Life",
+        "q": "Is nightlife on Kassandra suitable for families?",
+        "a": "Yes. While certain clubs cater to adults, many promenades in towns like Hanioti and Pefkochori are lively but family-friendly, with ice-cream stands, small funfairs, and shops open late into the evening."
+      },
+      {
+        "category": "Nightlife & City Life",
+        "q": "Can you arrange late-night transport so we do not drive?",
+        "a": "We can book taxis, private drivers, or minibus shuttles for nights out, ensuring everyone returns safely without the need to drive after drinking."
+      },
+      {
+        "category": "Nightlife & City Life",
+        "q": "Is Thessaloniki a realistic option for a night out?",
+        "a": "Thessaloniki is about an hour's drive and offers a big-city nightlife scene in areas like Ladadika. It's feasible as a special evening with a driver, but most guests find plenty to do closer to the villa in summer."
+      },
+      {
+        "category": "Safety & Medical",
+        "q": "Is the area around Villa Kassandra generally safe for tourists?",
+        "a": "Yes. Halkidiki and the Kassandra Peninsula are considered very safe, family-friendly destinations with low crime rates. Normal common-sense precautions are still recommended, such as locking doors and not leaving valuables unattended."
+      },
+      {
+        "category": "Safety & Medical",
+        "q": "What security features does the villa have?",
+        "a": "The property is gated and fenced, equipped with an alarm system and exterior CCTV cameras, and includes a safe for valuables. The quiet residential location also contributes to a secure environment."
+      },
+      {
+        "category": "Safety & Medical",
+        "q": "Where is the nearest medical facility to the villa?",
+        "a": "Several medical options exist nearby. Nea Moudania has a major health center about 15 km away, and Kassandreia's Health Center is roughly 25 km away and operates 24/7 for emergencies."
+      },
+      {
+        "category": "Safety & Medical",
+        "q": "What hospital options are available in Halkidiki?",
+        "a": "The General Hospital of Halkidiki in Polygyros, about 55 km from the villa, provides full hospital services. For more complex cases, Thessaloniki's large public and private hospitals are also accessible."
+      },
+      {
+        "category": "Safety & Medical",
+        "q": "What are the emergency numbers in Greece?",
+        "a": "The EU-wide emergency number 112 connects you to police, ambulance, or fire services. Greece also has a dedicated ambulance line at 166."
+      },
+      {
+        "category": "Safety & Medical",
+        "q": "Are pharmacies easily accessible?",
+        "a": "Pharmacies are found in all nearby towns, including Nea Potidea and Nea Moudania. At least one pharmacy in each area stays open after hours on a rotation schedule, and staff are well-trained to advise on minor issues and medications."
+      },
+      {
+        "category": "Safety & Medical",
+        "q": "Is tap water safe to drink at the villa?",
+        "a": "Tap water is treated and microbiologically safe, though its mineral or chlorine taste leads many guests to prefer bottled water for drinking. Tap water is fine for cooking and brushing teeth."
+      },
+      {
+        "category": "Safety & Medical",
+        "q": "Is it safe to swim in the sea near Villa Kassandra?",
+        "a": "Yes. Local waters are generally calm, clear, and free of dangerous currents or marine life. Many beaches have shallow entry and lifeguards during peak season; as always, supervise children and avoid swimming far out on very windy days."
+      },
+      {
+        "category": "Families & Kids",
+        "q": "Is Villa Kassandra suitable for families with children?",
+        "a": "The villa is very family-friendly, with spacious bedrooms, a pool, garden, and beach directly in front. Multi-generational families often stay here and appreciate the mix of privacy and shared spaces."
+      },
+      {
+        "category": "Families & Kids",
+        "q": "Do you provide baby equipment such as cribs and high chairs?",
+        "a": "Yes. A baby cot and high chair are available at no extra charge, and items like a baby bath, changing mat, or stair gates can be arranged on request to improve safety and comfort for little ones."
+      },
+      {
+        "category": "Families & Kids",
+        "q": "Is the pool safe for young children?",
+        "a": "The infinity pool includes a shallower section suitable for supervised play, and we can arrange a removable pool fence or pool alarm for families with toddlers. Children must always be supervised around the pool and beach."
+      },
+      {
+        "category": "Families & Kids",
+        "q": "Can you arrange babysitting or nanny services?",
+        "a": "Trusted local babysitters and nannies can be booked for daytime or evening care. Many speak English and are experienced with children, allowing adults to enjoy dinners or excursions with peace of mind."
+      },
+      {
+        "category": "Families & Kids",
+        "q": "What on-site activities are available for kids?",
+        "a": "Children can enjoy the pool, beach, and garden, plus indoor board games, outdoor toys, a soccer ball, paddle ball sets, and basic snorkeling gear. Movie nights on the Smart TV are also popular."
+      },
+      {
+        "category": "Families & Kids",
+        "q": "Are there family-oriented attractions nearby?",
+        "a": "Nearby options include small seaside funfairs in resort towns, water-park style inflatable courses in Pefkochori, the larger Waterland park near Thessaloniki, dinosaur parks close to Nea Moudania, and educational trips to Petralona Cave."
+      },
+      {
+        "category": "Families & Kids",
+        "q": "Are restaurants in the area welcoming to children?",
+        "a": "Greek tavernas are very child-friendly, offering flexible portions and familiar foods like pasta, grilled chicken, and fries. High chairs are common, and kids are warmly welcomed at most venues."
+      },
+      {
+        "category": "Families & Kids",
+        "q": "Can the private chef prepare kid-friendly meals?",
+        "a": "Yes. The chef can plan simple, comforting dishes such as homemade pizza, pasta, burgers, or lighter options tailored to children's tastes, while adults enjoy more elaborate menus."
+      },
+      {
+        "category": "Rates & Payments",
+        "q": "How are rental rates for Villa Kassandra structured across the year?",
+        "a": "Rates vary by season and length of stay, starting from lower prices in shoulder months like May and October and rising to premium rates in peak summer (July–August). Exact pricing is quoted for your specific dates and group size."
+      },
+      {
+        "category": "Rates & Payments",
+        "q": "Is there a minimum stay requirement?",
+        "a": "In high season the villa typically requires a minimum stay of 7 nights, with potential longer minimums around peak dates. In shoulder seasons, shorter stays of 3–5 nights are often accepted."
+      },
+      {
+        "category": "Rates & Payments",
+        "q": "What deposit is required to confirm a booking?",
+        "a": "A non-refundable or partially refundable booking deposit of around 50% of the rental amount is usually required to confirm your reservation. The remaining balance is then due several weeks before arrival."
+      },
+      {
+        "category": "Rates & Payments",
+        "q": "Which payment methods are accepted?",
+        "a": "We accept bank transfers in euros and major credit cards such as Visa, MasterCard, and American Express, often via secure payment links. Alternative options like PayPal or Wise can sometimes be arranged on request."
+      },
+      {
+        "category": "Rates & Payments",
+        "q": "Is a security deposit required and how is it handled?",
+        "a": "Yes, a refundable security deposit—commonly around €1,000 or a percentage of the rental price—is taken either by bank transfer or as a credit-card hold. It is returned after departure, provided no significant damage or loss has occurred."
+      },
+      {
+        "category": "Rates & Payments",
+        "q": "Are utilities and standard services included in the rate?",
+        "a": "Quoted rates generally include water, electricity, Wi-Fi, daily housekeeping, and use of amenities. Optional extras such as private chefs, drivers, event fees, or heating the pool may incur additional charges."
+      },
+      {
+        "category": "Rates & Payments",
+        "q": "Are there any taxes or extra fees guests should expect?",
+        "a": "An overnight stay tax mandated by Greek law may apply, but it is usually included in the quoted rate or clearly itemized. There are no surprise resort fees; any extra cleaning or event-related charges are discussed in advance."
+      },
+      {
+        "category": "Rates & Payments",
+        "q": "What are the typical cancellation terms?",
+        "a": "Cancellation policies vary by season and booking channel but often become stricter closer to arrival. Early cancellations may forfeit only part of the deposit, while late cancellations can be non-refundable. We strongly recommend travel insurance for high-value bookings."
+      },
+      {
+        "category": "Accessibility",
+        "q": "Is Villa Kassandra suitable for guests who use wheelchairs?",
+        "a": "The villa is built on three levels with multiple staircases and terraced outdoor areas, and it does not have an elevator or fully accessible bathrooms. As a result, it is not ideal for full-time wheelchair users."
+      },
+      {
+        "category": "Accessibility",
+        "q": "Can guests with limited mobility still enjoy the property?",
+        "a": "Guests who can manage some stairs with assistance can often be accommodated by assigning a lower-level bedroom that opens directly onto the garden and pool terrace. However, there are still steps between parking, terraces, and the beach."
+      },
+      {
+        "category": "Accessibility",
+        "q": "Are there many stairs between the villa and the beach?",
+        "a": "Yes. A short private path with roughly 8–10 steps leads from the garden down to the sandy beach. This means beach access requires basic mobility and may not be suitable for guests with severe mobility limitations."
+      },
+      {
+        "category": "Accessibility",
+        "q": "Can ramps or accessibility aids be provided?",
+        "a": "We can arrange small portable ramps for a few entrance steps and provide items like shower chairs or handrails where feasible. These aids improve comfort but do not fully convert the villa into an accessible property."
+      },
+      {
+        "category": "Accessibility",
+        "q": "Are there accessible areas or venues nearby?",
+        "a": "Larger resorts such as Sani and certain seafront promenades in Nea Moudania and Polychrono are relatively flat and more wheelchair-friendly, with ramps and accessible facilities. Many traditional villages, however, have cobblestones and uneven paths."
+      },
+      {
+        "category": "Accessibility",
+        "q": "Does the pool have accessibility features such as handrails or a lift?",
+        "a": "The pool is accessed via regular steps without a handrail or mechanical lift. Entering the pool requires normal mobility and balance."
+      },
+      {
+        "category": "Accessibility",
+        "q": "Is there an accessible ground-floor bathroom?",
+        "a": "Bathrooms are standard step-in designs without roll-in showers or widened doors. They are comfortable for most guests but not built to formal wheelchair-accessibility standards."
+      },
+      {
+        "category": "Accessibility",
+        "q": "What should guests with mobility issues consider before booking?",
+        "a": "We encourage guests with mobility challenges to share their specific needs so we can advise honestly. The property may work for those with mild limitations but is not recommended for fully wheelchair-bound travelers."
+      },
+      {
+        "category": "Pets",
+        "q": "Are pets allowed at Villa Kassandra?",
+        "a": "Pets, especially well-behaved small to medium-sized dogs, are welcome on a case-by-case basis with prior approval from the owners. Please share details about your pet's breed, size, and temperament when inquiring."
+      },
+      {
+        "category": "Pets",
+        "q": "Is there an additional fee or deposit for bringing a pet?",
+        "a": "Yes. An extra cleaning fee and/or a slightly higher security deposit usually applies to cover the extra time required to ensure the villa is fully cleaned and allergen-free for future guests."
+      },
+      {
+        "category": "Pets",
+        "q": "What house rules apply to pets during the stay?",
+        "a": "Pets should be house-trained, kept off beds and upholstered furniture, and not left unsupervised for long periods. Owners are responsible for cleaning up after their pets inside and in the garden."
+      },
+      {
+        "category": "Pets",
+        "q": "Can dogs enjoy the beach and outdoor spaces?",
+        "a": "The fenced garden and semi-private beach are great for dogs that like to run and play. We ask owners to rinse pets after beach time and to keep them under control so they do not disturb neighbors or wildlife."
+      },
+      {
+        "category": "Pets",
+        "q": "Is the property fully fenced for pets?",
+        "a": "The plot is generally fenced and gated on three sides, but the beach side is more open. Pets prone to roaming should be supervised or leashed outdoors to prevent them from wandering off along the shore."
+      },
+      {
+        "category": "Pets",
+        "q": "Are pet-sitting or dog-walking services available?",
+        "a": "If you plan long outings, we can help arrange a pet-sitter or dog-walker so your pet is not left alone for extended periods in an unfamiliar environment."
+      },
+      {
+        "category": "Pets",
+        "q": "Are there veterinarians nearby in case of emergencies?",
+        "a": "Veterinary clinics are available in Nea Moudania (~15 km) and Kassandreia (~25 km). Our concierge can help contact a vet or organize a visit if your pet requires medical attention."
+      },
+      {
+        "category": "Pets",
+        "q": "Do you accept cats or other animals besides dogs?",
+        "a": "Because of owner allergies and past experience, cats and unusual pets are evaluated individually and may not always be accepted. Please ask in advance so we can confirm what is possible."
+      },
+      {
+        "category": "Climate & Weather",
+        "q": "What is the climate like on the Kassandra Peninsula?",
+        "a": "Kassandra has a classic Mediterranean climate with hot, dry summers; warm, pleasant shoulder seasons; and mild, wetter winters. Sunshine is abundant from late spring through early autumn."
+      },
+      {
+        "category": "Climate & Weather",
+        "q": "What are typical summer temperatures and sea conditions?",
+        "a": "In July and August daytime highs usually reach 30–35°C with low humidity and warm evenings. The sea is comfortably warm, averaging 24–27°C, making it ideal for long swims and water activities."
+      },
+      {
+        "category": "Climate & Weather",
+        "q": "Is May or September a good time to visit?",
+        "a": "Yes. May and September offer warm but not extreme temperatures, fewer crowds, and often excellent swimming conditions—especially in September when the sea retains its summer warmth."
+      },
+      {
+        "category": "Climate & Weather",
+        "q": "What is spring like on Kassandra?",
+        "a": "March and April bring mild temperatures, blooming landscapes, and fewer tourists. Days typically range from 15–20°C, making them ideal for hiking and sightseeing, although the sea is still cool for swimming."
+      },
+      {
+        "category": "Climate & Weather",
+        "q": "Can you swim in October?",
+        "a": "Early October often still has daytime temperatures in the low- to mid-20s Celsius and sea temperatures around 20–22°C. Many guests continue swimming into mid-October, though evenings become cooler and rainfall increases gradually."
+      },
+      {
+        "category": "Climate & Weather",
+        "q": "How are winters in Halkidiki?",
+        "a": "Winters from November to February are mild by northern European standards, with daytime highs around 10–15°C and occasional rain. Most tourist venues close, so winter stays are quiet, focused on nature and relaxation by the fireplace."
+      },
+      {
+        "category": "Climate & Weather",
+        "q": "Does Kassandra experience strong winds?",
+        "a": "The area can occasionally experience Meltemi winds in midsummer, bringing a refreshing breeze and small waves. Conditions are generally milder than on Aegean islands; only rarely are water sports temporarily paused due to wind."
+      },
+      {
+        "category": "Climate & Weather",
+        "q": "When is the overall best time to stay at Villa Kassandra?",
+        "a": "For a mix of great weather and manageable crowds, late June and early September are ideal. July and August are perfect if you prioritize hot beach days and buzzing nightlife, while May and October suit guests who prefer calmer, cooler stays."
+      },
+      {
+        "category": "Special Features of Villa Kassandra",
+        "q": "What makes Villa Kassandra's location unique compared to other villas?",
+        "a": "The villa sits directly on a sandy beach with private gated access, offering uninterrupted sea views and the ability to move between pool, terrace, and shoreline in seconds—an uncommon combination in Halkidiki."
+      },
+      {
+        "category": "Special Features of Villa Kassandra",
+        "q": "How special are the views from Villa Kassandra?",
+        "a": "From terraces, pool, and living areas you enjoy panoramic vistas across Toroneos Gulf with Mount Olympus visible on clear days. Sunsets over the sea and mountains are a signature highlight for many guests."
+      },
+      {
+        "category": "Special Features of Villa Kassandra",
+        "q": "What distinguishes the villa's pool and outdoor living spaces?",
+        "a": "A large infinity-edge pool visually merges with the sea beyond and is surrounded by a well-furnished sun terrace, shaded lounge gazebo, outdoor dining pavilion, and landscaped gardens, creating a resort-style outdoor living environment."
+      },
+      {
+        "category": "Special Features of Villa Kassandra",
+        "q": "Does the villa offer any spa-like or wellness experiences?",
+        "a": "On request we can transform part of the terrace or garden into an open-air spa area with a professional massage therapist, yoga sessions, or wellness treatments overlooking the sea, bringing resort-style pampering directly to the villa."
+      },
+      {
+        "category": "Special Features of Villa Kassandra",
+        "q": "Is Villa Kassandra suitable for special photo shoots or content creation?",
+        "a": "Yes. The combination of infinity pool, private beach, lush gardens, and dramatic sunsets makes the property ideal for wedding photos, lifestyle shoots, or brand content. We can recommend local photographers and videographers if needed."
+      },
+      {
+        "category": "Special Features of Villa Kassandra",
+        "q": "How does Villa Kassandra compare to typical villas in Halkidiki?",
+        "a": "Many villas in the area are comfortable but simpler in design. Villa Kassandra stands out for its high-end interior finishes, hotel-style services, and rare beachfront position, putting it closer to Mykonos- or Riviera-level villas in feel."
+      },
+      {
+        "category": "Special Features of Villa Kassandra",
+        "q": "Does the villa offer a balance of privacy and access to amenities?",
+        "a": "You enjoy a secluded, low-traffic beachfront setting with only a few neighboring properties, yet are within minutes of villages, restaurants, beach clubs, and cultural sites. This balance appeals to guests who want both retreat and access."
+      },
+      {
+        "category": "Special Features of Villa Kassandra",
+        "q": "Who is Villa Kassandra best suited for?",
+        "a": "The villa is ideal for multi-generation families, groups of friends, destination weddings, and executive retreats seeking a private, fully serviced base in a beautiful coastal setting with easy access to the best of Halkidiki."
+      }
+    ]
+  },
+  "seo": {
+    "title": "Villa Kassandra | Luxury Beachfront Villa in Halkidiki, Greece",
+    "description": "Experience luxury beachfront living at Villa Kassandra on the Kassandra Peninsula, Halkidiki. 5 ensuite bedrooms, pool, direct beach access, and panoramic Aegean views toward Mount Athos. Perfect for families and groups."
+  },
+  "contact": {
+    "phone": "+30 6948 474 488",
+    "email": "jc@elitecartagena.com",
+    "whatsapp": "306948474488"
+  }
+}
