@@ -106,6 +106,19 @@ export const VILLAS: VillaConfig[] = [
     region: 'europe',
     currency: 'EUR',
     ownerEmail: 'jc@elitecartagena.com'
+  },
+  {
+    slug: 'villa-orama',
+    langs: ['en', 'el'],
+    defaultLang: 'en',
+    domain: 'villa-orama.vercel.app',
+    altDomains: [],
+    updatedAt: '2025-12-07',
+    auxPages: ['contact', 'rates', 'terms', 'privacy', 'about', 'thank-you'],
+    active: true,
+    region: 'europe',
+    currency: 'EUR',
+    ownerEmail: 'jc@elitecartagena.com'
   }
 ];
 
@@ -190,6 +203,7 @@ const VILLA_NIGHTLY_RATES: Record<string, number> = {
   'casa-de-la-muralla': 0,          // Rate on request
   'mount-zurich': 875,              // $875 USD per night
   'villa-kassandra': 0,             // Rate on request
+  'villa-orama': 0,                 // Rate on request (seasonal pricing)
 };
 
 /**
@@ -208,6 +222,7 @@ const VILLA_MINIMUM_NIGHTS: Record<string, number> = {
   'casa-de-la-muralla': 3,
   'mount-zurich': 2,
   'villa-kassandra': 3,
+  'villa-orama': 7,                 // 7-night minimum in high season
 };
 
 /**

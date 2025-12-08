@@ -1,8 +1,8 @@
-export type SupportedLang = 'en' | 'es' | 'fr';
+export type SupportedLang = 'en' | 'es' | 'fr' | 'el' | 'ru';
 
 // Fallback-safe accessor
 export function getUIStrings(lang: string) {
-  const safeLang: SupportedLang = (['en', 'es', 'fr'] as const).includes(lang as SupportedLang)
+  const safeLang: SupportedLang = (['en', 'es', 'fr', 'el', 'ru'] as const).includes(lang as SupportedLang)
     ? (lang as SupportedLang)
     : 'en';
   return UI_STRINGS[safeLang];
@@ -637,6 +637,426 @@ export const UI_STRINGS: Record<SupportedLang, any> = {
       rightsText: 'Vous avez le droit d\'accéder, de corriger ou d\'effacer vos données personnelles. Pour exercer ces droits, contactez-nous à',
       contactHeading: 'Contact',
       contactText: 'Des questions sur nos pratiques de confidentialité ? Envoyez un email à'
+    }
+  },
+  el: {
+    trustBar: {
+      flexibleCancellationTitle: 'Ευέλικτη Ακύρωση',
+      flexibleCancellationDetail: 'Πλήρης επιστροφή έως 60 ημέρες πριν',
+      secureContractTitle: 'Ασφαλές Συμβόλαιο',
+      secureContractDetail: 'Συμφωνίες προστατευμένες από Stripe',
+      conciergeTitle: 'Θυρωρός',
+      conciergeDetail: 'Προσωπική βοήθεια περιλαμβάνεται',
+      transparentPricingTitle: 'Διαφανής Τιμολόγηση',
+      transparentPricingDetail: 'Χωρίς κρυφές χρεώσεις κράτησης'
+    },
+    specs: {
+      bedrooms: 'Υπνοδωμάτια',
+      baths: 'Μπάνια',
+      guests: 'Επισκέπτες',
+      size: 'τ.μ.',
+      locationFallback: 'Τοποθεσία',
+      pool: 'Πισίνα',
+      poolFallback: 'Ιδιωτική Πισίνα'
+    },
+    tabs: {
+      overviewLabel: 'Επισκόπηση',
+      amenitiesLabel: 'Παροχές',
+      amenitiesHeading: 'Κορυφαία Χαρακτηριστικά',
+      locationLabel: 'Τοποθεσία',
+      practicalDetailsLabel: 'Πρακτικές Πληροφορίες',
+      practicalDetailsHeading: 'Πρακτικές Πληροφορίες',
+      bedroomsLabel: 'Υπνοδωμάτια',
+      bedroomsHeading: 'Υπνοδωμάτια & Μπάνια',
+      familyLabel: 'Οικογένεια & Αναψυχή',
+      familyHeading: 'Οικογένεια & Αναψυχή',
+      gettingHereLabel: 'Πώς να Φτάσετε',
+      gettingHereHeading: 'Ταξίδι & Πρόσβαση',
+      faqLabel: 'Συχνές Ερωτήσεις',
+      faqHeading: 'Συχνές Ερωτήσεις'
+    },
+    hosts: {
+      heading: 'Γνωρίστε τους Οικοδεσπότες σας',
+      itinerary: 'Προσωπικός σχεδιασμός προγράμματος',
+      discreet: 'Διακριτική φιλοξενία με έμφαση στην ιδιωτικότητα'
+    },
+    testimonials: {
+      heading: 'Λόγια Επισκεπτών'
+    },
+    header: {
+      navigation: [
+        { label: 'Επισκόπηση', href: '#overview' },
+        { label: 'Παροχές', href: '#amenities' },
+        { label: 'Γκαλερί', href: '#gallery' },
+        { label: 'Τοποθεσία', href: '#location' },
+        { label: 'Οικοδεσπότες', href: '#hosts' },
+        { label: 'Επικοινωνία', href: '#contact' }
+      ],
+      inquireCta: 'Ερώτηση'
+    },
+    fixedPanel: {
+      availabilityHeading: 'Διαθεσιμότητα',
+      availabilityText: 'Επιβεβαιώνουμε τις ημερομηνίες εντός 24 ωρών. Διαθέσιμοι 7 ημέρες την εβδομάδα για ερωτήσεις.',
+      ctaLabel: 'Έλεγχος Ημερομηνιών & Ερώτηση'
+    },
+    footer: {
+      brandDescription: 'Αποδράστε σε ένα γαλήνιο και μοναδικό καταφύγιο—ένα νησιωτικό κρησφύγετο όπου η θάλασσα και ο ουρανός συγχωνεύονται σε μια ζωντανή καρτ ποστάλ. Κάθε χώρος έχει δημιουργηθεί για άνεση, ευκολία και αξέχαστες στιγμές.',
+      exploreHeading: 'Εξερεύνηση',
+      exploreLinks: [
+        { label: 'Επισκόπηση', href: '#overview' },
+        { label: 'Παροχές', href: '#amenities' },
+        { label: 'Γκαλερί', href: '#gallery' },
+        { label: 'Τοποθεσία', href: '#location' }
+      ],
+      infoHeading: 'Πληροφορίες',
+      infoLinks: [
+        { label: 'Τιμές & Εποχές', href: '/rates' },
+        { label: 'Όροι & Προϋποθέσεις', href: '/terms' },
+        { label: 'Πολιτική Απορρήτου', href: '/privacy' }
+      ],
+      contactHeading: 'Επικοινωνία',
+      contactLinks: [
+        { label: '+30 6948 474 488', href: 'tel:+306948474488' },
+        { label: 'info@villa.com', href: 'mailto:info@villa.com' },
+        { label: 'Επικοινωνήστε μαζί μας', href: '/contact' }
+      ],
+      copyrightSuffix: 'Με επιφύλαξη παντός δικαιώματος. | Πολυτελής Βίλα'
+    },
+    search: {
+      triggerLabel: 'Αναζήτηση σε FAQ & παροχές',
+      modalHeading: 'Αναζήτηση Λεπτομερειών',
+      placeholder: 'Πληκτρολογήστε για αναζήτηση...',
+      closeLabel: 'Κλείσιμο αναζήτησης',
+      resultSingular: 'αποτέλεσμα',
+      resultPlural: 'αποτελέσματα'
+    },
+    hero: {
+      defaultCta: 'Ανακαλύψτε'
+    },
+    contact: {
+      pageTitle: 'Επικοινωνία',
+      subtitle: 'Έτοιμοι να ζήσετε την εμπειρία {villaName}; Συμπληρώστε τη φόρμα παρακάτω και η ομάδα concierge μας θα απαντήσει εντός 24 ωρών με διαθεσιμότητα και προσωποποιημένη προσφορά.',
+      formLabels: {
+        fullName: 'Ονοματεπώνυμο',
+        email: 'Email',
+        phone: 'Τηλέφωνο',
+        guests: 'Αριθμός Επισκεπτών',
+        guestsPlaceholder: 'Επιλέξτε...',
+        guestsOptions: ['1-2 επισκέπτες', '3-4 επισκέπτες', '5-6 επισκέπτες', '7-8 επισκέπτες', '9-12 επισκέπτες', '13+ επισκέπτες'],
+        checkIn: 'Ημερομηνία Άφιξης',
+        checkOut: 'Ημερομηνία Αναχώρησης',
+        message: 'Μήνυμα',
+        messagePlaceholder: 'Πείτε μας για το ταξίδι σας — ειδικές περιστάσεις, ερωτήσεις ή αιτήματα...',
+        newsletter: 'Κρατήστε με ενημερωμένο για ειδικές προσφορές',
+        submit: 'Αποστολή Ερώτησης',
+        required: '*'
+      },
+      formNote: 'Υποβάλλοντας αυτή τη φόρμα, συμφωνείτε με την {privacyLink} και τους {termsLink}.',
+      privacyLabel: 'Πολιτική Απορρήτου',
+      termsLabel: 'Όρους & Προϋποθέσεις',
+      sidebar: {
+        heading: 'Προτιμάτε να Μιλήσετε;',
+        description: 'Η ομάδα concierge μας είναι διαθέσιμη να σας βοηθήσει άμεσα.',
+        responseTime: 'Απάντηση εντός 24 ωρών',
+        whatsappLabel: 'WhatsApp'
+      },
+      expectations: {
+        heading: 'Τι να Περιμένετε',
+        items: [
+          { title: 'Γρήγορη Απάντηση', description: 'Απαντάμε εντός 24 ωρών, συχνά νωρίτερα' },
+          { title: 'Προσωποποιημένη Προσφορά', description: 'Τιμολόγηση προσαρμοσμένη στις ημερομηνίες και ανάγκες σας' },
+          { title: 'Τοπική Εμπειρογνωμοσύνη', description: 'Συμβουλές και σχεδιασμός εμπειριών περιλαμβάνονται' },
+          { title: 'Χωρίς Δέσμευση', description: 'Κάντε ερωτήσεις ελεύθερα — καμία υποχρέωση' }
+        ]
+      }
+    },
+    thankYou: {
+      pageTitle: 'Ευχαριστούμε',
+      heading: 'Ευχαριστούμε!',
+      subtitle: 'Η ερώτησή σας παραλήφθηκε. Η ομάδα concierge μας θα εξετάσει το αίτημά σας και θα απαντήσει εντός 24 ωρών.',
+      nextSteps: {
+        heading: 'Τι Ακολουθεί;',
+        steps: [
+          { title: 'Θα εξετάσουμε το αίτημά σας', description: 'Η ομάδα μας θα ελέγξει τη διαθεσιμότητα για τις ημερομηνίες σας' },
+          { title: 'Προσωποποιημένη προσφορά', description: 'Θα λάβετε αναλυτική πρόταση μέσω email' },
+          { title: 'Οριστικοποίηση κράτησης', description: 'Θα σας καθοδηγήσουμε στη διαδικασία κράτησης' }
+        ]
+      },
+      backToVilla: 'Πίσω στη {villaName}',
+      viewGallery: 'Δείτε τη Γκαλερί',
+      contactNote: 'Ερωτήσεις; Επικοινωνήστε απευθείας στο'
+    },
+    rates: {
+      pageTitle: 'Τιμές & Εποχές',
+      intro: 'Η {villaName} προσφέρει διαφορετικές τιμές ανάλογα με την εποχή. Για ακριβή τιμολόγηση και διαθεσιμότητα, επικοινωνήστε με την ομάδα concierge που θα σας παρέχει προσωποποιημένη προσφορά βάσει των ημερομηνιών ταξιδιού σας.',
+      seasonalPricing: 'Εποχιακή Τιμολόγηση',
+      seasonalPricingIntro: 'Οι τιμές μας ποικίλλουν καθ\' όλη τη διάρκεια του έτους:',
+      highSeason: 'Υψηλή Σεζόν',
+      highSeasonDates: 'Ιούλιος – Αύγουστος',
+      highSeasonDesc: 'Περίοδοι αιχμής με τη μεγαλύτερη ζήτηση. Κλείστε νωρίς για να εξασφαλίσετε τις ημερομηνίες σας.',
+      midSeason: 'Μέση Σεζόν',
+      midSeasonDates: 'Ιούνιος & Σεπτέμβριος',
+      midSeasonDesc: 'Ευχάριστος καιρός με μέτριες τιμές. Εξαιρετική ισορροπία αξίας και εμπειρίας.',
+      lowSeason: 'Χαμηλή Σεζόν',
+      lowSeasonDates: 'Απρίλιος – Μάιος & Οκτώβριος',
+      lowSeasonDesc: 'Καλύτερες τιμές με λιγότερο κόσμο. Ιδανικό για όσους αναζητούν γαλήνη.',
+      whatsIncluded: 'Τι Περιλαμβάνεται',
+      includedItems: [
+        'Πλήρης χρήση της βίλας και όλων των παροχών',
+        'Καθημερινή υπηρεσία καθαριότητας',
+        'Αποκλειστική υποστήριξη concierge',
+        'Υπηρεσίες ιδιωτικού σεφ (τρόφιμα επιπλέον)',
+        'Συντονισμός μεταφορών αεροδρομίου',
+        'Ασφάλεια 24/7'
+      ],
+      additionalServices: 'Επιπλέον Υπηρεσίες',
+      additionalServicesIntro: 'Μπορούμε να κανονίσουμε διάφορες επιπλέον εμπειρίες και υπηρεσίες με επιπλέον κόστος:',
+      additionalItems: [
+        'Ιδιωτικές ναυλώσεις γιοτ',
+        'Θεραπείες σπα και συνεδρίες ευεξίας',
+        'Ξεναγήσεις και εκδρομές',
+        'Συντονισμός ειδικών εκδηλώσεων (γάμοι, εορτασμοί)',
+        'Παρατεταμένο αργό check-out ή πρώιμο check-in'
+      ],
+      ctaHeading: 'Λάβετε την Προσωποποιημένη Προσφορά σας',
+      ctaText: 'Κάθε διαμονή είναι μοναδική. Επικοινωνήστε μαζί μας με τις προτιμώμενες ημερομηνίες και το μέγεθος της ομάδας σας, και θα σας παρέχουμε αναλυτική προσφορά.',
+      ctaButton: 'Επικοινωνήστε για Τιμές'
+    },
+    terms: {
+      pageTitle: 'Όροι & Προϋποθέσεις',
+      jurisdictionHeading: 'Δικαιοδοσία',
+      contactHeading: 'Επικοινωνία',
+      contactPrefix: 'Για ερωτήσεις ή βοήθεια:'
+    },
+    privacy: {
+      pageTitle: 'Πολιτική Απορρήτου',
+      intro: 'Η ιδιωτικότητά σας μας ενδιαφέρει. Αυτή η πολιτική εξηγεί τι συλλέγουμε και πώς το χρησιμοποιούμε στη {villaName}.',
+      infoCollectHeading: 'Πληροφορίες που Συλλέγουμε',
+      infoCollectItems: [
+        'Στοιχεία φόρμας ερώτησης (όνομα, email, τηλέφωνο, προτιμήσεις διαμονής)',
+        'Βασικά αναλυτικά στοιχεία ιστότοπου (ανώνυμα πρότυπα χρήσης)',
+        'Αρχεία επικοινωνίας για συντονισμό κρατήσεων'
+      ],
+      howWeUseHeading: 'Πώς Χρησιμοποιούμε τα Δεδομένα σας',
+      howWeUseText: 'Χρησιμοποιούμε τα δεδομένα ερωτήσεων αποκλειστικά για να απαντήσουμε σε αιτήματα κράτησης ή πληροφοριών. Δεν πουλάμε, νοικιάζουμε ή μοιραζόμαστε ποτέ προσωπικές πληροφορίες με τρίτους για σκοπούς μάρκετινγκ.',
+      cookiesHeading: 'Cookies',
+      cookiesText: 'Τα απαραίτητα cookies διασφαλίζουν τη λειτουργικότητα του ιστότοπου. Προαιρετικά cookies αναλυτικών στοιχείων μπορεί να εισαχθούν με ρητή συγκατάθεση. Μπορείτε να διαχειριστείτε τις προτιμήσεις cookies στις ρυθμίσεις του προγράμματος περιήγησής σας.',
+      retentionHeading: 'Διατήρηση Δεδομένων',
+      retentionText: 'Τα emails ερωτήσεων και τα αρχεία κρατήσεων διατηρούνται για αναφορά και λογιστική συμμόρφωση. Μπορείτε να ζητήσετε διαγραφή των δεδομένων σας ανά πάσα στιγμή.',
+      rightsHeading: 'Τα Δικαιώματά σας',
+      rightsText: 'Έχετε το δικαίωμα πρόσβασης, διόρθωσης ή διαγραφής των προσωπικών σας δεδομένων. Για να ασκήσετε αυτά τα δικαιώματα, επικοινωνήστε μαζί μας στο',
+      contactHeading: 'Επικοινωνία',
+      contactText: 'Ερωτήσεις σχετικά με τις πρακτικές απορρήτου μας; Email'
+    }
+  },
+  ru: {
+    trustBar: {
+      flexibleCancellationTitle: 'Гибкая Отмена',
+      flexibleCancellationDetail: 'Полный возврат за 60 дней до заезда',
+      secureContractTitle: 'Безопасный Договор',
+      secureContractDetail: 'Соглашения защищены Stripe',
+      conciergeTitle: 'Консьерж',
+      conciergeDetail: 'Персональная помощь включена',
+      transparentPricingTitle: 'Прозрачные Цены',
+      transparentPricingDetail: 'Без скрытых комиссий'
+    },
+    specs: {
+      bedrooms: 'Спальни',
+      baths: 'Ванные',
+      guests: 'Гости',
+      size: 'кв.м.',
+      locationFallback: 'Расположение',
+      pool: 'Бассейн',
+      poolFallback: 'Частный Бассейн'
+    },
+    tabs: {
+      overviewLabel: 'Обзор',
+      amenitiesLabel: 'Удобства',
+      amenitiesHeading: 'Премиальные Особенности',
+      locationLabel: 'Расположение',
+      practicalDetailsLabel: 'Практическая Информация',
+      practicalDetailsHeading: 'Практическая Информация',
+      bedroomsLabel: 'Спальни',
+      bedroomsHeading: 'Спальни и Ванные',
+      familyLabel: 'Семья и Отдых',
+      familyHeading: 'Семья и Отдых',
+      gettingHereLabel: 'Как Добраться',
+      gettingHereHeading: 'Путешествие и Доступ',
+      faqLabel: 'Вопросы и Ответы',
+      faqHeading: 'Часто Задаваемые Вопросы'
+    },
+    hosts: {
+      heading: 'Познакомьтесь с Хозяевами',
+      itinerary: 'Персональное планирование маршрута',
+      discreet: 'Деликатное гостеприимство с акцентом на приватность'
+    },
+    testimonials: {
+      heading: 'Отзывы Гостей'
+    },
+    header: {
+      navigation: [
+        { label: 'Обзор', href: '#overview' },
+        { label: 'Удобства', href: '#amenities' },
+        { label: 'Галерея', href: '#gallery' },
+        { label: 'Расположение', href: '#location' },
+        { label: 'Хозяева', href: '#hosts' },
+        { label: 'Контакты', href: '#contact' }
+      ],
+      inquireCta: 'Запрос'
+    },
+    fixedPanel: {
+      availabilityHeading: 'Наличие',
+      availabilityText: 'Подтверждаем даты по email в течение 24 часов. Спросите о гибком заезде/выезде и промежуточной уборке.',
+      ctaLabel: 'Проверить Даты и Запрос'
+    },
+    footer: {
+      brandDescription: 'Уединитесь в спокойном и уникальном убежище — островном укрытии, где море и небо сливаются в живую открытку. Каждое пространство создано для комфорта, удобства и незабываемых моментов.',
+      exploreHeading: 'Исследовать',
+      exploreLinks: [
+        { label: 'Обзор', href: '#overview' },
+        { label: 'Удобства', href: '#amenities' },
+        { label: 'Галерея', href: '#gallery' },
+        { label: 'Расположение', href: '#location' }
+      ],
+      infoHeading: 'Информация',
+      infoLinks: [
+        { label: 'Цены и Сезоны', href: '/rates' },
+        { label: 'Условия', href: '/terms' },
+        { label: 'Политика Конфиденциальности', href: '/privacy' }
+      ],
+      contactHeading: 'Контакты',
+      contactLinks: [
+        { label: '+30 6948 474 488', href: 'tel:+306948474488' },
+        { label: 'info@villa.com', href: 'mailto:info@villa.com' },
+        { label: 'Связаться с нами', href: '/contact' }
+      ],
+      copyrightSuffix: 'Все права защищены. | Роскошная Вилла'
+    },
+    search: {
+      triggerLabel: 'Поиск по FAQ и удобствам',
+      modalHeading: 'Поиск Деталей',
+      placeholder: 'Введите для поиска...',
+      closeLabel: 'Закрыть поиск',
+      resultSingular: 'результат',
+      resultPlural: 'результатов'
+    },
+    hero: {
+      defaultCta: 'Открыть'
+    },
+    contact: {
+      pageTitle: 'Контакты',
+      subtitle: 'Готовы испытать {villaName}? Заполните форму ниже, и наша команда консьержей ответит в течение 24 часов с информацией о наличии и персональным предложением.',
+      formLabels: {
+        fullName: 'Полное Имя',
+        email: 'Email',
+        phone: 'Телефон',
+        guests: 'Количество Гостей',
+        guestsPlaceholder: 'Выберите...',
+        guestsOptions: ['1-2 гостя', '3-4 гостя', '5-6 гостей', '7-8 гостей', '9-12 гостей', '13+ гостей'],
+        checkIn: 'Дата Заезда',
+        checkOut: 'Дата Выезда',
+        message: 'Сообщение',
+        messagePlaceholder: 'Расскажите о вашей поездке — особые случаи, вопросы или пожелания...',
+        newsletter: 'Держите меня в курсе специальных предложений',
+        submit: 'Отправить Запрос',
+        required: '*'
+      },
+      formNote: 'Отправляя эту форму, вы соглашаетесь с нашей {privacyLink} и {termsLink}.',
+      privacyLabel: 'Политикой Конфиденциальности',
+      termsLabel: 'Условиями',
+      sidebar: {
+        heading: 'Предпочитаете Поговорить?',
+        description: 'Наша команда консьержей готова помочь вам напрямую.',
+        responseTime: 'Ответ в течение 24 часов',
+        whatsappLabel: 'WhatsApp'
+      },
+      expectations: {
+        heading: 'Чего Ожидать',
+        items: [
+          { title: 'Быстрый Ответ', description: 'Мы отвечаем в течение 24 часов, часто раньше' },
+          { title: 'Персональное Предложение', description: 'Индивидуальные цены на основе ваших дат и потребностей' },
+          { title: 'Местная Экспертиза', description: 'Советы инсайдеров и планирование впечатлений включены' },
+          { title: 'Без Обязательств', description: 'Задавайте вопросы свободно — никаких обязательств' }
+        ]
+      }
+    },
+    thankYou: {
+      pageTitle: 'Спасибо',
+      heading: 'Спасибо!',
+      subtitle: 'Ваш запрос получен. Наша команда консьержей рассмотрит ваш запрос и ответит в течение 24 часов.',
+      nextSteps: {
+        heading: 'Что Дальше?',
+        steps: [
+          { title: 'Мы рассмотрим ваш запрос', description: 'Наша команда проверит наличие на ваши даты' },
+          { title: 'Персональное предложение', description: 'Вы получите подробное предложение по email' },
+          { title: 'Оформление бронирования', description: 'Мы проведем вас через процесс бронирования' }
+        ]
+      },
+      backToVilla: 'Назад к {villaName}',
+      viewGallery: 'Смотреть Галерею',
+      contactNote: 'Вопросы? Свяжитесь напрямую'
+    },
+    rates: {
+      pageTitle: 'Цены и Сезоны',
+      intro: '{villaName} предлагает разные тарифы в зависимости от сезона. Для точных цен и наличия, свяжитесь с нашей командой консьержей, которая предоставит персональное предложение на основе ваших дат.',
+      seasonalPricing: 'Сезонные Цены',
+      seasonalPricingIntro: 'Наши тарифы варьируются в течение года:',
+      highSeason: 'Высокий Сезон',
+      highSeasonDates: 'Июль – Август',
+      highSeasonDesc: 'Пиковые периоды с наибольшим спросом. Бронируйте заранее.',
+      midSeason: 'Средний Сезон',
+      midSeasonDates: 'Июнь и Сентябрь',
+      midSeasonDesc: 'Приятная погода с умеренными ценами. Отличный баланс цены и впечатлений.',
+      lowSeason: 'Низкий Сезон',
+      lowSeasonDates: 'Апрель – Май и Октябрь',
+      lowSeasonDesc: 'Лучшие цены с меньшим количеством туристов. Идеально для ищущих спокойствия.',
+      whatsIncluded: 'Что Включено',
+      includedItems: [
+        'Полное использование виллы и всех удобств',
+        'Ежедневная уборка',
+        'Поддержка консьержа',
+        'Услуги частного шефа (продукты отдельно)',
+        'Координация трансферов из аэропорта',
+        'Охрана 24/7'
+      ],
+      additionalServices: 'Дополнительные Услуги',
+      additionalServicesIntro: 'Мы можем организовать различные дополнительные впечатления за отдельную плату:',
+      additionalItems: [
+        'Частные яхт-чартеры',
+        'Спа-процедуры и велнес-сессии',
+        'Экскурсии с гидом',
+        'Координация мероприятий (свадьбы, праздники)',
+        'Поздний выезд или ранний заезд'
+      ],
+      ctaHeading: 'Получите Персональное Предложение',
+      ctaText: 'Каждое пребывание уникально. Свяжитесь с нами с вашими датами и размером группы, и мы предоставим детальное предложение.',
+      ctaButton: 'Связаться для Цен'
+    },
+    terms: {
+      pageTitle: 'Условия',
+      jurisdictionHeading: 'Юрисдикция',
+      contactHeading: 'Контакты',
+      contactPrefix: 'По вопросам или за помощью:'
+    },
+    privacy: {
+      pageTitle: 'Политика Конфиденциальности',
+      intro: 'Ваша конфиденциальность важна для нас. Эта политика объясняет, что мы собираем и как используем в {villaName}.',
+      infoCollectHeading: 'Собираемая Информация',
+      infoCollectItems: [
+        'Данные формы запроса (имя, email, телефон, предпочтения проживания)',
+        'Базовая аналитика сайта (анонимные паттерны использования)',
+        'Записи коммуникации для координации бронирований'
+      ],
+      howWeUseHeading: 'Как Мы Используем Ваши Данные',
+      howWeUseText: 'Мы используем данные запросов исключительно для ответа на запросы бронирования или информации. Мы никогда не продаем, не сдаем в аренду и не передаем личную информацию третьим лицам в маркетинговых целях.',
+      cookiesHeading: 'Cookies',
+      cookiesText: 'Необходимые cookies обеспечивают функциональность сайта. Опциональные аналитические cookies могут быть введены с явного согласия. Вы можете управлять настройками cookies в вашем браузере.',
+      retentionHeading: 'Хранение Данных',
+      retentionText: 'Emails запросов и записи бронирований хранятся для справки и бухгалтерской отчетности. Вы можете запросить удаление ваших данных в любое время.',
+      rightsHeading: 'Ваши Права',
+      rightsText: 'Вы имеете право на доступ, исправление или удаление ваших персональных данных. Для реализации этих прав свяжитесь с нами по',
+      contactHeading: 'Контакты',
+      contactText: 'Вопросы о нашей политике конфиденциальности? Email'
     }
   }
 };

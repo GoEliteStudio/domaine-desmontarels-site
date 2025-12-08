@@ -1,0 +1,1254 @@
+{
+  "slug": "villa-orama",
+  "language": "en",
+  "name": "Villa Orama Corfu",
+  "summary": "A privileged architectural sanctuary perched above the Ionian Sea in Northeast Corfu. This newly constructed single-storey villa offers panoramic views over Avlaki Bay, Kassiopi harbor, and the Albanian mountains, accommodating up to 8 guests in 4 en-suite bedrooms with a stunning 19m infinity pool.",
+  "hero": {
+    "title": "Where infinity meets the Ionian sky",
+    "subtitle": "A design-led sanctuary in Northeast Corfu with panoramic sea views, bespoke concierge, and seamless indoor-outdoor living.",
+    "ctaText": "Discover",
+    "priorityImages": [
+      "/images/villas/villa-orama/orama-028.webp",
+      "/images/villas/villa-orama/orama-074.webp",
+      "/images/villas/villa-orama/orama-069.webp"
+    ]
+  },
+  "images": [
+   {
+    "src": "/images/villas/villa-orama/orama-001.webp",
+    "alt": "Bright double bedroom with wooden ceiling and sea view through glass doors",
+    "caption": "Sunlit bedroom featuring a king-size bed, natural wood ceiling, and stunning Ionian Sea views from the private terrace."
+  },
+  {
+    "src": "/images/villas/villa-orama/orama-002.webp",
+    "alt": "Contemporary living room with stone feature wall looking out to twilight sea view",
+    "caption": "Modern lounge with designer furnishings and ambient lighting opening to a panoramic evening view."
+  },
+  {
+    "src": "/images/villas/villa-orama/orama-003.webp",
+    "alt": "Vertical bathroom mirror with backlit illumination",
+    "caption": "Stylish vertical vanity mirror framed by soft lighting, reflecting the villa’s clean aesthetic."
+  },
+  {
+    "src": "/images/villas/villa-orama/orama-004.webp",
+    "alt": "Guest bedroom with neutral decor and sliding doors to pool area",
+    "caption": "Crisp guest room featuring a queen bed, curated lighting, and direct access to the pool terrace."
+  },
+  {
+    "src": "/images/villas/villa-orama/orama-005.webp",
+    "alt": "Close-up of designer stone basin sink",
+    "caption": "Unique carved stone sink set against a textured wall — a rustic-modern bathroom detail."
+  },
+  {
+    "src": "/images/villas/villa-orama/orama-006.webp",
+    "alt": "Outdoor hot tub illuminated in purple light at night",
+    "caption": "Private outdoor jacuzzi with atmospheric lighting and a candle-lit deck under the night sky."
+  },
+  {
+    "src": "/images/villas/villa-orama/orama-007.webp",
+    "alt": "Twin bedroom with large glass doors opening to terrace",
+    "caption": "Twin-bed suite with a neutral palette and full-length glass doors leading to the terrace and scenery."
+  },
+  {
+    "src": "/images/villas/villa-orama/orama-008.webp",
+    "alt": "Terrace view over trees toward the blue sea",
+    "caption": "Stone-clad terrace viewpoint overlooking lush green hills and the deep blue Ionian Sea."
+  },
+  {
+    "src": "/images/villas/villa-orama/orama-009.webp",
+    "alt": "View of sea and cypress tree through a villa opening",
+    "caption": "Framed view of the landscape, capturing the serene cypress trees and the sea beyond."
+  },
+  {
+    "src": "/images/villas/villa-orama/orama-010.webp",
+    "alt": "Outdoor dining table set for breakfast with sea backdrop",
+    "caption": "Al fresco breakfast setup with coffee and fresh juice, set against a panoramic coastal backdrop."
+  },
+  {
+    "src": "/images/villas/villa-orama/orama-011.webp",
+    "alt": "Three wall-mounted outdoor showers on a white wall",
+    "caption": "Minimalist outdoor shower station featuring three sleek fixtures against a clean white backdrop."
+  },
+  {
+    "src": "/images/villas/villa-orama/orama-012.webp",
+    "alt": "Night view of jacuzzi deck with lanterns and trees",
+    "caption": "Romantic outdoor jacuzzi setup under the stars with wooden deck, candle lanterns, and lush trees."
+  },
+  {
+    "src": "/images/villas/villa-orama/orama-013.webp",
+    "alt": "Bedroom with stone feature wall behind the bed",
+    "caption": "Centrally framed bed set against a textured natural stone wall with warm recessed lighting."
+  },
+  {
+    "src": "/images/villas/villa-orama/orama-014.webp",
+    "alt": "Pool terrace with loungers looking out to sea",
+    "caption": "Panoramic terrace with low loungers and a crystal-clear infinity pool overlooking the sea and hills."
+  },
+  {
+    "src": "/images/villas/villa-orama/orama-015.webp",
+    "alt": "Sunset reflecting on the infinity pool surface",
+    "caption": "Serene sunset moment with pastel skies mirrored in the pool’s edge, blending architecture and horizon."
+  },
+  {
+    "src": "/images/villas/villa-orama/orama-016.webp",
+    "alt": "Twin guest bedroom opening onto sunny pool terrace",
+    "caption": "Bright twin room with glass sliding doors opening to the sunlit terrace and pool area."
+  },
+  {
+    "src": "/images/villas/villa-orama/orama-017.webp",
+    "alt": "Villa exterior at night with lit pool and rooms",
+    "caption": "Dramatic night view of the sleek modern structure and glowing pool under ambient exterior lighting."
+  },
+  {
+    "src": "/images/villas/villa-orama/orama-018.webp",
+    "alt": "Candlelit outdoor dining table at dusk",
+    "caption": "Elegant outdoor dining setup with pillar candles and glassware, ready for an evening meal."
+  },
+  {
+    "src": "/images/villas/villa-orama/orama-019.webp",
+    "alt": "Bedroom interior view showing desk and bathroom entrance",
+    "caption": "View from the bed of a stylish guest room featuring a wooden desk area and en-suite access."
+  },
+  {
+    "src": "/images/villas/villa-orama/orama-020.webp",
+    "alt": "Close-up detail of blue underwater pool lighting or window",
+    "caption": "Atmospheric detail of the pool's underwater features illuminated in deep blue light."
+  },
+  {
+    "src": "/images/villas/villa-orama/orama-022.webp",
+    "alt": "Dark night view of villa exterior lighting",
+    "caption": "Moody nighttime view of the villa’s stone façade and warm terrace lighting framed by forest silhouettes."
+  },
+  {
+    "src": "/images/villas/villa-orama/orama-023.webp",
+    "alt": "View from bed through glass doors to pool and pine tree",
+    "caption": "Unforgettable morning view from bed, where the pool’s surface meets the sea horizon and towering pine."
+  },
+  {
+    "src": "/images/villas/villa-orama/orama-024.webp",
+    "alt": "Detail of bookshelf niche in stone wall",
+    "caption": "Interior detail: curated art sculpture and books on a matte black recessed shelf in a stone wall."
+  },
+  {
+    "src": "/images/villas/villa-orama/orama-025.webp",
+    "alt": "Bathroom sink with brass tap and vertical mirror",
+    "caption": "Elegant powder room with brushed brass taps and soft lighting for a contemporary finish."
+  },
+  {
+    "src": "/images/villas/villa-orama/orama-026.webp",
+    "alt": "Freestanding bathtub in master suite with sea view",
+    "caption": "Luxury master suite with sculptural soaking tub and expansive glass opening to coastal vistas."
+  },
+  {
+    "src": "/images/villas/villa-orama/orama-027.webp",
+    "alt": "Walk-in shower with beige tiles and black fixtures",
+    "caption": "Modern shower room with clean neutral tiling, matte black hardware, and natural light."
+  },
+  {
+    "src": "/images/villas/villa-orama/orama-028.webp",
+    "alt": "Side exterior view of villa with outdoor dining and pool",
+    "caption": "Exterior view showing the transition between the poolside loungers, dining table, and stone facade."
+  },
+  {
+    "src": "/images/villas/villa-orama/orama-029.webp",
+    "alt": "Wide shot of open-plan living and dining room with view",
+    "caption": "Spacious interior with warm wood accents and a panoramic window framing the Ionian horizon."
+  },
+  {
+    "src": "/images/villas/villa-orama/orama-030.webp",
+    "alt": "Terrace seating corner with glass railing",
+    "caption": "Cozy reading spot with rattan chair and drinks table, facing uninterrupted views over the hillside."
+  },
+  {
+    "src": "/images/villas/villa-orama/orama-031.webp",
+    "alt": "Infinity pool water edge meeting the tree line",
+    "caption": "The iconic pool terrace showcasing architectural lines and pristine nature beyond."
+  },
+  {
+    "src": "/images/villas/villa-orama/orama-032.webp",
+    "alt": "Vertical bathroom mirror in a modern ensuite",
+    "caption": "Sleek vertical mirror design in a guest bathroom, highlighting the villa's modern fittings."
+  },
+  {
+    "src": "/images/villas/villa-orama/orama-033.webp",
+    "alt": "Close-up of a stainless steel pot on a kitchen stovetop",
+    "caption": "Chef-ready kitchen details showing high-end appliances ready for culinary creations."
+  },
+  {
+    "src": "/images/villas/villa-orama/orama-034.webp",
+    "alt": "Twin bedroom with white linens and patio door",
+    "caption": "Comfortable twin bedroom with bright natural light and direct access to the villa's exterior."
+  },
+  {
+    "src": "/images/villas/villa-orama/orama-035.webp",
+    "alt": "Modern shower room with glass door and beige tiles",
+    "caption": "Spacious walk-in shower room designed with soothing natural tones and modern glass partitions."
+  },
+  {
+    "src": "/images/villas/villa-orama/orama-036.webp",
+    "alt": "Marshall speaker sitting on a wooden table",
+    "caption": "Modern amenities include high-quality sound systems for setting the perfect holiday mood."
+  },
+  {
+    "src": "/images/villas/villa-orama/orama-037.webp",
+    "alt": "Large indoor wooden dining table in open plan room",
+    "caption": "Expansive indoor dining area featuring a beautiful natural wood table for group meals."
+  },
+  {
+    "src": "/images/villas/villa-orama/orama-038.webp",
+    "alt": "Twin bedroom with views to the outdoors",
+    "caption": "A serene twin bedroom setup offering comfort and views of the surrounding landscape."
+  },
+  {
+    "src": "/images/villas/villa-orama/orama-039.webp",
+    "alt": "Wide view of modern kitchen and living area",
+    "caption": "The heart of the villa: a sophisticated open-plan kitchen and living space filled with light."
+  },
+  {
+    "src": "/images/villas/villa-orama/orama-042.webp",
+    "alt": "Modern bathroom vanity with backlit horizontal mirror",
+    "caption": "Contemporary bathroom design featuring a long vanity and atmospheric backlit mirror."
+  },
+  {
+    "src": "/images/villas/villa-orama/orama-043.webp",
+    "alt": "Bedroom with exposed stone wall and white linens",
+    "caption": "Character-filled bedroom combining traditional stone architecture with modern luxury bedding."
+  },
+  {
+    "src": "/images/villas/villa-orama/orama-044.webp",
+    "alt": "Single tree planted in a modern white courtyard",
+    "caption": "Architectural courtyard detail featuring a single tree, blending nature with modern design."
+  },
+  {
+    "src": "/images/villas/villa-orama/orama-045.webp",
+    "alt": "Bedroom suite featuring a freestanding bathtub",
+    "caption": "Indulgent bedroom suite complete with a private freestanding bathtub for ultimate relaxation."
+  },
+  {
+    "src": "/images/villas/villa-orama/orama-046.webp",
+    "alt": "View of lush green hills sloping down to the sea",
+    "caption": "Breathtaking natural surroundings with olive groves cascading down to the azure sea."
+  },
+  {
+    "src": "/images/villas/villa-orama/orama-047.webp",
+    "alt": "Reflection of lighting in a ceiling or window detail",
+    "caption": "Artistic architectural details play with light and reflection throughout the villa."
+  },
+  {
+    "src": "/images/villas/villa-orama/orama-048.webp",
+    "alt": "Exterior stone wall of the villa at twilight",
+    "caption": "The traditional stone exterior of the villa takes on a warm glow during the evening hours."
+  },
+  {
+    "src": "/images/villas/villa-orama/orama-049.webp",
+    "alt": "Living room area with white sofas and stone wall",
+    "caption": "Relaxing lounge area featuring plush white sofas set against a striking stone feature wall."
+  },
+  {
+    "src": "/images/villas/villa-orama/orama-050.webp",
+    "alt": "Hallway leading into a brightly lit bathroom",
+    "caption": "Corridor view leading to a well-appointed guest bathroom."
+  },
+  {
+    "src": "/images/villas/villa-orama/orama-051.webp",
+    "alt": "Dense green forest texture",
+    "caption": "Immersed in nature: the villa is surrounded by dense, lush Mediterranean vegetation."
+  },
+  {
+    "src": "/images/villas/villa-orama/orama-052.webp",
+    "alt": "Outdoor round dining table set with food and drinks",
+    "caption": "Inviting al fresco dining setup, perfect for enjoying meals in the fresh air."
+  },
+  {
+    "src": "/images/villas/villa-orama/orama-053.webp",
+    "alt": "Minimalist shower fixtures on a beige wall",
+    "caption": "Sleek and simple shower controls emphasizing the villa's minimalist design ethos."
+  },
+  {
+    "src": "/images/villas/villa-orama/orama-054.webp",
+    "alt": "Steps leading down to the pool deck overlooking hills",
+    "caption": "Architectural steps lead you down to the stunning pool deck and its hillside views."
+  },
+  {
+    "src": "/images/villas/villa-orama/orama-055.webp",
+    "alt": "Detail of bathroom mirror reflecting a window",
+    "caption": "Thoughtful design details in the bathroom capture natural light and views."
+  },
+  {
+    "src": "/images/villas/villa-orama/orama-056.webp",
+    "alt": "Twin bedroom with large window",
+    "caption": "Twin suite with warm textures, soft lighting, and views of the surrounding olive grove."
+  },
+  {
+    "src": "/images/villas/villa-orama/orama-057.webp",
+    "alt": "King bedroom with sliding doors fully open",
+    "caption": "Spacious master suite with luxurious linens and direct access to the pool deck."
+  },
+  {
+    "src": "/images/villas/villa-orama/orama-058.webp",
+    "alt": "Villa exterior side view showing length of pool",
+    "caption": "Dramatic angles and seamless indoor-outdoor design frame a breathtaking sea backdrop."
+  },
+  {
+    "src": "/images/villas/villa-orama/orama-059.webp",
+    "alt": "Green hillside view looking down to coast",
+    "caption": "Expansive hilltop perspective with sweeping Ionian views and forested slopes."
+  },
+  {
+    "src": "/images/villas/villa-orama/orama-060.webp",
+    "alt": "Deck chairs arranged against a stone wall",
+    "caption": "A quiet, outdoor corner on the deck featuring classic wooden seating against natural stone."
+  },
+  {
+    "src": "/images/villas/villa-orama/orama-061.webp",
+    "alt": "White bedroom with wood accents and black pendant light",
+    "caption": "Peaceful double bedroom featuring crisp white decor and stylish black lighting accents."
+  },
+  {
+    "src": "/images/villas/villa-orama/orama-062.webp",
+    "alt": "Black woven pendant light fixture hanging in white room",
+    "caption": "Boho-chic decorative lighting adds texture and character to the villa's white interiors."
+  },
+  {
+    "src": "/images/villas/villa-orama/orama-063.webp",
+    "alt": "Bathroom vanity with vertical mirror and wood shelf",
+    "caption": "Clean and stylish bathroom vanity featuring natural wood elements and modern mirrors."
+  },
+  {
+    "src": "/images/villas/villa-orama/orama-064.webp",
+    "alt": "Bedroom with stone wall and large glass door",
+    "caption": "Bright bedroom blending rustic stone textures with modern glass openings to the outdoors."
+  },
+  {
+    "src": "/images/villas/villa-orama/orama-065.webp",
+    "alt": "Reflection of pink sunset clouds in the infinity pool",
+    "caption": "The infinity pool captures the soft pastel colors of the evening sky in its reflection."
+  },
+  {
+    "src": "/images/villas/villa-orama/orama-066.webp",
+    "alt": "Black BBQ grill standing in a white outdoor area",
+    "caption": "Premium outdoor grilling station ready for preparing delicious summer barbecues."
+  },
+  {
+    "src": "/images/villas/villa-orama/orama-067.webp",
+    "alt": "Bedroom with wooden ceiling beams and white bed",
+    "caption": "Traditional wooden ceiling beams add warmth to this bright and airy bedroom suite."
+  },
+  {
+    "src": "/images/villas/villa-orama/orama-068.webp",
+    "alt": "Top-down drone view of villa roof and pool",
+    "caption": "Villa Orama immersed in greenery with sleek modern lines visible from above."
+  },
+  {
+    "src": "/images/villas/villa-orama/orama-069.webp",
+    "alt": "View over sun lounger to the sea",
+    "caption": "The perfect spot to relax: looking out over the coastline from the comfort of a sunbed."
+  },
+  {
+    "src": "/images/villas/villa-orama/orama-070.webp",
+    "alt": "Round backlit mirror on a wall",
+    "caption": "Stylish round mirror with backlighting creates a warm ambiance in the bathroom."
+  },
+  {
+    "src": "/images/villas/villa-orama/orama-071.webp",
+    "alt": "View of ocean and trees through a window frame",
+    "caption": "Nature framed like artwork: a stunning view of the sea and greenery from inside."
+  },
+  {
+    "src": "/images/villas/villa-orama/orama-072.webp",
+    "alt": "Close up of a modern induction stovetop",
+    "caption": "State-of-the-art kitchen technology including a sleek induction cooktop."
+  },
+  {
+    "src": "/images/villas/villa-orama/orama-073.webp",
+    "alt": "Modern open-plan kitchen and dining area with view",
+    "caption": "Bright interiors invite the outside in with wall-to-wall sea light in the main living space."
+  },
+  {
+    "src": "/images/villas/villa-orama/orama-074.webp",
+    "alt": "Outdoor deck and pool area",
+    "caption": "Expansive wooden deck and pool area designed for ultimate outdoor leisure."
+  },
+  {
+    "src": "/images/villas/villa-orama/orama-075.webp",
+    "alt": "Bedroom with rustic wooden ceiling and stone wall",
+    "caption": "Rustic ceilings, stone walls, and soft textiles create a welcoming and authentic retreat."
+  },
+  {
+    "src": "/images/villas/villa-orama/orama-076.webp",
+    "alt": "Detail of coral colored wall with slim vertical light",
+    "caption": "Elegant color blocking with ambient vertical lighting details adds a modern touch."
+  },
+  {
+    "src": "/images/villas/villa-orama/orama-077.webp",
+    "alt": "View of sea over the blue infinity pool edge",
+    "caption": "An immersive horizon blending the blue of the pool, the sky, and the ocean."
+  },
+  {
+    "src": "/images/villas/villa-orama/orama-078.webp",
+    "alt": "View of sea through a glass window with a column",
+    "caption": "Floor-to-ceiling glass captures the mesmerizing blue of the Ionian Sea."
+  }
+  ],
+  "aboutUsImage": "/images/villas/villa-orama/orama-001.webp",
+  "headlines": {
+    "overview": "Villa Orama Corfu",
+    "location": "Kremithas, Northeast Corfu, Greece"
+  },
+  "specs": {
+    "guests": 8,
+    "bedrooms": 4,
+    "beds": 5,
+    "baths": 5,
+    "size": "280 m²",
+    "poolLabel": "Infinity Lap Pool",
+    "poolSize": "19m × 3m"
+  },
+  "location": {
+    "label": "Northeast Corfu, Ionian Islands",
+    "city": "Kremithas",
+    "country": "Greece"
+  },
+  "seasons": [
+    {
+      "id": "high",
+      "label": "High Season (July–August)",
+      "priceDisplay": "From €2,200/night",
+      "price": 2200,
+      "currency": "EUR"
+    },
+    {
+      "id": "mid",
+      "label": "Mid Season (June & September)",
+      "priceDisplay": "From €1,800/night",
+      "price": 1800,
+      "currency": "EUR"
+    },
+    {
+      "id": "low",
+      "label": "Low Season (April–May & October)",
+      "priceDisplay": "From €1,400/night",
+      "price": 1400,
+      "currency": "EUR"
+    }
+  ],
+  "amenities": [
+    "19m Infinity Pool",
+    "Hot Tub",
+    "Sea Views",
+    "Mountain Views",
+    "Ultra-Fast WiFi (161 Mbps)",
+    "Chef's Kitchen",
+    "Smart TV 65\"",
+    "Netflix & Chromecast",
+    "BBQ Grill",
+    "Al Fresco Dining",
+    "Air Conditioning",
+    "Washer & Dryer",
+    "Free Parking",
+    "Self Check-in",
+    "Solar Water Heating",
+    "Security Cameras",
+    "Concierge Service",
+    "Private Chef Available",
+    "Spa Treatments Available",
+    "Boat Charters Available"
+  ],
+  "content": {
+    "overview": [
+      "Perched majestically above the Ionian Sea in Northeast Corfu, Villa ORAMA is an exclusive design-led estate that redefines luxury. Tucked into the verdant hillside of the tranquil village of Kremithas—between the glamorous coastal gems of Kassiopi and Agios Stefanos—this newly constructed single-storey villa accommodates up to 8 discerning guests in refined comfort, architectural sophistication, and immersive privacy.",
+      "From its soaring vantage point, guests enjoy uninterrupted views over Avlaki Bay, the harbor lights of Kassiopi, and the rugged silhouettes of the Albanian mountains across the sea. With seamless transitions between interior refinement and outdoor serenity, Villa ORAMA is not simply a place to stay—it's a place to return to your senses.",
+      "The villa's open-concept layout flows organically through floor-to-ceiling glass, framing sea and forest panoramas at every turn. The interiors strike a masterful balance between modern minimalism and Corfiot charm, featuring curated natural materials, premium furnishings, and a palette that soothes and inspires."
+    ],
+    "highlights": [
+      "Stunning 19m × 3m infinity lap pool floating above the treetops",
+      "Panoramic views of Avlaki Bay, Kassiopi harbor, and Albanian mountains",
+      "Four en-suite bedrooms, each with unique character and sea views",
+      "Hot tub for evening relaxation under the stars",
+      "Ultra-fast 161 Mbps WiFi—ideal for remote work",
+      "Bespoke concierge with private chef, sailing, and spa services",
+      "10 minutes to Kassiopi, 45 minutes to Corfu Airport"
+    ],
+    "spaces": [
+      {
+        "name": "Master Suite",
+        "description": "King-size bed, en-suite bathroom, direct pool access, and floor-to-ceiling sea views. Smart TV and individual climate control."
+      },
+      {
+        "name": "Convertible Twin Suite",
+        "description": "Two single beds joinable as king, en-suite bathroom, pool access, and sea-facing terrace with spectacular coastal views."
+      },
+      {
+        "name": "Queen Room with Balcony",
+        "description": "Private outdoor space with commanding coastal vistas, en-suite shower, and designer touches throughout."
+      },
+      {
+        "name": "Queen Room with Signature Bath",
+        "description": "Open-plan soaking tub, private balcony, and a spa-like en-suite shower—the ultimate relaxation retreat."
+      },
+      {
+        "name": "Open-Plan Living",
+        "description": "Designer lounge with 65\" Smart HDTV (Netflix, Chromecast), premium furnishings, and panoramic floor-to-ceiling windows."
+      },
+      {
+        "name": "Chef's Kitchen",
+        "description": "State-of-the-art appliances, breakfast bar, and indoor dining for 8. Everything needed for gourmet cooking."
+      },
+      {
+        "name": "Infinity Pool & Terrace",
+        "description": "Showstopping 19m × 3m infinity lap pool with luxury loungers, shaded dining areas, and BBQ grill station."
+      }
+    ],
+    "policies": {
+      "checkIn": "Self check-in via secure lockbox",
+      "checkOut": "10:00 AM",
+      "cancellation": "Free cancellation available (terms apply)",
+      "houseRules": [
+        "No smoking indoors",
+        "No parties or events without prior approval",
+        "Quiet hours after 11 PM",
+        "Pets considered on request",
+        "Maximum 8 guests"
+      ],
+      "registration": "1363144"
+    },
+    "location": "Located in Kremithas village, Northeast Corfu, between Kassiopi (10 min) and Agios Stefanos (7 min). 45 minutes from Corfu International Airport (CFU), 60 minutes from Corfu Town.",
+    "hosts": {
+      "image": "/images/villas/villa-orama/orama-079.webp",
+      "names": "Karolos",
+      "bio": "An experienced hospitality professional with a 10-year track record. With a 100% response rate and one-hour average response time, guest satisfaction is his personal mission."
+    },
+    "testimonials": [
+      {
+        "quote": "Villa ORAMA is a place of soul, light, and silence—crafted not only to be admired, but to be lived in deeply.",
+        "attribution": "Recent Guest, 2024"
+      }
+    ],
+    "faq": [
+     {
+    "category": "Overview & General Info",
+    "q": "What is Villa Orama Corfu and where is it located?",
+    "a": "Villa Orama Corfu is a brand-new 4-bedroom luxury villa situated on a scenic hillside in the northeast of Corfu island, Greece. It sits at the edge of the traditional village of Kremithas, between the seaside towns of Kassiopi and Agios Stefanos. The villa’s location offers panoramic views over Kassiopi, Avlaki Bay, and the Ionian Sea, with the mountains of Albania visible across the channel."
+  },
+  {
+    "category": "Overview & General Info",
+    "q": "How many guests can Villa Orama accommodate and how large is the property?",
+    "a": "Villa Orama is designed to comfortably host up to 8 guests. It features 4 stylish en-suite bedrooms in a single-level layout, plus spacious indoor and outdoor living areas. The villa’s modern open-plan design and extensive terraces make the approximately 300 m² property feel airy and expansive, providing ample room for everyone to relax."
+  },
+  {
+    "category": "Overview & General Info",
+    "q": "What makes the northeast coast of Corfu special as a destination?",
+    "a": "Corfu’s northeast coast is known for its breathtaking scenery and exclusive ambience. The area offers crystal-clear turquoise waters, secluded pebble coves, and lush green hillsides dotted with olive groves. Traditional villages like Kassiopi and Agios Stefanos provide charming harbors with waterfront tavernas, while the backdrop of Albania’s mountains across the sea adds dramatic views. It’s a part of Corfu that combines natural beauty with a relaxed, upscale island lifestyle."
+  },
+  {
+    "category": "Overview & General Info",
+    "q": "Is Villa Orama a good base for exploring Corfu island?",
+    "a": "Yes. Villa Orama’s location in the northeast makes it an excellent base for exploring both local highlights and the wider island. Many of Corfu’s best beaches, picturesque villages, and coastal attractions are within a short drive. You can easily spend days discovering nearby bays or take longer outings to Corfu’s historic Old Town and other parts of the island. After sightseeing, you’ll return to the peace and privacy of your hilltop retreat."
+  },
+  {
+    "category": "Overview & General Info",
+    "q": "Does Villa Orama offer direct access to a beach?",
+    "a": "No, Villa Orama is not directly on the beach. It is perched on a hillside for panoramic views and privacy. However, several beautiful beaches are just a short drive away (approximately 5–10 minutes by car). For example, Avlaki Beach and Kerasia Beach—both known for clear waters—are only about 3 km from the villa. Guests typically drive or arrange transport to these nearby beaches, enjoying the villa’s elevated setting at home and the shore when they wish."
+  },
+  {
+    "category": "Overview & General Info",
+    "q": "What kind of views can guests enjoy from Villa Orama?",
+    "a": "Villa Orama boasts sweeping views of the Ionian Sea and the surrounding coastline. From the terraces and infinity pool, you can gaze out over the village of Kassiopi, the tranquil Avlaki Bay, and across the water to the mountains of mainland Albania. The vista is constantly mesmerizing—by day you’ll see sailboats and sparkling blue sea, and in the evenings the sunset colors reflect on the distant peaks and the sky. The combination of sea, sky, and mountain views is one of the villa’s most magical features."
+  },
+  {
+    "category": "VIP Arrival & Logistics",
+    "q": "How far is Villa Orama from Corfu International Airport (CFU)?",
+    "a": "Villa Orama is approximately 32–35 km from Corfu International Airport (Ioannis Kapodistrias Airport) in Corfu Town. Depending on traffic and route, the drive typically takes about 45 minutes to 1 hour. The journey is a scenic one, winding along coastal and country roads as you make your way to the villa’s northeast coast location."
+  },
+  {
+    "category": "VIP Arrival & Logistics",
+    "q": "Can private airport transfers be arranged for our arrival and departure?",
+    "a": "Absolutely. We can arrange private luxury transfers to meet you at Corfu Airport. Professional drivers in comfortable, air-conditioned vehicles (such as Mercedes sedans, SUVs, or VIP minibuses) will greet you, assist with luggage, and drive you directly to Villa Orama. Coordinating transfer times with your flight is part of our concierge service, ensuring a seamless arrival experience."
+  },
+  {
+    "category": "VIP Arrival & Logistics",
+    "q": "Are helicopter transfers to Villa Orama or northeast Corfu possible?",
+    "a": "Helicopter charters can be arranged for guests seeking to arrive in style. While Villa Orama does not have its own helipad, helicopters can land at Corfu’s airport or at designated helipads on the island by prior arrangement. For example, a charter helicopter from Athens or another Ionian island can bring you to Corfu, from which a short luxury car transfer can be provided to the villa. This option is ideal for those who want to minimize travel time or enjoy an aerial view of Corfu upon arrival."
+  },
+  {
+    "category": "VIP Arrival & Logistics",
+    "q": "Is there secure parking available at Villa Orama for our vehicles?",
+    "a": "Yes. Villa Orama has secure on-site parking within the property’s gates, available at no additional cost. The driveway and parking area can accommodate multiple cars (or vans) comfortably. Your vehicles will be safely inside the villa’s grounds, providing convenience and peace of mind during your stay."
+  },
+  {
+    "category": "VIP Arrival & Logistics",
+    "q": "Do we need to rent a car while staying at Villa Orama?",
+    "a": "Renting a car is highly recommended to get the most out of your stay. While you can certainly relax at the villa and use car services or taxis for local trips, having your own car provides flexibility to explore Corfu’s beaches, villages, and attractions at your leisure. Many points of interest, supermarkets, and restaurants are a short drive away, but not necessarily within comfortable walking distance due to the villa’s hillside location. A car (or chauffeured vehicle) ensures you can easily access everything the area offers."
+  },
+  {
+    "category": "VIP Arrival & Logistics",
+    "q": "Can we arrange a private driver or chauffeur during our stay?",
+    "a": "Yes, we can arrange an English-speaking private driver or full-time chauffeur service upon request. Whether you need transportation for a one-time excursion, daily outings, or evenings out, we have access to luxury vehicles and professional drivers. They can remain on-call or on a schedule tailored to your plans—driving you to dinner reservations, beaches, sightseeing trips, or even a full island tour, all while you relax and enjoy the ride."
+  },
+  {
+    "category": "VIP Arrival & Logistics",
+    "q": "Are taxis or local transportation readily available near the villa?",
+    "a": "Local taxis do operate in the area and can be arranged as needed. The villa’s concierge or manager can call a reliable taxi for you, whether you’re in Kassiopi, Agios Stefanos, or at the villa itself. Keep in mind that the villa is in a tranquil residential area, so taxis are not cruising by frequently; it’s best to book them in advance when possible. For spontaneous needs, several taxi drivers serve the northeast region and can usually arrive within 10-20 minutes when called."
+  },
+  {
+    "category": "VIP Arrival & Logistics",
+    "q": "Can rental cars be delivered directly to Villa Orama?",
+    "a": "Yes. We can facilitate rental car delivery to the villa for your convenience. This means you can avoid the hassle of airport car rental lines and start your holiday right away. Many reputable car hire companies on Corfu will deliver vehicles to Villa Orama at the start of your stay and pick them up when you depart. We can assist in arranging the vehicle type of your choice, from compact cars to luxury SUVs, and ensure it’s waiting for you at check-in."
+  },
+  {
+    "category": "VIP Arrival & Logistics",
+    "q": "Is it possible to arrive by private yacht or boat and access the villa?",
+    "a": "Yes. Guests arriving by private yacht can be accommodated. The nearest harbor is Kassiopi, which has a marina area and moorings for moderately sized yachts and boats. You could dock or anchor there and make the short 5-10 minute drive up to the villa. For larger yachts, Gouvia Marina (on the east coast nearer to Corfu Town) offers full-service berths; from Gouvia it’s about a 45-minute drive to the villa. Our team can assist with logistics, including arranging a car transfer from the marina or even coordinating tender services from your yacht to a closer bay like Agios Stefanos, followed by a quick drive to Villa Orama."
+  },
+  {
+    "category": "Location & Neighborhoods",
+    "q": "Where exactly is Villa Orama situated in Corfu?",
+    "a": "Villa Orama is located in the northeast corner of Corfu island, in a small hamlet called Kremithas. The villa sits on a hillside above the coastal villages of Kassiopi and Agios Stefanos (Sinies). This position offers both seclusion and stunning sea views. It’s about 1.5 km up inland from the coast (as the crow flies), giving you an elevated vantage point while still being close to the shore and local towns."
+  },
+  {
+    "category": "Location & Neighborhoods",
+    "q": "What is the village of Kremithas like?",
+    "a": "Kremithas is a tiny, traditional Corfiot hamlet. It’s very quiet and local in character, consisting of a few homes and villas nestled among olive groves. There are no busy tourist facilities directly in Kremithas – that’s part of its charm. You’ll experience a peaceful, authentic atmosphere. For shopping, dining, and nightlife, you’ll head to the nearby larger villages like Kassiopi or travel a bit further to Corfu Town, as Kremithas itself is primarily a residential area."
+  },
+  {
+    "category": "Location & Neighborhoods",
+    "q": "How far is Kassiopi from the villa and what is Kassiopi like?",
+    "a": "Kassiopi is roughly 5–6 km (about a 10-minute drive) from Villa Orama. It’s a picturesque fishing village and the main hub of the northeast coast. Kassiopi features a charming harbor lined with cafes, bars, and tavernas, plus shops, supermarkets, and basic services like ATMs and pharmacies. It has a laid-back holiday vibe during the day and a bit of lively energy in the evenings, with a few low-key bars and music venues (nothing too wild). Kassiopi also has historical interest – the ruins of Kassiopi Castle overlook the town, offering a glimpse into Corfu’s Byzantine past."
+  },
+  {
+    "category": "Location & Neighborhoods",
+    "q": "What about Agios Stefanos? How far is it and what can we find there?",
+    "a": "Agios Stefanos (sometimes called Agios Stefanos Sinion to distinguish it from other places of the same name) is another lovely village about 4 km from Villa Orama – around a 10-minute drive. It’s a small, upmarket coastal village centered around a tranquil bay with a few jetties. Agios Stefanos is known for its waterfront tavernas and cafes; in the evenings, dining by the water as boats bob in the harbor is a highlight. There are also a couple of boutique shops and the possibility to rent small boats from here for a day of coastal exploration. The atmosphere is relaxed and quite exclusive, as many luxury villas dot the hills around Agios Stefanos."
+  },
+  {
+    "category": "Location & Neighborhoods",
+    "q": "What other nearby villages or areas are worth visiting in northeast Corfu?",
+    "a": "Aside from Kassiopi and Agios Stefanos, there are several noteworthy spots in the vicinity. Kalami village, about 8–10 km south, is famous as the home of the Durrell family in the 1930s and boasts the beautiful White House restaurant right on the bay. Nearby, Kouloura and Agni Bay are tiny coves with legendary seaside tavernas (accessible by car or boat). Inland, the abandoned village of Old Perithia (approximately a 30-minute drive into the mountains) offers a step back in time with stone houses and rustic tavernas – a great lunch trip. For a beach day, the north coast town of Acharavi (roughly 25 minutes by car) has a long sandy beach and more extensive shops. All these give a taste of Corfu’s diverse character, from quiet coves to mountain hamlets."
+  },
+  {
+    "category": "Location & Neighborhoods",
+    "q": "How far is Corfu Town from Villa Orama and is it worth the trip?",
+    "a": "Corfu Town (Kerkyra), the island’s capital, is about 32 km from Villa Orama. By car it usually takes around 50–60 minutes to reach. It is absolutely worth a trip: Corfu Town is a UNESCO World Heritage Site known for its elegant Venetian architecture, narrow cobbled streets, and historic forts guarding the harbor. You can spend a day or evening exploring the Old Town’s shops, museums, and cafes – don’t miss the Liston promenade and Spianada square. It’s also an excellent spot for upscale dining or simply savoring the cosmopolitan atmosphere before returning to the tranquility of Villa Orama."
+  },
+  {
+    "category": "Location & Neighborhoods",
+    "q": "Is the area around Villa Orama quiet or will we find a lot of tourist activity nearby?",
+    "a": "The immediate area around Villa Orama is very tranquil and private. Kremithas village has no tourist nightlife or traffic – it’s a peaceful residential setting. You won’t encounter crowds or noise at the villa. However, a short drive down to Kassiopi or other coastal villages will put you in a more vibrant holiday scene when you want it. This means you truly have the best of both worlds: serene seclusion at home and easy access to restaurants, shops, and beach activities whenever you choose."
+  },
+  {
+    "category": "Location & Neighborhoods",
+    "q": "Are there shops or markets nearby for groceries and essentials?",
+    "a": "Yes. The closest options are in Kassiopi, which has several small supermarkets, bakeries, and produce markets where you can get all the basics (and many international products). There’s also a local supermarket along the main road in Sinies, even closer en route to Agios Stefanos. For fresh produce, you might catch small farmers’ stands or fishmongers in the mornings in Kassiopi. Pharmacies, ATMs, and other services are available in Kassiopi as well. Essentially, within a 5–10 minute drive, you can reach everything you need for day-to-day supplies."
+  },
+  {
+    "category": "Beaches & Nature",
+    "q": "What is the nearest beach to Villa Orama and what is it like?",
+    "a": "One of the nearest beaches is Avlaki Beach, roughly 3 km from the villa (about a 5-minute drive). Avlaki is a beautiful, uncrowded pebble beach with exceptionally clear water. It offers a peaceful setting, ideal for swimming and snorkeling. There are a couple of local tavernas near the beach as well as a sailing and windsurfing school, but it’s generally a low-key, natural beach (no loud beach bars). The beach has sun loungers and umbrellas for rent in summer, yet plenty of space remains undeveloped, preserving its tranquil atmosphere."
+  },
+  {
+    "category": "Beaches & Nature",
+    "q": "Are there other notable beaches close to the villa?",
+    "a": "Yes, the northeast coast has several lovely coves nearby. Kerasia Beach is another pebble beach about 3–4 km away, known for its turquoise waters and shaded by olive trees; it also has a well-regarded taverna right on the water. For those seeking a sandy beach, Kalamaki (Apraos) Beach is about 8 km to the west of Kassiopi – it’s a long, shallow sand beach that’s great for children. You can also explore the tiny secluded coves around Kassiopi (like Bataria or Kanoni Beach), which are great for a quick dip or snorkeling adventure. Each beach in the area has its own character, from the serene to the more lively, but all boast clear Ionian waters."
+  },
+  {
+    "category": "Beaches & Nature",
+    "q": "Are there any must-visit beaches further afield on Corfu?",
+    "a": "If you’re up for exploring beyond the immediate area, Corfu has some famous beaches worth a day trip. Paleokastritsa, on the west coast (~40 km from the villa), is a stunning area with multiple bays, dramatic cliffs, and caves – you can rent boats or take a water taxi to the ‘Blue Eye’ cave there. Glyfada Beach (around 45 km away) is one of the island’s best sandy beaches, with a long stretch of golden sand and a few trendy beach bars. Also notable is Canal d’Amour in Sidari (northwest), known for its unique sandstone formations and coves. While these spots require a drive (around 1 to 1.5 hours from the villa), they showcase the diverse coastal beauty of Corfu and can be combined with sightseeing along the way."
+  },
+  {
+    "category": "Beaches & Nature",
+    "q": "What type of beaches can we expect in northeast Corfu – sandy or pebbly?",
+    "a": "The beaches in the northeast of Corfu are predominantly pebble or shingle bays with exceptionally clear water. These pebbly coves, like Avlaki, Kerasia, and those around Kassiopi, owe their crystal clarity to the pebble seabed. If you prefer sandy beaches, you’ll find those mainly on the north and west coasts (such as Kalamaki nearby for shallow sand, or the expansive sands of Acharavi and Roda about 20–25 minutes away). Many guests actually enjoy the variety – spending some days on the silky sands of the north coast and other days on the picturesque pebble coves near the villa."
+  },
+  {
+    "category": "Beaches & Nature",
+    "q": "Are there any protected nature areas or scenic hikes near the villa?",
+    "a": "The area around the villa is great for nature lovers. Just below Villa Orama is the Erimitis peninsula, a stretch of largely undeveloped coastline between Kassiopi and Agios Stefanos. It offers walking trails through olive groves and leads to hidden coves where you might be the only ones around. Additionally, Mount Pantokrator (Corfu’s highest peak) is a prominent natural attraction – a drive up the mountain (about 45 minutes) rewards you with panoramic views over the entire island and across to Albania, and there are hiking trails and a historic monastery at the summit. Whether you prefer coastal walks or mountain vistas, the northeast offers ample opportunity for scenic exploration."
+  },
+  {
+    "category": "Beaches & Nature",
+    "q": "Are there forest or mountain trails for hiking or biking nearby?",
+    "a": "Yes, beyond the coastal walks, the inland northeast is crisscrossed with trails. The foothills of Mount Pantokrator and the countryside around nearby villages (like Porta, Old Perithia, etc.) provide excellent hiking or mountain biking routes through cypress and olive forests. One popular trek is from the village of Old Perithia up to the summit of Pantokrator for experienced hikers. Even directly from the villa, you can set off on foot on minor roads or paths to enjoy nature. We can also arrange guided biking or hiking excursions if you’d like to explore safely with local knowledge, as well as provide mountain bikes for guest use on request."
+  },
+  {
+    "category": "Beaches & Nature",
+    "q": "Is snorkeling good in this part of Corfu?",
+    "a": "Yes, the snorkeling is excellent along the northeast coast. The rocky coastline and clear, calm waters create great visibility and habitat for fish. Around Kassiopi and Avlaki, you’ll find interesting underwater rock formations and marine life. We provide some basic snorkel gear at the villa, and you can always purchase or rent more in Kassiopi. Early morning or late afternoon, when the sea is calm, is the best time to snorkel. You might spot colorful wrasses, starfish, and even the occasional octopus hiding among the rocks. For those who want a guided snorkeling experience or scuba diving, there are dive centers in the area that can take you to prime underwater sites."
+  },
+  {
+    "category": "Beaches & Nature",
+    "q": "Can guests enjoy sunrises or sunsets from the villa or nearby viewpoints?",
+    "a": "Villa Orama faces east-southeast, which means it’s perfectly positioned for glorious sunrises. Early risers can watch the sun ascend over the Ionian Sea and illuminate the Albanian mountain range – a truly inspiring sight from the pool terrace. In the evenings, the villa doesn’t have a direct sunset over the sea (as the sun sets on the opposite side of the island), but you will still see beautiful colors in the sky and on the distant mountains around dusk. If sunsets are a priority, you can take a trip to the west coast of Corfu – for instance, the famous Sunset Beach at Loggas (Peroulades) or the Kaisers Throne viewpoint near Pelekas – to experience a spectacular Ionian sunset, then return to the comfort of Villa Orama."
+  },
+  {
+    "category": "Staff & Concierge Service",
+    "q": "Does Villa Orama include daily housekeeping?",
+    "a": "Yes. Regular housekeeping is included to keep the villa in pristine condition during your stay. Typically, a housekeeper will visit the property on a schedule (for example, daily or every other day depending on your preference and length of stay) to make beds, clean common areas, and attend to the bedrooms and bathrooms. This ensures you can relax and not worry about routine cleaning tasks. We can adjust the timing of housekeeping visits to suit your schedule so that service is convenient and unobtrusive."
+  },
+  {
+    "category": "Staff & Concierge Service",
+    "q": "Is there a villa manager or concierge on call for guest needs?",
+    "a": "Absolutely. Villa Orama comes with dedicated concierge support. You will have a local villa manager or concierge available by phone or messaging apps to assist with any requests throughout your stay. Whether you need restaurant reservations, boat charters, directions, or help with any issue at the villa, our team is on hand to ensure everything goes smoothly. We aim to provide prompt, personalized assistance so you can enjoy a carefree holiday."
+  },
+  {
+    "category": "Staff & Concierge Service",
+    "q": "Can I arrange a private butler service at Villa Orama?",
+    "a": "Yes, a private butler or dedicated host can be arranged if you desire an extra level of personalized service. While Villa Orama is typically self-catering with concierge support, we can staff the villa with a professional butler who can assist with serving drinks and meals, handling errands, and coordinating day-to-day details within the house. This service is at an additional cost and can be tailored to specific hours or needs – for example, having someone on hand each evening for turndown service and cocktails, or throughout the day to attend to your group."
+  },
+  {
+    "category": "Staff & Concierge Service",
+    "q": "What languages do the villa staff and concierge speak?",
+    "a": "Our core team speaks fluent English, which is the primary language for most hospitality services on Corfu. Many staff members also speak Greek (of course) and some have additional language skills such as Italian or French. If you have a specific language preference or requirement, let us know in advance and we will do our best to accommodate or arrange translation/interpretation services. Communication during your stay should be smooth and easy."
+  },
+  {
+    "category": "Staff & Concierge Service",
+    "q": "Are linens and towels changed during our stay?",
+    "a": "Yes. Fresh linens and towels are provided and will be changed regularly. Typically, bed linens are changed every 3-4 days (or mid-week for weekly stays), while towels can be replaced more frequently – even daily if needed. Pool/beach towels are also provided at the villa. If you ever need extra towel or linen changes, you can simply ask the housekeeping or concierge team, and they will be happy to accommodate your needs."
+  },
+  {
+    "category": "Staff & Concierge Service",
+    "q": "Can the staff assist with laundry or ironing?",
+    "a": "Certainly. The villa has a laundry area with a washing machine (and dryer or drying facilities) that you are free to use. If you prefer not to do laundry yourself, our housekeeping staff can assist with personal laundry and ironing upon request. For larger loads or delicate items, we can also arrange for a professional laundry service or dry-cleaning pickup and delivery. Just let the concierge know your needs, and we’ll ensure your clothes are taken care of promptly."
+  },
+  {
+    "category": "Staff & Concierge Service",
+    "q": "Is staff presence at the villa discreet? We value privacy.",
+    "a": "We completely understand the importance of privacy. Villa staff (housekeepers, maintenance, etc.) strive to be as discreet as possible. They will typically come at pre-arranged times and use separate service entrances where available, so as not to disturb you. The goal is to provide hotel-level service in a way that feels unobtrusive. If at any time you need something, they are a call away, but otherwise they will work quietly in the background at times that suit you."
+  },
+  {
+    "category": "Staff & Concierge Service",
+    "q": "Can we request minimal staff visits if we prefer to be left alone?",
+    "a": "Yes. The level of service is adjusted to your preferences. If you prefer a very private stay with minimal interruptions, we can limit housekeeping to, say, a light cleaning once or twice during the week, or simply be on-call for issues rather than on a fixed daily schedule. Just communicate your wishes to our concierge or villa manager. Some guests want daily hotel-style service, while others prefer total seclusion – we are happy to tailor the approach so you feel comfortable and free to enjoy the villa on your terms."
+  },
+  {
+    "category": "Food & Dining",
+    "q": "Can a private chef be arranged at Villa Orama?",
+    "a": "Yes, we can certainly arrange a private chef to elevate your dining experience. Whether you’d like a chef for a special one-off celebration dinner or full-time meal service throughout your stay, we have options. Our chefs are well-versed in both Greek and international cuisines. They can source fresh local ingredients (including the catch of the day seafood) and prepare breakfast, lunch, dinner, or barbecue feasts as requested. Many guests enjoy having a welcome dinner prepared on the first night or a barbecue night by the pool – the service is completely flexible to your needs."
+  },
+  {
+    "category": "Food & Dining",
+    "q": "Can special diets such as vegetarian, vegan, or gluten-free be accommodated?",
+    "a": "Absolutely. Our private chefs and catering partners are accustomed to accommodating a wide range of dietary preferences and requirements. Vegetarian and vegan menus can be crafted to be just as delicious and satisfying, using the abundance of fresh produce in Corfu. Gluten-free requests, food allergies, or any other dietary restrictions will be taken seriously – we will source appropriate ingredients (for example, gluten-free bread/pasta or dairy alternatives) and ensure everyone in your group is well taken care of. Just let us know your needs in advance so we can prepare accordingly."
+  },
+  {
+    "category": "Food & Dining",
+    "q": "Is there an outdoor dining area at the villa?",
+    "a": "Yes, Villa Orama is designed for indoor-outdoor living. There is a beautiful outdoor dining area on the terrace, complete with a large dining table and comfortable chairs under a pergola for shade. This area overlooks the infinity pool and the sea, making it a perfect spot for al-fresco meals any time of day – from breakfast with a sunrise view to candlelit dinners under the stars. Adjacent to the outdoor dining space, you’ll also find a barbecue grill setup, allowing for poolside barbecues and casual grilling nights."
+  },
+  {
+    "category": "Food & Dining",
+    "q": "Is the kitchen fully equipped for self-catering?",
+    "a": "Yes. The villa’s modern kitchen is fully equipped with high-end appliances and everything you need for self-catering. This includes a large refrigerator/freezer, oven and stovetop, microwave, dishwasher, coffee maker (and espresso machine), kettle, toaster, and a blender. You’ll find ample cookware, pots and pans, quality knives, and plenty of dishes, glassware, and utensils for 8+ guests. We also provide basic pantry items like olive oil, spices, salt and pepper. Whether you’re a casual cook or a passionate foodie, you’ll have the tools and space to prepare meals with ease."
+  },
+  {
+    "category": "Food & Dining",
+    "q": "Can you pre-stock the villa with groceries before our arrival?",
+    "a": "Certainly. We offer a pre-arrival grocery shopping service. You can send us a list of desired items (or request a standard starter hamper) and we will have the kitchen stocked and the fridge filled with your essentials when you arrive. Common requests include breakfast items, snacks, fresh fruits, drinks (wine, beer, mixers), and any specific brands you prefer. This way, after your travels, you can settle straight in without needing to rush off to the supermarket."
+  },
+  {
+    "category": "Food & Dining",
+    "q": "What are some recommended restaurants near Villa Orama?",
+    "a": "The northeast of Corfu has excellent dining options, especially for those who love Greek and Mediterranean cuisine. In Agios Stefanos (10 minutes away), there are a handful of wonderful waterfront tavernas – for instance, Kochili and Eucalyptus are known for their fresh seafood and cozy atmosphere by the bay. In Kassiopi (also 10 minutes), you’ll find everything from traditional tavernas like Janis (great for fish) to more contemporary eateries and cocktail bars. Kalami’s famous taverna at the White House (former Durrell residence) is a short drive and offers a romantic setting. Whether you seek a casual family-run taverna or an upscale Mediterranean dinner, our concierge can recommend and book the best tables in the area."
+  },
+  {
+    "category": "Food & Dining",
+    "q": "Are there upscale or fine-dining options in the region?",
+    "a": "For a special gastronomic experience, you might consider venturing a bit further. One of Greece’s top-rated restaurants, Etrusco (helmed by a Michelin-starred chef), is about a 40-minute drive in the area of Dassia – it offers an innovative Corfiot-Italian fusion tasting menu. Closer by, some high-end resorts and beach clubs around Corfu Town and Kommeno area have fine dining restaurants accessible to outside guests (for example, the Asian-fusion and seafood restaurants at the Angsana Corfu Resort). Even in Corfu Town’s Old Town you will find stylish eateries and rooftop restaurants ideal for a gourmet night out. We can assist with reservations and transport for any such outings."
+  },
+  {
+    "category": "Food & Dining",
+    "q": "Can meals be delivered to the villa if we don’t feel like cooking?",
+    "a": "Yes, there are a few options for food delivery or takeaway. Several restaurants in Kassiopi offer take-away services and we can arrange delivery of prepared meals to the villa. Our concierge can also coordinate with local chefs or catering services to drop off homestyle cooked meals on days you want something casual without going out. Whether it’s arranging for a morning bakery delivery (fresh bread and pastries) or having a Greek dinner brought in, we’re happy to facilitate convenient dining options."
+  },
+  {
+    "category": "Weddings & Events",
+    "q": "Can Villa Orama host weddings or private events?",
+    "a": "Yes. Villa Orama can host small-scale weddings, elopements, and special events, subject to prior approval. The villa’s scenic setting is ideal for intimate celebrations. We generally allow events like family gatherings, milestone birthday parties, and weddings up to around 15–20 external guests (in addition to those staying at the villa). This keeps the event manageable and comfortable given the villa’s size and residential location. If you’re considering an event, let us know your plans and we will discuss guidelines and possibilities to ensure a memorable occasion."
+  },
+  {
+    "category": "Weddings & Events",
+    "q": "What is the recommended maximum guest capacity for events at the villa?",
+    "a": "For events at Villa Orama, we recommend keeping the guest count to around 18–20 people maximum (including the villa’s overnight guests). In fact, the villa’s policy allows up to 18 event attendees. This number works well with the available outdoor space on the terrace and avoids overwhelming the property or disturbing the peaceful neighborhood. Small, elegant gatherings are what the venue is best suited for, as opposed to large parties. This ensures everyone has ample space and the event remains intimate and enjoyable."
+  },
+  {
+    "category": "Weddings & Events",
+    "q": "Where on the property can ceremonies or receptions take place?",
+    "a": "The most popular spot for a ceremony is on the villa’s main terrace overlooking the sea. Many couples choose to exchange vows with the stunning panorama as the backdrop. A simple arch or floral arrangement can be set up near the infinity pool for this purpose. For receptions or dinners, the pool terrace and outdoor dining area can be arranged with additional tables, seating, and décor. There is sufficient space for a seated dinner under the stars or a cocktail-style reception. We do recommend renting appropriate event furniture or a small marquee if needed, as the villa’s own outdoor furniture is typically used for lounging."
+  },
+  {
+    "category": "Weddings & Events",
+    "q": "Is there a minimum stay requirement if we host an event at Villa Orama?",
+    "a": "Generally, yes. We usually require a minimum stay (often at least 3 nights, and 7 nights during the high summer season) for hosting an event. This ensures there is adequate time for any setup and breakdown around the event, and that the villa is booked exclusively for your group without back-to-back guest turnovers. For example, a popular approach is for guests to book a one-week stay which includes a wedding day in the middle; this gives time to settle in, enjoy the event, and then relax afterwards. Specific requirements may vary based on the event size and season, so please discuss your plans with us for precise guidelines."
+  },
+  {
+    "category": "Weddings & Events",
+    "q": "Can you recommend local wedding planners or vendors familiar with the villa?",
+    "a": "Yes, we work with experienced local wedding planners who have organized beautiful events in villas and venues around Corfu. We can put you in touch with a planner who speaks your language and understands luxury villa events. They can help coordinate everything from catering and bar service to decorations, florists, photographers, DJs or musicians, and any necessary rentals (tents, lighting, sound equipment). Having a planner is highly recommended to handle logistics, especially in a destination setting, and we’re happy to recommend trusted professionals."
+  },
+  {
+    "category": "Weddings & Events",
+    "q": "What are the noise and music restrictions for events?",
+    "a": "Since Villa Orama is in a quiet area with a few other villas around, we do have guidelines to respect the neighborhood. We ask that any loud music outdoors be lowered by around 11:00 PM. Soft background music can continue a bit later, but essentially all outdoor party activity should wind down around midnight. Indoor festivities (at a reasonable volume) can continue later into the night if your group is staying on-site. We find that these limits still allow for a wonderful evening, but ensure that neighbors are not disturbed. Our concierge and any event planner will help keep things running smoothly within local regulations."
+  },
+  {
+    "category": "Weddings & Events",
+    "q": "Are fireworks or sky lanterns allowed during celebrations?",
+    "a": "No, due to safety and local regulations, fireworks, sky lanterns, or any form of open fire display are not permitted at the property. The area is naturally lush (olive groves/forests nearby), and the fire risk especially in summer is high. Instead, many couples opt for alternatives like sparklers for a send-off (small hand-held ones used safely) or LED/light-up balloons for visual effect. We can also help arrange professional cold-firework fountains or special lighting that give a celebratory feel without violating safety rules."
+  },
+  {
+    "category": "Weddings & Events",
+    "q": "Can outside caterers and staff use the villa’s facilities during an event?",
+    "a": "Yes, external caterers can use the villa’s kitchen and outdoor grill area for event meal preparation, as long as they are professional and careful. The kitchen is modern and equipped to handle catering for the recommended event size. We do ask that any caterer or vendor be approved in advance, and that they leave the facilities clean and in order. Often, a cleaning surcharge or refundable deposit is arranged to cover the extra wear from events, ensuring that post-event cleanup is handled. Our goal is to accommodate your event needs while preserving the villa’s condition for you and future guests."
+  },
+  {
+    "category": "Amenities & Facilities",
+    "q": "How many bedrooms and bathrooms does Villa Orama have?",
+    "a": "The villa offers 4 spacious bedrooms, each with its own en-suite bathroom. In total, there are 4 full bathrooms (one per bedroom) plus an additional guest WC (half bathroom) for convenience, making it effectively 4.5 bathrooms. This arrangement ensures each bedroom has a private bath/shower, toilet, and sink, providing comfort and privacy for all guests."
+  },
+  {
+    "category": "Amenities & Facilities",
+    "q": "What amenities are provided in the bathrooms?",
+    "a": "All bathrooms at Villa Orama are stocked with plush towels (bath and hand towels for each guest, as well as pool/beach towels), and high-quality toiletries including shampoo, conditioner, shower gel, and soap. Each bathroom has a modern walk-in shower (one also features an open-plan bathtub with a view), and you’ll find amenities like a hairdryer and magnifying mirror available. We also provide bathrobes and slippers for that added touch of luxury, so you can enjoy a five-star hotel feel in the privacy of your villa."
+  },
+  {
+    "category": "Amenities & Facilities",
+    "q": "What kitchen appliances and equipment are available for guests?",
+    "a": "Villa Orama’s kitchen is fully outfitted with premium appliances. You’ll have a full-size refrigerator and freezer, an electric oven and stovetop, a microwave, and a dishwasher for easy cleanup. For coffee and tea, there’s an espresso machine (with a starter supply of pods) and a drip coffee maker, as well as a kettle. The kitchen also includes a blender for smoothies or cocktails, a toaster, and an array of cookware and bakeware. There are plenty of utensils, knives, cutting boards, serving dishes, and tableware (plates, bowls, glasses, cutlery) for at least 8 people. Essentially, whether you plan to cook full meals or just prepare snacks and drinks, the kitchen has everything you’ll need."
+  },
+  {
+    "category": "Amenities & Facilities",
+    "q": "Does the villa have both indoor and outdoor dining spaces?",
+    "a": "Yes. Indoors, there is a stylish dining area adjacent to the open-plan kitchen, featuring a large table that can seat all 8 guests comfortably – perfect for cooler evenings or a formal dinner indoors. Outdoors, the villa boasts a covered dining terrace with another large table overlooking the pool and view. Most guests prefer to dine al fresco to take advantage of the scenery, but you have both options. In addition, the outdoor barbecue grill and bar area complement the outdoor dining setup, making it easy to enjoy poolside lunches and sunset dinners."
+  },
+  {
+    "category": "Amenities & Facilities",
+    "q": "What kind of living areas does the villa have?",
+    "a": "Villa Orama features a bright and airy open-plan living room that flows into the dining and kitchen area. The living space has large, comfortable sofas and lounge chairs arranged to enjoy both the view outside and the entertainment system (there’s a 65-inch Smart TV). Floor-to-ceiling glass doors open directly from the living area to the pool terrace, blurring the line between indoor and outdoor relaxation. Additionally, there’s a shaded outdoor lounge area on the terrace with plush outdoor sofas – an ideal spot for reading, sipping cocktails, or simply gazing at the panorama. Overall, there are multiple spots to unwind, both inside with air-conditioned comfort and outside in the fresh sea breeze."
+  },
+  {
+    "category": "Amenities & Facilities",
+    "q": "Is the villa air-conditioned and heated?",
+    "a": "Yes, the villa has modern climate control. Every bedroom is equipped with individually controlled air-conditioning, and the main living area is air-conditioned as well. This ensures you’ll stay cool during hot summer days. For cooler season visits, there is heating (through split unit heaters or a central heating system) to keep the villa warm and cozy. There’s also a fireplace in the living area which can be used for ambiance and warmth in the winter months. Additionally, all windows have mosquito screens and blackout shutters or curtains, allowing you to let in the breeze without insects, and to darken rooms for sleeping comfort."
+  },
+  {
+    "category": "Amenities & Facilities",
+    "q": "What outdoor amenities does Villa Orama offer?",
+    "a": "Outdoor living is a highlight at Villa Orama. The centerpiece is a spectacular 19m x 3m infinity lap pool that seems to float above the hillside, offering uninterrupted views while you swim. Around the pool is a spacious terrace with stylish sun loungers, deck chairs, and umbrellas for sunbathing or relaxing in the shade. There is also a hot tub on the terrace, perfect for a soothing soak in the evenings under the stars. The villa’s barbecue and outdoor kitchen area enable al fresco cooking and grilling. The surrounding grounds are landscaped with native trees and plants, providing a lush setting and privacy. An outdoor shower is available by the pool for rinsing off after a swim. In short, the villa is like a private resort with everything you need for outdoor enjoyment."
+  },
+  {
+    "category": "Amenities & Facilities",
+    "q": "Does the villa have laundry facilities for guests?",
+    "a": "Yes. There is a dedicated laundry room/area equipped with a washing machine (and a dryer or drying lines/racks for air drying clothes). We provide laundry detergent and basics so you can easily do laundry during your stay. An iron and ironing board are also available for your use, which is handy for pressing clothes before a nice dinner out or taking care of any wrinkles after travel. If doing laundry isn’t on your holiday agenda, remember our staff can assist or we can arrange laundry service – but the facilities are there for your convenience."
+  },
+  {
+    "category": "Tech & Connectivity",
+    "q": "Does Villa Orama have reliable Wi-Fi internet access?",
+    "a": "Yes, the villa is equipped with high-speed Wi-Fi. In fact, the internet service is quite strong (the connection at the property is around 150 Mbps), which is great for streaming, video calls, or any online work. Wi-Fi coverage extends throughout the villa’s interior and even reaches the outdoor terrace and pool area, so you can stay connected whether you’re indoors or enjoying the sunshine outside. Internet access is included in your stay at no additional charge."
+  },
+  {
+    "category": "Tech & Connectivity",
+    "q": "Are there Smart TVs or streaming entertainment available?",
+    "a": "Absolutely. The main living room features a 65-inch Smart HDTV equipped with Netflix, Chromecast, and other streaming apps. You can log into your Netflix or YouTube accounts (or other services) directly. Each of the 4 bedrooms also has its own Smart TV, so guests can watch satellite channels or stream content privately if they wish. With these modern TVs and a fast internet connection, you can enjoy movie nights, catch up on shows, or entertain the kids with ease."
+  },
+  {
+    "category": "Tech & Connectivity",
+    "q": "Is there a sound system or way to play music at the villa?",
+    "a": "Yes, Villa Orama provides options for enjoying music. There is a Bluetooth-enabled speaker system that you can easily connect your phone or tablet to, allowing you to play your favorite playlists both indoors and out on the terrace. Additionally, the Smart TV in the living room can play music or videos through apps like YouTube or Spotify if you prefer that setup. We just ask that you keep volume at respectful levels, especially in the evenings, to preserve the tranquil environment."
+  },
+  {
+    "category": "Tech & Connectivity",
+    "q": "Is Villa Orama suitable for remote work or \"workations\"?",
+    "a": "Yes, many guests find they can comfortably work remotely from Villa Orama. With the fast Wi-Fi and a quiet setting, it’s easy to set up a laptop and be productive. There are several areas – the indoor dining table, the living room, or even outdoors under the shade – where you can work with a view. If you need any office equipment like a printer or an extra monitor, let us know and we can try to arrange a rental. Mobile phone reception is generally good at the villa as well, given the elevated position. You can take video calls with the Ionian Sea as your backdrop!"
+  },
+  {
+    "category": "Tech & Connectivity",
+    "q": "What type of electrical outlets and voltage does the villa use?",
+    "a": "Villa Orama (and all of Greece) uses 230-volt electricity with the standard European two-pin Type C (and the compatible Type F) outlets. If you are traveling from a country with different plug types (like the UK, US, etc.), you will need plug adapters for your devices. Most modern electronics (phone chargers, laptops) are dual voltage and will work with 230V, but if you have any device that isn’t, you’d also need a voltage converter. We recommend bringing the necessary adapters, although we do keep a couple of universal adapters at the villa for guest use in case you forget."
+  },
+  {
+    "category": "Tech & Connectivity",
+    "q": "Are plug adapters or converters provided for international guests?",
+    "a": "We have a few basic plug adapters available at the villa (European two-pin to UK/US etc.), which guests are welcome to use. However, it’s a good idea to bring your own adapters as well, especially if you have multiple devices. Voltage converters (for appliances that cannot handle 230V) are not provided, so for any 110V-only devices you should bring a suitable converter. The concierge can also help you purchase an adapter locally if needed."
+  },
+  {
+    "category": "Tech & Connectivity",
+    "q": "Is there any backup power or generator in case of an electricity outage?",
+    "a": "Villa Orama is connected to the main power grid, and outages are rare. That said, the villa is equipped with emergency lighting and a backup generator that can run essential systems (lighting, refrigeration, Wi-Fi) in the unlikely event of a power cut. Corfu’s infrastructure is generally reliable in the summer season. If an outage occurs, it’s usually restored quickly. Our management team monitors such situations and will ensure you’re comfortable (for example, providing lanterns or updates) until power is back on."
+  },
+  {
+    "category": "Tech & Connectivity",
+    "q": "Does the property have security systems or cameras for safety?",
+    "a": "For your security and peace of mind, Villa Orama is equipped with a modern alarm system and several discrete exterior security cameras. The cameras cover the entrances and the perimeter (but no interior or private areas, ensuring your privacy). There is also a secure safe in the villa where you can store passports, jewelry, and other valuables. The neighborhood itself is very safe, but these measures add an extra layer of protection so you can relax completely during your stay."
+  },
+  {
+    "category": "Excursions & Activities",
+    "q": "What kinds of beach clubs or upscale beach bars can we visit on Corfu?",
+    "a": "Corfu isn’t as famous for beach clubs as some other Greek islands, but there are still a few chic spots to know about. If you’re looking for a lively beach bar with music and service, the west coast’s Glyfada Beach has Pazuzu, a trendy beach club that hosts DJs and events (popular in peak summer). Closer to the villa, most northeast beaches are quieter, but you can find comfortable organized beach bars in places like Barbati or Ipsos (about 20–30 minutes away) which have sun loungers, cocktails, and occasional DJ nights. Additionally, some resorts (like the Ikos Dassia or Angsana Corfu) have stylish beachside venues that outside guests can access with reservations. For the most part, the vibe in NE Corfu is relaxed luxury – think waterfront tavernas and chill bars rather than full-scale clubs on the sand."
+  },
+  {
+    "category": "Excursions & Activities",
+    "q": "Are there family-friendly organized beaches or waterparks nearby?",
+    "a": "Yes. For a family-friendly beach day, Kalamaki (Apraos) Beach is ideal – its sand and shallow waters make it great for kids, and there’s a beach taverna for lunch. The beaches of Roda and Acharavi (20 minutes away) also have shallow waters and some water sports, with shops and cafes close by. If the kids are looking for more excitement, consider a trip to Aqualand, Corfu’s large water park (about an hour’s drive towards the middle of the island). Aqualand features slides, lazy rivers, and pools for all ages. There’s also a smaller water park called Hydropolis in Acharavi which can be an easier outing. These options offer fun ways to cool off and play beyond the villa’s pool and the sea."
+  },
+  {
+    "category": "Excursions & Activities",
+    "q": "What water sports are available near Villa Orama?",
+    "a": "The northeast coast of Corfu offers several water-based activities. At Avlaki Beach (5 minutes away), there’s a sailing and windsurfing center where you can take windsurfing lessons or rent small sailboats. In Kassiopi, local operators offer activities like boat rentals (you can hire a small motorboat to explore coves by yourself, no license needed for boats under 30hp), paddle boats, and sometimes jet-ski rentals or tubing rides for kids. If you venture to Dassia or Barbati (around 30 minutes away), you’ll find more extensive water sports centers offering parasailing, water-skiing, wakeboarding, banana boats, and stand-up paddleboarding. With so much coastline to explore, trying out different water sports is a popular pastime for guests."
+  },
+  {
+    "category": "Excursions & Activities",
+    "q": "Can we go scuba diving or snorkeling around Corfu?",
+    "a": "Yes, both scuba diving and snorkeling are fantastic in Corfu’s clear waters. For snorkeling, you’ll find plenty to see right off the beaches near the villa – rocky areas around Kassiopi, Avlaki, and Kerasia are teeming with fish. For scuba diving, there are reputable dive centers in the area (one in Kassiopi and others along the east coast) that offer everything from beginner “Discover Scuba” dives to guided dives for certified divers. They can take you to sites like underwater caves, reefs, and even a couple of small wrecks. If you’re interested, we can help arrange a diving trip tailored to your experience level – with options for the whole family (kids from around 10 years can try diving in Corfu’s calm waters)."
+  },
+  {
+    "category": "Excursions & Activities",
+    "q": "Are there organized boat excursions or day cruises available?",
+    "a": "Yes, Corfu offers some wonderful boat excursions. One popular option is a day cruise to the Blue Lagoon and the Syvota islands on the mainland coast – these trips depart from the northeastern harbors and include swimming stops in unbelievably turquoise waters and often a beach BBQ. Another favorite is a day trip to the small islands of Paxos and Antipaxos (south of Corfu), known for their crystal waters and charming village of Gaios (these usually depart from Corfu Town or Lefkimmi port). Closer to home, you could join a sunset cruise or a charter that explores the bays of NE Corfu, stopping at various coves for swimming and at a taverna for lunch. The villa’s concierge can help you book the excursion that best fits your interests – whether it’s a lively group boat with music or a private sailboat for a more intimate adventure."
+  },
+  {
+    "category": "Excursions & Activities",
+    "q": "Is it possible to charter a private boat or yacht during our stay?",
+    "a": "Absolutely. We can arrange private boat charters ranging from small self-drive motorboats to skippered luxury yachts. From Agios Stefanos or Kassiopi, you can rent a 20-30hp motorboat (no license required) to explore nearby bays like Agni, Kalami, and Nissaki at your own pace – a must-do in this area. For a more upscale experience, consider hiring a skippered yacht or speedboat. With a captain at the helm, you can simply relax and cruise wherever you’d like: perhaps a circuit around Corfu’s northern tip, a visit to the Diapontia islets off the north coast, or a leisurely day anchored in hidden coves with food and drink catered on board. Chartering a boat gives you ultimate freedom on the water, and we’d be delighted to organize the perfect vessel and crew for your group."
+  },
+  {
+    "category": "Excursions & Activities",
+    "q": "What cultural or historical day trips are recommended from the villa?",
+    "a": "Beyond beach life, Corfu has rich cultural offerings. A top recommendation is spending a day in Corfu Town, exploring its two Venetian fortresses, the Old Palace (housing the Asian Art Museum), and the quaint Campiello district with its narrow alleys. Also noteworthy is the Achilleion Palace (about 1 hour 15 min from the villa) – a grand 19th-century palace built by Empress Elisabeth of Austria, with beautiful gardens and views. Closer to the villa, you can visit Old Perithia (as mentioned, an ancient mountain village) for a sense of Corfu’s history and traditional life. Another idea is taking a ferry from Corfu Town to the mainland to see Parga or the Oracle of Dodoni for a day – though that makes for a longer excursion. Our concierge can help plan any of these trips, including transportation and guides if desired."
+  },
+  {
+    "category": "Excursions & Activities",
+    "q": "Are there any wine tasting or food tours in the region?",
+    "a": "Yes, Corfu has some unique culinary experiences. We can organize a visit to a local winery, such as the Theotoky Estate in the Ropa Valley, where you can tour the vineyards and sample their wines and olive oil. There are also olive oil press tours closer to the villa, since the northeast is full of olive groves – you can learn about the olive oil making process (Corfiot olive oil is excellent) and do tastings. For foodies, a guided Corfu Town food tour is a delight: you’ll stroll through the markets and bakeries, trying local products like kumquat sweets, Corfiot charcuterie (noumboulo), and classic dishes. If you prefer, we could even arrange a private in-villa cooking class where a chef teaches you to make Greek dishes like pastitsada or moussaka – a fun and tasty activity for a group."
+  },
+  {
+    "category": "Nightlife & City Life",
+    "q": "How is the nightlife scene in Corfu during the summer?",
+    "a": "Corfu offers a pleasantly balanced nightlife – it can be lively but is generally less frenetic than places like Mykonos or Ibiza. In the peak summer months, you’ll find a variety of evening options. Corfu Town has a cosmopolitan nightlife with cocktail bars, wine bars, and a couple of nightclubs (mostly catering to a sophisticated crowd and tourists). In the resort villages, nightlife tends to center around open-air bars and beach bars rather than huge clubs. For example, Kassiopi has a handful of bars where holidaymakers gather for drinks and music, and some late-night spots that stay open until early morning, but it’s more laid-back pub style fun. Meanwhile, areas like Ipsos and Sidari have busier bar strips popular with younger crowds and tourists seeking a party vibe. Overall, you can tailor your nightlife on Corfu to be as relaxed or upbeat as you like."
+  },
+  {
+    "category": "Nightlife & City Life",
+    "q": "Where are the main nightclubs on the island?",
+    "a": "Most of Corfu’s big nightclub action is concentrated in a few areas. In Corfu Town, venues like 54 Dreamy Nights and Montecristo Club attract international DJs and stay open late, drawing a mix of locals and visitors. On the opposite end of the spectrum, Kavos (at the far south of the island, not near the villa) is known for its strip of clubs and bars catering to a very young crowd of tourists. Between those extremes, the north and east coasts have smaller clubs: for instance, Ipsos (about 30 minutes from the villa) has a club or two that get busy in high season. However, if you’re a guest at Villa Orama, you might find the nightlife of Kassiopi and evenings in Agios Stefanos or Corfu Town more appealing, as they offer music and atmosphere without the need for massive clubs."
+  },
+  {
+    "category": "Nightlife & City Life",
+    "q": "Do any beach bars turn into party spots after dark?",
+    "a": "Some beach bars on Corfu do host evening events, especially in high season. For example, as mentioned, Pazuzu Beach Bar in Glyfada often transitions from a daytime beach venue to an evening party spot with guest DJs on certain nights. In Sidari, a few beachfront bars have themed party nights. Closer to Villa Orama, most beachside establishments like those in Kassiopi or Agios Stefanos remain more restaurant/taverna-like in the evenings rather than full-on clubs, although you might find the occasional live music night or a spontaneous dance party at a bar. If you’re interested in a beach party experience, our concierge can inform you of any special beach events happening during your stay."
+  },
+  {
+    "category": "Nightlife & City Life",
+    "q": "Are there relaxed bars or lounges for a quieter evening nearby?",
+    "a": "Definitely. One of the pleasures of Corfu evenings is sitting at a relaxed waterfront bar with a drink in hand. In Kassiopi, for example, there are mellow cocktail bars overlooking the harbor (perfect for a pre- or post-dinner drink). Agios Stefanos has low-key wine bars where yachties and villa guests mingle in a peaceful setting by the water. Corfu Town offers some elegant lounge bars and rooftop bars – like the rooftop of the Cavalieri Hotel, which has gorgeous views over the old fortress, or a spot like Aegli in Liston which is more cafe-lounge by day and turns into a chic bar vibe at night. So if you prefer a chilled atmosphere for conversation and ambience rather than dancing, you’ll have plenty of choices."
+  },
+  {
+    "category": "Nightlife & City Life",
+    "q": "What kind of cultural evening activities are available besides bars and clubs?",
+    "a": "Corfu has a rich cultural scene, especially in summer. The island hosts the Corfu Summer Festival, which includes open-air concerts, traditional dance performances, and theater – often held in atmospheric venues like the Old Fortress or the open-air stage at Mon Repos. Classical music lovers can sometimes catch performances by the Philharmonic bands of Corfu or chamber music concerts in historic locations. Additionally, many villages celebrate patron saint festivals (\"panigyria\") on summer evenings, where you can experience live folk music and dancing in a very local setting (everyone is welcome to join in). Keep an eye out for posters or ask the concierge about any events during your stay – attending a cultural event can be a memorable way to spend an evening."
+  },
+  {
+    "category": "Nightlife & City Life",
+    "q": "Is the nightlife on Corfu suitable for families as well?",
+    "a": "Yes, in general Corfu’s nightlife can accommodate families, especially in the early evenings. The island’s dining culture is very family-friendly – it’s common to see Greek families with children out for dinner at 9 or 10 PM. In places like Kassiopi, the waterfront promenade and squares come alive at night with families strolling, kids enjoying ice cream, and sometimes small amusement rides or games in tourist areas. Of course, late-night clubs are adults-only, but the overall atmosphere in many areas is inclusive. If you have teenagers, for example, they might enjoy the music and scene at a beach bar until a reasonable hour. For younger kids, a post-dinner walk through the lit-up streets of a village or the open-air summer cinemas in Corfu Town can be great fun. As always, parental discretion is key, but Corfu is not an \"adults-only\" destination in the evenings by any means."
+  },
+  {
+    "category": "Nightlife & City Life",
+    "q": "Can you arrange late-night transportation so we don’t have to drive?",
+    "a": "Yes, we can absolutely arrange safe transportation for your nights out. If you plan to have drinks or just prefer not to navigate at night, our concierge can book a driver or a taxi to be at your service. We can set up a round-trip transfer to Corfu Town for an evening, for example, or have a driver pick you up from Kassiopi late at night if you decide to walk there and taxi back. Having a dedicated driver for the night can be a convenient and responsible way to enjoy Corfu’s nightlife without worries. Just let us know your plans and we’ll organize the details."
+  },
+  {
+    "category": "Nightlife & City Life",
+    "q": "Is spending an evening in Corfu Town a realistic option from the villa?",
+    "a": "Yes, many of our guests make a point to spend at least one evening in Corfu Town. It’s about an hour’s drive, so it’s definitely doable as a night out (just plan for the round-trip or arrange for a driver so you can relax). Corfu Town at night is magical – the old Venetian buildings are illuminated, the streets buzz softly with people enjoying dinner and gelato, and there are often events or live music in the squares. You might dine in a gourmet restaurant or simply wander and sip an after-dinner cocktail under the Liston arches. We recommend heading to town in the late afternoon (to catch sunset and a bit of shopping or sightseeing), then enjoying dinner and a stroll. With pre-arranged transport back, you can be home around midnight or later, as you prefer. It makes for a wonderful contrast to the villa’s tranquility on other nights."
+  },
+  {
+    "category": "Safety & Medical",
+    "q": "Is the area around Villa Orama generally safe for tourists?",
+    "a": "Yes, the northeast of Corfu is very safe and welcoming for travelers. Corfu as a whole enjoys low crime rates, and the region around the villa (being mostly local villages and high-end residences) is quiet and secure. People are friendly, and it’s the kind of place where neighbors know each other. Of course, it’s always wise to practice standard precautions (locking doors, not leaving valuables unattended on the beach, etc.), but you can feel at ease walking around villages at night or letting children play in the garden. Many high-profile visitors choose this part of Corfu exactly for its peace and safety."
+  },
+  {
+    "category": "Safety & Medical",
+    "q": "What security features does the villa have to protect guests?",
+    "a": "Villa Orama is well-equipped when it comes to security. The property is gated and fenced, providing privacy and control over who enters. We have a modern alarm system that you can arm when you go out or at night as you prefer. There are also a few exterior CCTV cameras monitoring the property’s entrance and perimeter (for security purposes only, with no cameras in private areas). Additionally, the villa provides a safe where you can store passports, cash, and other small valuables. All these measures are in place to ensure you feel secure, although the likelihood of any issues is very low in this area."
+  },
+  {
+    "category": "Safety & Medical",
+    "q": "Where is the nearest medical facility or doctor’s office to the villa?",
+    "a": "There is a medical clinic in Kassiopi (about 10 minutes away) that can handle basic healthcare needs, minor injuries, and consultations. In fact, Kassiopi has a private medical center (Corfu Medica) with English-speaking doctors, and they are accustomed to assisting tourists. For any urgent care or more serious medical issues, the main hospital (Corfu General Hospital) is located just outside Corfu Town, roughly a 50-minute drive from the villa. Additionally, the north of the island has a 24/7 health center in Acharavi (around 25 minutes away). Rest assured, medical care is within reach – and we also have contacts for doctors who can do villa visits if a check-up or treatment on-site is preferable."
+  },
+  {
+    "category": "Safety & Medical",
+    "q": "What hospital facilities are available on Corfu in case of an emergency?",
+    "a": "Corfu has a well-equipped general hospital near Corfu Town that can handle emergencies, surgeries, and in-patient care. There are also a couple of smaller private clinics in and around Corfu Town (such as a private General Clinic and a clinic in Gouvia). For emergencies, an ambulance can be dispatched (dial 112 or 166). If something serious were to happen in the northeast, typically one would go to the Corfu General Hospital about 32 km away. Our concierge or villa manager would assist in arranging transport or guiding medical services to you, whatever is needed."
+  },
+  {
+    "category": "Safety & Medical",
+    "q": "What are the emergency numbers in Greece we should be aware of?",
+    "a": "The pan-European emergency number 112 is the most important – you can dial 112 for police, medical, or fire emergencies and you’ll reach an operator (multiple languages are supported). Additionally, Greece has specific numbers: 166 will directly reach the ambulance/medical emergency line, 100 is the police, and 199 is the fire department. But again, 112 can route to any service you need. We’ll provide a villa directory with these numbers and others (like the local doctor, pharmacy, and your concierge’s number) so you have them handy. And remember, for any issue you can also call the villa manager to help coordinate a response."
+  },
+  {
+    "category": "Safety & Medical",
+    "q": "Are pharmacies easily accessible near Villa Orama?",
+    "a": "Yes, there are a few pharmacies in the area. The closest is in Kassiopi, where you’ll find a well-stocked pharmacy that’s open during normal business hours on weekdays and Saturday mornings. Pharmacies in Greece alternate after-hours duties, so on any given evening or Sunday, one pharmacy in the broader area will be open – posted schedules in the pharmacy windows or a quick call can identify which one is on duty. The pharmacists in Corfu generally speak good English and can advise on over-the-counter medicines or minor ailments. For anything specific, the villa concierge can help you locate and contact a pharmacy or even arrange delivery of medicines if needed."
+  },
+  {
+    "category": "Safety & Medical",
+    "q": "Is the tap water safe to drink at the villa?",
+    "a": "Tap water in Corfu is treated and generally considered safe microbiologically. That said, it can have a different mineral taste, and many locals and visitors prefer to drink bottled water. We provide an initial supply of bottled water for drinking. You can use the tap water for brushing teeth, cooking (it’s fine once boiled or in preparations), and making coffee/tea. For hydration, you might find bottled water more pleasant. It’s inexpensive and readily available at markets. We also ensure that the villa’s water supply is filtered for sediment. If you have any concerns, we can further discuss water quality, but rest assured there are no health hazards in the water – it’s largely a matter of taste."
+  },
+  {
+    "category": "Safety & Medical",
+    "q": "Is it safe to swim in the sea around the nearby beaches?",
+    "a": "Yes, swimming in the Ionian Sea around Corfu is generally very safe. The waters at beaches like Avlaki, Kerasia, and Kalamaki are typically calm, especially in the mornings, and there are no dangerous currents in those bays. There is no dangerous marine life to worry about – at most you might see small fish while snorkeling or the occasional harmless sea urchin on rocks (water shoes can help if you plan to clamber on rocky areas). Most organized beaches have lifeguards on duty during peak hours in July and August. As always, we advise normal caution: don’t swim immediately after a heavy meal or drinking, supervise children at all times, and heed any local warnings (rare, usually only if a storm is coming). But overall, Corfu’s coastal waters are welcoming and perfect for swimming."
+  },
+  {
+    "category": "Families & Kids",
+    "q": "Is Villa Orama suitable for families with children?",
+    "a": "Absolutely. Villa Orama is very family-friendly and often hosts multi-generational groups. The single-story layout is convenient (no internal stairs to worry about for toddlers), and the villa can provide baby cots and high chairs on request, making it easier for parents of infants. The private pool and spacious terrace provide endless fun for kids, and the secure, gated property means children can play around without outside disturbance. Families appreciate the combination of private space at the villa and the array of nearby family activities like safe beaches and excursions."
+  },
+  {
+    "category": "Families & Kids",
+    "q": "Do you provide baby equipment such as cribs and high chairs?",
+    "a": "Yes. If you’re traveling with a baby or toddler, we can have a baby cot (crib) and a high chair ready for you at no extra charge. We can also arrange other baby items by request, such as a baby bath, changing mat, or even a stroller, to make your stay as easy as possible. Just let us know what you need in advance and we’ll do our best to source it. We understand that traveling with little ones requires some extra gear, and we aim to lighten that load for you."
+  },
+  {
+    "category": "Families & Kids",
+    "q": "Is the pool safe for young children?",
+    "a": "The infinity pool at Villa Orama is a stunning feature, but as with any pool, supervision is key. The pool does not have a built-in fence, so if you have very young children or non-swimmers, you’ll need to keep a close eye on them whenever the terrace area is in use. We can arrange a temporary pool fence or alarm system if notified in advance, to add peace of mind for families with toddlers. The pool itself has a consistent depth suitable for swimming (it’s designed as a lap pool), so there isn’t a shallow kiddie section—floatation devices and constant adult supervision are a must for kids. Many families have enjoyed the pool safely; we simply encourage diligent supervision and we’re happy to discuss safety arrangements to ensure everyone can relax."
+  },
+  {
+    "category": "Families & Kids",
+    "q": "Can you arrange babysitting or nanny services?",
+    "a": "Yes, we can connect you with reliable local babysitters or professional nannies. Many have experience working with international families and can engage children in activities or simply watch over them while parents enjoy a worry-free dinner out. Babysitting can be arranged for a few hours during the day or evening, and some nannies can be booked for multiple days or the entire duration of your stay if you desire full-time help. All childcare providers we recommend are vetted and, in most cases, English-speaking. Just let us know your needs, and we’ll set it up so you can have both family time and adult time during your holiday."
+  },
+  {
+    "category": "Families & Kids",
+    "q": "What on-site activities or entertainment does the villa have for kids?",
+    "a": "Kids absolutely love the pool – it tends to be the focal point of on-site fun. We provide pool floats and some toys so they can play games in the water. Inside the villa, the Smart TVs (with Netflix, etc.) can keep them entertained with their favorite shows or movies during downtime. We also stock some board games and cards for family game nights, and there’s space outdoors for simple games (we keep a football/soccer ball and paddleball set at the villa). If you have infants or very young children, the single-level open layout makes it easy for them to toddle around safely. And of course, the novelty of things like feeding the villa’s friendly resident fish in the pond (if applicable), or just exploring the garden, can be fun for kids. If there’s anything specific that would help your children enjoy the stay (like a cot-side mobile or pool fence as mentioned), do ask and we’ll try to assist."
+  },
+  {
+    "category": "Families & Kids",
+    "q": "Are there family-oriented attractions or activities nearby?",
+    "a": "Yes, plenty. Within a short drive, you have options like horseback riding at a nearby riding school in Avlaki – they offer lessons or trail rides suitable for kids and adults. The arena’s gentle horses and ponies are great for first-time riders. For a splashy day out, Acharavi’s Hydropolis water park (a modest-sized park) or the larger Aqualand near the island center are always a hit with kids. If your children are interested in nature, you could take them to the Corfu Aquarium in Paleokastritsa (where they can see and even touch marine creatures), or on a glass-bottom boat ride from Kassiopi to spot fish. There’s also a renowned Donkey Rescue Center in central Corfu that some families visit for a unique experience. And simply exploring Corfu Town can be fun for kids – eating gelato, riding the little tourist train, or running around the Esplanade green. We’d be happy to tailor recommendations based on your children’s ages and interests."
+  },
+  {
+    "category": "Families & Kids",
+    "q": "Are restaurants in the area welcoming to children?",
+    "a": "Absolutely – Greek culture is very family-oriented, and children are warmly welcomed in virtually all restaurants and tavernas. You’ll find that even in the evening, local families have kids out at the tavernas, and the staff will typically dote on them. High chairs are available in many places, and menus are flexible – most tavernas can quickly prepare child-friendly dishes (like plain pastas, omelettes, simple grilled chicken, or fries) even if they’re not on the menu. Many restaurants in tourist areas also offer kids’ menus. So whether you go to a casual grill or a nicer seafood restaurant, you can comfortably bring the whole family. If you need specific recommendations for particularly kid-friendly eateries (with play areas, for example), our concierge can point those out too."
+  },
+  {
+    "category": "Families & Kids",
+    "q": "Can the private chef prepare kid-friendly meals as well?",
+    "a": "Yes, certainly. Our chefs are very flexible and can cater to younger palates just as well as gourmet tastes. If you have children in the group, the chef can propose a kid-friendly menu portion – for example, homemade pizzas, pasta with simple sauces, fresh chicken souvlaki with veggies, or even fun Greek dishes adapted for kids. They can also make sure there are always some staples on hand that kids tend to like (juice, cereal, sandwiches, etc.). Mealtimes on holiday should be enjoyable for everyone, so the chef will happily accommodate any food preferences or requests from the little ones in your group."
+  },
+  {
+    "category": "Rates & Payments",
+    "q": "How are the rental rates for Villa Orama structured throughout the year?",
+    "a": "Rates for Villa Orama vary by season and demand. Generally, the highest rates apply during peak summer months (July and August) when demand is greatest – these months command premium weekly prices. Mid-season periods like late May, June, early July, and September are typically a bit more moderate in price, offering good value while still enjoying warm weather. Off-season or shoulder months (April, October, etc.) have lower rates, as do winter months if the villa is available then. There may also be special holiday week pricing (for example, around Easter or the May spring holidays). We provide exact quotes based on your dates; rest assured the pricing will include the amenities and services described, with no surprise fees beyond what’s clearly stated."
+  },
+  {
+    "category": "Rates & Payments",
+    "q": "Is there a minimum stay requirement at Villa Orama?",
+    "a": "Yes, Villa Orama typically has a minimum stay, which can vary by season. During the high season (especially July and August), a minimum stay of 7 nights is usually required (Saturday-to-Saturday rentals are common). In shoulder seasons (like May, June, September) the minimum stay might be around 5 nights. Off-season periods can sometimes be more flexible, potentially 3 nights or so, depending on availability. These policies ensure that guests have ample time to enjoy the villa and also help us manage booking logistics. However, it’s always worth inquiring if you have slightly shorter dates; occasionally there are gaps we can accommodate."
+  },
+  {
+    "category": "Rates & Payments",
+    "q": "What deposit is required to confirm a booking?",
+    "a": "To secure a reservation at Villa Orama, a booking deposit is typically required. This is often around 30-50% of the total rental cost (exact percentage depends on how far in advance you’re booking and the policies at the time). For example, many bookings are confirmed with a 50% deposit with the balance due a few weeks before arrival. We will provide you with the payment schedule in writing. The deposit is usually non-refundable (or partially refundable under certain conditions) since it blocks the dates for you, so we recommend having travel insurance in case of unforeseen changes."
+  },
+  {
+    "category": "Rates & Payments",
+    "q": "What payment methods are accepted for booking the villa?",
+    "a": "We accept various payment methods to make it convenient for our guests. Bank wire transfers in Euros are a common method for villa rentals. We can also usually accept major credit cards (Visa, MasterCard, and sometimes American Express) via a secure payment link or a concierge service. In some cases, platforms like PayPal or Wise can be used if agreed in advance. If you’re booking through a rental platform (like Airbnb or similar), then payment would be handled through that platform’s system. We’re flexible and will work with you to find the most suitable and secure payment method for the deposit and balance."
+  },
+  {
+    "category": "Rates & Payments",
+    "q": "Is a security deposit required, and how is it handled?",
+    "a": "Yes, we do require a security deposit to cover any potential damages or excessive cleaning. The amount is typically around €1,000 (or equivalent), but it can vary. If you book via a platform, it may simply be a hold on your credit card. If booking directly, it might be payable with your balance or as a credit card authorization on arrival. This deposit is fully refundable after your stay, provided the villa is left in good condition with no significant damage or loss. We understand accidents can happen, so we encourage guests to inform us of any incidents – usually things can be resolved amicably. Our aim isn’t to withhold deposits, just to ensure the property remains in top shape for all guests."
+  },
+  {
+    "category": "Rates & Payments",
+    "q": "Are utilities and standard services included in the rental rate?",
+    "a": "Yes. The rental rate you are quoted is generally all-inclusive of the standard utilities (electricity, water) and the services we’ve described (housekeeping, pool/garden maintenance, Wi-Fi, etc.). There are no extra charges for basics like air-conditioning usage or similar – those are part of the rental. The only additional costs would be for optional services or requests (for example, hiring a private chef, spa treatments, boat rentals, etc., or heating the pool/hot tub if that’s requested out of season and incurs an extra cost). We’ll always clarify in advance if any service you ask for carries an additional fee, so you can make informed decisions."
+  },
+  {
+    "category": "Rates & Payments",
+    "q": "Are there any taxes or extra fees we should be aware of?",
+    "a": "Greece imposes a small overnight stay tax for accommodations, but in the case of a villa rental like ours, this is usually included in the rate or handled by us, so you likely won’t notice it. The tax is on the order of a few euros per night for the whole villa, so it’s minimal. Other than that, we do not have any hidden fees. Cleaning, linens, etc., are part of the rental. Any potential extra charges (like an event fee if you’re having an approved event, or pet fee if applicable) will be communicated clearly. We strive for transparency so you know the total cost up front."
+  },
+  {
+    "category": "Rates & Payments",
+    "q": "What is the typical cancellation policy for Villa Orama?",
+    "a": "The cancellation policy can depend on how you book (direct vs. platform) and the time of year, but in general our policy is moderate but becomes stricter closer to the arrival date. For example, you might receive a full refund of your deposit if you cancel far in advance (e.g., 60 days or more before arrival), but if you cancel last-minute (e.g., within 30 days of arrival), the rental is usually non-refundable. We highly recommend purchasing travel insurance for peace of mind, especially for high-value bookings. We will always outline the specific cancellation terms in your rental agreement. If an unforeseen circumstance arises, we are open to discussion and will try to be fair, potentially offering to move dates or give a partial refund if rebooking is possible, but we must also adhere to our policies to protect the villa’s bookings."
+  },
+  {
+    "category": "Accessibility",
+    "q": "Is Villa Orama suitable for guests who use wheelchairs?",
+    "a": "Villa Orama is a single-story property which helps, but it was not specifically designed to be wheelchair-accessible, so there are some limitations. There are a few steps leading up from the parking area to the villa entrance, and while inside is all one level, the doorways and bathrooms are standard width (not widened for wheelchair passage or roll-in showers). If a guest uses a wheelchair part-time or has some mobility, they may find the villa manageable with assistance for those few steps, but a full-time wheelchair user might face some challenges. We regret that it’s not fully ADA-style accessible."
+  },
+  {
+    "category": "Accessibility",
+    "q": "Can guests with limited mobility still enjoy the property?",
+    "a": "Yes, guests with mild to moderate mobility limitations can generally enjoy Villa Orama. Two of the bedrooms open directly onto the pool terrace, so they involve minimal walking and no stairs once you’re inside the home. We can also place ramps on one or two small steps if needed (for instance, at the threshold to the terrace) to make movement easier. All essential living is on one floor, which is a big advantage. As long as a guest can handle a step or two (perhaps with support or a cane), they should be able to navigate the villa itself. Our team is happy to answer specific questions about the layout to ensure it meets your needs."
+  },
+  {
+    "category": "Accessibility",
+    "q": "Are there many stairs between the villa and the outdoor areas or parking?",
+    "a": "No, the design of Villa Orama minimizes stairs. From the parking area, there are a few steps to reach the main entrance and terrace level. Once on the terrace, the pool, outdoor lounge, and main living areas are all on that single level. The bedrooms are also on this level. So essentially, it’s just the initial entry where stairs come into play. There are also some steps if you explore the garden on foot due to the natural slope of the land, but those are avoidable if one stays on the main terrace. If someone in your party has trouble with steps, we can help strategize how to move around the property in the safest way."
+  },
+  {
+    "category": "Accessibility",
+    "q": "Can any accessibility aids or equipment be provided if needed?",
+    "a": "We can try to accommodate special requests to make your stay easier. For example, we can source a portable ramp for the entry steps to allow a wheelchair or walker to roll in more easily. We can also provide a shower chair or stool for use in the bathroom if standing for long is an issue. Our team is attentive and willing to assist guests with mobility issues in getting comfortable. While these aids won’t remove all barriers (given the villa’s structure), they can help mitigate certain challenges. Please let us know in advance what would be helpful and we will do our best to arrange it."
+  },
+  {
+    "category": "Accessibility",
+    "q": "Are there wheelchair-accessible attractions or areas nearby that we can visit?",
+    "a": "Corfu’s terrain is hilly in many places, but there are certain areas that are relatively accessible. Corfu Town has some flat parts (like around the Liston and Spianada) and ramps in key areas (museums, the new fortress, etc.) so a wheelchair user can explore parts of it, albeit with cobblestones in some streets. Some beaches, like Dassia or parts of Ipsos, are flat and have accessible facilities (and at times even amphibious wheelchairs for swimming, though those programs vary by year). Large resorts (e.g., in Dassia or Kommeno) often have good accessibility and you can visit their restaurants or beach areas. We can provide specific guidance or contact a local tour service that offers wheelchair-friendly excursions to ensure you see the beauty of Corfu with minimal obstacles."
+  },
+  {
+    "category": "Accessibility",
+    "q": "Does the pool have any accessibility features, such as handrails or a lift?",
+    "a": "The infinity pool at Villa Orama is sleek in design and does not have a specialized pool lift or zero-entry ramp. It is accessed by standard built-in steps in one corner. There is a handrail at the very top of those steps to assist with entry and exit, but it’s the typical pool style ladder/rail rather than a full ramp. If swimming is a therapy or a must for a guest with mobility issues, and they have some ability to use steps with assistance, it might be feasible, but if a guest cannot use steps at all, unfortunately the pool would not be accessible to them. They could still enjoy the terrace and perhaps the hot tub if getting in is easier, but the main pool doesn’t have specialized accessibility adaptations."
+  },
+  {
+    "category": "Accessibility",
+    "q": "Is there an easily accessible ground-floor bathroom and bedroom?",
+    "a": "All bedrooms and their en-suite bathrooms are on the ground floor, which is very convenient. You won’t need to climb stairs to reach any bedroom. However, ‘ground floor’ in this sense is the same level as the living area and pool terrace (after you’ve ascended the initial entry steps). Each bedroom’s en-suite is a step-in bathroom (no bathtub except the one open-air tub in the master, but even that has a step to get in). None of the showers are barrier-free (they have a small lip to keep water in). If someone cannot step into a shower, we might place a stool and a handheld shower attachment to help them bathe with assistance. So while everything is on one floor (great for accessibility), the bathrooms aren’t fully wheelchair-adapted, but manageable for someone with some mobility who perhaps uses a walker or walking stick."
+  },
+  {
+    "category": "Accessibility",
+    "q": "What should guests with mobility issues consider before booking Villa Orama?",
+    "a": "We encourage guests with mobility concerns to discuss specifics with us. Important points: there are a few unavoidable steps (especially at the entrance), and standard bathroom layouts. If a guest can handle a couple of steps with help and doesn’t require fully wheelchair-adapted facilities, they will likely be comfortable. If a guest is fully wheelchair-bound and independent movement is crucial, the villa might pose difficulties, since door widths and shower access aren’t optimized for wheelchairs. In summary, Villa Orama works well for those with minor mobility limitations (perhaps the elderly who can walk slowly or someone using a cane), but it’s not ideal for severe mobility impairments without significant assistance. We’ll be transparent in evaluating your needs to ensure the villa is a good fit for your party."
+  },
+  {
+    "category": "Pets",
+    "q": "Are pets allowed at Villa Orama?",
+    "a": "Yes, we are pet-friendly on a case-by-case basis. Well-behaved dogs (usually up to medium size) are welcome at Villa Orama with prior approval from the owner/manager. We understand pets are part of the family! If you’d like to bring a pet, just let us know in advance with details (breed, size, trained, etc.) and we will likely be able to accommodate. We just ensure that certain basic rules are agreed upon to keep the property in great condition and respect future guests who may have allergies."
+  },
+  {
+    "category": "Pets",
+    "q": "Is there an additional fee or deposit for bringing a pet?",
+    "a": "We may charge a small additional cleaning fee for a pet, or request an extra security deposit, just to cover any extra cleaning (like pet hair removal) or the slight increased risk of wear and tear. Typically the pet cleaning fee is a modest flat amount. Assuming no pet-related damage, any pet deposit would be fully refundable. Service animals, of course, are exempt from fees. We’ll be transparent about any costs in advance, so you’ll know exactly what to expect."
+  },
+  {
+    "category": "Pets",
+    "q": "What house rules apply to pets during the stay?",
+    "a": "We ask that pets be house-trained and not allowed on the beds or furniture (to prevent scratches or fur build-up on upholstery). Please clean up after your pet in the villa grounds (we can provide waste bags). We also request that you do not leave pets unattended in the house or garden for long periods, especially if they might become anxious – a bored pet could scratch doors or cause disturbance. If your dog is a swimmer, kindly rinse them off after the beach before they jump in the pool, to help keep the pool clean. These simple guidelines help ensure that having a pet doesn’t affect the luxury experience for you or future guests. We find that pet owners are usually very responsible, so it rarely is an issue."
+  },
+  {
+    "category": "Pets",
+    "q": "Can dogs enjoy the beach and outdoor areas around the villa?",
+    "a": "Yes, there are plenty of outdoor opportunities for dogs. The villa’s private garden/grounds give your dog space to sniff and play (just keep an eye on them because, while the property is fenced/gated, an agile dog might find an escape route if determined). Many of the nearby beaches (like those small coves) are not crowded and you’ll often see locals walking their dogs there, especially in the early morning or evening. Officially, dogs should be on leash on public beaches, but if the beach is quiet and your dog is under voice control, you’ll have flexibility. We only ask that you ensure your dog doesn’t disturb other guests or damage anything. Otherwise, by all means let them enjoy the sea and nature – it’s a dog’s holiday too!"
+  },
+  {
+    "category": "Pets",
+    "q": "Is the property fully fenced to contain pets?",
+    "a": "The property is largely fenced and enclosed, especially around the main living areas and parking, which helps keep pets contained. However, the perimeter goes into some olive groves and greenery where a small determined dog might find gaps or jump a low wall. We recommend supervising your pet when outdoors just to be safe. Most dogs will be fine exploring the immediate terrace and garden area, but if your pet is an escape artist, you may want to keep them leashed or within sight. We can show you the layout on arrival so you know where the boundaries are secure."
+  },
+  {
+    "category": "Pets",
+    "q": "Are pet-sitting or dog-walking services available if we go out for the day?",
+    "a": "If you plan an all-day excursion where pets aren’t allowed (for example, a long boat trip or a visit to a museum), we can assist in arranging a pet-sitter or dog-walker to check in on your pet or take them for a walk. We have contacts with reliable pet care providers on the island. They can either stay with your pet at the villa for a few hours or do visits as needed. Just let us know your schedule and we’ll find a solution so your furry friend is looked after and happy while you’re out enjoying Corfu."
+  },
+  {
+    "category": "Pets",
+    "q": "Are there veterinarians nearby in case of pet emergencies?",
+    "a": "Yes, there are veterinary clinics on the island and even one in the north. The closest vet service is in Acharavi (around 25 minutes from the villa) and there’s also a veterinary clinic in Corfu Town. Additionally, there’s a vet who makes rounds in the Kassiopi area by appointment. If your pet needs medical attention, our team will help you get in touch with a vet or arrange an appointment. We can also guide you to the nearest pet pharmacy for any pet medications. Hopefully it won’t be needed, but it’s good to know it’s available."
+  },
+  {
+    "category": "Pets",
+    "q": "Do you accept pets other than dogs, such as cats?",
+    "a": "We consider pets on a case-by-case basis. Dogs are the most common and generally welcome with approval. For other animals (cats, birds, etc.), it’s not our usual practice to host them due to concerns like allergies and property considerations, but we wouldn’t automatically say no – please inquire and tell us about your pet. We’ve found that cats can be a bit tricky in a new environment and may scratch furniture or try to escape, so we’d need assurances and a plan for a cat’s comfort and safety. In all cases, we’ll try to be accommodating if possible, as long as we’re confident the pet won’t detract from the villa’s condition or future guests’ comfort."
+  },
+  {
+    "category": "Climate & Weather",
+    "q": "What is the climate like in Corfu and the northeast region?",
+    "a": "Corfu has a classic Mediterranean climate. Summers (June through August) are generally hot, sunny, and dry, while winters (December through February) are mild but can be rainy. The northeast region where Villa Orama is located benefits from refreshing breezes off the sea in summer and is one of the lushest parts of Corfu thanks to rainfall in the cooler months. Overall, you can expect long sunny days during the main tourist season, comfortable shoulder seasons, and green landscapes due to winter rains. Corfu is known as the Emerald Island for its greenery – so unlike some arid Greek isles, it remains verdant even in summer."
+  },
+  {
+    "category": "Climate & Weather",
+    "q": "What are typical summer temperatures and sea conditions in Corfu?",
+    "a": "In July and August, daytime high temperatures in Corfu typically reach around 30–35°C (86–95°F). At night, it cools down to the low-mid 20s°C (70s°F), which is pleasant for evenings outdoors. Humidity is moderate, and the area sees plenty of sunshine (10-12 hours of sun a day). The sea is wonderfully warm by mid-summer – surface water temperatures average 24–27°C (mid-70s°F), making swimming very comfortable. The Ionian Sea is generally calm around the northeast; occasionally a light afternoon breeze (maestros wind) can pick up, which sailors enjoy, but it typically doesn’t disrupt swimming or boating. Overall, summer offers ideal beach and pool weather."
+  },
+  {
+    "category": "Climate & Weather",
+    "q": "Is May or September a good time to visit Corfu?",
+    "a": "Both May and September are fantastic times to visit if you prefer slightly milder temperatures and fewer crowds. In May, you’ll experience spring-like conditions: expect daytime highs around 23–27°C (73–80°F) and cooler nights around 15–18°C (59–64°F). The island is in bloom and very green, though note the sea is warming up from winter and is usually around 19–22°C (still a bit refreshing for long swims, but tolerable). September is one of our favorite months – summer warmth lingers with highs about 28–30°C (82–86°F) early in the month, dipping to mid-20s°C later. The sea is at its warmest (24–25°C) after heating all summer. The crowds start to thin after the first week, making it peaceful but everything is still open. Both months see plenty of sun and very little rain (especially May tends to be dry, though by late September you might get a short shower or two)."
+  },
+  {
+    "category": "Climate & Weather",
+    "q": "What is spring like on Corfu (March, April)?",
+    "a": "Spring in Corfu is beautiful and relatively mild. March can be cool to mild – with daytime temperatures around 16–19°C (60–66°F) and still chilly nights around 10°C (50°F). By April, highs reach the upper teens to low 20s Celsius (65–72°F) and nights become milder (around 12–15°C). Rainfall tapers off significantly compared to winter, but spring showers can occur. The island’s flora is at its peak: wildflowers everywhere, green hills – it’s great for hiking and exploring villages. While it’s too cool for most to swim (sea temperature is about 16–18°C in early spring), the weather is pleasant for outdoor activities. Also, Easter in Corfu (which often falls in April) is a huge cultural event, with processions and celebrations, offering a fascinating cultural experience for spring visitors."
+  },
+  {
+    "category": "Climate & Weather",
+    "q": "Can you swim in the sea in October?",
+    "a": "Early October often still feels like an extension of summer in Corfu. Daytime temperatures usually hover in the mid-20s°C (mid-70s°F), and the sea temperature in early October is around 22–24°C (low 70s°F) – which is generally comfortable for swimming, especially for those used to the Mediterranean. As October progresses, temperatures gradually dip and the chance of rain increases, particularly later in the month. By late October, highs in the low 20s and sea temps around 20°C mean swimming is for the more adventurous, and you’ll want a light jacket in the evenings. Many people do enjoy the beach through mid-October without issue. Plus, October offers the benefit of fall colors in the landscape and the olive harvest beginning – it’s a quieter, picturesque time on the island."
+  },
+  {
+    "category": "Climate & Weather",
+    "q": "How are the winters in Corfu if we visit in the off-season?",
+    "a": "Corfu’s winters are mild compared to northern Europe but can be wet. From November to February, expect daytime temperatures roughly 10–16°C (50–60°F). Nights can drop to around 5–8°C (40s°F) on the coldest occasions. It’s sweater and jacket weather, but rarely frost – snow is almost unheard of in the lowlands (occasionally the mountain tops get a dusting). The island gets the majority of its rainfall in winter, which is why it stays so green. You’ll find a very quiet Corfu in winter: most tourist facilities close, and life is slow-paced and local. However, the villa with its heating and fireplace can be a cozy retreat if you enjoy tranquility, walks in nature, and the dramatic waves and skies of wintertime. Just come prepared for the possibility of rain and enjoy the island’s serene off-season beauty."
+  },
+  {
+    "category": "Climate & Weather",
+    "q": "Does the northeast coast experience strong winds or weather systems?",
+    "a": "The northeast coast of Corfu is generally sheltered compared to some other Greek islands. We don’t get the strong Meltemi winds that the Aegean islands do in summer. Summer winds here are usually light and welcome (a gentle breeze on a hot day). Occasionally, a northerly wind (Maistros) can pick up, offering great sailing conditions, but it’s rarely disruptive. Thunderstorms can occur on hot humid days, but they tend to be brief. In late autumn, the area can get breezy when weather fronts pass, and you might see some spectacular lightning over the sea, but the villa itself is in a safe, elevated position. We always secure outdoor umbrellas when a storm is expected, just as a precaution. Overall, weather extremes are infrequent; the climate is generally quite gentle in this corner of Corfu."
+  },
+  {
+    "category": "Climate & Weather",
+    "q": "When is the overall best time to stay at Villa Orama?",
+    "a": "It really depends on your preferences: \n- **July and August** are best if you love guaranteed hot weather, a vibrant atmosphere, and full summer buzz (great for nightlife and busy beaches). \n- **Late June and early September** often strike a perfect balance – very warm and summery but a bit less crowded and slightly gentler heat. \n- **May and October** are wonderful for a mix of warm (not hot) weather, quieter surroundings, and enjoying nature – you can often swim during these months too (especially in May-end or early Oct). \n- If you value tranquility above all, **April or even off-season months** let you experience the island’s culture and scenery without tourism, but with cooler weather.\n\nFor most guests, we often recommend mid-June or September as the \"sweet spots\" for a luxury villa stay: you get the summer feel and villa pool experience with just a touch more serenity. But truly, Villa Orama is a delight whenever you choose to visit!"
+  },
+  {
+    "category": "Special Features of Villa Orama",
+    "q": "What makes Villa Orama’s location unique compared to other villas?",
+    "a": "Villa Orama is blessed with a location that combines rare elements: it’s perched on a private hillside offering panoramic views, yet it’s only a few minutes’ drive from charming coastal villages and beaches. Many villas in Corfu are either right by the sea (lovely, but they may lack privacy or elevation for views), or tucked further inland. Orama gives you that eagle’s nest vantage point – you see the Ionian Sea, the coastline, and even another country (Albania) – while still being close to the action. Additionally, the northeast coast is the most sought-after area in Corfu for upscale travelers. The villa sits in a peaceful traditional hamlet, so you experience authentic local ambiance, unlike some villas in busy resort areas. In short, Orama’s location offers a perfect blend of seclusion, scenery, and convenience."
+  },
+  {
+    "category": "Special Features of Villa Orama",
+    "q": "How special are the views from Villa Orama?",
+    "a": "The views are truly exceptional and one of the villa’s defining features. From virtually every part of the property – whether you’re in the living room, on the pool deck, or waking up in your bedroom – you have sight of the sea and often the coastline of Corfu and mountains of Albania. By day, the expanse of blue water and green hills is soothing and grand. You can watch boats sailing between Corfu and the mainland, and see the pretty harbor of Kassiopi below. By night, you might catch the twinkling lights of distant villages across the channel and a moonlit sea. Guests often mention that photos can’t do the panorama justice – it’s something you have to experience. Whether it’s sunrise with coffee or an evening glass of wine with the view, the scenery at Villa Orama leaves a lasting impression."
+  },
+  {
+    "category": "Special Features of Villa Orama",
+    "q": "What distinguishes the villa’s pool and outdoor living spaces?",
+    "a": "Villa Orama’s outdoor areas are designed to wow. The infinity lap pool (19 meters long) is quite unique – it’s longer than most villa pools, allowing for proper lap swimming. Its infinity edge creates a visual effect where the pool seems to merge with the treetops and sea beyond, giving swimmers a thrilling sensation of floating in the sky. Surrounding the pool is a spacious terrace with stylish sun loungers and a shaded lounge area – carefully furnished for maximum comfort. The outdoor dining area and barbecue corner make it easy to live outside all day. In the evenings, the pool and terrace lighting create a magical ambience for relaxation or entertaining. Many villas have nice pools, but Orama’s combination of pool design, view, and ample elegant outdoor space takes it to a five-star resort level, but it’s all exclusively yours."
+  },
+  {
+    "category": "Special Features of Villa Orama",
+    "q": "Does the villa offer any spa-like or wellness experiences on-site?",
+    "a": "Yes, we can help bring wellness and spa experiences to you at Villa Orama. The tranquil setting is perfect for private yoga or Pilates sessions on the terrace at sunrise – we can arrange for a qualified instructor to come to the villa. Additionally, massage and spa therapists are available on-call. We can set up a massage station outdoors in the shade or inside the villa, and you can indulge in a relaxing massage, facial, or beauty treatment with the sounds of nature in the background. There is also a hot tub on the terrace for a therapeutic soak. Essentially, we aim to provide a full wellness retreat experience if you desire – without you having to leave the property."
+  },
+  {
+    "category": "Special Features of Villa Orama",
+    "q": "Is Villa Orama suitable for special photo shoots or content creation?",
+    "a": "Absolutely. The villa’s sleek architecture, designer interiors, and breathtaking backdrop make it a fantastic setting for photo shoots, whether it’s for lifestyle, fashion, or family portraits. We’ve had guests use Orama as a setting for professional photos and even small film projects (with permission). Every corner is photogenic – from the infinity pool with its view to the stylish living room with floor-to-ceiling glass. If you intend to do any organized photo or video shoot, just let us know so we can discuss any necessary arrangements (such as timing to respect neighbors’ privacy, etc.). But yes, even for your personal vacation photos, you’ll find the villa provides an Instagram-worthy scene at every turn!"
+  },
+  {
+    "category": "Special Features of Villa Orama",
+    "q": "How does Villa Orama compare to other luxury villas in Corfu?",
+    "a": "Villa Orama stands out for several reasons. Firstly, it’s brand new and architect-designed, which means you get modern aesthetics (clean lines, open spaces, big glass panels) and the latest amenities – whereas some Corfu villas can be older or more traditional in style. Secondly, the attention to indoor-outdoor flow is exceptional. Many villas have nice interiors but less thought-out outdoor areas; Orama was designed by an architect passionate about blending the two, so you have this seamless experience and every room opens to a view. Service-wise, Orama offers concierge-level assistance similar to what you’d get at a luxury boutique hotel, combined with the privacy of a standalone home. Finally, the location in Kremithas is prime – you’re basically in the ‘VIP’ belt of Corfu (the Rothschild estate and some of the island’s most famous villas are in this vicinity), which speaks to the quality of the surroundings. All in all, Orama delivers a level of design, comfort, and location that even among luxury Corfu villas is top-tier."
+  },
+  {
+    "category": "Special Features of Villa Orama",
+    "q": "Does the villa offer a good balance of privacy and access to activities?",
+    "a": "Yes, this balance is one of Villa Orama’s strongest advantages. On the property, you are in a world of your own – not overlooked by tourist crowds or neighboring hotels. You can swim in the pool or sunbathe in complete privacy. The only sounds are likely birds and cicadas. Yet, whenever you want a change of pace, you’re just a short drive from places like Kassiopi and Agios Stefanos where you can dine out, browse shops, or hop on a boat. You can easily go from utter seclusion to social and back in the span of an afternoon. Many guests split their days – quiet mornings at the villa, afternoons at the beach or exploring, then back to their sanctuary. In essence, Villa Orama serves as a serene retreat without cutting you off from the fun and convenience of Corfu’s attractions."
+  },
+  {
+    "category": "Special Features of Villa Orama",
+    "q": "Who is Villa Orama best suited for?",
+    "a": "Villa Orama is ideal for discerning travelers who seek a blend of luxury, tranquility, and authentic locale. It works wonderfully for:\n- **Families**: either one large family or two families traveling together (the 4 bedrooms give everyone space, and the one-level layout is great for kids).\n- **Groups of friends**: looking for a stylish getaway with equal measures of relaxation (pool, views, services) and adventure (water sports, nightlife trips to town).\n- **Couples retreat**: sometimes we have an extended family of adult couples or a few couples vacationing together – each gets a beautiful bedroom suite and you share the common luxury spaces.\n- **Special occasions**: such as a milestone birthday, a small reunion, or an intimate wedding/proposal setting.\n\nGiven the high-end nature of the villa, it particularly appeals to guests who might usually stay in 5-star hotels but want the privacy and space of a villa, as well as those who appreciate modern design. If your idea of a perfect holiday is waking up to breathtaking views, having concierge-style help at hand, and enjoying a private resort-like atmosphere, Villa Orama will suit you perfectly."
+  }
+    ]
+  },
+  "seo": {
+    "title": "Villa Orama Corfu | Luxury Design Villa with Infinity Pool & Sea Views",
+    "description": "Experience elevated Greek island living at Villa Orama in Northeast Corfu. 4 en-suite bedrooms, 19m infinity pool, panoramic Ionian Sea views, and bespoke concierge. Perfect for discerning travelers seeking privacy and sophistication."
+  },
+  "contact": {
+    "phone": "+30 6948 474 488",
+    "email": "jc@elitecartagena.com",
+    "whatsapp": "306948474488"
+  }
+}

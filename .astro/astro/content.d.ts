@@ -195,6 +195,16 @@ declare module 'astro:content' {
   collection: "villas";
   data: any
 };
+"villa-orama.el": {
+	id: "villa-orama.el";
+  collection: "villas";
+  data: any
+};
+"villa-orama.en": {
+	id: "villa-orama.en";
+  collection: "villas";
+  data: any
+};
 };
 
 	};

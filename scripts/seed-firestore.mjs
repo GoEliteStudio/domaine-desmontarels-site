@@ -124,6 +124,56 @@ const VILLAS_DATA = [
       status: 'active',
     },
   },
+  {
+    owner: {
+      name: 'Villa Kassandra Owner',
+      email: 'jc@elitecartagena.com',
+      tier: 'asset-partner',
+      stripeAccountId: '',
+      currency: 'EUR',
+      contractMonths: 12,
+      commissionPercent: 10,
+    },
+    listing: {
+      slug: 'villa-kassandra',
+      type: 'villa',
+      name: 'Villa Kassandra',
+      location: {
+        country: 'Greece',
+        region: 'Halkidiki',
+        city: 'Kassandra',
+      },
+      maxGuests: 14,
+      commissionPercent: 10,
+      baseCurrency: 'EUR',
+      status: 'active',
+    },
+  },
+  {
+    owner: {
+      name: 'Villa ORAMA Owner',
+      email: 'jc@elitecartagena.com',
+      tier: 'asset-partner',
+      stripeAccountId: '',
+      currency: 'EUR',
+      contractMonths: 12,
+      commissionPercent: 10,
+    },
+    listing: {
+      slug: 'villa-orama',
+      type: 'villa',
+      name: 'Villa ORAMA Corfu',
+      location: {
+        country: 'Greece',
+        region: 'Corfu',
+        city: 'Kremithas',
+      },
+      maxGuests: 8,
+      commissionPercent: 10,
+      baseCurrency: 'EUR',
+      status: 'active',
+    },
+  },
 ];
 
 // ============================================================
