@@ -148,12 +148,22 @@ const jsonLd = buildSchemaGraph({
 });
 
 // Content Setup
-const trustItems = [
+const isSaleListing = villa.listingType === 'sale';
+
+const trustItems = isSaleListing ? [
+  { icon: 'fas fa-folder-open', title: ui.saleTrustBar.legalDossierTitle, detail: ui.saleTrustBar.legalDossierDetail },
+  { icon: 'fas fa-shield', title: ui.saleTrustBar.secureTransactionTitle, detail: ui.saleTrustBar.secureTransactionDetail },
+  { icon: 'fas fa-clipboard-check', title: ui.saleTrustBar.dueDiligenceTitle, detail: ui.saleTrustBar.dueDiligenceDetail },
+  { icon: 'fas fa-calendar-check', title: ui.saleTrustBar.viewingTitle, detail: ui.saleTrustBar.viewingDetail },
+  { icon: 'fas fa-circle-check', title: ui.saleTrustBar.transparentPricingTitle, detail: ui.saleTrustBar.transparentPricingDetail }
+] : [
   { icon: 'fas fa-rotate-left', title: ui.trustBar.flexibleCancellationTitle, detail: ui.trustBar.flexibleCancellationDetail },
   { icon: 'fas fa-shield', title: ui.trustBar.secureContractTitle, detail: ui.trustBar.secureContractDetail },
   { icon: 'fas fa-phone', title: ui.trustBar.conciergeTitle, detail: ui.trustBar.conciergeDetail },
   { icon: 'fas fa-circle-check', title: ui.trustBar.transparentPricingTitle, detail: ui.trustBar.transparentPricingDetail }
 ];
+
+const trustBarHeading = isSaleListing ? ui.saleTrustBar.heading : undefined;
 
 const specsArray = [
   { icon: 'fas fa-bed', label: ui.specs.bedrooms, value: String(villa.specs.bedrooms) },
@@ -255,7 +265,7 @@ const tabs = [
     id: 'overview',
     label: ui.tabs.overviewLabel,
     heading: villa.headlines.overview,
-    paragraphs: [villa.content.overview, ...(villa.content.seoLong || [])]
+    paragraphs: [...(Array.isArray(villa.content.overview) ? villa.content.overview : [villa.content.overview]), ...(villa.content.seoLong || [])]
   },
   {
     id: 'amenities',
@@ -342,7 +352,7 @@ const villaFooter = {
     ctaText={villa.hero.ctaText || ui.hero.defaultCta}
   />
   
-  <TrustBar items={trustItems} />
+  <TrustBar items={trustItems} heading={trustBarHeading} />
 
   <section class="container experience" id="overview">
     <div class="experience-content">
@@ -370,12 +380,26 @@ const villaFooter = {
           <img src={hostImage} alt="Host" loading="lazy" />
         </figure>
         <div class="hosts-card">
-          <h2>{ui.hosts.heading}</h2>
+          <h2>{isSaleListing && ui.saleHosts ? ui.saleHosts.heading : ui.hosts.heading}</h2>
+          {isSaleListing && ui.saleHosts?.subtitle && (
+            <p class="hosts-subtitle">{ui.saleHosts.subtitle}</p>
+          )}
           <p class="hosts-names"><strong>{villa.content.hosts.names}</strong></p>
-          <p class="hosts-bio">{villa.content.hosts.bio}</p>
+          <p class="hosts-bio">{isSaleListing && ui.saleHosts ? ui.saleHosts.bio : villa.content.hosts.bio}</p>
           <ul class="hosts-highlights" aria-label="Host highlights">
-             <li><i class="fas fa-heart" aria-hidden="true"></i><span>{ui.hosts.itinerary}</span></li>
-             <li><i class="fas fa-user-shield" aria-hidden="true"></i><span>{ui.hosts.discreet}</span></li>
+            {isSaleListing && ui.saleHosts ? (
+              <>
+                <li><i class="fas fa-folder-open" aria-hidden="true"></i><span>{ui.saleHosts.bullet1}</span></li>
+                <li><i class="fas fa-chart-line" aria-hidden="true"></i><span>{ui.saleHosts.bullet2}</span></li>
+                <li><i class="fas fa-balance-scale" aria-hidden="true"></i><span>{ui.saleHosts.bullet3}</span></li>
+                <li><i class="fas fa-eye" aria-hidden="true"></i><span>{ui.saleHosts.bullet4}</span></li>
+              </>
+            ) : (
+              <>
+                <li><i class="fas fa-heart" aria-hidden="true"></i><span>{ui.hosts.itinerary}</span></li>
+                <li><i class="fas fa-user-shield" aria-hidden="true"></i><span>{ui.hosts.discreet}</span></li>
+              </>
+            )}
           </ul>
         </div>
       </div>
@@ -574,6 +598,7 @@ const villaFooter = {
     .hosts-media img { display: block; width: 100%; height: 100%; object-fit: cover; }
     .hosts-card { background: linear-gradient(180deg, #fff, #faf8f5); border: 1px solid #eee; border-radius: 18px; padding: 40px; }
     .hosts-card h2 { font-size: 2rem; margin-bottom: 12px; }
+    .hosts-subtitle { font-size: 0.95rem; color: var(--color-accent); text-transform: uppercase; letter-spacing: 1px; margin: -8px 0 16px; font-weight: 500; }
     .hosts-highlights { list-style: none; padding: 0; margin-top: 10px; display: grid; gap: 10px; }
     .hosts-highlights li { display: flex; gap: 10px; align-items: center; color: #444; }
     .hosts-highlights i { color: var(--color-accent); }

@@ -20,6 +20,19 @@ export const UI_STRINGS: Record<SupportedLang, any> = {
       transparentPricingTitle: 'Transparent Pricing',
       transparentPricingDetail: 'No hidden booking fees'
     },
+    saleTrustBar: {
+      heading: 'YOUR PURCHASE GUARANTEES',
+      legalDossierTitle: 'Full Legal Dossier',
+      legalDossierDetail: 'Architectural plans, permits, ownership documents, and technical reports available for verified buyers',
+      secureTransactionTitle: 'Secure Transaction',
+      secureTransactionDetail: 'Lawyer-supervised sale with notary execution under Greek property law',
+      dueDiligenceTitle: 'Due-Diligence Ready',
+      dueDiligenceDetail: 'All documentation needed for structural, legal, and land-use verification',
+      viewingTitle: 'Viewing Appointments',
+      viewingDetail: 'Private in-person or virtual tours arranged upon request',
+      transparentPricingTitle: 'Transparent Pricing',
+      transparentPricingDetail: 'Fixed asking price with clear cost breakdown (taxes, fees, transfer costs)'
+    },
     specs: {
       bedrooms: 'Bedrooms',
       baths: 'Baths',
@@ -49,6 +62,15 @@ export const UI_STRINGS: Record<SupportedLang, any> = {
       heading: 'Meet Your Hosts',
       itinerary: 'Personal itinerary planning',
       discreet: 'Discreet, privacy‑first hosting'
+    },
+    saleHosts: {
+      heading: 'Acquisition & Due Diligence Contact',
+      subtitle: "Owner's Representative",
+      bio: 'For viewings, legal and technical documentation, or detailed discussions about income potential and operating models, please contact us directly. A complete property dossier is available for qualified buyers, including architectural plans, permits, utility and energy information, and, if desired, historic rental-performance data and projections.',
+      bullet1: 'Full property dossier (plans, permits, utilities, structural reports)',
+      bullet2: 'Historic rental-performance records and income projections on request',
+      bullet3: 'Coordination with lawyers, notaries and tax advisors',
+      bullet4: 'Private on-site or virtual viewings'
     },
     testimonials: {
       heading: 'Guest Words'
@@ -650,6 +672,19 @@ export const UI_STRINGS: Record<SupportedLang, any> = {
       transparentPricingTitle: 'Διαφανής Τιμολόγηση',
       transparentPricingDetail: 'Χωρίς κρυφές χρεώσεις κράτησης'
     },
+    saleTrustBar: {
+      heading: 'ΕΓΓΥΗΣΕΙΣ ΠΡΟΣ ΑΓΟΡΑΣΤΕΣ',
+      legalDossierTitle: 'Πλήρης Νομικός Φάκελος',
+      legalDossierDetail: 'Αρχιτεκτονικά σχέδια, άδειες δόμησης, τίτλοι ιδιοκτησίας, τεχνικές εκθέσεις και πολεοδομικά στοιχεία διαθέσιμα για επαληθευμένους ενδιαφερόμενους',
+      secureTransactionTitle: 'Ασφαλής Συναλλαγή',
+      secureTransactionDetail: 'Η διαδικασία αγοράς πραγματοποιείται με τη σύμπραξη δικηγόρου και συμβολαιογράφου, σύμφωνα με το ισχύον ελληνικό δίκαιο ακινήτων',
+      dueDiligenceTitle: 'Έτοιμο για Due Diligence',
+      dueDiligenceDetail: 'Πλήρης τεκμηρίωση για νομικό, τεχνικό, στατικό και πολεοδομικό έλεγχο',
+      viewingTitle: 'Ιδιωτικές Επισκέψεις & Ξενάγηση',
+      viewingDetail: 'Οργάνωση επιτόπιων ή εικονικών ξεναγήσεων κατόπιν ραντεβού',
+      transparentPricingTitle: 'Διαφανής Τιμολόγηση',
+      transparentPricingDetail: 'Σταθερή ζητούμενη τιμή με αναλυτικό υπολογισμό συναφών εξόδων (φόροι, τέλη, συμβολαιογραφικά)'
+    },
     specs: {
       bedrooms: 'Υπνοδωμάτια',
       baths: 'Μπάνια',
@@ -679,6 +714,15 @@ export const UI_STRINGS: Record<SupportedLang, any> = {
       heading: 'Γνωρίστε τους Οικοδεσπότες σας',
       itinerary: 'Προσωπικός σχεδιασμός προγράμματος',
       discreet: 'Διακριτική φιλοξενία με έμφαση στην ιδιωτικότητα'
+    },
+    saleHosts: {
+      heading: 'Επικοινωνία Απόκτησης & Due Diligence',
+      subtitle: 'Εκπρόσωπος Ιδιοκτήτη',
+      bio: 'Για επισκέψεις, πρόσβαση σε νομική και τεχνική τεκμηρίωση ή λεπτομερείς συζητήσεις σχετικά με το επενδυτικό εισόδημα και τα λειτουργικά μοντέλα, επικοινωνήστε απευθείας μαζί μας. Πλήρης φάκελος ακινήτου είναι διαθέσιμος για επαληθευμένους αγοραστές — συμπεριλαμβανομένων αρχιτεκτονικών σχεδίων, αδειών, πληροφοριών δικτύων και ενέργειας, καθώς και, εφόσον ζητηθεί, ιστορικών στοιχείων ενοικίασης και προβλέψεων απόδοσης.',
+      bullet1: 'Πλήρης φάκελος ακινήτου (σχέδια, άδειες, δίκτυα, στατικές και τεχνικές εκθέσεις)',
+      bullet2: 'Ιστορικά στοιχεία ενοικίασης και προβλέψεις εισοδήματος κατόπιν αιτήματος',
+      bullet3: 'Συντονισμός με δικηγόρους, συμβολαιογράφους και φοροτεχνικούς συμβούλους',
+      bullet4: 'Ιδιωτικές επιτόπιες ή εικονικές ξεναγήσεις'
     },
     testimonials: {
       heading: 'Λόγια Επισκεπτών'
@@ -860,6 +904,19 @@ export const UI_STRINGS: Record<SupportedLang, any> = {
       transparentPricingTitle: 'Прозрачные Цены',
       transparentPricingDetail: 'Без скрытых комиссий'
     },
+    saleTrustBar: {
+      heading: 'ГАРАНТИИ ДЛЯ ПОКУПАТЕЛЯ',
+      legalDossierTitle: 'Полный юридический пакет',
+      legalDossierDetail: 'Архитектурные планы, разрешения, кадастровые документы, отчёты об инженерных сетях и праве собственности доступны для верифицированных покупателей',
+      secureTransactionTitle: 'Безопасная сделка под контролем юристов',
+      secureTransactionDetail: 'Процедура покупки сопровождается лицензированным адвокатом, нотариусом и проводится в строгом соответствии с греческим законодательством о недвижимости',
+      dueDiligenceTitle: 'Готовность к due diligence',
+      dueDiligenceDetail: 'Все документы, необходимые для технической, структурной, юридической и земельной экспертизы, предоставляются без задержек',
+      viewingTitle: 'Просмотры и консультации',
+      viewingDetail: 'Организуем частные показы (очный или виртуальный формат), а также консультацию с инженером или архитектором',
+      transparentPricingTitle: 'Прозрачная финансовая структура',
+      transparentPricingDetail: 'Фиксированная цена и детальная расшифровка расходов на оформление (налоги, нотариальные сборы, юридическое сопровождение)'
+    },
     specs: {
       bedrooms: 'Спальни',
       baths: 'Ванные',
@@ -889,6 +946,15 @@ export const UI_STRINGS: Record<SupportedLang, any> = {
       heading: 'Познакомьтесь с Хозяевами',
       itinerary: 'Персональное планирование маршрута',
       discreet: 'Деликатное гостеприимство с акцентом на приватность'
+    },
+    saleHosts: {
+      heading: 'Контакт по приобретению и Due Diligence',
+      subtitle: 'Представитель собственника',
+      bio: 'Для организации просмотров, получения юридической и технической документации или детального обсуждения потенциала дохода и операционных моделей, свяжитесь с нами напрямую. Полный пакет документов об объекте доступен для верифицированных покупателей — включая архитектурные планы, разрешения, сведения о коммуникациях и энергоснабжении, а также, при необходимости, исторические данные об аренде и прогнозы доходов.',
+      bullet1: 'Полный пакет документов (планы, разрешения, коммуникации, технические отчёты)',
+      bullet2: 'Исторические данные об аренде и прогнозы доходов — по запросу',
+      bullet3: 'Координация с юристами, нотариусами и налоговыми консультантами',
+      bullet4: 'Частные очные или виртуальные просмотры'
     },
     testimonials: {
       heading: 'Отзывы Гостей'

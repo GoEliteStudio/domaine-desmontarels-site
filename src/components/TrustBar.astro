@@ -5,11 +5,11 @@ export interface Badge {
   detail: string; 
 }
 
-const { items = [] } = Astro.props as { items: Badge[] };
+const { items = [], heading = 'YOUR EXCLUSIVE RESERVATION GUARANTEES' } = Astro.props as { items: Badge[]; heading?: string };
 ---
 
 <section class="trust-bar">
-  <h4>YOUR EXCLUSIVE RESERVATION GUARANTEES</h4>
+  <h4>{heading}</h4>
   <div class="trust-logos">
     {items.map((badge, index) => (
       <div class="functional-badge">
@@ -47,17 +47,20 @@ const { items = [] } = Astro.props as { items: Badge[] };
   .trust-logos {
     display: flex;
     justify-content: center;
-    gap: 28px;
-    flex-wrap: wrap;
-    max-width: 1200px;
+    gap: 16px;
+    flex-wrap: nowrap;
+    max-width: 1400px;
     margin: 0 auto;
+    padding: 0 20px;
   }
   
   .functional-badge {
     text-align: center;
-    max-width: 200px;
+    flex: 1 1 0;
+    min-width: 0;
+    max-width: 240px;
     color: var(--color-black);
-    padding: 16px 12px;
+    padding: 16px 8px;
     border-radius: var(--border-radius);
     transition: var(--transition-fast);
   }
@@ -97,11 +100,16 @@ const { items = [] } = Astro.props as { items: Badge[] };
     font-weight: 300;
   }
   
+  @media (max-width: 1024px) {
+    .trust-logos { flex-wrap: wrap; gap: 12px; }
+    .functional-badge { flex: 0 0 calc(33.33% - 12px); max-width: 200px; }
+  }
+  
   @media (max-width: 768px) {
     .trust-bar { padding: 16px 0; }
     .trust-bar h4 { margin-bottom: 16px; }
     .trust-logos { gap: 10px; }
-    .functional-badge { max-width: 150px; padding: 6px 6px; }
+    .functional-badge { flex: 0 0 calc(50% - 10px); max-width: 150px; padding: 6px 6px; }
     .badge-icon { font-size: 1.5rem; margin-bottom: 8px; }
   }
 </style>

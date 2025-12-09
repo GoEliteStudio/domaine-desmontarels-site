@@ -1,12 +1,13 @@
 {
   "slug": "villa-kassandra",
   "language": "en",
-  "name": "Villa Kassandra",
-  "summary": "A stunning 750 m² luxury beachfront villa on the Kassandra Peninsula in Halkidiki, northern Greece. With panoramic views of the Aegean Sea and the holy Mount Athos, this completely renovated property offers 5 ensuite bedrooms, two swimming pool sections, and direct beach access—just 90 km from Thessaloniki Airport.",
+  "listingType": "sale",
+  "name": "Villa Kassandra – For Sale",
+  "summary": "Rare 750 m² beachfront estate on a 2,500 m² seafront plot on the Kassandra Peninsula, Halkidiki. Fully reconstructed villa with 5 ensuite bedrooms, two-section pool, Daikin AC throughout, solar support and direct sandy beach access (approx. 60 m from villa to shoreline, with no road in between). A private-use or high-end rental opportunity in one of northern Greece's most established coastal markets. Asking price: €4,000,000.",
   "hero": {
-    "title": "Aegean elegance meets Greek hospitality",
-    "subtitle": "A beachfront sanctuary on Kassandra Peninsula with views of Mount Athos, where luxury, privacy, and the Mediterranean lifestyle converge.",
-    "ctaText": "Discover",
+    "title": "750 m² Beachfront Estate on a 2,500 m² Seafront Plot",
+    "subtitle": "Fully reconstructed luxury villa on the Kassandra Peninsula in Halkidiki, with direct sandy beach access (no road in between), panoramic Aegean views and hotel-scale outdoor areas – a turnkey private residence or income-generating asset in a mature holiday market.",
+    "ctaText": "View Investment Details",
     "priorityImages": [
        "/images/villas/villa-kassandra/kassandra-043.webp",
       "/images/villas/villa-kassandra/kassandra-032.webp",
@@ -334,86 +335,151 @@
     "bedrooms": 5,
     "beds": 7,
     "baths": 8,
-    "size": "750 m²"
+    "size": "750 m²",
+    "plot": "2,500 m²",
+    "price": "€4,000,000"
   },
   "location": {
-    "label": "Kassandra Peninsula, Halkidiki",
-    "city": "Chanioti",
+    "label": "Kassandra Peninsula, Halkidiki (between Hanioti & Polychrono)",
+    "city": "Hanioti",
     "country": "Greece"
   },
   "amenities": [
-    "Pool",
-    "Beach Access",
-    "Sea Views",
-    "Mount Athos Views",
-    "Wifi",
-    "Kitchen",
-    "AC",
-    "Smart TV",
-    "BBQ",
-    "Gazebo",
-    "Two Fireplaces",
-    "Garage",
-    "Security System",
+    "Two-Section Pool (5×12m)",
+    "Direct Beach Access (60m to shore)",
+    "Panoramic Sea Views",
+    "2,500 m² Seafront Plot",
+    "Daikin AC Throughout",
+    "Two Fully Equipped Kitchens",
+    "Two Salons with Fireplaces",
+    "40 m² Gazebo with BBQ",
+    "90 m² Enclosed Garage",
+    "Security System & CCTV",
     "Solar Panels",
-    "Disabled Access",
-    "Two Fountains"
+    "280 m² Balconies & Verandas",
+    "Two Three-Cascade Fountains",
+    "Reduced Mobility Access"
   ],
   "seasons": [
     {
-      "id": "standard",
-      "label": "Standard Season",
-      "priceDisplay": "Rate on request",
-      "price": null,
-      "currency": null
+      "id": "sale",
+      "label": "Asking Price",
+      "priceDisplay": "€4,000,000",
+      "price": 4000000,
+      "currency": "EUR"
     }
   ],
   "content": {
-    "overview": "Villa Kassandra is a magnificent 750 m² luxury residence on the Kassandra Peninsula, nestled between the charming resort towns of Chanioti and Polychrono. Completely renovated to the highest modern standards, this three-level masterpiece features interiors crafted from marble, onyx, and natural stones, with five ensuite bedrooms, two elegant salons with fireplaces, and two fully equipped kitchens. The 2,500 m² plot includes a stunning two-section swimming pool (for children and adults), two three-cascade fountains with 16 color lamps each, and a 40 m² gazebo with barbecue area. Just 60 meters from the shore with direct beach access, guests enjoy uninterrupted views of the Aegean Sea and the sacred Mount Athos.",
-    "location": "Located on the Kassandra Peninsula, Halkidiki, between Chanioti and Polychrono. 90 km from Thessaloniki 'Macedonia' Airport.",
+    "overview": [
+      "Villa Kassandra is a privately owned, fully reconstructed beachfront estate on the Kassandra Peninsula in Halkidiki, Greece, offered for sale as a freehold asset. The property occupies a ~2,500 m² seafront plot that borders the coastline directly, with an approximate distance of 60 meters from the villa to the sandy shoreline and no road separating the house from the beach. The total built area is around 750 m², of which roughly 360 m² is interior living space, complemented by approximately 280 m² of balconies and verandas, a 90 m² enclosed garage and a 20 m² technical room. The layout combines the scale and infrastructure of a small boutique hotel with the privacy of a single-family villa.",
+      "The reconstruction used high-end materials such as marble, onyx and other natural stones for both interior and exterior surfaces. All major rooms are equipped with Daikin air-conditioning units, and solar panels support the energy system, improving efficiency and running costs. Outside, a two-section pool (adult/children), landscaped gardens, fountains and a 40 m² gazebo with BBQ create a resort-style environment suitable for private enjoyment, extended family use or high-end rental operations. Architecturally, the villa follows a classic, symmetrical style with generous balconies and verandas oriented toward the sea, maximizing light, views and sunset exposure.",
+      "For a buyer, Villa Kassandra offers three combined advantages that are increasingly rare in Halkidiki: a true sandy beachfront plot with no road in between, a large and already reconstructed built area with quality finishes, and a location on one of northern Greece's most established and liquid holiday coastlines."
+    ],
+    "location": "Villa Kassandra is located on the Kassandra Peninsula in Halkidiki (northern Greece), between the resort towns of Hanioti (Chanioti) and Polychrono, in a coastal residential area with direct access to the beach. The drive from Thessaloniki International Airport 'Macedonia' (SKG) is approximately 90 km, mostly on main highways and coastal roads. Nearby: Hanioti & Polychrono (resort villages with promenades, tavernas, pharmacies, supermarkets); Nea Moudania & Nea Potidea (marinas, shopping, banks, medical services); Afytos, Kallithea, Pefkochori and Paliouri (beach clubs, restaurants, nightlife).",
     "practicalDetails": [
-      "Check-in: 3:00 PM",
-      "Check-out: 11:00 AM",
-      "No smoking indoors",
-      "Pets considered on request",
-      "Wheelchair accessible facilities available"
+      "Total Built Area: ~750 m² (360 m² interior, 280 m² balconies, 90 m² garage, 20 m² technical)",
+      "Plot Size: ~2,500 m² seafront land (plot borders coastline)",
+      "Levels: 3-storey villa",
+      "Bedrooms: 5, each with private shower and WC",
+      "Living Areas: 2 salons with fireplaces",
+      "Kitchens: 2 fully equipped",
+      "Total WCs: 8 (including 2 guest WCs)",
+      "Pool: Two-section (adults/children), approx. 5×12m",
+      "Garage: Enclosed, ~90 m²",
+      "Climate: Daikin AC throughout, solar panels",
+      "Security: Alarm system, CCTV surveillance",
+      "Distance to shore: ~60m from villa, 0m from plot edge"
     ],
     "rooms": [
-      { "name": "Master Suite", "description": "Luxurious suite with king bed, en-suite bathroom with marble finishes, sea views, AC." },
-      { "name": "Bedroom 2", "description": "Elegant room with queen bed, en-suite shower, AC, garden views." },
-      { "name": "Bedroom 3", "description": "Comfortable room with queen bed, en-suite bathroom, AC." },
-      { "name": "Bedroom 4", "description": "Twin or king configuration, en-suite bathroom, AC." },
-      { "name": "Bedroom 5", "description": "Cozy suite with queen bed, en-suite bathroom, AC, terrace access." }
+      { "name": "Master Suite", "description": "En-suite bedroom with private shower/WC, marble finishes, sea-facing orientation, individual Daikin AC." },
+      { "name": "Bedroom 2", "description": "En-suite bedroom with private shower/WC, natural stone finishes, individual AC." },
+      { "name": "Bedroom 3", "description": "En-suite bedroom with private shower/WC, individual AC, balcony access." },
+      { "name": "Bedroom 4", "description": "En-suite bedroom with private shower/WC, individual AC." },
+      { "name": "Bedroom 5", "description": "En-suite bedroom with private shower/WC, individual AC, terrace access." }
     ],
     "familyRecreation": [
-      "Two-Section Pool (Adults & Children)",
-      "Direct Beach Access",
-      "BBQ Gazebo",
-      "Illuminated Fountains",
-      "Landscaped Gardens"
+      "Two-section swimming pool (5×12m, separate adults/children areas)",
+      "Direct beach access (~60m to waterline, 0m from plot edge)",
+      "40 m² gazebo with 10-column pergola and built-in BBQ",
+      "Two three-cascade fountains with 16 color-changing lights each",
+      "Landscaped gardens with reduced-mobility access paths",
+      "Security system with digital CCTV surveillance"
     ],
     "travel": {
       "air": [
-        "Fly into Thessaloniki International Airport 'Macedonia' (SKG) - 90 km, approximately 60-75 minutes drive"
+        "Thessaloniki International Airport 'Macedonia' (SKG): ~90 km, approx. 60-75 min drive via main highways"
       ],
-      "rail": [],
+      "rail": [
+        "Thessaloniki Railway Station: ~85 km"
+      ],
       "drive": [
-        "Private airport transfers available",
-        "Rental car delivery to villa possible"
+        "Hanioti & Polychrono: Adjacent resort towns",
+        "Nea Moudania: ~15 km (marina, shopping, banks, medical)",
+        "Afytos & Kallithea: ~20 km (beach clubs, restaurants)"
       ]
     },
     "hosts": {
       "image": "/images/villas/villa-kassandra/kassandra-001.webp",
-      "names": "Your Concierge Team",
-      "bio": "Dedicated villa manager and concierge available throughout your stay."
+      "names": "Sales & Due Diligence Contact",
+      "bio": "For viewings, legal and technical documentation, or detailed income and operating potential discussions, please contact us directly. A complete property dossier is available for serious buyers, including plans, permits, utility information and, if desired, historic rental-performance context."
     },
     "testimonials": [
       {
-        "quote": "An extraordinary property with stunning views and impeccable service. The perfect Greek escape.",
-        "attribution": "Recent Guest, 2024"
+        "quote": "Beachfront plots with no road in between, full reconstruction and hotel-scale outdoor areas have become extremely scarce on the Kassandra Peninsula. Villa Kassandra combines all three in a single, ready-to-use estate asset.",
+        "attribution": "Internal Property Brief"
       }
     ],
     "faq": [
+      {
+    "category": "Acquisition & Ownership",
+    "q": "Is the property sold as full freehold ownership?",
+    "a": "Yes. Villa Kassandra is sold as full freehold private ownership, including the land parcel, all built structures, outdoor areas, and existing utility connections. There are no leases, shared ownership rights, or encumbrances."
+  },
+  {
+    "category": "Acquisition & Ownership",
+    "q": "Is the beachfront access legally unobstructed?",
+    "a": "Yes. The villa's plot borders the coastal zone directly with no public road in between. The sandy beach is accessed directly from the property as confirmed by the cadastral maps and coastal boundary documentation."
+  },
+  {
+    "category": "Legal & Due Diligence",
+    "q": "Are all legal and technical documents available for due diligence?",
+    "a": "Yes. Serious buyers receive the full property dossier, including architectural plans, building permits, cadastral documents, utility reports, structural assessments, and land-use compliance certificates."
+  },
+  {
+    "category": "Legal & Due Diligence",
+    "q": "Can my lawyer or engineer inspect the property documentation?",
+    "a": "Absolutely. We routinely coordinate with legal teams, engineers, and notaries. All documents can be reviewed on-site or digitally for remote buyers."
+  },
+  {
+    "category": "Technical & Structural",
+    "q": "When was the villa reconstructed and what major upgrades were completed?",
+    "a": "The villa underwent a full reconstruction using premium materials such as marble and onyx. Major upgrades include updated plumbing, electrical systems, Daikin A/C units, solar energy support, exterior redesign, pool upgrades, and extensive landscaping."
+  },
+  {
+    "category": "Technical & Structural",
+    "q": "Are structural and engineering reports available?",
+    "a": "Yes. Structural, mechanical, and energy-efficiency reports are part of the due-diligence package and can be provided to verified buyers."
+  },
+  {
+    "category": "Financial & Investment",
+    "q": "Can I receive rental-income history or projections?",
+    "a": "Yes. If desired, we can provide historic rental-performance context (where available) and market-based projections for ROI analysis, including seasonal rates, occupancy patterns, and operating cost estimates."
+  },
+  {
+    "category": "Financial & Investment",
+    "q": "What taxes and fees should buyers expect in Greece?",
+    "a": "Typical buyer obligations include transfer tax (~3%), notary fees, legal fees, technical inspection fees, and cadastral registration. A tailored estimate can be provided upon request."
+  },
+  {
+    "category": "Viewing & Process",
+    "q": "How can I schedule a viewing?",
+    "a": "Private in-person viewings or fully guided virtual tours can be arranged with advance notice. We accommodate both local and international buyers."
+  },
+  {
+    "category": "Viewing & Process",
+    "q": "What is the standard process for purchasing property in Greece?",
+    "a": "The process generally includes: (1) reservation or preliminary agreement, (2) legal & technical due diligence, (3) preparation of the notarial contract, (4) signing and payment, and (5) registration of ownership with the Hellenic Cadastre."
+  },
       {
         "category": "Overview & General Info",
         "q": "What is Villa Kassandra and where is it located?",
@@ -1127,8 +1193,8 @@
     ]
   },
   "seo": {
-    "title": "Villa Kassandra | Luxury Beachfront Villa in Halkidiki, Greece",
-    "description": "Experience luxury beachfront living at Villa Kassandra on the Kassandra Peninsula, Halkidiki. 5 ensuite bedrooms, pool, direct beach access, and panoramic Aegean views toward Mount Athos. Perfect for families and groups."
+    "title": "Villa Kassandra – Beachfront Estate For Sale | 750 m² Villa on 2,500 m² Seafront Plot, Kassandra Peninsula, Halkidiki",
+    "description": "For sale: fully reconstructed 750 m² beachfront villa on a 2,500 m² seafront plot on the Kassandra Peninsula, Halkidiki (Greece). 5 ensuite bedrooms, two-section pool, Daikin AC, solar panels, direct sandy beach access (~60 m, no road in between). Rare freehold estate opportunity in a mature coastal market. Asking price: €4,000,000."
   },
   "contact": {
     "phone": "+30 6948 474 488",
